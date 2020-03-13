@@ -1,0 +1,27 @@
+platform :ios, '10.0'
+
+target 'Bootcamp2020' do
+  use_frameworks!
+
+  pod 'SwiftLint'
+  pod 'SnapKit'
+
+  # Pods for Bootcamp2020
+
+  target 'Bootcamp2020SnapshotTests' do
+    inherit! :search_paths
+
+    pod "Quick"
+    pod "Nimble"
+    pod 'Nimble-Snapshots'
+
+  end
+
+  target 'Bootcamp2020Tests' do
+    inherit! :search_paths
+    
+    pod "Quick"
+    pod "Nimble"
+  end
+
+end
