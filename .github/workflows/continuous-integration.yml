@@ -12,7 +12,7 @@ jobs:
     
     strategy:
         matrix:
-          destination: ['platform=iOS Simulator,OS=13.3,name=iPhone 11', 'platform=iOS Simulator,OS=13.3,name=iPhone SE']
+          destination: ['platform=iOS Simulator,OS=13.3,name=iPhone 11', 'platform=iOS Simulator,OS=10.3.1,name=iPhone SE']
 
     steps:
     - name: Checkout
@@ -27,7 +27,7 @@ jobs:
     - name: Build and test
       run: |
           cd Bootcamp2020
-          xcodebuild clean test -workspace Bootcamp2020.xcworkspace -scheme Bootcamp2020 -destination "${destination}" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
+          xcodebuild clean test -workspace Bootcamp2020.xcworkspace -scheme Bootcamp2020 -sdk iphonesimulator -destination "${destination}" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
       env: 
          destination: ${{ matrix.destination }}
 
