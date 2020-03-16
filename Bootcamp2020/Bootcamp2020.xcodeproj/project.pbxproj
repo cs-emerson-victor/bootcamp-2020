@@ -41,6 +41,8 @@
 		C04072D2241C3F78005F9B97 /* CardListDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04072D1241C3F78005F9B97 /* CardListDelegate.swift */; };
 		C04072D5241C3FF6005F9B97 /* CategoryHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04072D4241C3FF6005F9B97 /* CategoryHeaderCell.swift */; };
 		C04072D7241C4012005F9B97 /* CollectionHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04072D6241C4012005F9B97 /* CollectionHeaderCell.swift */; };
+		C0613712241FF72C00B75034 /* APIManagerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C4A85B241FF46F002CB8D9 /* APIManagerSpec.swift */; };
+		C061372224200DE200B75034 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C061372124200DE200B75034 /* Endpoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,13 @@
 			remoteInfo = Bootcamp2020;
 		};
 		C03D30F4241BFC460089B070 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C03D30BB241BFC0F0089B070 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C03D30C2241BFC0F0089B070;
+			remoteInfo = Bootcamp2020;
+		};
+		C061371C241FF93300B75034 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C03D30BB241BFC0F0089B070 /* Project object */;
 			proxyType = 1;
@@ -103,6 +112,10 @@
 		C04072D1241C3F78005F9B97 /* CardListDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListDelegate.swift; sourceTree = "<group>"; };
 		C04072D4241C3FF6005F9B97 /* CategoryHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryHeaderCell.swift; sourceTree = "<group>"; };
 		C04072D6241C4012005F9B97 /* CollectionHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionHeaderCell.swift; sourceTree = "<group>"; };
+		C0613717241FF93300B75034 /* Bootcamp2020Tests2.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Bootcamp2020Tests2.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C061372124200DE200B75034 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		C0C4A85A241FF46E002CB8D9 /* Bootcamp2020Tests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bootcamp2020Tests-Bridging-Header.h"; sourceTree = "<group>"; };
+		C0C4A85B241FF46F002CB8D9 /* APIManagerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManagerSpec.swift; sourceTree = "<group>"; };
 		C5651C9C98875CE89327C3E5 /* Pods-Bootcamp2020.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bootcamp2020.debug.xcconfig"; path = "Target Support Files/Pods-Bootcamp2020/Pods-Bootcamp2020.debug.xcconfig"; sourceTree = "<group>"; };
 		E3ABAABE0031DB5F028E6598 /* Pods_Bootcamp2020SnapshotTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bootcamp2020SnapshotTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E53E60CF419399141C0A19B9 /* Pods_Bootcamp2020Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bootcamp2020Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -134,6 +147,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C0613714241FF93300B75034 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -155,6 +175,7 @@
 				C03D30C3241BFC0F0089B070 /* Bootcamp2020.app */,
 				C03D30DC241BFC100089B070 /* Bootcamp2020Tests.xctest */,
 				C03D30EF241BFC460089B070 /* Bootcamp2020SnapshotTests.xctest */,
+				C0613717241FF93300B75034 /* Bootcamp2020Tests2.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -176,6 +197,8 @@
 			isa = PBXGroup;
 			children = (
 				C03D30E2241BFC100089B070 /* Info.plist */,
+				C0C4A85B241FF46F002CB8D9 /* APIManagerSpec.swift */,
+				C0C4A85A241FF46E002CB8D9 /* Bootcamp2020Tests-Bridging-Header.h */,
 			);
 			path = Bootcamp2020Tests;
 			sourceTree = "<group>";
@@ -210,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				C03D30CF241BFC0F0089B070 /* Bootcamp2020.xcdatamodeld */,
+				C061372124200DE200B75034 /* Endpoint.swift */,
 				C0407294241BFED0005F9B97 /* DataHandlers */,
 				C0407293241BFEC9005F9B97 /* Objects */,
 			);
@@ -428,12 +452,31 @@
 			productReference = C03D30EF241BFC460089B070 /* Bootcamp2020SnapshotTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		C0613716241FF93300B75034 /* Bootcamp2020Tests2 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C061371E241FF93300B75034 /* Build configuration list for PBXNativeTarget "Bootcamp2020Tests2" */;
+			buildPhases = (
+				C0613713241FF93300B75034 /* Sources */,
+				C0613714241FF93300B75034 /* Frameworks */,
+				C0613715241FF93300B75034 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C061371D241FF93300B75034 /* PBXTargetDependency */,
+			);
+			name = Bootcamp2020Tests2;
+			productName = Bootcamp2020Tests2;
+			productReference = C0613717241FF93300B75034 /* Bootcamp2020Tests2.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		C03D30BB241BFC0F0089B070 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				DefaultBuildSystemTypeForWorkspace = Original;
 				LastSwiftUpdateCheck = 1130;
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = Team2;
@@ -443,9 +486,14 @@
 					};
 					C03D30DB241BFC100089B070 = {
 						CreatedOnToolsVersion = 11.3.1;
+						LastSwiftMigration = 1130;
 						TestTargetID = C03D30C2241BFC0F0089B070;
 					};
 					C03D30EE241BFC460089B070 = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = C03D30C2241BFC0F0089B070;
+					};
+					C0613716241FF93300B75034 = {
 						CreatedOnToolsVersion = 11.3.1;
 						TestTargetID = C03D30C2241BFC0F0089B070;
 					};
@@ -467,6 +515,7 @@
 				C03D30C2241BFC0F0089B070 /* Bootcamp2020 */,
 				C03D30DB241BFC100089B070 /* Bootcamp2020Tests */,
 				C03D30EE241BFC460089B070 /* Bootcamp2020SnapshotTests */,
+				C0613716241FF93300B75034 /* Bootcamp2020Tests2 */,
 			);
 		};
 /* End PBXProject section */
@@ -489,6 +538,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		C03D30ED241BFC460089B070 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0613715241FF93300B75034 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -644,6 +700,7 @@
 				C04072CC241C2E07005F9B97 /* Service.swift in Sources */,
 				C04072C0241C0EA2005F9B97 /* CardListScreen.swift in Sources */,
 				C04072AC241C07F5005F9B97 /* Collection+CoreDataClass.swift in Sources */,
+				C061372224200DE200B75034 /* Endpoint.swift in Sources */,
 				C040729E241C01E1005F9B97 /* AppCoordinator.swift in Sources */,
 				C04072C8241C1412005F9B97 /* CardListViewModel.swift in Sources */,
 				C04072D5241C3FF6005F9B97 /* CategoryHeaderCell.swift in Sources */,
@@ -676,10 +733,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0613712241FF72C00B75034 /* APIManagerSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		C03D30EB241BFC460089B070 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0613713241FF93300B75034 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -698,6 +763,11 @@
 			isa = PBXTargetDependency;
 			target = C03D30C2241BFC0F0089B070 /* Bootcamp2020 */;
 			targetProxy = C03D30F4241BFC460089B070 /* PBXContainerItemProxy */;
+		};
+		C061371D241FF93300B75034 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C03D30C2241BFC0F0089B070 /* Bootcamp2020 */;
+			targetProxy = C061371C241FF93300B75034 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -871,6 +941,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Bootcamp2020Tests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
@@ -881,6 +952,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = team2.Bootcamp2020Tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Bootcamp2020Tests/Bootcamp2020Tests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bootcamp2020.app/Bootcamp2020";
@@ -893,6 +966,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Bootcamp2020Tests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
@@ -903,6 +977,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = team2.Bootcamp2020Tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Bootcamp2020Tests/Bootcamp2020Tests-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bootcamp2020.app/Bootcamp2020";
@@ -951,6 +1026,46 @@
 			};
 			name = Release;
 		};
+		C061371F241FF93300B75034 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Bootcamp2020Tests2/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = team2.Bootcamp2020Tests2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bootcamp2020.app/Bootcamp2020";
+			};
+			name = Debug;
+		};
+		C0613720241FF93300B75034 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Bootcamp2020Tests2/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = team2.Bootcamp2020Tests2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bootcamp2020.app/Bootcamp2020";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -986,6 +1101,15 @@
 			buildConfigurations = (
 				C03D30F7241BFC460089B070 /* Debug */,
 				C03D30F8241BFC460089B070 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C061371E241FF93300B75034 /* Build configuration list for PBXNativeTarget "Bootcamp2020Tests2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C061371F241FF93300B75034 /* Debug */,
+				C0613720241FF93300B75034 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
