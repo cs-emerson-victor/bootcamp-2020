@@ -1,18 +1,14 @@
 //
-//  APIManager.swift
-//  Bootcamp2020
+//  NetworkServiceDummy.swift
+//  Bootcamp2020Tests
 //
-//  Created by jacqueline alves barbosa on 13/03/20.
+//  Created by emerson.victor.f.luz on 16/03/20.
 //  Copyright © 2020 Team2. All rights reserved.
 //
 
-import Foundation
+@testable import Bootcamp2020
 
-protocol NetworkService: AnyObject, Service {
-    
-}
-
-final class APIManager: NetworkService {
+final class NetworkServiceDummy: NetworkService {
     func fetchCollections(completion: @escaping (Result<[Collection], Error>) -> Void) {
         
     }
