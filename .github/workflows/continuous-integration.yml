@@ -21,7 +21,7 @@ jobs:
     - name: Build and test
       run: |
           cd Bootcamp2020
-          xcodebuild clean test -project Bootcamp2020.xcworkspace -scheme Bootcamp2020 -destination "${destination}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
+          xcodebuild clean test -workspace Bootcamp2020.xcworkspace -scheme Bootcamp2020 -destination "${destination}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
       env: 
          destination: ${{ matrix.destination }}
 
