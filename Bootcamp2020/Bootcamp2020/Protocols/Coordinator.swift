@@ -10,4 +10,20 @@ import UIKit
 
 protocol Coordinator: AnyObject {
     
+    var rootController: UINavigationController { get }
+    var childCoordinators: [Coordinator] { get set }
+    
+    func start()
+}
+
+extension Coordinator {
+    func add(_ coordinator: Coordinator) {
+        childCoordinators.append(coordinator)
+    }
+    
+    func remove(_ coordinator: Coordinator) {
+        childCoordinators.removeAll { (childCoordinator) -> Bool in
+            return childCoordinator === coordinator
+        }
+    }
 }
