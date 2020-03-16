@@ -15,10 +15,10 @@ extension Collection {
         return NSFetchRequest<Collection>(entityName: "Collection")
     }
 
-    @NSManaged public var name: String?
-    @NSManaged public var id: String?
-    @NSManaged public var releaseDate: Date?
-    @NSManaged public var cards: NSSet?
+    @NSManaged public var name: String
+    @NSManaged public var id: String
+    @NSManaged public var releaseDate: Date
+    @NSManaged public var cards: NSSet
 
 }
 
