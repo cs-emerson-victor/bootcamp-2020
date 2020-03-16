@@ -12,6 +12,6 @@ final class CardListDelegate: NSObject {
     
 }
 
-//extension CardListDelegate: UICollectionViewDelegate {
-//    
-//}
+extension CardListDelegate: UICollectionViewDelegateFlowLayout {
+    
+}

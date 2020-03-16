@@ -10,4 +10,7 @@ import UIKit
 
 final class CollectionHeaderCell: UICollectionViewCell {
     
+    static var identifier: String {
+        return String(describing: self)
+    }
 }

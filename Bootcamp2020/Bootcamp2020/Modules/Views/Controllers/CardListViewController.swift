@@ -8,8 +8,35 @@
 
 import UIKit
 
-class CardListViewController: UIViewController {
+final class CardListViewController: UIViewController {
 
+    // MARK: - Properties -
+    private(set) var collections: [Collection] = []
+    
+    private var listScreen: CardListScreen
+    var service: Service
+    
+    // MARK: - Init -
+    init(service: Service,
+         screen: CardListScreen = CardListScreen()) {
+        
+        self.service = service
+        self.listScreen = screen
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Methods -
+    
+    // MARK: Lifecycle
+    override func loadView() {
+        
+        view = listScreen
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

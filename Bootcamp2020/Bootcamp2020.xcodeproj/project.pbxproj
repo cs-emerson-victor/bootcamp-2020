@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D1759F9241FDCC40037E4B9 /* CardListScreenSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1759F8241FDCC40037E4B9 /* CardListScreenSpec.swift */; };
 		2B1D084BD99C3DBEC940754F /* Pods_Bootcamp2020.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6817D7B18DA67B0C87627838 /* Pods_Bootcamp2020.framework */; };
 		5A17C769CE83FFEA6B0C7AB6 /* Pods_Bootcamp2020SnapshotTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3ABAABE0031DB5F028E6598 /* Pods_Bootcamp2020SnapshotTests.framework */; };
 		8E8C271AED7F85AFB55FB756 /* Pods_Bootcamp2020Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E53E60CF419399141C0A19B9 /* Pods_Bootcamp2020Tests.framework */; };
@@ -61,6 +62,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1D1759F7241FDCC40037E4B9 /* Bootcamp2020Tests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bootcamp2020Tests-Bridging-Header.h"; sourceTree = "<group>"; };
+		1D1759F8241FDCC40037E4B9 /* CardListScreenSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListScreenSpec.swift; sourceTree = "<group>"; };
 		2ECB7FF7F8166C3F105BF76A /* Pods-Bootcamp2020SnapshotTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bootcamp2020SnapshotTests.debug.xcconfig"; path = "Target Support Files/Pods-Bootcamp2020SnapshotTests/Pods-Bootcamp2020SnapshotTests.debug.xcconfig"; sourceTree = "<group>"; };
 		61FD2D32CEDE908EE4B6A5DC /* Pods-Bootcamp2020.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bootcamp2020.release.xcconfig"; path = "Target Support Files/Pods-Bootcamp2020/Pods-Bootcamp2020.release.xcconfig"; sourceTree = "<group>"; };
 		672235472A7D97E5E74ED19A /* Pods-Bootcamp2020Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bootcamp2020Tests.release.xcconfig"; path = "Target Support Files/Pods-Bootcamp2020Tests/Pods-Bootcamp2020Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -137,6 +140,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D1759FA241FE5B80037E4B9 /* Card List */ = {
+			isa = PBXGroup;
+			children = (
+				1D1759F8241FDCC40037E4B9 /* CardListScreenSpec.swift */,
+			);
+			path = "Card List";
+			sourceTree = "<group>";
+		};
 		C03D30BA241BFC0F0089B070 = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +187,8 @@
 			isa = PBXGroup;
 			children = (
 				C03D30E2241BFC100089B070 /* Info.plist */,
+				1D1759F7241FDCC40037E4B9 /* Bootcamp2020Tests-Bridging-Header.h */,
+				1D1759FA241FE5B80037E4B9 /* Card List */,
 			);
 			path = Bootcamp2020Tests;
 			sourceTree = "<group>";
@@ -289,8 +302,8 @@
 		C0407299241C010E005F9B97 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				C04072C1241C0EDE005F9B97 /* CardListViewController.swift */,
 				C04072C3241C0F04005F9B97 /* CardDetailViewController.swift */,
+				C04072C1241C0EDE005F9B97 /* CardListViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -443,6 +456,7 @@
 					};
 					C03D30DB241BFC100089B070 = {
 						CreatedOnToolsVersion = 11.3.1;
+						LastSwiftMigration = 1130;
 						TestTargetID = C03D30C2241BFC0F0089B070;
 					};
 					C03D30EE241BFC460089B070 = {
@@ -676,6 +690,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D1759F9241FDCC40037E4B9 /* CardListScreenSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -871,6 +886,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Bootcamp2020Tests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
@@ -881,6 +897,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = team2.Bootcamp2020Tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Bootcamp2020Tests/Bootcamp2020Tests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bootcamp2020.app/Bootcamp2020";
@@ -893,6 +911,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Bootcamp2020Tests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
@@ -903,6 +922,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = team2.Bootcamp2020Tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Bootcamp2020Tests/Bootcamp2020Tests-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bootcamp2020.app/Bootcamp2020";

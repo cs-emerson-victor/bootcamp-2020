@@ -10,4 +10,46 @@ import UIKit
 
 final class CardCell: UICollectionViewCell {
     
+    static var identifier: String {
+        return String(describing: self)
+    }
+    
+    // MARK: Properties
+    private let cardImageView: UIImageView = {
+        let view = UIImageView()
+        view.accessibilityIdentifier = "cardCellImageView"
+        return view
+    }()
+    
+    var viewModel: CardCellViewModel!
+    
+    // MARK: Init
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        accessibilityIdentifier = "cardCell"
+        setupView()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: Methods
+    func bind(to viewModel: CardCellViewModel) {
+        self.viewModel = viewModel
+        // TODO: Bind to CardCellViewModel
+    }
+}
+
+extension CardCell: ViewCode {
+    
+    func buildViewHierarchy() {
+        addSubview(cardImageView)
+    }
+    
+    func setupConstraints() {
+        cardImageView.snp.makeConstraints { (make) in
+            make.top.bottom.leading.trailing.equalToSuperview()
+        }
+    }
 }
