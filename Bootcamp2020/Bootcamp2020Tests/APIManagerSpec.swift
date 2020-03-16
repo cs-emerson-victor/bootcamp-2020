@@ -28,7 +28,7 @@ class APIManagerSpec: QuickSpec {
                     var url: URL!
                     
                     beforeEach {
-                        endpoint = Endpoint(of: .collections)
+                        endpoint = Endpoint(ofType: .collections)
                         url = endpoint.url
                     }
                     
@@ -45,7 +45,7 @@ class APIManagerSpec: QuickSpec {
                     beforeEach {
                         collection = Collection()
                         collection.name = "KTK"
-                        endpoint = Endpoint(of: .cards(collection))
+                        endpoint = Endpoint(ofType: .cards(collection: collection))
                         
                         url = endpoint.url
                     }
@@ -62,7 +62,7 @@ class APIManagerSpec: QuickSpec {
                     
                     beforeEach {
                         name = "Abomination of Gudul"
-                        endpoint = Endpoint(of: .card(name))
+                        endpoint = Endpoint(ofType: .card(name: name))
                         
                         url = endpoint.url
                     }

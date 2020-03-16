@@ -12,7 +12,7 @@ struct Endpoint {
     let baseURL = "https://api.magicthegathering.io/v1/"
     var url: URL?
     
-    init(of type: EndpointType) {
+    init(ofType type: EndpointType) {
         var path: String = ""
         var queryItems: [URLQueryItem]
         
@@ -44,7 +44,7 @@ struct Endpoint {
     
     enum EndpointType {
         case collections
-        case cards(Collection)
-        case card(String)
+        case cards(collection: Collection)
+        case card(name: String)
     }
 }
