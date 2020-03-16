@@ -12,7 +12,7 @@ jobs:
     
     strategy:
         matrix:
-          destination: ['platform=iOS Simulator,OS=13.3,name=iPhone 11']
+          destination: ['platform=iOS Simulator,OS=13.3,name=iPhone 11', 'platform:iOS Simulator, id:A21AD230-94DE-4BE0-B1F7-8296E6CA2403, OS:10.0, name:iPhone SE']
 
     steps:
     - name: Checkout
