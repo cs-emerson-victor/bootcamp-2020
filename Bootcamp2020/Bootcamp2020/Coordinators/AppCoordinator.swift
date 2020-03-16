@@ -10,11 +10,12 @@ import UIKit
 
 final class AppCoordinator: Coordinator {
     
-    var presenter: UIWindow
-    var rootController: UINavigationController
+    let presenter: UIWindow
+    let rootController: UINavigationController
+    let tabBar: UITabBarController
+    let localService: LocalService
+    let networkService: NetworkService
     var childCoordinators: [Coordinator]
-    var localService: LocalService
-    var networkService: NetworkService
     
     init(presenter: UIWindow,
          rootController: UINavigationController = UINavigationController(),
@@ -24,9 +25,10 @@ final class AppCoordinator: Coordinator {
         self.presenter = presenter
         self.rootController = rootController
         rootController.isNavigationBarHidden = true
-        self.childCoordinators = []
+        self.tabBar = UITabBarController()
         self.localService = localService
         self.networkService = networkService
+        self.childCoordinators = []
     }
     
     func start() {
@@ -38,7 +40,6 @@ final class AppCoordinator: Coordinator {
         favoritesCoordinator.start()
         add(favoritesCoordinator)
         
-        let tabBar: UITabBarController = UITabBarController()
         tabBar.viewControllers = [
             homeCoordinator.rootController,
             favoritesCoordinator.rootController
