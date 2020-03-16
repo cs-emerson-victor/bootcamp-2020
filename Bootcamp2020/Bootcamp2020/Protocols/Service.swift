@@ -9,6 +9,6 @@
 import Foundation
 
 protocol Service {
-    func fetchCards()
-    func fetchCollections(completion: @escaping (Result<Collection, Error>) -> Void)
+//    func fetchCards()
+//    func fetchCollections(completion: @escaping (Result<Collection, Error>) -> Void)
 }

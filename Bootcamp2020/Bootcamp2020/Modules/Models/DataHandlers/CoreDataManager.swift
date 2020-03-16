@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-protocol LocalService: AnyObject {
+protocol LocalService: AnyObject, Service {
     
 }
 

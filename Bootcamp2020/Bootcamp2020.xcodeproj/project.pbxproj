@@ -137,6 +137,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		81606CF9241F9C0200CDEECA /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		81606CFA241F9C1000CDEECA /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		C03D30BA241BFC0F0089B070 = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +190,8 @@
 			isa = PBXGroup;
 			children = (
 				C03D30E2241BFC100089B070 /* Info.plist */,
+				81606CF9241F9C0200CDEECA /* Coordinators */,
+				81606CFA241F9C1000CDEECA /* Helpers */,
 			);
 			path = Bootcamp2020Tests;
 			sourceTree = "<group>";
