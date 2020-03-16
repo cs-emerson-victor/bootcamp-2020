@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1D1759F9241FDCC40037E4B9 /* CardListScreenSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1759F8241FDCC40037E4B9 /* CardListScreenSpec.swift */; };
+		1D175A0324202EE20037E4B9 /* CardListDelegateSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D175A0224202EE20037E4B9 /* CardListDelegateSpec.swift */; };
+		1D175A0524202FB20037E4B9 /* CardListDataSourceStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D175A0424202FB20037E4B9 /* CardListDataSourceStub.swift */; };
 		2B1D084BD99C3DBEC940754F /* Pods_Bootcamp2020.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6817D7B18DA67B0C87627838 /* Pods_Bootcamp2020.framework */; };
 		5A17C769CE83FFEA6B0C7AB6 /* Pods_Bootcamp2020SnapshotTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3ABAABE0031DB5F028E6598 /* Pods_Bootcamp2020SnapshotTests.framework */; };
 		81F69813241FBE7E00258920 /* AppCoordinatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F69812241FBE7E00258920 /* AppCoordinatorSpec.swift */; };
@@ -67,8 +69,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1D1759F7241FDCC40037E4B9 /* Bootcamp2020Tests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bootcamp2020Tests-Bridging-Header.h"; sourceTree = "<group>"; };
 		1D1759F8241FDCC40037E4B9 /* CardListScreenSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListScreenSpec.swift; sourceTree = "<group>"; };
+		1D175A0224202EE20037E4B9 /* CardListDelegateSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardListDelegateSpec.swift; sourceTree = "<group>"; };
+		1D175A0424202FB20037E4B9 /* CardListDataSourceStub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardListDataSourceStub.swift; sourceTree = "<group>"; };
 		2ECB7FF7F8166C3F105BF76A /* Pods-Bootcamp2020SnapshotTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bootcamp2020SnapshotTests.debug.xcconfig"; path = "Target Support Files/Pods-Bootcamp2020SnapshotTests/Pods-Bootcamp2020SnapshotTests.debug.xcconfig"; sourceTree = "<group>"; };
 		61FD2D32CEDE908EE4B6A5DC /* Pods-Bootcamp2020.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bootcamp2020.release.xcconfig"; path = "Target Support Files/Pods-Bootcamp2020/Pods-Bootcamp2020.release.xcconfig"; sourceTree = "<group>"; };
 		672235472A7D97E5E74ED19A /* Pods-Bootcamp2020Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bootcamp2020Tests.release.xcconfig"; path = "Target Support Files/Pods-Bootcamp2020Tests/Pods-Bootcamp2020Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -151,6 +154,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D1759FA241FE5B80037E4B9 /* Card List */ = {
+			isa = PBXGroup;
+			children = (
+				1D175A0224202EE20037E4B9 /* CardListDelegateSpec.swift */,
+				1D1759F8241FDCC40037E4B9 /* CardListScreenSpec.swift */,
+			);
+			path = "Card List";
+			sourceTree = "<group>";
+		};
 		81606CF9241F9C0200CDEECA /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
@@ -164,18 +176,11 @@
 		81606CFA241F9C1000CDEECA /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				1D175A0424202FB20037E4B9 /* CardListDataSourceStub.swift */,
 				81F6981D241FEDB200258920 /* LocalServiceDummy.swift */,
 				81F69815241FC4DF00258920 /* NetworkServiceDummy.swift */,
 			);
 			path = Helpers;
-			sourceTree = "<group>";
-		};
-		1D1759FA241FE5B80037E4B9 /* Card List */ = {
-			isa = PBXGroup;
-			children = (
-				1D1759F8241FDCC40037E4B9 /* CardListScreenSpec.swift */,
-			);
-			path = "Card List";
 			sourceTree = "<group>";
 		};
 		C03D30BA241BFC0F0089B070 = {
@@ -723,10 +728,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				81F6981A241FE78200258920 /* HomeCoordinatorSpec.swift in Sources */,
+				1D175A0324202EE20037E4B9 /* CardListDelegateSpec.swift in Sources */,
 				81F6981E241FEDB200258920 /* LocalServiceDummy.swift in Sources */,
 				81F69816241FC4DF00258920 /* NetworkServiceDummy.swift in Sources */,
 				81F69813241FBE7E00258920 /* AppCoordinatorSpec.swift in Sources */,
 				81F6981C241FEAFC00258920 /* FavoritesCoordinatorSpec.swift in Sources */,
+				1D175A0524202FB20037E4B9 /* CardListDataSourceStub.swift in Sources */,
 				1D1759F9241FDCC40037E4B9 /* CardListScreenSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

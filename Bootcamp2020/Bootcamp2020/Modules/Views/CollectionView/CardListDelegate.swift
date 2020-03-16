@@ -10,7 +10,7 @@ import UIKit
 
 final class CardListDelegate: NSObject {
     
-    var didSelectItemAt: ((_ row: Int) -> ())?
+    var didSelectItemAt: ((_ item: Int) -> Void)?
     
     fileprivate var cellAspectRatio: CGFloat = 85/118
 }

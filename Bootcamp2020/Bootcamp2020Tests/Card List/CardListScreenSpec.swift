@@ -22,8 +22,21 @@ final class CardListScreenSpec: QuickSpec {
             
             dataSource = CardListDataSource()
             delegate = CardListDelegate()
-            
             sut = CardListScreen(dataSource: dataSource, delegate: delegate)
+        }
+        
+        afterEach {
+            sut = nil
+            dataSource = nil
+            delegate = nil
+        }
+        
+        describe("CardListScreen") {
+            context("when initialized") {
+                it("should have added its subviews") {
+                    // TODO: Implement once we have KIF
+                }
+            }
         }
     }
 }

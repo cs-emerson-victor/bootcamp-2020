@@ -44,7 +44,7 @@ final class CardCell: UICollectionViewCell {
 extension CardCell: ViewCode {
     
     func buildViewHierarchy() {
-        addSubview(cardImageView)
+        contentView.addSubview(cardImageView)
     }
     
     func setupConstraints() {

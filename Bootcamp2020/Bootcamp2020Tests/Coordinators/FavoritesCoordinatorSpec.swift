@@ -29,7 +29,7 @@ class FavoritesCoordinatorSpec: QuickSpec {
                 it("should have the given objects") {
                     expect(sut.rootController).to(beIdenticalTo(rootController))
                     expect(sut.childCoordinators).to(beEmpty())
-                    expect(favoritesCoordinator.service).to(beIdenticalTo(service))
+                    expect(sut.service).to(beIdenticalTo(service))
                 }
             }
             
