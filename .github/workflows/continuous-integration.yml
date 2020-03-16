@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  push:
+    branches: [ feature/*, bugfix/* ]
+  pull_request:
+    branches: [ master, develop ]
+
+jobs:
+  testing:
+    runs-on: macos-latest
+    
+    strategy:
+        matrix:
+          destination: ['platform=iOS Simulator,OS=13.0,name=iPhone 11', 'platform=iOS Simulator,OS=10.0,name=iPhone SE']
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    
+    - name: Build and test
+      run: |
+          cd Bootcamp2020
+          xcodebuild clean test -project Bootcamp2020.xcworkspace -scheme Bootcamp2020 -destination "${destination}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
+      env: 
+         destination: ${{ matrix.destination }}
+
+    
