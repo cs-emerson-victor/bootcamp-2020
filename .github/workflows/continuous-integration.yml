@@ -12,16 +12,23 @@ jobs:
     
     strategy:
         matrix:
-          destination: ['platform=iOS Simulator,OS=13.0,name=iPhone 11', 'platform=iOS Simulator,OS=10.0,name=iPhone SE']
+          destination: ['platform=iOS Simulator,OS=13.3,name=iPhone 11']
 
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-    
+    - name: Force XCode 11
+      run: sudo xcode-select -switch /Applications/Xcode_11.3.app
+    - name: Install Dependences
+      run: |
+        cd Bootcamp2020
+        pod repo update
+        pod install
+      shell: bash
     - name: Build and test
       run: |
           cd Bootcamp2020
-          xcodebuild clean test -project Bootcamp2020.xcworkspace -scheme Bootcamp2020 -destination "${destination}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
+          xcodebuild clean test -workspace "Bootcamp2020.xcworkspace" -scheme "Bootcamp2020" -destination "${destination}" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
       env: 
          destination: ${{ matrix.destination }}
 
