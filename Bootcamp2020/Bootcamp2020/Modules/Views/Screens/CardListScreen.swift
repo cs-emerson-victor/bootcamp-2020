@@ -53,6 +53,9 @@ final class CardListScreen: UIView {
         
         self.viewModel = viewModel
         // TODO: Implement bind to list VM
+//        cardDelegate.didSelectItemAt = { (row) in
+//
+//        }
     }
 }
 
