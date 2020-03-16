@@ -18,14 +18,14 @@ class AppCoordinatorSpec: QuickSpec {
             var rootController: UINavigationController!
             var localService: LocalService!
             var networkService: NetworkService!
-            var appCoordinator: AppCoordinator!
+            var sut: AppCoordinator!
             
             beforeEach {
                 window = UIWindow()
                 rootController = UINavigationController()
                 localService = LocalServiceDummy()
                 networkService = NetworkServiceDummy()
-                appCoordinator = AppCoordinator(presenter: window,
+                sut = AppCoordinator(presenter: window,
                                                 rootController: rootController,
                                                 localService: localService,
                                                 networkService: networkService)
@@ -33,25 +33,25 @@ class AppCoordinatorSpec: QuickSpec {
             
             context("when it's initialized") {
                 it("should have the given objects") {
-                    expect(appCoordinator.presenter).to(beIdenticalTo(window))
-                    expect(appCoordinator.rootController).to(beIdenticalTo(rootController))
+                    expect(sut.presenter).to(beIdenticalTo(window))
+                    expect(sut.rootController).to(beIdenticalTo(rootController))
                     expect(rootController.isNavigationBarHidden).to(equal(true))
-                    expect(appCoordinator.tabBar).to(beAnInstanceOf(UITabBarController.self))
+                    expect(sut.tabBar).to(beAnInstanceOf(UITabBarController.self))
                     expect(appCoordinator.localService).to(beIdenticalTo(localService))
                     expect(appCoordinator.networkService).to(beIdenticalTo(networkService))
-                    expect(appCoordinator.childCoordinators).to(beEmpty())
+                    expect(sut.childCoordinators).to(beEmpty())
                 }
             }
             
             context("when it's started") {
                 it("should have the correct child coordinators and the given root controller") {
-                    appCoordinator.start()
+                    sut.start()
                     
                     expect(appCoordinator.childCoordinators[0]).to(beAnInstanceOf(HomeCoordinator.self))
                     expect(appCoordinator.childCoordinators[1]).to(beAnInstanceOf(FavoritesCoordinator.self))
-                    expect(appCoordinator.tabBar.viewControllers?.count).to(equal(2))
-                    expect(appCoordinator.presenter.rootViewController).to(beIdenticalTo(rootController))
-                    expect(appCoordinator.presenter.isHidden).to(equal(false))
+                    expect(sut.tabBar.viewControllers?.count).to(equal(2))
+                    expect(sut.presenter.rootViewController).to(beIdenticalTo(rootController))
+                    expect(sut.presenter.isHidden).to(equal(false))
                 }
             }
         }

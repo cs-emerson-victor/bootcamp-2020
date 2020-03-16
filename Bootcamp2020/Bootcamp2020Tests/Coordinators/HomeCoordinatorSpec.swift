@@ -16,27 +16,27 @@ class HomeCoordinatorSpec: QuickSpec {
         describe("HomeCoordinator") {
             var rootController: UINavigationController!
             var service: Service!
-            var homeCoordinator: HomeCoordinator!
+            var sut: HomeCoordinator!
             
             beforeEach {
                 rootController = UINavigationController()
                 service = LocalServiceDummy()
-                homeCoordinator = HomeCoordinator(rootController: rootController,
+                sut = HomeCoordinator(rootController: rootController,
                                                   service: service)
             }
             
             context("when it's initialized") {
                 it("should have the given objects") {
-                    expect(homeCoordinator.rootController).to(beIdenticalTo(rootController))
-                    expect(homeCoordinator.childCoordinators).to(beEmpty())
+                    expect(sut.rootController).to(beIdenticalTo(rootController))
+                    expect(sut.childCoordinators).to(beEmpty())
                     expect(homeCoordinator.service).to(beIdenticalTo(service))
                 }
             }
             
             context("when it's started") {
                 it("should have the correct tab bar item and push the correct controller") {
-                    homeCoordinator.start()
-                    let controllers = homeCoordinator.rootController.viewControllers
+                    sut.start()
+                    let controllers = sut.rootController.viewControllers
                     
                     expect(controllers.count).to(equal(1))
                     expect(controllers[0].tabBarItem.tag).to(equal(0))

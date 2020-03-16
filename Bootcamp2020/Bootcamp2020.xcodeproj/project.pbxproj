@@ -12,7 +12,7 @@
 		81F69813241FBE7E00258920 /* AppCoordinatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F69812241FBE7E00258920 /* AppCoordinatorSpec.swift */; };
 		81F69816241FC4DF00258920 /* NetworkServiceDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F69815241FC4DF00258920 /* NetworkServiceDummy.swift */; };
 		81F6981A241FE78200258920 /* HomeCoordinatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F69819241FE78200258920 /* HomeCoordinatorSpec.swift */; };
-		81F6981C241FEAFC00258920 /* FavoritesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F6981B241FEAFC00258920 /* FavoritesCoordinator.swift */; };
+		81F6981C241FEAFC00258920 /* FavoritesCoordinatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F6981B241FEAFC00258920 /* FavoritesCoordinatorSpec.swift */; };
 		81F6981E241FEDB200258920 /* LocalServiceDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F6981D241FEDB200258920 /* LocalServiceDummy.swift */; };
 		8E8C271AED7F85AFB55FB756 /* Pods_Bootcamp2020Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E53E60CF419399141C0A19B9 /* Pods_Bootcamp2020Tests.framework */; };
 		C03D30C7241BFC0F0089B070 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03D30C6241BFC0F0089B070 /* AppDelegate.swift */; };
@@ -75,7 +75,7 @@
 		81F69812241FBE7E00258920 /* AppCoordinatorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinatorSpec.swift; sourceTree = "<group>"; };
 		81F69815241FC4DF00258920 /* NetworkServiceDummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceDummy.swift; sourceTree = "<group>"; };
 		81F69819241FE78200258920 /* HomeCoordinatorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinatorSpec.swift; sourceTree = "<group>"; };
-		81F6981B241FEAFC00258920 /* FavoritesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCoordinator.swift; sourceTree = "<group>"; };
+		81F6981B241FEAFC00258920 /* FavoritesCoordinatorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCoordinatorSpec.swift; sourceTree = "<group>"; };
 		81F6981D241FEDB200258920 /* LocalServiceDummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalServiceDummy.swift; sourceTree = "<group>"; };
 		C03D30C3241BFC0F0089B070 /* Bootcamp2020.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bootcamp2020.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C03D30C6241BFC0F0089B070 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -153,7 +153,7 @@
 			children = (
 				81F69812241FBE7E00258920 /* AppCoordinatorSpec.swift */,
 				81F69819241FE78200258920 /* HomeCoordinatorSpec.swift */,
-				81F6981B241FEAFC00258920 /* FavoritesCoordinator.swift */,
+				81F6981B241FEAFC00258920 /* FavoritesCoordinatorSpec.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -714,7 +714,7 @@
 				81F6981E241FEDB200258920 /* LocalServiceDummy.swift in Sources */,
 				81F69816241FC4DF00258920 /* NetworkServiceDummy.swift in Sources */,
 				81F69813241FBE7E00258920 /* AppCoordinatorSpec.swift in Sources */,
-				81F6981C241FEAFC00258920 /* FavoritesCoordinator.swift in Sources */,
+				81F6981C241FEAFC00258920 /* FavoritesCoordinatorSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
