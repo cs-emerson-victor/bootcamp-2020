@@ -10,10 +10,6 @@ import UIKit
 
 final class CardCell: UICollectionViewCell {
     
-    static var identifier: String {
-        return String(describing: self)
-    }
-    
     // MARK: Properties
     private let cardImageView: UIImageView = {
         let view = UIImageView()
