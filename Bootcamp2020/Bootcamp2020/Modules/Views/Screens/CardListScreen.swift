@@ -56,6 +56,7 @@ final class CardListScreen: UIView {
 //        cardDelegate.didSelectItemAt = { (row) in
 //
 //        }
+        listCollectionView.reloadData()
     }
 }
 
