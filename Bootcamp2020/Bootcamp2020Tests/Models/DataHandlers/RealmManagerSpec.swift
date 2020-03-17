@@ -42,7 +42,7 @@ class RealmManagerSpec: QuickSpec {
                 var card: Card!
                 
                 beforeEach {
-                    cardSet = CardSet(id: "0", name: "Collection1")
+                    cardSet = CardSet(id: "0", name: "CardSet1")
                     card = Card(id: "0", name: "Card1")
                     cardSet.cards.append(card)
                     
@@ -52,7 +52,7 @@ class RealmManagerSpec: QuickSpec {
                     }
                 }
                 
-                it("should return an array with one collection") {
+                it("should return an array with one set") {
                     sut.fetchSets { (result) in
                         switch result {
                         case .success(let cardSets):

@@ -34,8 +34,8 @@ final class RealmManager: LocalService {
             return
         }
         
-        let collections = Array(realm.objects(CardSet.self).sorted(byKeyPath: "releaseDate"))
-        completion(.success(collections))
+        let cardSets = Array(realm.objects(CardSet.self).sorted(byKeyPath: "releaseDate"))
+        completion(.success(cardSets))
     }
     
     func fetchCard(withName name: String, completion: @escaping (Result<[Card], Error>) -> Void) {
