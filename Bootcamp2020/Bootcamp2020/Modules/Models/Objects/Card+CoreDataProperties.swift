@@ -24,6 +24,15 @@ extension Card {
 
 }
 
+extension Card {
+    convenience init(_ dto: CardDTO) {
+        self.init()
+        self.id = dto.id
+        self.imageURL = dto.imageURL
+        self.name = dto.name
+    }
+}
+
 // MARK: Generated accessors for categories
 extension Card {
 
