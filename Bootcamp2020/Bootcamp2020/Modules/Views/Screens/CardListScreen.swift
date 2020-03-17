@@ -18,12 +18,19 @@ final class CardListScreen: UIView {
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
         view.showsVerticalScrollIndicator = false
         view.accessibilityIdentifier = "listCollectionView"
+        view.backgroundColor = .clear
         return view
     }()
     
     private let searchBar: UISearchBar = {
         let view = UISearchBar()
         view.accessibilityIdentifier = "listSearchBar"
+        return view
+    }()
+    
+    private let backgroundImageView: UIImageView = {
+        let view = UIImageView(image: UIImage(named: "backgroundImage"))
+        view.accessibilityIdentifier = "backgroundImageView"
         return view
     }()
     
@@ -64,11 +71,16 @@ final class CardListScreen: UIView {
 extension CardListScreen: ViewCode {
     
     func buildViewHierarchy() {
+        addSubview(backgroundImageView)
         addSubview(listCollectionView)
         addSubview(searchBar)
     }
     
     func setupConstraints() {
+        
+        backgroundImageView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
         
         listCollectionView.snp.makeConstraints { (make) in
             make.leadingMargin.trailingMargin.bottomMargin.equalToSuperview()
