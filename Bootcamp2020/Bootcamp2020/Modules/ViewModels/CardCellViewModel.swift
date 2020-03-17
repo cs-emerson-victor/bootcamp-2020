@@ -6,8 +6,18 @@
 //  Copyright © 2020 Team2. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct CardCellViewModel {
     
+    let image: UIImage?
+    
+    init(card: Card) {
+        guard let imageData = card.imageData else {
+            image = nil
+            return
+        }
+        
+        image = UIImage(data: imageData)
+    }
 }
