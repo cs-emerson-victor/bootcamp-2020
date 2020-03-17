@@ -13,7 +13,7 @@ import Nimble
 class CardTypeSpec: QuickSpec {
     
     override func spec() {
-        describe("CardTypeSpec") {
+        describe("CardType") {
             var sut: CardType!
             
             beforeEach {
