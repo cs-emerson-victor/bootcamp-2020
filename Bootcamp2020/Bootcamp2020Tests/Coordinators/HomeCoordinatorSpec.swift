@@ -29,7 +29,7 @@ class HomeCoordinatorSpec: QuickSpec {
                 it("should have the given objects") {
                     expect(sut.rootController).to(beIdenticalTo(rootController))
                     expect(sut.childCoordinators).to(beEmpty())
-                    expect(homeCoordinator.service).to(beIdenticalTo(service))
+                    expect(sut.service).to(beIdenticalTo(service))
                 }
             }
             
