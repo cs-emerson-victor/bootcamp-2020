@@ -17,23 +17,51 @@ class RealmManagerSpec: QuickSpec {
     override func spec() {
         describe("RealmManager") {
             var sut: RealmManager!
-            var realm: Realm!
+            var config: Realm.Configuration!
             
             beforeSuite {
-                let config = Realm.Configuration(inMemoryIdentifier: "Bootcamp2020Test")
+                config = Realm.Configuration(inMemoryIdentifier: "Bootcamp2020Test")
                 sut = RealmManager(configuration: config)
             }
             
             beforeEach {
-              realm = try! Realm()
-              try! realm.write {
-                realm.deleteAll()
-              }
+                try! sut.realm?.write {
+                    sut.realm?.deleteAll()
+                }
+            }
+            
+            context("when it's initialized") {
+                it("should have the given configuration") {
+                    expect(sut.realm?.configuration.inMemoryIdentifier).to(equal(config.inMemoryIdentifier))
+                    expect(sut.realm?.configuration.fileURL).to(beNil())
+                }
             }
             
             context("when it's perfomed fetch") {
-                it("should return an array of collection") {
+                var collection: Collection!
+                var card: Card!
+                
+                beforeEach {
+                    collection = Collection(id: "0", name: "Collection1")
+                    card = Card(id: "0", name: "Card1")
+                    collection.cards.append(card)
                     
+                    try! sut.realm?.write {
+                        sut.realm?.add(collection)
+                        sut.realm?.add(card)
+                    }
+                }
+                
+                it("should return an array of collection") {
+                    sut.fetchCollections { (result) in
+                        switch result {
+                        case .success(let collections):
+                            expect(collections[0].id).to(equal(collection.id))
+                        case .failure(let error):
+                            expect(error).to(beAnInstanceOf(Error.self))
+                            
+                        }
+                    }
                 }
                 
                 it("should return an array of cards containing a given name") {
@@ -44,7 +72,15 @@ class RealmManagerSpec: QuickSpec {
             
             context("when it's saved card") {
                 it("should save the given card") {
+                    let card = Card(id: "0", name: "Card1")
+                    let saveReturn = sut.save(card)
                     
+                    if let saveReturn = saveReturn {
+                        expect(saveReturn).to(beAnInstanceOf(Error.self))
+                    } else {
+                        let cards = sut.realm?.objects(Card.self)
+                        expect(cards?.count).to(equal(1))
+                    }
                 }
             }
         }

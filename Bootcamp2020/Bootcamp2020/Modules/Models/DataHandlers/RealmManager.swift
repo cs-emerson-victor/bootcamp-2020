@@ -15,8 +15,8 @@ protocol LocalService: AnyObject, Service {
 
 final class RealmManager: LocalService {
     
-    private let realm: Realm?
-    private let error: Error?
+    let realm: Realm?
+    let error: Error?
     
     init(configuration: Realm.Configuration = Realm.Configuration.defaultConfiguration) {
         do {
