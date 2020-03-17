@@ -15,14 +15,12 @@ protocol LocalService: AnyObject, Service {
 
 final class RealmManager: LocalService {
     
-    private let config: Realm.Configuration
     private let realm: Realm?
     private let error: Error?
     
-    init(bundleName: String = "Bootcamp2020") {
-        config = Realm.Configuration(fileURL: Bundle.main.url(forResource: bundleName, withExtension: "realm"))
+    init(configuration: Realm.Configuration = Realm.Configuration.defaultConfiguration) {
         do {
-            self.realm = try Realm(configuration: config)
+            self.realm = try Realm(configuration: configuration)
             self.error = nil
         } catch {
             self.realm = nil
@@ -45,14 +43,24 @@ final class RealmManager: LocalService {
             completion(.failure(error!))
             return
         }
+        
+        let cards = Array(realm.objects(Card.self).filter("name CONTAINS \(name)"))
+        completion(.success(cards))
     }
     
     func save(_ card: Card) -> Error? {
-//        let realm = try! Realm()
-//
-//        try! realm.write {
-//            realm.add(myDog)
-//        }
-        return nil
+        guard let realm = self.realm else {
+            return error
+        }
+        
+        do {
+            try realm.write {
+                realm.add(card)
+            }
+            
+            return nil
+        } catch {
+            return error
+        }
     }
 }
