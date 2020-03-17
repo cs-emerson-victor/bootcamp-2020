@@ -69,21 +69,21 @@ class APIManager {
 
 extension APIManager: NetworkService {
     func fetchCollections(completion: @escaping (Result<[Collection], Error>) -> Void) {
+        let endpoint = Endpoint(ofType: .collections)
         
-    }
-    
-    func fetchCards(ofCollection colletion: Collection, completion: @escaping (Result<[Card], Error>) -> Void) {
-        let endpoint = Endpoint(ofType: .cards(collection: colletion))
-        
-        fetch(from: endpoint) { (result: Result<[CardDTO], Error>) in
+        fetch(from: endpoint) { (result: Result<[CollectionDTO], Error>) in
             switch result {
             case .failure(let error):
                 completion(.failure(error))
-            case .success(let cardDTOList):
-                let cards = cardDTOList.map { Card($0) }
-                completion(.success(cards))
+            case .success(let collectionDTOList):
+                let collections = collectionDTOList.map { Collection($0) }
+                completion(.success(collections))
             }
         }
+    }
+    
+    func fetchCards(ofCollection colletion: Collection, completion: @escaping (Result<[Card], Error>) -> Void) {
+
     }
     
     func fetchCard(withName name: String, completion: @escaping (Result<[Card], Error>) -> Void) {

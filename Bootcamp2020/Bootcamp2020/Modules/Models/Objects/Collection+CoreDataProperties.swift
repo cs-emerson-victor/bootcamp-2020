@@ -22,6 +22,22 @@ extension Collection {
 
 }
 
+extension Collection {
+    convenience init(_ dto: CollectionDTO) {
+        self.init()
+        self.name = dto.name
+        self.id = dto.name
+        
+        let dateFormatter = DateFormatter()
+        if let releaseDate = dateFormatter.date(from: dto.releaseDate) {
+            self.releaseDate = releaseDate
+        } else {
+            // TODO: Check what happens if cant convert date
+            self.releaseDate = Date()
+        }
+    }
+}
+
 // MARK: Generated accessors for cards
 extension Collection {
 

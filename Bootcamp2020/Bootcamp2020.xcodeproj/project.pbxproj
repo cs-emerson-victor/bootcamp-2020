@@ -44,6 +44,7 @@
 		C0613712241FF72C00B75034 /* APIManagerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C4A85B241FF46F002CB8D9 /* APIManagerSpec.swift */; };
 		C061372224200DE200B75034 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C061372124200DE200B75034 /* Endpoint.swift */; };
 		C091F1DD2420E79400ECD238 /* CardDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C091F1DC2420E79400ECD238 /* CardDTO.swift */; };
+		C091F1DF2420EACD00ECD238 /* CollectionDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C091F1DE2420EACD00ECD238 /* CollectionDTO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +117,7 @@
 		C0613717241FF93300B75034 /* Bootcamp2020Tests2.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Bootcamp2020Tests2.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C061372124200DE200B75034 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		C091F1DC2420E79400ECD238 /* CardDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDTO.swift; sourceTree = "<group>"; };
+		C091F1DE2420EACD00ECD238 /* CollectionDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionDTO.swift; sourceTree = "<group>"; };
 		C0C4A85A241FF46E002CB8D9 /* Bootcamp2020Tests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bootcamp2020Tests-Bridging-Header.h"; sourceTree = "<group>"; };
 		C0C4A85B241FF46F002CB8D9 /* APIManagerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManagerSpec.swift; sourceTree = "<group>"; };
 		C5651C9C98875CE89327C3E5 /* Pods-Bootcamp2020.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bootcamp2020.debug.xcconfig"; path = "Target Support Files/Pods-Bootcamp2020/Pods-Bootcamp2020.debug.xcconfig"; sourceTree = "<group>"; };
@@ -269,6 +271,7 @@
 				C04072A6241C07F4005F9B97 /* Collection+CoreDataClass.swift */,
 				C04072A8241C07F4005F9B97 /* Collection+CoreDataProperties.swift */,
 				C091F1DC2420E79400ECD238 /* CardDTO.swift */,
+				C091F1DE2420EACD00ECD238 /* CollectionDTO.swift */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -717,6 +720,7 @@
 				C04072AF241C07F5005F9B97 /* Category+CoreDataProperties.swift in Sources */,
 				C03D30D1241BFC0F0089B070 /* Bootcamp2020.xcdatamodeld in Sources */,
 				C04072C6241C0FD4005F9B97 /* CardDetailViewModel.swift in Sources */,
+				C091F1DF2420EACD00ECD238 /* CollectionDTO.swift in Sources */,
 				C04072C4241C0F04005F9B97 /* CardDetailViewController.swift in Sources */,
 				C04072D0241C3EF9005F9B97 /* CardListDataSource.swift in Sources */,
 				C04072CA241C2840005F9B97 /* CardCellViewModel.swift in Sources */,
