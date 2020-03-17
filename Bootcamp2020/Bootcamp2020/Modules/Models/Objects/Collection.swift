@@ -21,6 +21,10 @@ final class Collection: Object {
         self.releaseDate = releaseDate
         self.cards.append(objectsIn: cards)
     }
+    
+    override static func primaryKey() -> String? {
+        return "id"
+    }
 }
 
 extension Collection: Codable {

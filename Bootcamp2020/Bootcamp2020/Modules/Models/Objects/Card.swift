@@ -27,6 +27,10 @@ final class Card: Object {
         self.imageData = imageData
         self.categories.append(objectsIn: categories)
     }
+    
+    override static func primaryKey() -> String? {
+        return "id"
+    }
 }
 
 extension Card: Codable {

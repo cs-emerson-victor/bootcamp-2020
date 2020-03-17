@@ -15,6 +15,10 @@ final class Category: Object {
         self.init()
         self.name = name
     }
+    
+    override static func primaryKey() -> String? {
+        return "name"
+    }
 }
 
 extension Category: Codable {
