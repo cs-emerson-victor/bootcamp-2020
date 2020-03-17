@@ -9,9 +9,19 @@
 import Foundation
 
 protocol NetworkService: AnyObject, Service {
-    
+    func fetchCards(ofCollection colletion: Collection, completion: @escaping (Result<[Card], Error>) -> Void)
 }
 
 final class APIManager: NetworkService {
+    func fetchCollections(completion: @escaping (Result<[Collection], Error>) -> Void) {
+        
+    }
     
+    func fetchCards(ofCollection colletion: Collection, completion: @escaping (Result<[Card], Error>) -> Void) {
+        
+    }
+    
+    func fetchCard(withName name: String, completion: @escaping (Result<[Card], Error>) -> Void) {
+        
+    }
 }
