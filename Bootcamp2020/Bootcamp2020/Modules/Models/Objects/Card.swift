@@ -13,19 +13,19 @@ final class Card: Object {
     @objc dynamic var name: String = ""
     @objc dynamic var imageURL: String?
     @objc dynamic var imageData: Data?
-    let categories: List<Category> = List<Category>()
+    let types: List<CardType> = List<CardType>()
     
     convenience init(id: String,
                      name: String,
                      imageURL: String? = nil,
                      imageData: Data? = nil,
-                     categories: [Category] = []) {
+                     categories: [CardType] = []) {
         self.init()
         self.id = id
         self.name = name
         self.imageURL = imageURL
         self.imageData = imageData
-        self.categories.append(objectsIn: categories)
+        self.types.append(objectsIn: categories)
     }
     
     override static func primaryKey() -> String? {

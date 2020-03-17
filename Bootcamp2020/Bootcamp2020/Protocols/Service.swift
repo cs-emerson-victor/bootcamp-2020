@@ -9,6 +9,6 @@
 import Foundation
 
 protocol Service {
-    func fetchCollections(completion: @escaping (Result<[Collection], Error>) -> Void)
+    func fetchSets(completion: @escaping (Result<[CardSet], Error>) -> Void)
     func fetchCard(withName name: String, completion: @escaping (Result<[Card], Error>) -> Void)
 }

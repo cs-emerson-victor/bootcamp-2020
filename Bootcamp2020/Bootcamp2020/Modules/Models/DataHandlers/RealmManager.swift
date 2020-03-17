@@ -28,13 +28,13 @@ final class RealmManager: LocalService {
         }
     }
     
-    func fetchCollections(completion: @escaping (Result<[Collection], Error>) -> Void) {
+    func fetchSets(completion: @escaping (Result<[CardSet], Error>) -> Void) {
         guard let realm = self.realm else {
             completion(.failure(error!))
             return
         }
         
-        let collections = Array(realm.objects(Collection.self).sorted(byKeyPath: "releaseDate"))
+        let collections = Array(realm.objects(CardSet.self).sorted(byKeyPath: "releaseDate"))
         completion(.success(collections))
     }
     
@@ -44,7 +44,7 @@ final class RealmManager: LocalService {
             return
         }
         
-        let cards = Array(realm.objects(Card.self).filter("name CONTAINS \(name)"))
+        let cards = Array(realm.objects(Card.self).filter("name contains[c] %@", name))
         completion(.success(cards))
     }
     

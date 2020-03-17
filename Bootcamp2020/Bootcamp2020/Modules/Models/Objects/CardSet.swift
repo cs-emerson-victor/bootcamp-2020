@@ -1,5 +1,5 @@
 //
-//  Collection.swift
+//  CardSet.swift
 //  Bootcamp2020
 //
 //  Created by emerson.victor.f.luz on 17/03/20.
@@ -8,7 +8,7 @@
 
 import RealmSwift
 
-final class Collection: Object {
+final class CardSet: Object {
     @objc dynamic var id: String = ""
     @objc dynamic var name: String = ""
     @objc dynamic var releaseDate: Date = Date()
@@ -27,6 +27,6 @@ final class Collection: Object {
     }
 }
 
-extension Collection: Codable {
+extension CardSet: Codable {
     
 }

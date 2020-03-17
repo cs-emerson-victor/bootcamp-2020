@@ -5,7 +5,7 @@
 //  Created by emerson.victor.f.luz on 17/03/20.
 //  Copyright © 2020 Team2. All rights reserved.
 //
-// swiftlint:disable force_try
+// swiftlint:disable function_body_length force_try
 
 @testable import Bootcamp2020
 import RealmSwift
@@ -38,25 +38,25 @@ class RealmManagerSpec: QuickSpec {
             }
             
             context("when it's perfomed fetch") {
-                var collection: Collection!
+                var cardSet: CardSet!
                 var card: Card!
                 
                 beforeEach {
-                    collection = Collection(id: "0", name: "Collection1")
+                    cardSet = CardSet(id: "0", name: "Collection1")
                     card = Card(id: "0", name: "Card1")
-                    collection.cards.append(card)
+                    cardSet.cards.append(card)
                     
                     try! sut.realm?.write {
-                        sut.realm?.add(collection)
+                        sut.realm?.add(cardSet)
                         sut.realm?.add(card)
                     }
                 }
                 
-                it("should return an array of collection") {
-                    sut.fetchCollections { (result) in
+                it("should return an array with one collection") {
+                    sut.fetchSets { (result) in
                         switch result {
-                        case .success(let collections):
-                            expect(collections[0].id).to(equal(collection.id))
+                        case .success(let cardSets):
+                            expect(cardSets.count).to(equal(1))
                         case .failure(let error):
                             expect(error).to(beAnInstanceOf(Error.self))
                             
@@ -64,10 +64,32 @@ class RealmManagerSpec: QuickSpec {
                     }
                 }
                 
-                it("should return an array of cards containing a given name") {
+                context("when it's fetched by name") {
+                    it("should return an empty array") {
+                        sut.fetchCard(withName: "Collection") { (result) in
+                            switch result {
+                            case .success(let cards):
+                                expect(cards).to(beEmpty())
+                            case .failure(let error):
+                                expect(error).to(beAnInstanceOf(Error.self))
+                                
+                            }
+                        }
+                    }
+                    
+                    it("should return an array with one card") {
+                        sut.fetchCard(withName: "Card") { (result) in
+                            switch result {
+                            case .success(let cards):
+                                expect(cards.count).to(equal(1))
+                            case .failure(let error):
+                                expect(error).to(beAnInstanceOf(Error.self))
+                                
+                            }
+                        }
+                    }
                     
                 }
-                
             }
             
             context("when it's saved card") {

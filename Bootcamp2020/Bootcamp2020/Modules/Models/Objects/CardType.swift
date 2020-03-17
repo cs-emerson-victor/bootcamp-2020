@@ -1,5 +1,5 @@
 //
-//  Category.swift
+//  CardType.swift
 //  Bootcamp2020
 //
 //  Created by emerson.victor.f.luz on 17/03/20.
@@ -8,7 +8,7 @@
 
 import RealmSwift
 
-final class Category: Object {
+final class CardType: Object {
     @objc dynamic var name: String = ""
     
     convenience init(name: String) {
@@ -21,6 +21,6 @@ final class Category: Object {
     }
 }
 
-extension Category: Codable {
+extension CardType: Codable {
     
 }
