@@ -14,23 +14,19 @@
 		81F6981A241FE78200258920 /* HomeCoordinatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F69819241FE78200258920 /* HomeCoordinatorSpec.swift */; };
 		81F6981C241FEAFC00258920 /* FavoritesCoordinatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F6981B241FEAFC00258920 /* FavoritesCoordinatorSpec.swift */; };
 		81F6981E241FEDB200258920 /* LocalServiceDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F6981D241FEDB200258920 /* LocalServiceDummy.swift */; };
+		81F6982224211CC300258920 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F6982124211CC300258920 /* Collection.swift */; };
+		81F6982424211CDB00258920 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F6982324211CDB00258920 /* Card.swift */; };
+		81F6982724211D1600258920 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F6982624211D1600258920 /* Category.swift */; };
 		8E8C271AED7F85AFB55FB756 /* Pods_Bootcamp2020Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E53E60CF419399141C0A19B9 /* Pods_Bootcamp2020Tests.framework */; };
 		C03D30C7241BFC0F0089B070 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03D30C6241BFC0F0089B070 /* AppDelegate.swift */; };
-		C03D30D1241BFC0F0089B070 /* Bootcamp2020.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C03D30CF241BFC0F0089B070 /* Bootcamp2020.xcdatamodeld */; };
 		C03D30D3241BFC100089B070 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C03D30D2241BFC100089B070 /* Assets.xcassets */; };
 		C03D30D6241BFC100089B070 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C03D30D4241BFC100089B070 /* LaunchScreen.storyboard */; };
 		C040729E241C01E1005F9B97 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C040729D241C01E1005F9B97 /* AppCoordinator.swift */; };
 		C04072A0241C01ED005F9B97 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C040729F241C01ED005F9B97 /* HomeCoordinator.swift */; };
 		C04072A2241C01F9005F9B97 /* FavoritesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04072A1241C01F9005F9B97 /* FavoritesCoordinator.swift */; };
 		C04072A4241C0236005F9B97 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04072A3241C0236005F9B97 /* Coordinator.swift */; };
-		C04072AB241C07F5005F9B97 /* Card+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04072A5241C07F4005F9B97 /* Card+CoreDataClass.swift */; };
-		C04072AC241C07F5005F9B97 /* Collection+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04072A6241C07F4005F9B97 /* Collection+CoreDataClass.swift */; };
-		C04072AD241C07F5005F9B97 /* Category+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04072A7241C07F4005F9B97 /* Category+CoreDataClass.swift */; };
-		C04072AE241C07F5005F9B97 /* Collection+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04072A8241C07F4005F9B97 /* Collection+CoreDataProperties.swift */; };
-		C04072AF241C07F5005F9B97 /* Category+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04072A9241C07F4005F9B97 /* Category+CoreDataProperties.swift */; };
-		C04072B0241C07F5005F9B97 /* Card+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04072AA241C07F5005F9B97 /* Card+CoreDataProperties.swift */; };
 		C04072B2241C0841005F9B97 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04072B1241C0841005F9B97 /* APIManager.swift */; };
-		C04072B4241C0853005F9B97 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04072B3241C0853005F9B97 /* CoreDataManager.swift */; };
+		C04072B4241C0853005F9B97 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04072B3241C0853005F9B97 /* RealmManager.swift */; };
 		C04072B8241C0CC1005F9B97 /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04072B7241C0CC1005F9B97 /* CardCell.swift */; };
 		C04072BA241C0D02005F9B97 /* ViewCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04072B9241C0D02005F9B97 /* ViewCode.swift */; };
 		C04072BC241C0E57005F9B97 /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04072BB241C0E57005F9B97 /* FavoriteButton.swift */; };
@@ -77,9 +73,11 @@
 		81F69819241FE78200258920 /* HomeCoordinatorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinatorSpec.swift; sourceTree = "<group>"; };
 		81F6981B241FEAFC00258920 /* FavoritesCoordinatorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCoordinatorSpec.swift; sourceTree = "<group>"; };
 		81F6981D241FEDB200258920 /* LocalServiceDummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalServiceDummy.swift; sourceTree = "<group>"; };
+		81F6982124211CC300258920 /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
+		81F6982324211CDB00258920 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		81F6982624211D1600258920 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		C03D30C3241BFC0F0089B070 /* Bootcamp2020.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bootcamp2020.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C03D30C6241BFC0F0089B070 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C03D30D0241BFC0F0089B070 /* Bootcamp2020.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Bootcamp2020.xcdatamodel; sourceTree = "<group>"; };
 		C03D30D2241BFC100089B070 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C03D30D5241BFC100089B070 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C03D30D7241BFC100089B070 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -91,14 +89,8 @@
 		C040729F241C01ED005F9B97 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		C04072A1241C01F9005F9B97 /* FavoritesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCoordinator.swift; sourceTree = "<group>"; };
 		C04072A3241C0236005F9B97 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
-		C04072A5241C07F4005F9B97 /* Card+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Card+CoreDataClass.swift"; sourceTree = "<group>"; };
-		C04072A6241C07F4005F9B97 /* Collection+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+CoreDataClass.swift"; sourceTree = "<group>"; };
-		C04072A7241C07F4005F9B97 /* Category+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Category+CoreDataClass.swift"; sourceTree = "<group>"; };
-		C04072A8241C07F4005F9B97 /* Collection+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		C04072A9241C07F4005F9B97 /* Category+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Category+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		C04072AA241C07F5005F9B97 /* Card+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Card+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C04072B1241C0841005F9B97 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
-		C04072B3241C0853005F9B97 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		C04072B3241C0853005F9B97 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		C04072B7241C0CC1005F9B97 /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
 		C04072B9241C0D02005F9B97 /* ViewCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCode.swift; sourceTree = "<group>"; };
 		C04072BB241C0E57005F9B97 /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
@@ -242,7 +234,6 @@
 		C040728C241BFDB1005F9B97 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				C03D30CF241BFC0F0089B070 /* Bootcamp2020.xcdatamodeld */,
 				C0407294241BFED0005F9B97 /* DataHandlers */,
 				C0407293241BFEC9005F9B97 /* Objects */,
 			);
@@ -269,12 +260,9 @@
 		C0407293241BFEC9005F9B97 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
-				C04072A5241C07F4005F9B97 /* Card+CoreDataClass.swift */,
-				C04072AA241C07F5005F9B97 /* Card+CoreDataProperties.swift */,
-				C04072A7241C07F4005F9B97 /* Category+CoreDataClass.swift */,
-				C04072A9241C07F4005F9B97 /* Category+CoreDataProperties.swift */,
-				C04072A6241C07F4005F9B97 /* Collection+CoreDataClass.swift */,
-				C04072A8241C07F4005F9B97 /* Collection+CoreDataProperties.swift */,
+				81F6982324211CDB00258920 /* Card.swift */,
+				81F6982624211D1600258920 /* Category.swift */,
+				81F6982124211CC300258920 /* Collection.swift */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -283,7 +271,7 @@
 			isa = PBXGroup;
 			children = (
 				C04072B1241C0841005F9B97 /* APIManager.swift */,
-				C04072B3241C0853005F9B97 /* CoreDataManager.swift */,
+				C04072B3241C0853005F9B97 /* RealmManager.swift */,
 			);
 			path = DataHandlers;
 			sourceTree = "<group>";
@@ -674,35 +662,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C04072AB241C07F5005F9B97 /* Card+CoreDataClass.swift in Sources */,
 				C04072CC241C2E07005F9B97 /* Service.swift in Sources */,
 				C04072C0241C0EA2005F9B97 /* CardListScreen.swift in Sources */,
-				C04072AC241C07F5005F9B97 /* Collection+CoreDataClass.swift in Sources */,
 				C040729E241C01E1005F9B97 /* AppCoordinator.swift in Sources */,
 				C04072C8241C1412005F9B97 /* CardListViewModel.swift in Sources */,
 				C04072D5241C3FF6005F9B97 /* CategoryHeaderCell.swift in Sources */,
 				C04072BC241C0E57005F9B97 /* FavoriteButton.swift in Sources */,
+				81F6982224211CC300258920 /* Collection.swift in Sources */,
+				81F6982424211CDB00258920 /* Card.swift in Sources */,
 				C04072D2241C3F78005F9B97 /* CardListDelegate.swift in Sources */,
 				C04072B8241C0CC1005F9B97 /* CardCell.swift in Sources */,
 				C04072C2241C0EDE005F9B97 /* CardListViewController.swift in Sources */,
 				C04072A0241C01ED005F9B97 /* HomeCoordinator.swift in Sources */,
 				C04072A4241C0236005F9B97 /* Coordinator.swift in Sources */,
 				C03D30C7241BFC0F0089B070 /* AppDelegate.swift in Sources */,
-				C04072AF241C07F5005F9B97 /* Category+CoreDataProperties.swift in Sources */,
-				C03D30D1241BFC0F0089B070 /* Bootcamp2020.xcdatamodeld in Sources */,
 				C04072C6241C0FD4005F9B97 /* CardDetailViewModel.swift in Sources */,
 				C04072C4241C0F04005F9B97 /* CardDetailViewController.swift in Sources */,
+				81F6982724211D1600258920 /* Category.swift in Sources */,
 				C04072D0241C3EF9005F9B97 /* CardListDataSource.swift in Sources */,
 				C04072CA241C2840005F9B97 /* CardCellViewModel.swift in Sources */,
-				C04072AD241C07F5005F9B97 /* Category+CoreDataClass.swift in Sources */,
-				C04072B0241C07F5005F9B97 /* Card+CoreDataProperties.swift in Sources */,
 				C04072B2241C0841005F9B97 /* APIManager.swift in Sources */,
 				C04072A2241C01F9005F9B97 /* FavoritesCoordinator.swift in Sources */,
 				C04072BE241C0E7F005F9B97 /* CardDetailScreen.swift in Sources */,
-				C04072B4241C0853005F9B97 /* CoreDataManager.swift in Sources */,
+				C04072B4241C0853005F9B97 /* RealmManager.swift in Sources */,
 				C04072D7241C4012005F9B97 /* CollectionHeaderCell.swift in Sources */,
 				C04072BA241C0D02005F9B97 /* ViewCode.swift in Sources */,
-				C04072AE241C07F5005F9B97 /* Collection+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1035,19 +1019,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		C03D30CF241BFC0F0089B070 /* Bootcamp2020.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				C03D30D0241BFC0F0089B070 /* Bootcamp2020.xcdatamodel */,
-			);
-			currentVersion = C03D30D0241BFC0F0089B070 /* Bootcamp2020.xcdatamodel */;
-			path = Bootcamp2020.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = C03D30BB241BFC0F0089B070 /* Project object */;
 }

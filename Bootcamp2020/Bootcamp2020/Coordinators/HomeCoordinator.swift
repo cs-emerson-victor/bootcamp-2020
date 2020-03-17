@@ -13,6 +13,7 @@ final class HomeCoordinator: Coordinator {
     var rootController: UINavigationController
     var childCoordinators: [Coordinator]
     var service: Service
+    // TODO: - Add local and remote service
     
     init(rootController: UINavigationController = UINavigationController(),
          service: Service = APIManager()) {
