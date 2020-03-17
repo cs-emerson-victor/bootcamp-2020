@@ -31,25 +31,25 @@ class APIManager {
         self.session = session
     }
     
-    internal func fetch<T: Codable>(from endpoint: Endpoint, completion: @escaping (Result<T, APIError>) -> Void) {
+    internal func fetch<T: Codable>(from endpoint: Endpoint, completion: @escaping (Result<T, Error>) -> Void) {
         guard let url = endpoint.url else {
-            completion(.failure(.invalidURL))
+            completion(.failure(APIError.invalidURL))
             return
         }
         
         let task = session.dataTask(with: url) { (data, response, error) in
             if error != nil {
-                completion(.failure(.apiError))
+                completion(.failure(APIError.apiError))
                 return
             }
             
             guard let httpResponse = response as? HTTPURLResponse, 200..<300 ~= httpResponse.statusCode else {
-                completion(.failure(.invalidResponse))
+                completion(.failure(APIError.invalidResponse))
                 return
             }
             
             guard let data = data else {
-                completion(.failure(.invalidData))
+                completion(.failure(APIError.invalidData))
                 return
             }
             
@@ -59,7 +59,7 @@ class APIManager {
                 completion(.success(decodedData))
                 
             } catch {
-                completion(.failure(.serializationError))
+                completion(.failure(APIError.serializationError))
             }
         }
         
@@ -73,10 +73,30 @@ extension APIManager: NetworkService {
     }
     
     func fetchCards(ofCollection colletion: Collection, completion: @escaping (Result<[Card], Error>) -> Void) {
+        let endpoint = Endpoint(ofType: .cards(collection: colletion))
         
+        fetch(from: endpoint) { (result: Result<[CardDTO], Error>) in
+            switch result {
+            case .failure(let error):
+                completion(.failure(error))
+            case .success(let cardDTOList):
+                let cards = cardDTOList.map { Card($0) }
+                completion(.success(cards))
+            }
+        }
     }
     
     func fetchCard(withName name: String, completion: @escaping (Result<[Card], Error>) -> Void) {
+        let endpoint = Endpoint(ofType: .card(name: name))
         
+        fetch(from: endpoint) { (result: Result<[CardDTO], Error>) in
+            switch result {
+            case .failure(let error):
+                completion(.failure(error))
+            case .success(let cardDTOList):
+                let cards = cardDTOList.map { Card($0) }
+                completion(.success(cards))
+            }
+        }
     }
 }
