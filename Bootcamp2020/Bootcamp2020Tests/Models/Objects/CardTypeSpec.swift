@@ -14,34 +14,21 @@ class CardTypeSpec: QuickSpec {
     
     override func spec() {
         describe("CardTypeSpec") {
-//            var sut: Category
+            var sut: CardType!
             
             beforeEach {
-                
+                sut = CardType(name: "Type1")
             }
             
             it("should have 'name' as primary key") {
-                
+                expect(CardType.primaryKey()).to(equal("name"))
             }
             
             context("when it's initialized") {
                 it("should have the given values") {
-                    
+                    expect(sut.name).to(equal("Type1"))
                 }
             }
         }
     }
 }
-
-//final class Category: Object {
-//    @objc dynamic var name: String = ""
-//
-//    convenience init(name: String) {
-//        self.init()
-//        self.name = name
-//    }
-//
-//    override static func primaryKey() -> String? {
-//        return "name"
-//    }
-//}

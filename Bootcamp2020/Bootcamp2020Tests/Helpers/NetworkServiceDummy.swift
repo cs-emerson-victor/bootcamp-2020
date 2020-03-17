@@ -17,7 +17,7 @@ final class NetworkServiceDummy: NetworkService {
         
     }
     
-    func fetchCards(ofCardSet cardSet: CardSet, completion: @escaping (Result<[Card], Error>) -> Void) {
+    func fetchCards(ofSet cardSet: CardSet, completion: @escaping (Result<[Card], Error>) -> Void) {
         
     }
 }
