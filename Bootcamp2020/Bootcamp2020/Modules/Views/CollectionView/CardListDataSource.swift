@@ -10,27 +10,27 @@ import UIKit
 
 final class CardListDataSource: NSObject {
     
-    var collections: [Collection] = []
+    var sets: [CardSet] = []
     
     var getViewModel: ((_ indexPath: IndexPath) -> CardCellViewModel)?
         
     func registerCells(on collectionView: UICollectionView) {
         collectionView.register(CardCell.self, forCellWithReuseIdentifier: CardCell.identifier)
-        collectionView.register(CategoryHeaderCell.self, forCellWithReuseIdentifier: CategoryHeaderCell.identifier)
-        collectionView.register(CollectionHeaderCell.self,
+        collectionView.register(CardTypeHeaderCell.self, forCellWithReuseIdentifier: CardTypeHeaderCell.identifier)
+        collectionView.register(CardSetHeaderCell.self,
                                 forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
-                                withReuseIdentifier: CollectionHeaderCell.identifier)
+                                withReuseIdentifier: CardSetHeaderCell.identifier)
     }
 }
 
 extension CardListDataSource: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return collections.count
+        return sets.count
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return collections[section].cards?.count ?? 0
+        return sets[section].cards.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -51,12 +51,12 @@ extension CardListDataSource: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
         guard let headerCell = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader,
-                                                                               withReuseIdentifier: CollectionHeaderCell.identifier,
-                                                                               for: indexPath) as? CollectionHeaderCell else {
+                                                                               withReuseIdentifier: CardSetHeaderCell.identifier,
+                                                                               for: indexPath) as? CardSetHeaderCell else {
             fatalError("Cell of collectionView \(collectionView) had a wrong cell")
         }
         
-        headerCell.collectionTitleLable.text = collections[indexPath.section].name
+        headerCell.cardSetTitleLable.text = sets[indexPath.section].name
         
         return headerCell
     }

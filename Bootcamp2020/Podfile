@@ -3,6 +3,7 @@ platform :ios, '10.0'
 target 'Bootcamp2020' do
   use_frameworks!
 
+  pod 'RealmSwift'
   pod 'SwiftLint'
   pod 'SnapKit'
 
@@ -22,6 +23,8 @@ target 'Bootcamp2020' do
     
     pod "Quick"
     pod "Nimble"
+    pod 'KIF', :configurations => ['Debug']
+    
   end
 
 end

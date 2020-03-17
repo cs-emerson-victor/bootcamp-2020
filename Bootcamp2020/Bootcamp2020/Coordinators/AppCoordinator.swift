@@ -19,7 +19,7 @@ final class AppCoordinator: Coordinator {
     
     init(presenter: UIWindow,
          rootController: UINavigationController = UINavigationController(),
-         localService: LocalService = CoreDataManager(),
+         localService: LocalService = RealmManager(),
          networkService: NetworkService = APIManager()) {
         
         self.presenter = presenter

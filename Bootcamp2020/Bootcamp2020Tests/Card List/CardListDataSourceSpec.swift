@@ -18,41 +18,44 @@ final class CardListDataSourceSpec: QuickSpec {
         var selectedIndexPath: IndexPath?
         var collectionView: UICollectionView!
         var viewModelHandler: ((_ indexPath: IndexPath) -> CardCellViewModel)!
-        var collections: [Collection]!
+        var sets: [CardSet]!
         
         beforeEach {
             viewModelHandler = { indexPath in
                 selectedIndexPath = indexPath
                 return CardCellViewModel()
             }
-            // TODO: Fill with collections stubs
-            collections = []
+            // TODO: Fill with card sets stubs
+            sets = [CardSet(id: "0", name: "Set 0")]
             sut = CardListDataSource()
             sut.getViewModel = viewModelHandler
+            sut.sets = sets
             let layout = UICollectionViewFlowLayout()
             layout.scrollDirection = .vertical
             collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
             collectionView.dataSource = sut
+            collectionView.reloadData()
         }
         
         afterEach {
             selectedIndexPath = nil
             sut = nil
+            sets = nil
             collectionView = nil
         }
         
         describe("CardListDataSource") {
             
             it("should have the correct number of sections") {
-                expect(sut.numberOfSections(in: collectionView)).to(equal(collections.count))
+                expect(sut.numberOfSections(in: collectionView)).to(equal(sets.count))
             }
             
-//            context("when loading section") {
-//                it("should have the correct number of items") {
-//                    let section: Int = 0
-//                    expect(sut.collectionView(collectionView, numberOfItemsInSection: section)).to(equal(collections[section].cards?.count))
-//                }
-//            }
+            context("when loading section") {
+                it("should have the correct number of items") {
+                    let section: Int = 0
+                    expect(sut.collectionView(collectionView, numberOfItemsInSection: section)).to(equal(sets[section].cards.count))
+                }
+            }
         }
     }
 }

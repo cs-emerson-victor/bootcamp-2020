@@ -15,7 +15,7 @@ final class FavoritesCoordinator: Coordinator {
     var service: Service
     
     init(rootController: UINavigationController = UINavigationController(),
-         service: Service = CoreDataManager()) {
+         service: Service = RealmManager()) {
         
         self.rootController = rootController
         self.childCoordinators = []

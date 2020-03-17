@@ -11,7 +11,7 @@ import UIKit
 final class CardListViewController: UIViewController {
 
     // MARK: - Properties -
-    private(set) var collections: [Collection] = []
+    private(set) var sets: [CardSet] = []
     
     private var listScreen: CardListScreen
     var service: Service
