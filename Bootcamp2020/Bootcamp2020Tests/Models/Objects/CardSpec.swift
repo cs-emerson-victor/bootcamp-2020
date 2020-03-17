@@ -21,7 +21,7 @@ class CardSpec: QuickSpec {
             }
             
             it("should have 'id' as primary key") {
-                expect(CardType.primaryKey()).to(equal("id"))
+                expect(Card.primaryKey()).to(equal("id"))
             }
             
             context("when it's initialized") {
