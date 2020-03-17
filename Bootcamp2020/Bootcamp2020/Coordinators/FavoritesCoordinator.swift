@@ -10,4 +10,21 @@ import UIKit
 
 final class FavoritesCoordinator: Coordinator {
     
+    var rootController: UINavigationController
+    var childCoordinators: [Coordinator]
+    var service: Service
+    
+    init(rootController: UINavigationController = UINavigationController(),
+         service: Service = RealmManager()) {
+        
+        self.rootController = rootController
+        self.childCoordinators = []
+        self.service = service
+    }
+    
+    func start() {
+        let controller = CardListViewController()
+        controller.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
+        rootController.pushViewController(controller, animated: true)
+    }
 }

@@ -1,3 +1,4 @@
 ${PODS_ROOT}/Target Support Files/Pods-Bootcamp2020Tests/Pods-Bootcamp2020Tests-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework
 ${BUILT_PRODUCTS_DIR}/Quick/Quick.framework
+${BUILT_PRODUCTS_DIR}/KIF/KIF.framework
