@@ -19,13 +19,13 @@ final class Card: Object {
                      name: String,
                      imageURL: String? = nil,
                      imageData: Data? = nil,
-                     categories: [CardType] = []) {
+                     types: [CardType] = []) {
         self.init()
         self.id = id
         self.name = name
         self.imageURL = imageURL
         self.imageData = imageData
-        self.types.append(objectsIn: categories)
+        self.types.append(objectsIn: types)
     }
     
     override static func primaryKey() -> String? {
