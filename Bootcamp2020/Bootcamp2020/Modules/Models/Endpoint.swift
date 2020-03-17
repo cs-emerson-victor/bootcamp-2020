@@ -9,7 +9,7 @@
 import Foundation
 
 struct Endpoint {
-    let baseURL = "https://api.magicthegathering.io/v1/"
+    private let baseURL = "https://api.magicthegathering.io/v1/"
     var url: URL?
     
     init(ofType type: EndpointType) {
@@ -31,7 +31,9 @@ struct Endpoint {
         url = getURL(withPath: path, andQueryItems: queryItems)
     }
     
-    func getURL(withPath path: String, andQueryItems queryItems: [URLQueryItem]) -> URL? {
+    private func getURL(withPath path: String,
+                        andQueryItems queryItems: [URLQueryItem]) -> URL? {
+        
         guard var urlComponents = URLComponents(string: baseURL) else {
             return nil
         }

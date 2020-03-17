@@ -8,11 +8,11 @@
 
 import Foundation
 
+// TODO: Refactor Collection name
+
 enum APIError: Error {
     case invalidURL
-    case apiError
-    case invalidResponse
-    case invalidData
+    case defaultError
     case serializationError
 }
 
@@ -50,14 +50,14 @@ class APIManager {
                                     withParams params: Params? = nil,
                                     completion: @escaping (Result<T, Error>) -> Void) {
         
-        request(from: endpoint.url, withParams: params) { (data, _, error) in
-            if let error = error {
-                completion(.failure(error))
-                return
-            }
-            
-            guard let data = data else {
-                completion(.failure(APIError.invalidData))
+        guard let url = composeURL(endpoint.url, withParams: params) else {
+            completion(.failure(APIError.invalidURL))
+            return
+        }
+        
+        let task = session.dataTask(with: url) { (data, _, error) in
+            guard let data = data, error == nil else {
+                completion(.failure(error ?? APIError.defaultError))
                 return
             }
             
@@ -70,6 +70,8 @@ class APIManager {
                 completion(.failure(APIError.serializationError))
             }
         }
+        
+        task.resume()
     }
     
     internal func fetch<T: Codable>(from endpoint: Endpoint,
@@ -77,28 +79,20 @@ class APIManager {
                                     returningHeaderFields headerFields: [String],
                                     completion: @escaping (_ result: Result<(data: T, fields: HeaderFields), Error>) -> Void) {
         
-        request(from: endpoint.url, withParams: params) { (data, response, error) in
-            if let error = error {
-                completion(.failure(error))
-                return
-            }
-            
-            guard let data = data else {
-                completion(.failure(APIError.invalidData))
-                return
-            }
-            
-            guard let httpResponse = response as? HTTPURLResponse else {
-                completion(.failure(APIError.invalidResponse))
+        guard let url = composeURL(endpoint.url, withParams: params) else {
+            completion(.failure(APIError.invalidURL))
+            return
+        }
+        
+        let task = session.dataTask(with: url) { (data, response, error) in
+            guard let httpResponse = response as? HTTPURLResponse, let data = data, error == nil else {
+                completion(.failure(error ?? APIError.defaultError))
                 return
             }
             
             do {
                 let decodedData = try self.jsonDecoder.decode(T.self, from: data)
-                let fields = httpResponse.allHeaderFields.filter { field -> Bool in
-                    guard let key  = field.key as? String else { return false }
-                    return headerFields.contains(key)
-                }
+                let fields = self.filterHeaderFields(httpResponse.allHeaderFields, withKeys: headerFields)
                 
                 completion(.success((data: decodedData, fields: fields)))
             } catch {
@@ -106,22 +100,14 @@ class APIManager {
             }
         }
         
+        task.resume()
     }
     
-    internal func request(from url: URL?,
-                          withParams params: Params?,
-                          completion: @escaping (Data?, URLResponse?, Error?) -> Void) {
-        
-        guard let url = composeURL(url, withParams: params) else {
-            completion(nil, nil, APIError.invalidURL)
-            return
+    internal func filterHeaderFields(_ fields: [AnyHashable: Any], withKeys: [String]) -> [AnyHashable: Any] {
+        return fields.filter { field -> Bool in
+            guard let key  = field.key as? String else { return false }
+            return withKeys.contains(key)
         }
-        
-        let task = session.dataTask(with: url) { (data, response, error) in
-            completion(data, response, error)
-        }
-        
-        task.resume()
     }
     
     internal func composeURL(_ url: URL?, withParams params: Params?) -> URL? {
@@ -137,17 +123,14 @@ class APIManager {
     }
 }
 
+// MARK: - Network Service
+
 extension APIManager: NetworkService {
     func fetchCollections(completion: @escaping (Result<[Collection], Error>) -> Void) {
         let endpoint = Endpoint(ofType: .collections)
         
         fetch(from: endpoint) { (result: Result<CollectionsResponse, Error>) in
-            switch result {
-            case .failure(let error):
-                completion(.failure(error))
-            case .success(let response):
-                completion(.success(response.sets))
-            }
+            completion(result.map { $0.sets })
         }
     }
     
@@ -158,10 +141,10 @@ extension APIManager: NetworkService {
         let endpoint = Endpoint(ofType: .cards(collection: colletion))
         var allCards = [Card]()
         var maxPages = 0
-                
+        
         dispatchGroup.enter()
         
-        fetchFirstPage(endpoint) { (result: Result<(cards: [Card], pages: Int), Error>) in
+        fetchFirstPage(from: endpoint) { (result: Result<(cards: [Card], pages: Int), Error>) in
             switch result {
             case .failure(let error):
                 completion(.failure(error))
@@ -175,7 +158,7 @@ extension APIManager: NetworkService {
         
         dispatchGroup.wait()
         
-        fetchPages(endpoint, maxPages) { result in
+        fetchPages(from: endpoint, pageCount: maxPages) { result in
             switch result {
             case .failure(let error):
                 completion(.failure(error))
@@ -192,73 +175,69 @@ extension APIManager: NetworkService {
         let endpoint = Endpoint(ofType: .card(name: name))
         
         fetch(from: endpoint) { (result: Result<CardsResponse, Error>) in
-            switch result {
-            case .failure(let error):
-                completion(.failure(error))
-            case .success(let response):
-                completion(.success(response.cards))
-            }
+            completion(result.map { $0.cards })
         }
     }
 }
 
+// MARK: - Fetch Card by name
+
 extension APIManager {
-    private func fetchFirstPage(_ endpoint: Endpoint,
+    private func fetchFirstPage(from endpoint: Endpoint,
                                 completion: @escaping (Result<(cards: [Card], pages: Int), Error>) -> Void) {
-         
-         var pageCount = 0
-         let pageCountFieldKey = "total-count"
-         
-         fetch(from: endpoint,
-               withParams: ["page": "1"],
-               returningHeaderFields: [pageCountFieldKey]) { (result: Result<(data: CardsResponse, fields: HeaderFields), Error>) in
-                 
-                 switch result {
-                 case .failure(let error):
-                     completion(.failure(error))
-                 case .success(let response):
-                     if let totalCardCountString = response.fields[pageCountFieldKey] as? String,
+        
+        let fieldsToRecover = ["total-count"]
+        
+        fetch(from: endpoint,
+              withParams: ["page": "1"],
+              returningHeaderFields: fieldsToRecover) { (result: Result<(data: CardsResponse, fields: HeaderFields), Error>) in
+                
+                switch result {
+                case .failure(let error):
+                    completion(.failure(error))
+                case .success(let response):
+                    if let totalCardCountString = response.fields[fieldsToRecover] as? String,
                         let totalCardCount = Int(totalCardCountString) {
+                        let pageCount = Int(ceil(Double(totalCardCount)/100))
                         
-                         pageCount = Int(ceil(Double(totalCardCount)/100))
-                     }
-                     
-                     completion(.success((cards: response.data.cards, pages: pageCount)))
-                 }
-         }
-     }
-     
-     private func fetchPages(_ endpoint: Endpoint,
-                             _ pageCount: Int,
-                             completion: @escaping (Result<[Card], Error>) -> Void) {
-         
-         let dispatchGroup = DispatchGroup()
-         var allCards = [Card]()
-         var anyError: Error?
-         
-         for page in 2..<(pageCount + 1) {
-             dispatchGroup.enter()
-             
-             fetch(from: endpoint, withParams: ["page": "\(page)"]) { (result: Result<CardsResponse, Error>) in
-                 switch result {
-                 case .failure(let error):
-                     anyError = error
-                     dispatchGroup.leave()
-                 case .success(let response):
-                     allCards.append(contentsOf: response.cards)
-                 }
-                 
-                 dispatchGroup.leave()
-             }
-             
-             if let error = anyError {
-                 completion(.failure(error))
-                 return
-             }
-         }
-         
-         dispatchGroup.notify(queue: .main) {
-             completion(.success(allCards))
-         }
-     }
+                         completion(.success((cards: response.data.cards, pages: pageCount)))
+                    } else {
+                        completion(.failure(APIError.defaultError))
+                    }
+                }
+        }
+    }
+    
+    private func fetchPages(from endpoint: Endpoint,
+                            pageCount: Int,
+                            completion: @escaping (Result<[Card], Error>) -> Void) {
+        
+        let dispatchGroup = DispatchGroup()
+        var allCards = [Card]()
+        var anyError: Error?
+        
+        for page in 2..<(pageCount + 1) {
+            dispatchGroup.enter()
+            
+            fetch(from: endpoint, withParams: ["page": "\(page)"]) { (result: Result<CardsResponse, Error>) in
+                switch result {
+                case .failure(let error):
+                    anyError = error
+                    dispatchGroup.suspend()
+                case .success(let response):
+                    allCards.append(contentsOf: response.cards)
+                }
+                
+                dispatchGroup.leave()
+            }
+        }
+        
+        dispatchGroup.notify(queue: .main) {
+            if let error = anyError {
+                completion(.failure(error))
+            } else {
+                completion(.success(allCards))
+            }
+        }
+    }
 }
