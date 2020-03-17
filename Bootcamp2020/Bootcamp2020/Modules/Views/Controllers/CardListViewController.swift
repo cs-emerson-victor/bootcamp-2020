@@ -47,5 +47,16 @@ final class CardListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // TODO: Loading initial state ViewModel
+        service.fetchSets { [weak self] (result) in
+            switch result {
+            case .success(let cardSets):
+                self?.sets.append(contentsOf: cardSets)
+            // TODO: Error ViewModel
+            case .failure(_):
+                break
+            }
+        }
     }
 }

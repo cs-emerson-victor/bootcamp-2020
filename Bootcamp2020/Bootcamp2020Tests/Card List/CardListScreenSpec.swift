@@ -8,7 +8,6 @@
 
 import Quick
 import Nimble
-import KIF
 @testable import Bootcamp2020
 
 final class CardListScreenSpec: QuickSpec {
