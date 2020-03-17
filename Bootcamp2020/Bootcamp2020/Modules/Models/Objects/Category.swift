@@ -10,6 +10,11 @@ import RealmSwift
 
 final class Category: Object {
     @objc dynamic var name: String = ""
+    
+    convenience init(name: String) {
+        self.init()
+        self.name = name
+    }
 }
 
 extension Category: Codable {

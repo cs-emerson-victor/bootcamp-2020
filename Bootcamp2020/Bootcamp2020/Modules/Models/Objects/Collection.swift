@@ -13,6 +13,14 @@ final class Collection: Object {
     @objc dynamic var name: String = ""
     @objc dynamic var releaseDate: Date = Date()
     let cards: List<Card> = List<Card>()
+    
+    convenience init(id: String, name: String, releaseDate: Date = Date(), cards: [Card] = []) {
+        self.init()
+        self.id = id
+        self.name = name
+        self.releaseDate = releaseDate
+        self.cards.append(objectsIn: cards)
+    }
 }
 
 extension Collection: Codable {
