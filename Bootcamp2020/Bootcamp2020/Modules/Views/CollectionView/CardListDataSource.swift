@@ -50,7 +50,7 @@ extension CardListDataSource: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
-        guard let headerCell = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader,
+        guard let headerCell = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
                                                                                withReuseIdentifier: CardSetHeaderCell.identifier,
                                                                                for: indexPath) as? CardSetHeaderCell else {
             fatalError("Cell of collectionView \(collectionView) had a wrong cell")

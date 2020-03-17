@@ -5,6 +5,7 @@
 //  Created by alexandre.c.ferreira on 17/03/20.
 //  Copyright © 2020 Team2. All rights reserved.
 //
+//swiftlint:disable function_body_length
 
 import Quick
 import Nimble
@@ -25,8 +26,8 @@ final class CardListDataSourceSpec: QuickSpec {
                 selectedIndexPath = indexPath
                 return CardCellViewModel()
             }
-            // TODO: Fill with card sets stubs
-            sets = [CardSet(id: "0", name: "Set 0")]
+            
+            sets = CardSetStub().getFullSets()
             sut = CardListDataSource()
             sut.getViewModel = viewModelHandler
             sut.sets = sets
@@ -34,7 +35,7 @@ final class CardListDataSourceSpec: QuickSpec {
             layout.scrollDirection = .vertical
             collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
             collectionView.dataSource = sut
-            collectionView.reloadData()
+            sut.registerCells(on: collectionView)
         }
         
         afterEach {
@@ -50,10 +51,49 @@ final class CardListDataSourceSpec: QuickSpec {
                 expect(sut.numberOfSections(in: collectionView)).to(equal(sets.count))
             }
             
+            it("should have registered the correct cells") {
+                
+                // Act
+                let cardCell = collectionView.dequeueReusableCell(withReuseIdentifier: CardCell.identifier, for: IndexPath(item: 3, section: 0))
+                let typeHeaderCell = collectionView.dequeueReusableCell(withReuseIdentifier: CardTypeHeaderCell.identifier, for: IndexPath(item: 0, section: 0))
+                let setHeaderCell = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader,
+                                                                                    withReuseIdentifier: CardSetHeaderCell.identifier,
+                                                                                    for: IndexPath(item: 0, section: 0))
+                
+                // Assert
+                expect(cardCell).to(beAKindOf(CardCell.self))
+                expect(typeHeaderCell).to(beAKindOf(CardTypeHeaderCell.self))
+                expect(setHeaderCell).to(beAKindOf(CardSetHeaderCell.self))
+            }
+            
             context("when loading section") {
                 it("should have the correct number of items") {
                     let section: Int = 0
                     expect(sut.collectionView(collectionView, numberOfItemsInSection: section)).to(equal(sets[section].cards.count))
+                }
+            }
+            
+            context("when loading cell data") {
+                it("should call the view model handler with the correct index path") {
+                    // Arrange
+                    let indexPath = IndexPath(item: 2, section: 2)
+                    
+                    // Act
+                    _ = sut.collectionView(collectionView, cellForItemAt: indexPath)
+                    
+                    // Assert
+                    expect(selectedIndexPath).toNot(beNil())
+                    expect(selectedIndexPath).to(equal(indexPath))
+                }
+                
+                it("should load the last cell of the last section") {
+                    
+                    // Act
+                    let indexPath = IndexPath(item: sets[sets.count - 1].cards.count - 1, section: sets.count - 1)
+                    let cell = sut.collectionView(collectionView, cellForItemAt: indexPath) as? CardCell
+                    
+                    // Arrange
+                    expect(cell).toNot(beNil())
                 }
             }
         }
