@@ -15,12 +15,12 @@ extension Card {
         return NSFetchRequest<Card>(entityName: "Card")
     }
 
-    @NSManaged public var id: String?
+    @NSManaged public var id: String
     @NSManaged public var imageURL: String?
     @NSManaged public var imageData: Data?
-    @NSManaged public var name: String?
-    @NSManaged public var categories: NSSet?
-    @NSManaged public var collection: Collection?
+    @NSManaged public var name: String
+    @NSManaged public var categories: NSSet
+    @NSManaged public var collection: Collection
 
 }
 
