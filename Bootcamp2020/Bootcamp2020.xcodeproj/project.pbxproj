@@ -150,6 +150,22 @@
 			path = DataHandlers;
 			sourceTree = "<group>";
 		};
+		81354A3824213ECA007896FF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				81354A3524213763007896FF /* DataHandlers */,
+				81354A3924213EDD007896FF /* Objects */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		81354A3924213EDD007896FF /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Objects;
+			sourceTree = "<group>";
+		};
 		81606CF9241F9C0200CDEECA /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
@@ -210,8 +226,8 @@
 				81F69811241FBE7E00258920 /* Bootcamp2020Tests-Bridging-Header.h */,
 				C03D30E2241BFC100089B070 /* Info.plist */,
 				81606CF9241F9C0200CDEECA /* Coordinators */,
-				81354A3524213763007896FF /* DataHandlers */,
 				81606CFA241F9C1000CDEECA /* Helpers */,
+				81354A3824213ECA007896FF /* Models */,
 			);
 			path = Bootcamp2020Tests;
 			sourceTree = "<group>";

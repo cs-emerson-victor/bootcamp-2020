@@ -5,6 +5,7 @@
 //  Created by emerson.victor.f.luz on 17/03/20.
 //  Copyright © 2020 Team2. All rights reserved.
 //
+// swiftlint:disable force_try
 
 @testable import Bootcamp2020
 import RealmSwift
@@ -43,7 +44,6 @@ class RealmManagerSpec: QuickSpec {
             
             context("when it's saved card") {
                 it("should save the given card") {
-                    
                     
                 }
             }
