@@ -14,23 +14,9 @@ enum APIError: Error {
     case serializationError
 }
 
-class CardsResponse: Codable {
-    var cards: [Card]
-    
-    init(cards: [Card]) {
-        self.cards = cards
-    }
+protocol NetworkService: Service {
+    func fetchCards(ofSet cardSet: CardSet, completion: @escaping (Result<[Card], Error>) -> Void)
 }
-
-class CardSetsResponse: Codable {
-    var sets: [CardSet]
-    
-    init(sets: [CardSet]) {
-        self.sets = sets
-    }
-}
-
-protocol NetworkService: Service {}
 
 class APIManager {
     typealias HeaderFields = [AnyHashable: Any]
@@ -48,7 +34,7 @@ class APIManager {
         self.session = session
     }
     
-    private func fetch<T: Codable>(from endpoint: Endpoint,
+    private func fetch<T: Codable>( from endpoint: Endpoint,
                                     withParams params: Params? = nil,
                                     completion: @escaping (Result<T, Error>) -> Void) {
         
@@ -65,7 +51,6 @@ class APIManager {
             
             do {
                 let decodedData = try self.jsonDecoder.decode(T.self, from: data)
-                
                 completion(.success(decodedData))
                 
             } catch {
@@ -77,9 +62,9 @@ class APIManager {
     }
     
     private func fetch<T: Codable>(from endpoint: Endpoint,
-                                    withParams params: Params? = nil,
-                                    returningHeaderFields headerFields: [AnyHashable],
-                                    completion: @escaping (_ result: Result<(data: T, fields: HeaderFields), Error>) -> Void) {
+                                   withParams params: Params? = nil,
+                                   returningHeaderFields headerFields: [AnyHashable],
+                                   completion: @escaping (_ result: Result<(data: T, fields: HeaderFields), Error>) -> Void) {
         
         guard let url = composeURL(endpoint.url, withParams: params) else {
             completion(.failure(APIError.invalidURL))
@@ -95,8 +80,8 @@ class APIManager {
             do {
                 let decodedData = try self.jsonDecoder.decode(T.self, from: data)
                 let fields = self.filterHeaderFields(httpResponse.allHeaderFields, withKeys: headerFields)
-                
                 completion(.success((data: decodedData, fields: fields)))
+                
             } catch {
                 completion(.failure(APIError.serializationError))
             }
@@ -135,11 +120,11 @@ extension APIManager: NetworkService {
         }
     }
     
-    func fetchCards(ofSet set: CardSet,
+    func fetchCards(ofSet cardSet: CardSet,
                     completion: @escaping (Result<[Card], Error>) -> Void) {
         
         let dispatchGroup = DispatchGroup()
-        let endpoint = Endpoint(ofType: .cards(set: set))
+        let endpoint = Endpoint(ofType: .cards(set: cardSet))
         var allCards = [Card]()
         var maxPages = 0
         
@@ -201,7 +186,7 @@ extension APIManager {
                         let totalCardCount = Int(totalCardCountString) {
                         let pageCount = Int(ceil(Double(totalCardCount)/100))
                         
-                         completion(.success((cards: response.data.cards, pages: pageCount)))
+                        completion(.success((cards: response.data.cards, pages: pageCount)))
                     } else {
                         completion(.failure(APIError.defaultError))
                     }
@@ -221,7 +206,7 @@ extension APIManager {
         let dispatchGroup = DispatchGroup()
         var allCards = [Card]()
         var anyError: Error?
-   
+        
         for page in 2..<(pageCount + 1) {
             dispatchGroup.enter()
             

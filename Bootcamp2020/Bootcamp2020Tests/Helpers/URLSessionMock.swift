@@ -13,6 +13,8 @@ class URLSessionMock: URLSession {
     var data: Data?
     var response: URLResponse?
     var error: Error?
+    
+    override init() {}
 
     override func dataTask(with url: URL,
                            completionHandler: @escaping CompletionHandler) -> URLSessionDataTask {
