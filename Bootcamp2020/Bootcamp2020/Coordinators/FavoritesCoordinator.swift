@@ -18,6 +18,7 @@ final class FavoritesCoordinator: Coordinator {
          service: Service = RealmManager()) {
         
         self.rootController = rootController
+        rootController.isNavigationBarHidden = true
         self.childCoordinators = []
         self.service = service
     }

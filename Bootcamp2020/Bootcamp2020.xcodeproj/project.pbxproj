@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17A1E853242138F100406139 /* CardsAndSetsStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A1E852242138F100406139 /* CardsAndSetsStub.swift */; };
+		17E7CFBA242136B7004C06E1 /* URLSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E7CFB9242136B7004C06E1 /* URLSessionMock.swift */; };
 		1D1759F9241FDCC40037E4B9 /* CardListScreenSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1759F8241FDCC40037E4B9 /* CardListScreenSpec.swift */; };
 		1D175A0324202EE20037E4B9 /* CardListDelegateSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D175A0224202EE20037E4B9 /* CardListDelegateSpec.swift */; };
 		1D175A0524202FB20037E4B9 /* CardListDataSourceStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D175A0424202FB20037E4B9 /* CardListDataSourceStub.swift */; };
@@ -61,6 +63,10 @@
 		C04072CC241C2E07005F9B97 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04072CB241C2E07005F9B97 /* Service.swift */; };
 		C04072D0241C3EF9005F9B97 /* CardListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04072CF241C3EF9005F9B97 /* CardListDataSource.swift */; };
 		C04072D2241C3F78005F9B97 /* CardListDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04072D1241C3F78005F9B97 /* CardListDelegate.swift */; };
+    C0613712241FF72C00B75034 /* APIManagerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C4A85B241FF46F002CB8D9 /* APIManagerSpec.swift */; };
+		C061372224200DE200B75034 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C061372124200DE200B75034 /* Endpoint.swift */; };
+		C091F1E82420F28900ECD238 /* EndpointSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C091F1E72420F28900ECD238 /* EndpointSpec.swift */; };
+		C0EC9FC124229121004C3526 /* APIResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EC9FC024229121004C3526 /* APIResponses.swift */; };
 		C04072D5241C3FF6005F9B97 /* CardTypeHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04072D4241C3FF6005F9B97 /* CardTypeHeaderCell.swift */; };
 		C04072D7241C4012005F9B97 /* CardSetHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04072D6241C4012005F9B97 /* CardSetHeaderCell.swift */; };
 /* End PBXBuildFile section */
@@ -83,6 +89,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		17A1E852242138F100406139 /* CardsAndSetsStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsAndSetsStub.swift; sourceTree = "<group>"; };
+		17E7CFB9242136B7004C06E1 /* URLSessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionMock.swift; sourceTree = "<group>"; };
 		1D1759F8241FDCC40037E4B9 /* CardListScreenSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListScreenSpec.swift; sourceTree = "<group>"; };
 		1D175A0224202EE20037E4B9 /* CardListDelegateSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardListDelegateSpec.swift; sourceTree = "<group>"; };
 		1D175A0424202FB20037E4B9 /* CardListDataSourceStub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardListDataSourceStub.swift; sourceTree = "<group>"; };
@@ -109,7 +117,6 @@
 		816EA56B242154160032620F /* CardSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSpec.swift; sourceTree = "<group>"; };
 		816EA56D2421544A0032620F /* CardTypeSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTypeSpec.swift; sourceTree = "<group>"; };
 		816EA56F2421545F0032620F /* CardSetSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSetSpec.swift; sourceTree = "<group>"; };
-		81F69811241FBE7E00258920 /* Bootcamp2020Tests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bootcamp2020Tests-Bridging-Header.h"; sourceTree = "<group>"; };
 		81F69812241FBE7E00258920 /* AppCoordinatorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinatorSpec.swift; sourceTree = "<group>"; };
 		81F69815241FC4DF00258920 /* NetworkServiceDummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceDummy.swift; sourceTree = "<group>"; };
 		81F69819241FE78200258920 /* HomeCoordinatorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinatorSpec.swift; sourceTree = "<group>"; };
@@ -145,7 +152,12 @@
 		C04072C9241C2840005F9B97 /* CardCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCellViewModel.swift; sourceTree = "<group>"; };
 		C04072CB241C2E07005F9B97 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		C04072CF241C3EF9005F9B97 /* CardListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListDataSource.swift; sourceTree = "<group>"; };
-		C04072D1241C3F78005F9B97 /* CardListDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListDelegate.swift; sourceTree = "<group>"; };
+		C04072D1241C3F78005F9B97 /* CardListDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListDelegate.swift; sourceTree = "<group>"; };		
+		C061372124200DE200B75034 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		C091F1E72420F28900ECD238 /* EndpointSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndpointSpec.swift; sourceTree = "<group>"; };
+		C0C4A85A241FF46E002CB8D9 /* Bootcamp2020Tests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bootcamp2020Tests-Bridging-Header.h"; sourceTree = "<group>"; };
+		C0C4A85B241FF46F002CB8D9 /* APIManagerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManagerSpec.swift; sourceTree = "<group>"; };
+		C0EC9FC024229121004C3526 /* APIResponses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponses.swift; sourceTree = "<group>"; };
 		C04072D4241C3FF6005F9B97 /* CardTypeHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTypeHeaderCell.swift; sourceTree = "<group>"; };
 		C04072D6241C4012005F9B97 /* CardSetHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSetHeaderCell.swift; sourceTree = "<group>"; };
 		C5651C9C98875CE89327C3E5 /* Pods-Bootcamp2020.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bootcamp2020.debug.xcconfig"; path = "Target Support Files/Pods-Bootcamp2020/Pods-Bootcamp2020.debug.xcconfig"; sourceTree = "<group>"; };
@@ -246,8 +258,10 @@
 		81606CFA241F9C1000CDEECA /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				17A1E852242138F100406139 /* CardsAndSetsStub.swift */,
 				1D175A0424202FB20037E4B9 /* CardListDataSourceStub.swift */,
 				81F6981D241FEDB200258920 /* LocalServiceDummy.swift */,
+				17E7CFB9242136B7004C06E1 /* URLSessionMock.swift */,
 				81F69815241FC4DF00258920 /* NetworkServiceDummy.swift */,
 				1D175A10242163ED0037E4B9 /* KIF+TesterExtension.swift */,
 				1D175A122421680D0037E4B9 /* CardSetStub.swift */,
@@ -294,8 +308,10 @@
 		C03D30DF241BFC100089B070 /* Bootcamp2020Tests */ = {
 			isa = PBXGroup;
 			children = (
-				81F69811241FBE7E00258920 /* Bootcamp2020Tests-Bridging-Header.h */,
+				C0C4A85A241FF46E002CB8D9 /* Bootcamp2020Tests-Bridging-Header.h */,
 				C03D30E2241BFC100089B070 /* Info.plist */,
+				C091F1E72420F28900ECD238 /* EndpointSpec.swift */,
+				C091F1E22420EDC600ECD238 /* APIManager */,
 				81606CF9241F9C0200CDEECA /* Coordinators */,
 				81606CFA241F9C1000CDEECA /* Helpers */,
 				1D175A1E24228A230037E4B9 /* Card Detail */,
@@ -364,6 +380,8 @@
 				81F6982324211CDB00258920 /* Card.swift */,
 				81F6982624211D1600258920 /* CardType.swift */,
 				81F6982124211CC300258920 /* CardSet.swift */,
+				C061372124200DE200B75034 /* Endpoint.swift */,
+				C0EC9FC024229121004C3526 /* APIResponses.swift */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -466,6 +484,14 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		C091F1E22420EDC600ECD238 /* APIManager */ = {
+			isa = PBXGroup;
+			children = (
+				C0C4A85B241FF46F002CB8D9 /* APIManagerSpec.swift */,
+			);
+			path = APIManager;
+			sourceTree = "<group>";
+		};
 		D82C761A6F17930AD92820A8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -558,6 +584,7 @@
 		C03D30BB241BFC0F0089B070 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				DefaultBuildSystemTypeForWorkspace = Original;
 				LastSwiftUpdateCheck = 1130;
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = Team2;
@@ -767,6 +794,7 @@
 			files = (
 				C04072CC241C2E07005F9B97 /* Service.swift in Sources */,
 				C04072C0241C0EA2005F9B97 /* CardListScreen.swift in Sources */,
+				C061372224200DE200B75034 /* Endpoint.swift in Sources */,
 				C040729E241C01E1005F9B97 /* AppCoordinator.swift in Sources */,
 				1D175A1D242275300037E4B9 /* CardDetailDelegate.swift in Sources */,
 				C04072C8241C1412005F9B97 /* CardListViewModel.swift in Sources */,
@@ -787,6 +815,7 @@
 				81F6982724211D1600258920 /* CardType.swift in Sources */,
 				C04072D0241C3EF9005F9B97 /* CardListDataSource.swift in Sources */,
 				C04072CA241C2840005F9B97 /* CardCellViewModel.swift in Sources */,
+				C0EC9FC124229121004C3526 /* APIResponses.swift in Sources */,
 				C04072B2241C0841005F9B97 /* APIManager.swift in Sources */,
 				C04072A2241C01F9005F9B97 /* FavoritesCoordinator.swift in Sources */,
 				C04072BE241C0E7F005F9B97 /* CardDetailScreen.swift in Sources */,
@@ -800,6 +829,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17E7CFBA242136B7004C06E1 /* URLSessionMock.swift in Sources */,
 				81F6981A241FE78200258920 /* HomeCoordinatorSpec.swift in Sources */,
 				1D175A11242163ED0037E4B9 /* KIF+TesterExtension.swift in Sources */,
 				1D175A0324202EE20037E4B9 /* CardListDelegateSpec.swift in Sources */,
@@ -820,6 +850,9 @@
 				81354A37242138EC007896FF /* RealmManagerSpec.swift in Sources */,
 				816EA56E2421544A0032620F /* CardTypeSpec.swift in Sources */,
 				81F6981C241FEAFC00258920 /* FavoritesCoordinatorSpec.swift in Sources */,
+				C0613712241FF72C00B75034 /* APIManagerSpec.swift in Sources */,
+				17A1E853242138F100406139 /* CardsAndSetsStub.swift in Sources */,
+				C091F1E82420F28900ECD238 /* EndpointSpec.swift in Sources */,
 				1D175A0524202FB20037E4B9 /* CardListDataSourceStub.swift in Sources */,
 				1D1759F9241FDCC40037E4B9 /* CardListScreenSpec.swift in Sources */,
 				1D175A19242265D00037E4B9 /* CardListIntegrationSpec.swift in Sources */,
@@ -981,6 +1014,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9554U789HP;
 				INFOPLIST_FILE = Bootcamp2020/Application/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1000,6 +1034,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9554U789HP;
 				INFOPLIST_FILE = Bootcamp2020/Application/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

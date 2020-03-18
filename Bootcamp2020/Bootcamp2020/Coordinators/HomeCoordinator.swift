@@ -19,6 +19,7 @@ final class HomeCoordinator: Coordinator {
          service: Service = APIManager()) {
         
         self.rootController = rootController
+        rootController.isNavigationBarHidden = true
         self.childCoordinators = []
         self.service = service
     }
