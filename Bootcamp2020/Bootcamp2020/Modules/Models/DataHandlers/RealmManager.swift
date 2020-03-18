@@ -9,11 +9,7 @@
 import Foundation
 import RealmSwift
 
-protocol LocalService: AnyObject, Service {
-    func save(_ card: Card) -> Error?
-}
-
-final class RealmManager: LocalService {
+final class RealmManager: LocalService, CardSaverProtocol {
     
     let realm: Realm?
     let error: Error?

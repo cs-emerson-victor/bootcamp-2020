@@ -14,10 +14,6 @@ enum APIError: Error {
     case serializationError
 }
 
-protocol NetworkService: Service {
-    func fetchCards(ofSet cardSet: CardSet, completion: @escaping (Result<[Card], Error>) -> Void)
-}
-
 class APIManager {
     typealias HeaderFields = [AnyHashable: Any]
     typealias Params = [String: String]
