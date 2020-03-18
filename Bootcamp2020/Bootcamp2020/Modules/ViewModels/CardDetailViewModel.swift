@@ -10,4 +10,7 @@ import Foundation
 
 struct CardDetailViewModel {
     
+    init(card: Card) {
+        
+    }
 }
