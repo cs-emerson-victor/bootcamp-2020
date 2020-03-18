@@ -40,7 +40,7 @@ final class CardListScreenSpec: QuickSpec {
                     var hasCollectionView = false
                     var hasBackgroundImageView = false
                     for view in sut.subviews {
-                        switch view.accessibilityIdentifier {
+                        switch view.accessibilityLabel {
                         case "listCollectionView":
                             hasCollectionView = true
                         case "listSearchBar":

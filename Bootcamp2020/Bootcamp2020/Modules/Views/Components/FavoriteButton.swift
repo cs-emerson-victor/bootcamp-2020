@@ -33,6 +33,8 @@ extension FavoriteButton: ViewCode {
     func setupAdditionalConfiguration() {
         layer.borderWidth = 1
         layer.borderColor = UIColor.white.cgColor
+        layer.cornerRadius = 3
+        clipsToBounds = true
         titleLabel?.font = .boldSystemFont(ofSize: 16)
         titleLabel?.textAlignment = .center
     }

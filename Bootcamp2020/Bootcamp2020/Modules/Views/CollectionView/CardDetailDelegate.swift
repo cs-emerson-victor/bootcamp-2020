@@ -9,17 +9,8 @@
 import UIKit
 
 final class CardDetailDelegate: NSObject {
-    
-    var didSelectItemAt: ((_ item: Int) -> Void)?
-    
+        
     fileprivate var cellAspectRatio: CGFloat = 85/118
-}
-
-extension CardDetailDelegate: UICollectionViewDelegate {
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        didSelectItemAt?(indexPath.row)
-    }
 }
 
 extension CardDetailDelegate: UICollectionViewDelegateFlowLayout {

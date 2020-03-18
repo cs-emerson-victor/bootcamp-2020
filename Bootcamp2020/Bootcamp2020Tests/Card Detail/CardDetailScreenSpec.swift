@@ -5,6 +5,7 @@
 //  Created by alexandre.c.ferreira on 18/03/20.
 //  Copyright © 2020 Team2. All rights reserved.
 //
+//swiftlint:disable function_body_length
 
 import Quick
 import Nimble
@@ -40,19 +41,33 @@ final class CardDetailScreenSpec: QuickSpec {
                     var hasFavoriteButton = false
                     var hasCollectionView = false
                     var hasBackgroundImageView = false
+                    var backgoundImageView: UIView?
                     for view in sut.subviews {
                         switch view.accessibilityLabel {
                         case "cardDetailCollectionView":
                             hasCollectionView = true
-                        case "closeButton":
-                            hasCloseButton = true
                         case "detailBackgroundImageView":
                             hasBackgroundImageView = true
+                            backgoundImageView = view
                         case "favoriteButton":
                             hasFavoriteButton = true
                         default:
                             break
                         }
+                    }
+                    
+                    // close button is subview of the background image view
+                    if let backgroudView = backgoundImageView {
+                        for view in backgroudView.subviews {
+                            switch view.accessibilityLabel {
+                            case "closeButton":
+                                hasCloseButton = true
+                            default:
+                                break
+                            }
+                        }
+                    } else {
+                        Nimble.fail("background image view did not exist")
                     }
                     
                     // Assert

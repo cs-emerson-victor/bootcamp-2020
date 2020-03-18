@@ -70,8 +70,8 @@ extension CardDetailScreen: ViewCode {
     func buildViewHierarchy() {
         addSubview(detailBackgroundImageView)
         addSubview(cardDetailCollectionView)
-        addSubview(closeButton)
         addSubview(favoriteButton)
+        detailBackgroundImageView.addSubview(closeButton)
     }
     
     func setupConstraints() {

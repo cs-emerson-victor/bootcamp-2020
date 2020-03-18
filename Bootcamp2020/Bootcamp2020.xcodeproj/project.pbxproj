@@ -20,6 +20,10 @@
 		1D175A1B242273FE0037E4B9 /* CardDetailDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D175A1A242273FE0037E4B9 /* CardDetailDataSource.swift */; };
 		1D175A1D242275300037E4B9 /* CardDetailDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D175A1C242275300037E4B9 /* CardDetailDelegate.swift */; };
 		1D175A2224228A6A0037E4B9 /* CardDetailScreenSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D175A2124228A6A0037E4B9 /* CardDetailScreenSpec.swift */; };
+		1D175A242422A0220037E4B9 /* CardDetailViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D175A232422A0220037E4B9 /* CardDetailViewControllerSpec.swift */; };
+		1D175A262422A2330037E4B9 /* CardDetailDataSourceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D175A252422A2330037E4B9 /* CardDetailDataSourceSpec.swift */; };
+		1D175A282422A3A60037E4B9 /* CardDetailDelegateSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D175A272422A3A60037E4B9 /* CardDetailDelegateSpec.swift */; };
+		1D175A2A2422A95E0037E4B9 /* CardDetailIntegrationSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D175A292422A95E0037E4B9 /* CardDetailIntegrationSpec.swift */; };
 		2B1D084BD99C3DBEC940754F /* Pods_Bootcamp2020.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6817D7B18DA67B0C87627838 /* Pods_Bootcamp2020.framework */; };
 		5A17C769CE83FFEA6B0C7AB6 /* Pods_Bootcamp2020SnapshotTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3ABAABE0031DB5F028E6598 /* Pods_Bootcamp2020SnapshotTests.framework */; };
 		81354A37242138EC007896FF /* RealmManagerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81354A36242138EC007896FF /* RealmManagerSpec.swift */; };
@@ -92,6 +96,10 @@
 		1D175A1A242273FE0037E4B9 /* CardDetailDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailDataSource.swift; sourceTree = "<group>"; };
 		1D175A1C242275300037E4B9 /* CardDetailDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailDelegate.swift; sourceTree = "<group>"; };
 		1D175A2124228A6A0037E4B9 /* CardDetailScreenSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailScreenSpec.swift; sourceTree = "<group>"; };
+		1D175A232422A0220037E4B9 /* CardDetailViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailViewControllerSpec.swift; sourceTree = "<group>"; };
+		1D175A252422A2330037E4B9 /* CardDetailDataSourceSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailDataSourceSpec.swift; sourceTree = "<group>"; };
+		1D175A272422A3A60037E4B9 /* CardDetailDelegateSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailDelegateSpec.swift; sourceTree = "<group>"; };
+		1D175A292422A95E0037E4B9 /* CardDetailIntegrationSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailIntegrationSpec.swift; sourceTree = "<group>"; };
 		2ECB7FF7F8166C3F105BF76A /* Pods-Bootcamp2020SnapshotTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bootcamp2020SnapshotTests.debug.xcconfig"; path = "Target Support Files/Pods-Bootcamp2020SnapshotTests/Pods-Bootcamp2020SnapshotTests.debug.xcconfig"; sourceTree = "<group>"; };
 		61FD2D32CEDE908EE4B6A5DC /* Pods-Bootcamp2020.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bootcamp2020.release.xcconfig"; path = "Target Support Files/Pods-Bootcamp2020/Pods-Bootcamp2020.release.xcconfig"; sourceTree = "<group>"; };
 		672235472A7D97E5E74ED19A /* Pods-Bootcamp2020Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bootcamp2020Tests.release.xcconfig"; path = "Target Support Files/Pods-Bootcamp2020Tests/Pods-Bootcamp2020Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -190,6 +198,10 @@
 			isa = PBXGroup;
 			children = (
 				1D175A2124228A6A0037E4B9 /* CardDetailScreenSpec.swift */,
+				1D175A232422A0220037E4B9 /* CardDetailViewControllerSpec.swift */,
+				1D175A252422A2330037E4B9 /* CardDetailDataSourceSpec.swift */,
+				1D175A272422A3A60037E4B9 /* CardDetailDelegateSpec.swift */,
+				1D175A292422A95E0037E4B9 /* CardDetailIntegrationSpec.swift */,
 			);
 			path = "Card Detail";
 			sourceTree = "<group>";
@@ -794,12 +806,16 @@
 				1D175A2224228A6A0037E4B9 /* CardDetailScreenSpec.swift in Sources */,
 				1D175A17242197BB0037E4B9 /* NetworkServiceStub.swift in Sources */,
 				81F6981E241FEDB200258920 /* LocalServiceDummy.swift in Sources */,
+				1D175A2A2422A95E0037E4B9 /* CardDetailIntegrationSpec.swift in Sources */,
 				1D175A0D2421492A0037E4B9 /* CardListDataSourceSpec.swift in Sources */,
 				81F69816241FC4DF00258920 /* NetworkServiceDummy.swift in Sources */,
+				1D175A282422A3A60037E4B9 /* CardDetailDelegateSpec.swift in Sources */,
+				1D175A262422A2330037E4B9 /* CardDetailDataSourceSpec.swift in Sources */,
 				1D175A15242189E70037E4B9 /* CardListViewControllerSpec.swift in Sources */,
 				816EA56C242154160032620F /* CardSpec.swift in Sources */,
 				1D175A132421680D0037E4B9 /* CardSetStub.swift in Sources */,
 				81F69813241FBE7E00258920 /* AppCoordinatorSpec.swift in Sources */,
+				1D175A242422A0220037E4B9 /* CardDetailViewControllerSpec.swift in Sources */,
 				816EA5702421545F0032620F /* CardSetSpec.swift in Sources */,
 				81354A37242138EC007896FF /* RealmManagerSpec.swift in Sources */,
 				816EA56E2421544A0032620F /* CardTypeSpec.swift in Sources */,
