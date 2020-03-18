@@ -18,7 +18,7 @@ struct CardListViewModel {
     
     let state: UIState
     let cardSets: [CardSet]
-    weak var delegate: CardListViewModelDelegate?
+    private(set) weak var delegate: CardListViewModelDelegate?
     
     init(state: UIState, delegate: CardListViewModelDelegate) {
         self.delegate = delegate

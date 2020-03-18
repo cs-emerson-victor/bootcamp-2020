@@ -10,14 +10,21 @@ import UIKit
 
 struct CardCellViewModel {
     
-    let image: UIImage?
+    let card: Card
     
     init(card: Card) {
+        self.card = card
+    }
+}
+
+
+extension CardCellViewModel {
+    
+    var image: UIImage? {
         guard let imageData = card.imageData else {
-            image = nil
-            return
+            return nil
         }
         
-        image = UIImage(data: imageData)
+        return UIImage(data: imageData)
     }
 }

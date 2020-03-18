@@ -6,11 +6,38 @@
 //  Copyright © 2020 Team2. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+protocol CardDetailViewModelDelegate: AnyObject {
+    
+    func toggleFavorite(_ card: Card)
+}
+
 
 struct CardDetailViewModel {
     
-    init(card: Card) {
-        
+    let cards: [Card]
+    private(set) weak var delegate: CardDetailViewModelDelegate?
+    
+    init(cards: [Card], delegate: CardDetailViewModelDelegate) {
+        self.cards = cards
+        self.delegate = delegate
+    }
+}
+
+extension CardDetailViewModel {
+    func cellViewModel(for indexPath: IndexPath) -> CardCellViewModel {
+        let card = cards[indexPath.row]
+        return CardCellViewModel(card: card)
+    }
+    
+    func isCardFavorite(at indexPath: IndexPath) -> Bool {
+        let card = cards[indexPath.row]
+        return card.isFavorite
+    }
+    
+    func toggleCardFavorite(at indexPath: IndexPath) {
+        let card = cards[indexPath.row]
+        delegate?.toggleFavorite(card)
     }
 }
