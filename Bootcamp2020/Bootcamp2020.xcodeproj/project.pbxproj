@@ -26,6 +26,8 @@
 		8193839B24228376002A3EA7 /* Bootcamp2020SnapshotSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8193839A24228376002A3EA7 /* Bootcamp2020SnapshotSpec.swift */; };
 		81C4A70C2422A50400E12BE6 /* CardCellViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C4A70B2422A50400E12BE6 /* CardCellViewModelSpec.swift */; };
 		81C4A70F2422A8EB00E12BE6 /* AssetsTest.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81C4A70E2422A8EB00E12BE6 /* AssetsTest.xcassets */; };
+		81C4A7112422ABE700E12BE6 /* CardDetailViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C4A7102422ABE700E12BE6 /* CardDetailViewModelSpec.swift */; };
+		81C4A7142422ADDD00E12BE6 /* CardDetailViewModelDelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C4A7132422ADDD00E12BE6 /* CardDetailViewModelDelegateSpy.swift */; };
 		81F69813241FBE7E00258920 /* AppCoordinatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F69812241FBE7E00258920 /* AppCoordinatorSpec.swift */; };
 		81F69816241FC4DF00258920 /* NetworkServiceDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F69815241FC4DF00258920 /* NetworkServiceDummy.swift */; };
 		81F6981A241FE78200258920 /* HomeCoordinatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F69819241FE78200258920 /* HomeCoordinatorSpec.swift */; };
@@ -102,6 +104,8 @@
 		8193839A24228376002A3EA7 /* Bootcamp2020SnapshotSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bootcamp2020SnapshotSpec.swift; sourceTree = "<group>"; };
 		81C4A70B2422A50400E12BE6 /* CardCellViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCellViewModelSpec.swift; sourceTree = "<group>"; };
 		81C4A70E2422A8EB00E12BE6 /* AssetsTest.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AssetsTest.xcassets; sourceTree = "<group>"; };
+		81C4A7102422ABE700E12BE6 /* CardDetailViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailViewModelSpec.swift; sourceTree = "<group>"; };
+		81C4A7132422ADDD00E12BE6 /* CardDetailViewModelDelegateSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailViewModelDelegateSpy.swift; sourceTree = "<group>"; };
 		81F69811241FBE7E00258920 /* Bootcamp2020Tests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bootcamp2020Tests-Bridging-Header.h"; sourceTree = "<group>"; };
 		81F69812241FBE7E00258920 /* AppCoordinatorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinatorSpec.swift; sourceTree = "<group>"; };
 		81F69815241FC4DF00258920 /* NetworkServiceDummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceDummy.swift; sourceTree = "<group>"; };
@@ -237,6 +241,7 @@
 		81606CFA241F9C1000CDEECA /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				81C4A7122422AD9A00E12BE6 /* Spies */,
 				81C4A70D2422A8DC00E12BE6 /* Resources */,
 				81C4A7082422863500E12BE6 /* Dummies */,
 				81C4A7092422864F00E12BE6 /* Extensions */,
@@ -266,6 +271,7 @@
 			isa = PBXGroup;
 			children = (
 				81C4A70B2422A50400E12BE6 /* CardCellViewModelSpec.swift */,
+				81C4A7102422ABE700E12BE6 /* CardDetailViewModelSpec.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -276,6 +282,14 @@
 				81C4A70E2422A8EB00E12BE6 /* AssetsTest.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		81C4A7122422AD9A00E12BE6 /* Spies */ = {
+			isa = PBXGroup;
+			children = (
+				81C4A7132422ADDD00E12BE6 /* CardDetailViewModelDelegateSpy.swift */,
+			);
+			path = Spies;
 			sourceTree = "<group>";
 		};
 		C03D30BA241BFC0F0089B070 = {
@@ -826,6 +840,8 @@
 				1D175A11242163ED0037E4B9 /* KIF+TesterExtension.swift in Sources */,
 				1D175A0324202EE20037E4B9 /* CardListDelegateSpec.swift in Sources */,
 				1D175A17242197BB0037E4B9 /* NetworkServiceStub.swift in Sources */,
+				81C4A7142422ADDD00E12BE6 /* CardDetailViewModelDelegateSpy.swift in Sources */,
+				81C4A7112422ABE700E12BE6 /* CardDetailViewModelSpec.swift in Sources */,
 				81F6981E241FEDB200258920 /* LocalServiceDummy.swift in Sources */,
 				1D175A0D2421492A0037E4B9 /* CardListDataSourceSpec.swift in Sources */,
 				81F69816241FC4DF00258920 /* NetworkServiceDummy.swift in Sources */,
