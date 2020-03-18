@@ -23,6 +23,7 @@
 		816EA56C242154160032620F /* CardSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816EA56B242154160032620F /* CardSpec.swift */; };
 		816EA56E2421544A0032620F /* CardTypeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816EA56D2421544A0032620F /* CardTypeSpec.swift */; };
 		816EA5702421545F0032620F /* CardSetSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816EA56F2421545F0032620F /* CardSetSpec.swift */; };
+		8193839B24228376002A3EA7 /* Bootcamp2020SnapshotSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8193839A24228376002A3EA7 /* Bootcamp2020SnapshotSpec.swift */; };
 		81F69813241FBE7E00258920 /* AppCoordinatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F69812241FBE7E00258920 /* AppCoordinatorSpec.swift */; };
 		81F69816241FC4DF00258920 /* NetworkServiceDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F69815241FC4DF00258920 /* NetworkServiceDummy.swift */; };
 		81F6981A241FE78200258920 /* HomeCoordinatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F69819241FE78200258920 /* HomeCoordinatorSpec.swift */; };
@@ -95,6 +96,8 @@
 		816EA56B242154160032620F /* CardSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSpec.swift; sourceTree = "<group>"; };
 		816EA56D2421544A0032620F /* CardTypeSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTypeSpec.swift; sourceTree = "<group>"; };
 		816EA56F2421545F0032620F /* CardSetSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSetSpec.swift; sourceTree = "<group>"; };
+		8193839924228376002A3EA7 /* Bootcamp2020SnapshotTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bootcamp2020SnapshotTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		8193839A24228376002A3EA7 /* Bootcamp2020SnapshotSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bootcamp2020SnapshotSpec.swift; sourceTree = "<group>"; };
 		81F69811241FBE7E00258920 /* Bootcamp2020Tests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bootcamp2020Tests-Bridging-Header.h"; sourceTree = "<group>"; };
 		81F69812241FBE7E00258920 /* AppCoordinatorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinatorSpec.swift; sourceTree = "<group>"; };
 		81F69815241FC4DF00258920 /* NetworkServiceDummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceDummy.swift; sourceTree = "<group>"; };
@@ -168,16 +171,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1D1759FA241FE5B80037E4B9 /* Card List */ = {
+		1D1759FA241FE5B80037E4B9 /* CardList */ = {
 			isa = PBXGroup;
 			children = (
 				1D175A0C2421492A0037E4B9 /* CardListDataSourceSpec.swift */,
 				1D175A0224202EE20037E4B9 /* CardListDelegateSpec.swift */,
+				1D175A18242265D00037E4B9 /* CardListIntegrationSpec.swift */,
 				1D1759F8241FDCC40037E4B9 /* CardListScreenSpec.swift */,
 				1D175A14242189E70037E4B9 /* CardListViewControllerSpec.swift */,
-				1D175A18242265D00037E4B9 /* CardListIntegrationSpec.swift */,
 			);
-			path = "Card List";
+			path = CardList;
+			sourceTree = "<group>";
+		};
+		812C46E32422852E003E1FF9 /* Stubs */ = {
+			isa = PBXGroup;
+			children = (
+				1D175A0424202FB20037E4B9 /* CardListDataSourceStub.swift */,
+				1D175A122421680D0037E4B9 /* CardSetStub.swift */,
+				1D175A16242197BB0037E4B9 /* NetworkServiceStub.swift */,
+			);
+			path = Stubs;
 			sourceTree = "<group>";
 		};
 		81354A3524213763007896FF /* DataHandlers */ = {
@@ -200,9 +213,9 @@
 		81354A3924213EDD007896FF /* Objects */ = {
 			isa = PBXGroup;
 			children = (
+				816EA56F2421545F0032620F /* CardSetSpec.swift */,
 				816EA56B242154160032620F /* CardSpec.swift */,
 				816EA56D2421544A0032620F /* CardTypeSpec.swift */,
-				816EA56F2421545F0032620F /* CardSetSpec.swift */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -211,8 +224,8 @@
 			isa = PBXGroup;
 			children = (
 				81F69812241FBE7E00258920 /* AppCoordinatorSpec.swift */,
-				81F69819241FE78200258920 /* HomeCoordinatorSpec.swift */,
 				81F6981B241FEAFC00258920 /* FavoritesCoordinatorSpec.swift */,
+				81F69819241FE78200258920 /* HomeCoordinatorSpec.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -220,14 +233,28 @@
 		81606CFA241F9C1000CDEECA /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				1D175A0424202FB20037E4B9 /* CardListDataSourceStub.swift */,
-				81F6981D241FEDB200258920 /* LocalServiceDummy.swift */,
-				81F69815241FC4DF00258920 /* NetworkServiceDummy.swift */,
-				1D175A10242163ED0037E4B9 /* KIF+TesterExtension.swift */,
-				1D175A122421680D0037E4B9 /* CardSetStub.swift */,
-				1D175A16242197BB0037E4B9 /* NetworkServiceStub.swift */,
+				81C4A7082422863500E12BE6 /* Dummies */,
+				81C4A7092422864F00E12BE6 /* Extensions */,
+				812C46E32422852E003E1FF9 /* Stubs */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		81C4A7082422863500E12BE6 /* Dummies */ = {
+			isa = PBXGroup;
+			children = (
+				81F6981D241FEDB200258920 /* LocalServiceDummy.swift */,
+				81F69815241FC4DF00258920 /* NetworkServiceDummy.swift */,
+			);
+			path = Dummies;
+			sourceTree = "<group>";
+		};
+		81C4A7092422864F00E12BE6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1D175A10242163ED0037E4B9 /* KIF+TesterExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		C03D30BA241BFC0F0089B070 = {
@@ -270,9 +297,9 @@
 			children = (
 				81F69811241FBE7E00258920 /* Bootcamp2020Tests-Bridging-Header.h */,
 				C03D30E2241BFC100089B070 /* Info.plist */,
+				1D1759FA241FE5B80037E4B9 /* CardList */,
 				81606CF9241F9C0200CDEECA /* Coordinators */,
 				81606CFA241F9C1000CDEECA /* Helpers */,
-				1D1759FA241FE5B80037E4B9 /* Card List */,
 				81354A3824213ECA007896FF /* Models */,
 			);
 			path = Bootcamp2020Tests;
@@ -281,7 +308,9 @@
 		C03D30F0241BFC460089B070 /* Bootcamp2020SnapshotTests */ = {
 			isa = PBXGroup;
 			children = (
+				8193839924228376002A3EA7 /* Bootcamp2020SnapshotTests-Bridging-Header.h */,
 				C03D30F3241BFC460089B070 /* Info.plist */,
+				8193839A24228376002A3EA7 /* Bootcamp2020SnapshotSpec.swift */,
 			);
 			path = Bootcamp2020SnapshotTests;
 			sourceTree = "<group>";
@@ -317,8 +346,8 @@
 			isa = PBXGroup;
 			children = (
 				C040729D241C01E1005F9B97 /* AppCoordinator.swift */,
-				C040729F241C01ED005F9B97 /* HomeCoordinator.swift */,
 				C04072A1241C01F9005F9B97 /* FavoritesCoordinator.swift */,
+				C040729F241C01ED005F9B97 /* HomeCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -335,8 +364,8 @@
 			isa = PBXGroup;
 			children = (
 				81F6982324211CDB00258920 /* Card.swift */,
-				81F6982624211D1600258920 /* CardType.swift */,
 				81F6982124211CC300258920 /* CardSet.swift */,
+				81F6982624211D1600258920 /* CardType.swift */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -412,8 +441,8 @@
 			isa = PBXGroup;
 			children = (
 				C040728C241BFDB1005F9B97 /* Models */,
-				C0407297241C00AA005F9B97 /* Views */,
 				C0407298241C00B0005F9B97 /* ViewModels */,
+				C0407297241C00AA005F9B97 /* Views */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -431,8 +460,8 @@
 			isa = PBXGroup;
 			children = (
 				C04072B7241C0CC1005F9B97 /* CardCell.swift */,
-				C04072D4241C3FF6005F9B97 /* CardTypeHeaderCell.swift */,
 				C04072D6241C4012005F9B97 /* CardSetHeaderCell.swift */,
+				C04072D4241C3FF6005F9B97 /* CardTypeHeaderCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -543,6 +572,7 @@
 					};
 					C03D30EE241BFC460089B070 = {
 						CreatedOnToolsVersion = 11.3.1;
+						LastSwiftMigration = 1130;
 						TestTargetID = C03D30C2241BFC0F0089B070;
 					};
 				};
@@ -794,6 +824,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8193839B24228376002A3EA7 /* Bootcamp2020SnapshotSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1031,6 +1062,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Bootcamp2020SnapshotTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1040,6 +1072,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = team2.Bootcamp2020SnapshotTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Bootcamp2020SnapshotTests/Bootcamp2020SnapshotTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bootcamp2020.app/Bootcamp2020";
@@ -1052,6 +1086,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Bootcamp2020SnapshotTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1061,6 +1096,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = team2.Bootcamp2020SnapshotTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Bootcamp2020SnapshotTests/Bootcamp2020SnapshotTests-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bootcamp2020.app/Bootcamp2020";
