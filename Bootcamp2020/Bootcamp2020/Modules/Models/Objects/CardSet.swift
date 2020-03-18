@@ -13,6 +13,18 @@ final class CardSet: Object {
     @objc dynamic var name: String = ""
     @objc dynamic var releaseDate: Date = Date()
     let cards: List<Card> = List<Card>()
+    
+    convenience init(id: String, name: String, releaseDate: Date = Date(), cards: [Card] = []) {
+        self.init()
+        self.id = id
+        self.name = name
+        self.releaseDate = releaseDate
+        self.cards.append(objectsIn: cards)
+    }
+    
+    override static func primaryKey() -> String? {
+        return "id"
+    }
 }
 
 extension CardSet: Codable {
@@ -27,13 +39,6 @@ extension CardSet: Codable {
         case id = "code"
         case name
         case releaseDate
-    }
-    
-    convenience init(id: String, name: String, releaseDate: Date? = nil) {
-        self.init()
-        self.id = id
-        self.name = name
-        if let releaseDate = releaseDate { self.releaseDate = releaseDate }
     }
     
     convenience init(from decoder: Decoder) throws {

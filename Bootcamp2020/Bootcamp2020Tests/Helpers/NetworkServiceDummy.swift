@@ -13,11 +13,11 @@ final class NetworkServiceDummy: NetworkService {
         
     }
     
-    func fetchCards(ofSet colletion: CardSet, completion: @escaping (Result<[Card], Error>) -> Void) {
+    func fetchCard(withName name: String, completion: @escaping (Result<[Card], Error>) -> Void) {
         
     }
     
-    func fetchCard(withName name: String, completion: @escaping (Result<[Card], Error>) -> Void) {
+    func fetchCards(ofSet cardSet: CardSet, completion: @escaping (Result<[Card], Error>) -> Void) {
         
     }
 }
