@@ -15,7 +15,7 @@ class APIManagerSpec: QuickSpec {
         let session = URLSessionMock()
         let stub = CardsAndCollectionsStub()
         let sut = APIManager(session: session)
-        var data: Data!
+        var data: Data?
         
         describe("The API Manager") {
             context("when fetching a card") {
@@ -24,8 +24,7 @@ class APIManagerSpec: QuickSpec {
                 context("by it's name") {
                     beforeEach {
                         correctCards = stub.fetchByNameCards.cards
-                        let test = try? JSONEncoder().encode(stub.fetchByNameCards.cards)
-                        data = try? NSKeyedArchiver.archivedData(withRootObject: stub.fetchByNameCards, requiringSecureCoding: false)
+                        data = try? JSONEncoder().encode(stub.fetchByNameCards)
                         session.data = data
                     }
                     
@@ -36,7 +35,7 @@ class APIManagerSpec: QuickSpec {
                                 case .failure(let error):
                                     fail(error.localizedDescription)
                                 case .success(let cards):
-                                    expect(cards).to(equal(correctCards))
+                                    expect(cards.elementsEqual(correctCards, by: { $0.id == $1.id })).to(beTrue())
                                 }
                                 
                                 done()
