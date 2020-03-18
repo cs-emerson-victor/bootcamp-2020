@@ -16,6 +16,7 @@ final class CardSetHeaderCell: UICollectionViewCell {
         label.font = .boldSystemFont(ofSize: 36)
         label.numberOfLines = 0
         label.textAlignment = .natural
+        label.textColor = .white
         return label
     }()
     
@@ -37,7 +38,9 @@ extension CardSetHeaderCell: ViewCode {
     
     func setupConstraints() {
         cardSetTitleLable.snp.makeConstraints { (make) in
-            make.margins.equalToSuperview()
+            make.top.bottom.equalToSuperview()
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().inset(16)
         }
     }
 }

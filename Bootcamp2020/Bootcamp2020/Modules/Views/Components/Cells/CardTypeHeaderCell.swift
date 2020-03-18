@@ -16,6 +16,7 @@ final class CardTypeHeaderCell: UICollectionViewCell {
         label.font = .boldSystemFont(ofSize: 14)
         label.numberOfLines = 0
         label.textAlignment = .natural
+        label.textColor = .white
         return label
     }()
     

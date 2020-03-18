@@ -83,7 +83,7 @@ extension CardListScreen: ViewCode {
         }
         
         listCollectionView.snp.makeConstraints { (make) in
-            make.leadingMargin.trailingMargin.bottomMargin.equalToSuperview()
+            make.leading.trailing.bottomMargin.equalToSuperview()
             make.top.equalTo(searchBar.snp.bottom)
         }
         
