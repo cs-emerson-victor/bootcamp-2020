@@ -24,10 +24,10 @@ final class CardListViewController: UIViewController {
         self.listScreen = screen
         
         if listScreen.cardDataSource.getViewModel == nil {
-            listScreen.cardDataSource.getViewModel = { (indexPath) in
-                // TODO: Implement once ViewModel is made
-                return CardCellViewModel()
-            }
+//            listScreen.cardDataSource.getViewModel = { (indexPath) in
+//                // TODO: Implement once ViewModel is made
+//                return CardCellViewModel()
+//            }
         }
         
         super.init(nibName: nil, bundle: nil)

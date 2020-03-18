@@ -10,7 +10,7 @@
 import Quick
 import Nimble
 
-class FavoritesCoordinatorSpec: QuickSpec {
+final class FavoritesCoordinatorSpec: QuickSpec {
     
     override func spec() {
         describe("FavoritesCoordinator") {
