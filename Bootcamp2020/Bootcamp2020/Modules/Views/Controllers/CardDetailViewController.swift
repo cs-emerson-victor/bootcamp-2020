@@ -11,9 +11,10 @@ import UIKit
 final class CardDetailViewController: UIViewController {
 
     // MARK: - Init -
-    init(service: CardSaverProtocol,
-         cards: [Card],
-         cardId id: String) {
+    init(cards: [Card],
+         selectedCardId: String,
+         service: CardSaverProtocol,
+         screen: CardDetailScreen = CardDetailScreen()) {
         
         super.init(nibName: nil, bundle: nil)
     }

@@ -9,12 +9,12 @@
 protocol CardDetailDelegate: AnyObject {
     var saver: CardSaverProtocol { get }
     
-    func show(_ cards: [Card], scrollingToId id: String)
+    func show(_ cards: [Card], selectedCardId id: String)
 }
 
 extension CardDetailDelegate where Self: Coordinator {
-    func show(_ cards: [Card], scrollingToId id: String) {
-        let controller = CardDetailViewController(service: saver, cards: cards, cardId: id)
+    func show(_ cards: [Card], selectedCardId id: String) {
+        let controller = CardDetailViewController(cards: cards, selectedCardId: id, service: saver)
         rootController.pushViewController(controller, animated: true)
     }
 }
