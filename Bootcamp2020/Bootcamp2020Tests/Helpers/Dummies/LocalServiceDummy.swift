@@ -9,6 +9,7 @@
 @testable import Bootcamp2020
 
 final class LocalServiceDummy: LocalService {
+    
     func save(_ card: Card) -> Error? {
         return nil
     }
@@ -18,6 +19,10 @@ final class LocalServiceDummy: LocalService {
     }
     
     func fetchSets(completion: @escaping (Result<[CardSet], Error>) -> Void) {
+        
+    }
+    
+    func fetchCards(ofSet cardSet: CardSet, completion: @escaping (Result<[Card], Error>) -> Void) {
         
     }
 }

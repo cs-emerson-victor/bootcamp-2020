@@ -13,14 +13,14 @@ final class AppCoordinator: Coordinator {
     let presenter: UIWindow
     let rootController: UINavigationController
     let tabBar: UITabBarController
-    let localService: LocalService
-    let networkService: NetworkService
+    let localService: LocalService 
+    let networkService: Service
     var childCoordinators: [Coordinator]
     
     init(presenter: UIWindow,
          rootController: UINavigationController = UINavigationController(),
          localService: LocalService = RealmManager(),
-         networkService: NetworkService = APIManager()) {
+         networkService: Service = APIManager()) {
         
         self.presenter = presenter
         self.rootController = rootController
@@ -32,11 +32,11 @@ final class AppCoordinator: Coordinator {
     }
     
     func start() {
-        let homeCoordinator: HomeCoordinator = HomeCoordinator(service: networkService)
+        let homeCoordinator: HomeCoordinator = HomeCoordinator(localService: localService, networkService: networkService)
         homeCoordinator.start()
         add(homeCoordinator)
         
-        let favoritesCoordinator: FavoritesCoordinator = FavoritesCoordinator(service: localService)
+        let favoritesCoordinator: FavoritesCoordinator = FavoritesCoordinator(localService: localService)
         favoritesCoordinator.start()
         add(favoritesCoordinator)
         

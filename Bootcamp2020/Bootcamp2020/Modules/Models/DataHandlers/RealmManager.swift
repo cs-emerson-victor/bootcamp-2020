@@ -9,10 +9,6 @@
 import Foundation
 import RealmSwift
 
-protocol LocalService: AnyObject, Service {
-    func save(_ card: Card) -> Error?
-}
-
 final class RealmManager: LocalService {
     
     let realm: Realm?
@@ -46,6 +42,10 @@ final class RealmManager: LocalService {
         
         let cards = Array(realm.objects(Card.self).filter("name contains[c] %@", name))
         completion(.success(cards))
+    }
+    
+    func fetchCards(ofSet cardSet: CardSet, completion: @escaping (Result<[Card], Error>) -> Void) {
+        
     }
     
     func save(_ card: Card) -> Error? {

@@ -73,6 +73,7 @@
 		C04072D5241C3FF6005F9B97 /* CardTypeHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04072D4241C3FF6005F9B97 /* CardTypeHeaderCell.swift */; };
 		C04072D7241C4012005F9B97 /* CardSetHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04072D6241C4012005F9B97 /* CardSetHeaderCell.swift */; };
 		C0613712241FF72C00B75034 /* APIManagerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C4A85B241FF46F002CB8D9 /* APIManagerSpec.swift */; };
+		C054029E2422B376004F3629 /* ShowCardDetailDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C054029D2422B376004F3629 /* ShowCardDetailDelegate.swift */; };
 		C061372224200DE200B75034 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C061372124200DE200B75034 /* Endpoint.swift */; };
 		C091F1E82420F28900ECD238 /* EndpointSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C091F1E72420F28900ECD238 /* EndpointSpec.swift */; };
 		C0EC9FC124229121004C3526 /* APIResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EC9FC024229121004C3526 /* APIResponses.swift */; };
@@ -170,6 +171,7 @@
 		C04072D1241C3F78005F9B97 /* CardListDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListDelegate.swift; sourceTree = "<group>"; };
 		C04072D4241C3FF6005F9B97 /* CardTypeHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTypeHeaderCell.swift; sourceTree = "<group>"; };
 		C04072D6241C4012005F9B97 /* CardSetHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSetHeaderCell.swift; sourceTree = "<group>"; };
+		C054029D2422B376004F3629 /* ShowCardDetailDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCardDetailDelegate.swift; sourceTree = "<group>"; };
 		C061372124200DE200B75034 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		C091F1E72420F28900ECD238 /* EndpointSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndpointSpec.swift; sourceTree = "<group>"; };
 		C0C4A85A241FF46E002CB8D9 /* Bootcamp2020Tests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bootcamp2020Tests-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -477,6 +479,7 @@
 			isa = PBXGroup;
 			children = (
 				C04072A3241C0236005F9B97 /* Coordinator.swift */,
+				C054029D2422B376004F3629 /* ShowCardDetailDelegate.swift */,
 				C04072CB241C2E07005F9B97 /* Service.swift */,
 				C04072B9241C0D02005F9B97 /* ViewCode.swift */,
 			);
@@ -891,6 +894,7 @@
 				C04072A4241C0236005F9B97 /* Coordinator.swift in Sources */,
 				C03D30C7241BFC0F0089B070 /* AppDelegate.swift in Sources */,
 				1D175A1B242273FE0037E4B9 /* CardDetailDataSource.swift in Sources */,
+				C054029E2422B376004F3629 /* ShowCardDetailDelegate.swift in Sources */,
 				C04072C6241C0FD4005F9B97 /* CardDetailViewModel.swift in Sources */,
 				C04072C4241C0F04005F9B97 /* CardDetailViewController.swift in Sources */,
 				81F6982724211D1600258920 /* CardType.swift in Sources */,

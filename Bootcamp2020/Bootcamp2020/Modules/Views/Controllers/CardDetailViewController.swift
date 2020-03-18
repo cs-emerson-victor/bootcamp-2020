@@ -14,12 +14,12 @@ final class CardDetailViewController: UIViewController {
     private(set) var cards: [Card]
     
     private var detailScreen: CardDetailScreen
-    var service: Service
+    var service: CardSaverProtocol
     
     // MARK: - Init -
     init(cards: [Card],
          selectedCardId: String,
-         service: Service,
+         service: CardSaverProtocol,
          screen: CardDetailScreen = CardDetailScreen()) {
         
         self.cards = cards

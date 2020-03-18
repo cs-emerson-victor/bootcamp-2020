@@ -12,21 +12,29 @@ final class HomeCoordinator: Coordinator {
     
     var rootController: UINavigationController
     var childCoordinators: [Coordinator]
-    var service: Service
-    // TODO: - Add local and remote service
+    var localService: LocalService
+    var networkService: Service
     
     init(rootController: UINavigationController = UINavigationController(),
-         service: Service = APIManager()) {
+         localService: LocalService = RealmManager(),
+         networkService: Service = APIManager()) {
         
         self.rootController = rootController
         rootController.isNavigationBarHidden = true
         self.childCoordinators = []
-        self.service = service
+        self.localService = localService
+        self.networkService = networkService
     }
     
     func start() {
-        let controller = CardListViewController(service: service)
+        let controller = CardListViewController(service: networkService)
         controller.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
         rootController.pushViewController(controller, animated: true)
+    }
+}
+
+extension HomeCoordinator: ShowCardDetailDelegate {
+    var saver: CardSaverProtocol {
+        return localService
     }
 }

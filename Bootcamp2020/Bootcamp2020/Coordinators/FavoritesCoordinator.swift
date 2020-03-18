@@ -12,20 +12,26 @@ final class FavoritesCoordinator: Coordinator {
     
     var rootController: UINavigationController
     var childCoordinators: [Coordinator]
-    var service: Service
+    var localService: LocalService
     
     init(rootController: UINavigationController = UINavigationController(),
-         service: Service = RealmManager()) {
+         localService: LocalService = RealmManager()) {
         
         self.rootController = rootController
         rootController.isNavigationBarHidden = true
         self.childCoordinators = []
-        self.service = service
+        self.localService = localService
     }
     
     func start() {
-        let controller = CardListViewController(service: service)
+        let controller = CardListViewController(service: localService)
         controller.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
         rootController.pushViewController(controller, animated: true)
+    }
+}
+
+extension FavoritesCoordinator: ShowCardDetailDelegate {
+    var saver: CardSaverProtocol {
+        return localService
     }
 }

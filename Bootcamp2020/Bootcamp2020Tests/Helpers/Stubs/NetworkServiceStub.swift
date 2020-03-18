@@ -8,7 +8,7 @@
 
 @testable import Bootcamp2020
 
-final class NetworkServiceStub: NetworkService {
+final class NetworkServiceStub: Service {
     
     var fetchedSets: [CardSet] = []
     var fethchedCards: [Card] = []
@@ -25,5 +25,11 @@ final class NetworkServiceStub: NetworkService {
     func fetchCards(ofSet cardSet: CardSet, completion: @escaping (Result<[Card], Error>) -> Void) {
         fethchedCards = CardSetStub().getCardsOfSet(cardSet)
         completion(.success(fethchedCards))
+    }
+}
+
+extension NetworkServiceStub: CardSaverProtocol {
+    func save(_ card: Card) -> Error? {
+        return nil
     }
 }
