@@ -47,5 +47,9 @@ final class Card: Object {
 }
 
 extension Card: Codable {
-    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case name
+        case imageURL = "imageUrl"
+    }
 }

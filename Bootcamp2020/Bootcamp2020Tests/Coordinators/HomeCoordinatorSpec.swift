@@ -28,6 +28,7 @@ final class HomeCoordinatorSpec: QuickSpec {
             context("when it's initialized") {
                 it("should have the given objects") {
                     expect(sut.rootController).to(beIdenticalTo(rootController))
+                    expect(sut.rootController.isNavigationBarHidden).to(equal(true))
                     expect(sut.childCoordinators).to(beEmpty())
                     expect(sut.service).to(beIdenticalTo(service))
                 }
