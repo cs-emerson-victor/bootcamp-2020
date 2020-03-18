@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D1759F9241FDCC40037E4B9 /* CardListScreenSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1759F8241FDCC40037E4B9 /* CardListScreenSpec.swift */; };
+		1D175A0324202EE20037E4B9 /* CardListDelegateSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D175A0224202EE20037E4B9 /* CardListDelegateSpec.swift */; };
+		1D175A0524202FB20037E4B9 /* CardListDataSourceStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D175A0424202FB20037E4B9 /* CardListDataSourceStub.swift */; };
+		1D175A0924212BF60037E4B9 /* UIKit+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D175A0824212BF60037E4B9 /* UIKit+Extensions.swift */; };
+		1D175A0D2421492A0037E4B9 /* CardListDataSourceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D175A0C2421492A0037E4B9 /* CardListDataSourceSpec.swift */; };
+		1D175A11242163ED0037E4B9 /* KIF+TesterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D175A10242163ED0037E4B9 /* KIF+TesterExtension.swift */; };
+		1D175A132421680D0037E4B9 /* CardSetStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D175A122421680D0037E4B9 /* CardSetStub.swift */; };
+		1D175A15242189E70037E4B9 /* CardListViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D175A14242189E70037E4B9 /* CardListViewControllerSpec.swift */; };
+		1D175A17242197BB0037E4B9 /* NetworkServiceStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D175A16242197BB0037E4B9 /* NetworkServiceStub.swift */; };
 		2B1D084BD99C3DBEC940754F /* Pods_Bootcamp2020.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6817D7B18DA67B0C87627838 /* Pods_Bootcamp2020.framework */; };
 		5A17C769CE83FFEA6B0C7AB6 /* Pods_Bootcamp2020SnapshotTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3ABAABE0031DB5F028E6598 /* Pods_Bootcamp2020SnapshotTests.framework */; };
 		81354A37242138EC007896FF /* RealmManagerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81354A36242138EC007896FF /* RealmManagerSpec.swift */; };
@@ -44,8 +53,8 @@
 		C04072CC241C2E07005F9B97 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04072CB241C2E07005F9B97 /* Service.swift */; };
 		C04072D0241C3EF9005F9B97 /* CardListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04072CF241C3EF9005F9B97 /* CardListDataSource.swift */; };
 		C04072D2241C3F78005F9B97 /* CardListDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04072D1241C3F78005F9B97 /* CardListDelegate.swift */; };
-		C04072D5241C3FF6005F9B97 /* CategoryHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04072D4241C3FF6005F9B97 /* CategoryHeaderCell.swift */; };
-		C04072D7241C4012005F9B97 /* CollectionHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04072D6241C4012005F9B97 /* CollectionHeaderCell.swift */; };
+		C04072D5241C3FF6005F9B97 /* CardTypeHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04072D4241C3FF6005F9B97 /* CardTypeHeaderCell.swift */; };
+		C04072D7241C4012005F9B97 /* CardSetHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04072D6241C4012005F9B97 /* CardSetHeaderCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +75,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1D1759F8241FDCC40037E4B9 /* CardListScreenSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListScreenSpec.swift; sourceTree = "<group>"; };
+		1D175A0224202EE20037E4B9 /* CardListDelegateSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardListDelegateSpec.swift; sourceTree = "<group>"; };
+		1D175A0424202FB20037E4B9 /* CardListDataSourceStub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardListDataSourceStub.swift; sourceTree = "<group>"; };
+		1D175A0824212BF60037E4B9 /* UIKit+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+Extensions.swift"; sourceTree = "<group>"; };
+		1D175A0C2421492A0037E4B9 /* CardListDataSourceSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListDataSourceSpec.swift; sourceTree = "<group>"; };
+		1D175A10242163ED0037E4B9 /* KIF+TesterExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KIF+TesterExtension.swift"; sourceTree = "<group>"; };
+		1D175A122421680D0037E4B9 /* CardSetStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSetStub.swift; sourceTree = "<group>"; };
+		1D175A14242189E70037E4B9 /* CardListViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListViewControllerSpec.swift; sourceTree = "<group>"; };
+		1D175A16242197BB0037E4B9 /* NetworkServiceStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceStub.swift; sourceTree = "<group>"; };
 		2ECB7FF7F8166C3F105BF76A /* Pods-Bootcamp2020SnapshotTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bootcamp2020SnapshotTests.debug.xcconfig"; path = "Target Support Files/Pods-Bootcamp2020SnapshotTests/Pods-Bootcamp2020SnapshotTests.debug.xcconfig"; sourceTree = "<group>"; };
 		61FD2D32CEDE908EE4B6A5DC /* Pods-Bootcamp2020.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bootcamp2020.release.xcconfig"; path = "Target Support Files/Pods-Bootcamp2020/Pods-Bootcamp2020.release.xcconfig"; sourceTree = "<group>"; };
 		672235472A7D97E5E74ED19A /* Pods-Bootcamp2020Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bootcamp2020Tests.release.xcconfig"; path = "Target Support Files/Pods-Bootcamp2020Tests/Pods-Bootcamp2020Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -112,8 +130,8 @@
 		C04072CB241C2E07005F9B97 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		C04072CF241C3EF9005F9B97 /* CardListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListDataSource.swift; sourceTree = "<group>"; };
 		C04072D1241C3F78005F9B97 /* CardListDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListDelegate.swift; sourceTree = "<group>"; };
-		C04072D4241C3FF6005F9B97 /* CategoryHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryHeaderCell.swift; sourceTree = "<group>"; };
-		C04072D6241C4012005F9B97 /* CollectionHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionHeaderCell.swift; sourceTree = "<group>"; };
+		C04072D4241C3FF6005F9B97 /* CardTypeHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTypeHeaderCell.swift; sourceTree = "<group>"; };
+		C04072D6241C4012005F9B97 /* CardSetHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSetHeaderCell.swift; sourceTree = "<group>"; };
 		C5651C9C98875CE89327C3E5 /* Pods-Bootcamp2020.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bootcamp2020.debug.xcconfig"; path = "Target Support Files/Pods-Bootcamp2020/Pods-Bootcamp2020.debug.xcconfig"; sourceTree = "<group>"; };
 		E3ABAABE0031DB5F028E6598 /* Pods_Bootcamp2020SnapshotTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bootcamp2020SnapshotTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E53E60CF419399141C0A19B9 /* Pods_Bootcamp2020Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bootcamp2020Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -148,6 +166,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D1759FA241FE5B80037E4B9 /* Card List */ = {
+			isa = PBXGroup;
+			children = (
+				1D175A0C2421492A0037E4B9 /* CardListDataSourceSpec.swift */,
+				1D175A0224202EE20037E4B9 /* CardListDelegateSpec.swift */,
+				1D1759F8241FDCC40037E4B9 /* CardListScreenSpec.swift */,
+				1D175A14242189E70037E4B9 /* CardListViewControllerSpec.swift */,
+			);
+			path = "Card List";
+			sourceTree = "<group>";
+		};
 		81354A3524213763007896FF /* DataHandlers */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,8 +217,12 @@
 		81606CFA241F9C1000CDEECA /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				1D175A0424202FB20037E4B9 /* CardListDataSourceStub.swift */,
 				81F6981D241FEDB200258920 /* LocalServiceDummy.swift */,
 				81F69815241FC4DF00258920 /* NetworkServiceDummy.swift */,
+				1D175A10242163ED0037E4B9 /* KIF+TesterExtension.swift */,
+				1D175A122421680D0037E4B9 /* CardSetStub.swift */,
+				1D175A16242197BB0037E4B9 /* NetworkServiceStub.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -236,6 +269,7 @@
 				C03D30E2241BFC100089B070 /* Info.plist */,
 				81606CF9241F9C0200CDEECA /* Coordinators */,
 				81606CFA241F9C1000CDEECA /* Helpers */,
+				1D1759FA241FE5B80037E4B9 /* Card List */,
 				81354A3824213ECA007896FF /* Models */,
 			);
 			path = Bootcamp2020Tests;
@@ -289,6 +323,7 @@
 		C0407292241BFE2E005F9B97 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				1D175A0824212BF60037E4B9 /* UIKit+Extensions.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -346,8 +381,8 @@
 		C0407299241C010E005F9B97 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				C04072C1241C0EDE005F9B97 /* CardListViewController.swift */,
 				C04072C3241C0F04005F9B97 /* CardDetailViewController.swift */,
+				C04072C1241C0EDE005F9B97 /* CardListViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -393,8 +428,8 @@
 			isa = PBXGroup;
 			children = (
 				C04072B7241C0CC1005F9B97 /* CardCell.swift */,
-				C04072D4241C3FF6005F9B97 /* CategoryHeaderCell.swift */,
-				C04072D6241C4012005F9B97 /* CollectionHeaderCell.swift */,
+				C04072D4241C3FF6005F9B97 /* CardTypeHeaderCell.swift */,
+				C04072D6241C4012005F9B97 /* CardSetHeaderCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -702,8 +737,9 @@
 				C04072C0241C0EA2005F9B97 /* CardListScreen.swift in Sources */,
 				C040729E241C01E1005F9B97 /* AppCoordinator.swift in Sources */,
 				C04072C8241C1412005F9B97 /* CardListViewModel.swift in Sources */,
-				C04072D5241C3FF6005F9B97 /* CategoryHeaderCell.swift in Sources */,
+				C04072D5241C3FF6005F9B97 /* CardTypeHeaderCell.swift in Sources */,
 				C04072BC241C0E57005F9B97 /* FavoriteButton.swift in Sources */,
+				1D175A0924212BF60037E4B9 /* UIKit+Extensions.swift in Sources */,
 				81F6982224211CC300258920 /* CardSet.swift in Sources */,
 				81F6982424211CDB00258920 /* Card.swift in Sources */,
 				C04072D2241C3F78005F9B97 /* CardListDelegate.swift in Sources */,
@@ -721,7 +757,7 @@
 				C04072A2241C01F9005F9B97 /* FavoritesCoordinator.swift in Sources */,
 				C04072BE241C0E7F005F9B97 /* CardDetailScreen.swift in Sources */,
 				C04072B4241C0853005F9B97 /* RealmManager.swift in Sources */,
-				C04072D7241C4012005F9B97 /* CollectionHeaderCell.swift in Sources */,
+				C04072D7241C4012005F9B97 /* CardSetHeaderCell.swift in Sources */,
 				C04072BA241C0D02005F9B97 /* ViewCode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -731,14 +767,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				81F6981A241FE78200258920 /* HomeCoordinatorSpec.swift in Sources */,
+				1D175A11242163ED0037E4B9 /* KIF+TesterExtension.swift in Sources */,
+				1D175A0324202EE20037E4B9 /* CardListDelegateSpec.swift in Sources */,
+				1D175A17242197BB0037E4B9 /* NetworkServiceStub.swift in Sources */,
 				81F6981E241FEDB200258920 /* LocalServiceDummy.swift in Sources */,
+				1D175A0D2421492A0037E4B9 /* CardListDataSourceSpec.swift in Sources */,
 				81F69816241FC4DF00258920 /* NetworkServiceDummy.swift in Sources */,
+				1D175A15242189E70037E4B9 /* CardListViewControllerSpec.swift in Sources */,
 				816EA56C242154160032620F /* CardSpec.swift in Sources */,
+				1D175A132421680D0037E4B9 /* CardSetStub.swift in Sources */,
 				81F69813241FBE7E00258920 /* AppCoordinatorSpec.swift in Sources */,
 				816EA5702421545F0032620F /* CardSetSpec.swift in Sources */,
 				81354A37242138EC007896FF /* RealmManagerSpec.swift in Sources */,
 				816EA56E2421544A0032620F /* CardTypeSpec.swift in Sources */,
 				81F6981C241FEAFC00258920 /* FavoritesCoordinatorSpec.swift in Sources */,
+				1D175A0524202FB20037E4B9 /* CardListDataSourceStub.swift in Sources */,
+				1D1759F9241FDCC40037E4B9 /* CardListScreenSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
