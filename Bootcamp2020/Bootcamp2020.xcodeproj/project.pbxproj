@@ -221,16 +221,16 @@
 			path = CardList;
 			sourceTree = "<group>";
 		};
-		1D175A1E24228A230037E4B9 /* Card Detail */ = {
+		1D175A1E24228A230037E4B9 /* CardDetail */ = {
 			isa = PBXGroup;
 			children = (
-				1D175A2124228A6A0037E4B9 /* CardDetailScreenSpec.swift */,
-				1D175A232422A0220037E4B9 /* CardDetailViewControllerSpec.swift */,
 				1D175A252422A2330037E4B9 /* CardDetailDataSourceSpec.swift */,
 				1D175A272422A3A60037E4B9 /* CardDetailDelegateSpec.swift */,
 				1D175A292422A95E0037E4B9 /* CardDetailIntegrationSpec.swift */,
+				1D175A2124228A6A0037E4B9 /* CardDetailScreenSpec.swift */,
+				1D175A232422A0220037E4B9 /* CardDetailViewControllerSpec.swift */,
 			);
-			path = "Card Detail";
+			path = CardDetail;
 			sourceTree = "<group>";
 		};
 		812C46E32422852E003E1FF9 /* Stubs */ = {
@@ -387,11 +387,10 @@
 				C0C4A85A241FF46E002CB8D9 /* Bootcamp2020Tests-Bridging-Header.h */,
 				C03D30E2241BFC100089B070 /* Info.plist */,
 				C091F1E22420EDC600ECD238 /* APIManager */,
+				1D175A1E24228A230037E4B9 /* CardDetail */,
 				1D1759FA241FE5B80037E4B9 /* CardList */,
 				81606CF9241F9C0200CDEECA /* Coordinators */,
 				81606CFA241F9C1000CDEECA /* Helpers */,
-				1D175A1E24228A230037E4B9 /* Card Detail */,
-				1D1759FA241FE5B80037E4B9 /* Card List */,
 				81354A3824213ECA007896FF /* Models */,
 				81C4A70A2422A4E700E12BE6 /* ViewModels */,
 			);
