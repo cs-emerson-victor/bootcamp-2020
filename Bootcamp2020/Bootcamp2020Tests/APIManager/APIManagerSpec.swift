@@ -44,6 +44,32 @@ class APIManagerSpec: QuickSpec {
                     }
                 }
             }
+            
+            context("when fetching a collections") {
+                var correctCollections: [Collection] = []
+                
+                beforeEach {
+                    correctCollections = stub.collections.sets
+                    data = try? JSONEncoder().encode(stub.collections)
+                    session.data = data
+                }
+                
+                it("should return the expected collections") {
+                    waitUntil { done in
+                        sut.fetchCollections { result in
+                            switch result {
+                            case .failure(let error):
+                                fail(error.localizedDescription)
+                            case .success(let collections):
+                                expect(collections.elementsEqual(correctCollections, by: { $0.id == $1.id })).to(beTrue())
+                            }
+                            
+                            done()
+                        }
+                    }
+                }
+                
+            }
         }
     }
 }

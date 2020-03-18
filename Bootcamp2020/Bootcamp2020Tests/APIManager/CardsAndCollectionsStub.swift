@@ -20,8 +20,8 @@ class CardsAndCollectionsStub {
     }()
     
     let collections: CollectionsResponse = {
-        let cardSet1 = Collection(id: "1", name: "KTK")
-        let cardSet2 = Collection(id: "2", name: "10E")
+        let cardSet1 = Collection(id: "1", name: "KTK", releaseDate: Date())
+        let cardSet2 = Collection(id: "2", name: "10E", releaseDate: Date())
         
         return CollectionsResponse(sets: [cardSet1, cardSet2])
     }()

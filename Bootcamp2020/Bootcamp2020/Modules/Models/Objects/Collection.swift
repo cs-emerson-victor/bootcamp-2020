@@ -16,6 +16,13 @@ final class Collection: Object {
 }
 
 extension Collection: Codable {
+    static let dateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        
+        return dateFormatter
+    }()
+    
     enum CodingKeys: String, CodingKey {
         case id = "code"
         case name
@@ -37,12 +44,18 @@ extension Collection: Codable {
         self.id = try container.decode(String.self, forKey: .id)
         self.name = try container.decode(String.self, forKey: .name)
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        
         let dateString = try container.decode(String.self, forKey: .releaseDate)
-        if let date = dateFormatter.date(from: dateString) {
+        if let date = Collection.dateFormatter.date(from: dateString) {
             self.releaseDate = date
         }
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        
+        try container.encode(id, forKey: .id)
+        try container.encode(name, forKey: .name)
+        
+        try container.encode(Collection.dateFormatter.string(from: releaseDate), forKey: .releaseDate)
     }
 }

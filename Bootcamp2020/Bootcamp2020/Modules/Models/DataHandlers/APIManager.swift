@@ -26,6 +26,10 @@ class CardsResponse: Codable {
 
 class CollectionsResponse: Codable {
     var sets: [Collection]
+    
+    init(sets: [Collection]) {
+        self.sets = sets
+    }
 }
 
 protocol NetworkService: Service {}
