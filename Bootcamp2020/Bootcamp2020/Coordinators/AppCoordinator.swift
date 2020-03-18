@@ -32,7 +32,7 @@ final class AppCoordinator: Coordinator {
     }
     
     func start() {
-        let homeCoordinator: HomeCoordinator = HomeCoordinator(service: networkService)
+        let homeCoordinator: HomeCoordinator = HomeCoordinator(localService: localService, networkService: networkService)
         homeCoordinator.start()
         add(homeCoordinator)
         

@@ -15,14 +15,17 @@ class HomeCoordinatorSpec: QuickSpec {
     override func spec() {
         describe("HomeCoordinator") {
             var rootController: UINavigationController!
-            var service: Service!
+            var localService: LocalService!
+            var networkService: NetworkService!
             var sut: HomeCoordinator!
             
             beforeEach {
                 rootController = UINavigationController()
-                service = LocalServiceDummy()
+                localService = LocalServiceDummy()
+                networkService = NetworkServiceDummy()
                 sut = HomeCoordinator(rootController: rootController,
-                                                  service: service)
+                                                  localService: localService,
+                                                  networkService: networkService)
             }
             
             context("when it's initialized") {
@@ -30,7 +33,8 @@ class HomeCoordinatorSpec: QuickSpec {
                     expect(sut.rootController).to(beIdenticalTo(rootController))
                     expect(sut.rootController.isNavigationBarHidden).to(equal(true))
                     expect(sut.childCoordinators).to(beEmpty())
-                    expect(sut.service).to(beIdenticalTo(service))
+                    expect(sut.localService).to(beIdenticalTo(localService))
+                    expect(sut.networkService).to(beIdenticalTo(networkService))
                 }
             }
             
