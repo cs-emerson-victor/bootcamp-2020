@@ -36,15 +36,15 @@ final class CardListScreenSpec: QuickSpec {
                 it("should have added its subviews") {
                     
                     // Act
-                    var hasSearchBar = false
+//                    var hasSearchBar = false
                     var hasCollectionView = false
                     var hasBackgroundImageView = false
                     for view in sut.subviews {
                         switch view.accessibilityLabel {
                         case "listCollectionView":
                             hasCollectionView = true
-                        case "listSearchBar":
-                            hasSearchBar = true
+//                        case "listSearchBar":
+//                            hasSearchBar = true
                         case "backgroundImageView":
                             hasBackgroundImageView = true
                         default:
@@ -55,7 +55,7 @@ final class CardListScreenSpec: QuickSpec {
                     // Assert
                     expect(hasBackgroundImageView).to(beTrue())
                     expect(hasCollectionView).to(beTrue())
-                    expect(hasSearchBar).to(beTrue())
+//                    expect(hasSearchBar).to(beTrue())
                 }
                 
                 it("should have the correct given objects") {
