@@ -50,7 +50,7 @@ class CardListIntegrationSpec: QuickSpec {
                     self.tester.waitForView(withAccessibilityLabel: "listCollectionView")
                     self.tester.waitForView(withAccessibilityLabel: "CardListScreen")
                     self.tester.waitForView(withAccessibilityLabel: "backgroundImageView")
-                    self.tester.waitForView(withAccessibilityLabel: "listSearchBar")
+//                    self.tester.waitForView(withAccessibilityLabel: "listSearchBar")
                 }
             }
         }
