@@ -7,14 +7,14 @@
 //
 
 protocol CardDetailDelegate: AnyObject {
-    var localService: CardSaverProtocol { get set }
+    var saver: CardSaverProtocol { get }
     
     func show(_ cards: [Card], scrollingToId id: String)
 }
 
-extension CardDetailDelegate where Self: Coordinator & CardSaverProtocol {
+extension CardDetailDelegate where Self: Coordinator {
     func show(_ cards: [Card], scrollingToId id: String) {
-        let controller = CardDetailViewController(service: localService, cards: cards, cardId: id)
+        let controller = CardDetailViewController(service: saver, cards: cards, cardId: id)
         rootController.pushViewController(controller, animated: true)
     }
 }

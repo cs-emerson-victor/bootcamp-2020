@@ -8,7 +8,7 @@
 
 @testable import Bootcamp2020
 
-final class NetworkServiceStub: NetworkService {
+final class NetworkServiceStub: Service {
     
     var fetchedSets: [CardSet] = []
     var fethchedCards: [Card] = []

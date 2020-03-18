@@ -15,14 +15,14 @@ class FavoritesCoordinatorSpec: QuickSpec {
     override func spec() {
         describe("FavoritesCoordinator") {
             var rootController: UINavigationController!
-            var service: Service!
+            var localService: LocalService!
             var sut: FavoritesCoordinator!
             
             beforeEach {
                 rootController = UINavigationController()
-                service = LocalServiceDummy()
+                localService = LocalServiceDummy()
                 sut = FavoritesCoordinator(rootController: rootController,
-                                                            service: service)
+                                                            localService: localService)
             }
             
             context("when it's initialized") {
@@ -30,7 +30,7 @@ class FavoritesCoordinatorSpec: QuickSpec {
                     expect(sut.rootController).to(beIdenticalTo(rootController))
                     expect(sut.rootController.isNavigationBarHidden).to(equal(true))
                     expect(sut.childCoordinators).to(beEmpty())
-                    expect(sut.localService).to(beIdenticalTo(service))
+                    expect(sut.localService).to(beIdenticalTo(localService))
                 }
             }
             

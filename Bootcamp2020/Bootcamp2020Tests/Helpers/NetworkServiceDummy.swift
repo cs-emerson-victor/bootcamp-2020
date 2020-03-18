@@ -8,7 +8,7 @@
 
 @testable import Bootcamp2020
 
-final class NetworkServiceDummy: NetworkService {
+final class NetworkServiceDummy: Service {
     func fetchSets(completion: @escaping (Result<[CardSet], Error>) -> Void) {
         
     }

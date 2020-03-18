@@ -13,11 +13,11 @@ final class HomeCoordinator: Coordinator {
     var rootController: UINavigationController
     var childCoordinators: [Coordinator]
     var localService: LocalService
-    var networkService: NetworkService
+    var networkService: Service
     
     init(rootController: UINavigationController = UINavigationController(),
          localService: LocalService = RealmManager(),
-         networkService: NetworkService = APIManager()) {
+         networkService: Service = APIManager()) {
         
         self.rootController = rootController
         rootController.isNavigationBarHidden = true
@@ -30,5 +30,11 @@ final class HomeCoordinator: Coordinator {
         let controller = CardListViewController(service: networkService)
         controller.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
         rootController.pushViewController(controller, animated: true)
+    }
+}
+
+extension HomeCoordinator: CardDetailDelegate {
+    var saver: CardSaverProtocol {
+        return localService
     }
 }

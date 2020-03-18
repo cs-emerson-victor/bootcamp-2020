@@ -15,10 +15,7 @@ protocol CardSaverProtocol {
 protocol Service {
     func fetchSets(completion: @escaping (Result<[CardSet], Error>) -> Void)
     func fetchCard(withName name: String, completion: @escaping (Result<[Card], Error>) -> Void)
-}
-
-protocol NetworkService: Service {
     func fetchCards(ofSet cardSet: CardSet, completion: @escaping (Result<[Card], Error>) -> Void)
 }
 
-protocol LocalService: AnyObject, Service, CardSaverProtocol {}
+typealias LocalService = Service & CardSaverProtocol

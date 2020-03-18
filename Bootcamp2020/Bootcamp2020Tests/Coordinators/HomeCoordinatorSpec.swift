@@ -16,7 +16,7 @@ class HomeCoordinatorSpec: QuickSpec {
         describe("HomeCoordinator") {
             var rootController: UINavigationController!
             var localService: LocalService!
-            var networkService: NetworkService!
+            var networkService: Service!
             var sut: HomeCoordinator!
             
             beforeEach {

@@ -14,13 +14,13 @@ final class AppCoordinator: Coordinator {
     let rootController: UINavigationController
     let tabBar: UITabBarController
     let localService: LocalService 
-    let networkService: NetworkService
+    let networkService: Service
     var childCoordinators: [Coordinator]
     
     init(presenter: UIWindow,
          rootController: UINavigationController = UINavigationController(),
          localService: LocalService = RealmManager(),
-         networkService: NetworkService = APIManager()) {
+         networkService: Service = APIManager()) {
         
         self.presenter = presenter
         self.rootController = rootController

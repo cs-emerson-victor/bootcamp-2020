@@ -29,3 +29,9 @@ final class FavoritesCoordinator: Coordinator {
         rootController.pushViewController(controller, animated: true)
     }
 }
+
+extension FavoritesCoordinator: CardDetailDelegate {
+    var saver: CardSaverProtocol {
+        return localService
+    }
+}

@@ -17,7 +17,7 @@ class AppCoordinatorSpec: QuickSpec {
             var window: UIWindow!
             var rootController: UINavigationController!
             var localService: LocalService!
-            var networkService: NetworkService!
+            var networkService: Service!
             var sut: AppCoordinator!
             
             beforeEach {

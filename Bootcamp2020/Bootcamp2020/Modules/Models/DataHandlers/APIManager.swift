@@ -107,7 +107,7 @@ class APIManager {
 
 // MARK: - Network Service
 
-extension APIManager: NetworkService {
+extension APIManager: Service {
     func fetchSets(completion: @escaping (Result<[CardSet], Error>) -> Void) {
         let endpoint = Endpoint(ofType: .sets)
         
