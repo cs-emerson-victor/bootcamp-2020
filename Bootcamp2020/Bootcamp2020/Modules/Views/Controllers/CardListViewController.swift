@@ -23,13 +23,6 @@ final class CardListViewController: UIViewController {
         self.service = service
         self.listScreen = screen
         
-        if listScreen.cardDataSource.getViewModel == nil {
-//            listScreen.cardDataSource.getViewModel = { (indexPath) in
-//                // TODO: Implement once ViewModel is made
-//                return CardCellViewModel()
-//            }
-        }
-        
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -48,15 +41,29 @@ final class CardListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // TODO: Loading initial state ViewModel
+        listScreen.bind(to: CardListViewModel(state: .initialLoading, delegate: self))
+        
         service.fetchSets { [weak self] (result) in
+            guard let `self` = self else { return }
             switch result {
             case .success(let cardSets):
-                self?.sets.append(contentsOf: cardSets)
-            // TODO: Error ViewModel
-            case .failure(_):
-                break
+                self.sets.append(contentsOf: cardSets)
+                self.listScreen.bind(to: CardListViewModel(state: .success(self.sets), delegate: self))
+            case .failure(let error):
+                self.listScreen.bind(to: CardListViewModel(state: .error, delegate: self))
             }
         }
+    }
+}
+
+extension CardListViewController: CardListViewModelDelegate {
+    func didSet(_ state: CardListViewModel.UIState) {
+        listScreen.bind(to: CardListViewModel(state: state, delegate: self))
+    }
+    
+    func didSelect(_ card: Card) {
+        
+        // TODO: Call coordinator delegate
+        
     }
 }

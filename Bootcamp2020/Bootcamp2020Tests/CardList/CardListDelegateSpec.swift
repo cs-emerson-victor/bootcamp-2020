@@ -17,14 +17,14 @@ final class CardListDelegateSpec: QuickSpec {
         var sut: CardListDelegate!
         var collectionView: UICollectionView!
         var dataSource: CardListDataSourceStub!
-        var selectedItem: Int?
+        var selectedIndexPath: IndexPath?
         
         beforeEach {
             
             dataSource = CardListDataSourceStub()
             sut = CardListDelegate()
             sut.didSelectItemAt = { item in
-                selectedItem = item
+                selectedIndexPath = item
             }
             collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
             collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
@@ -36,7 +36,7 @@ final class CardListDelegateSpec: QuickSpec {
             
             sut = nil
             collectionView = nil
-            selectedItem = nil
+            selectedIndexPath = nil
             dataSource = nil
         }
         
@@ -51,8 +51,8 @@ final class CardListDelegateSpec: QuickSpec {
                     sut.collectionView(collectionView, didSelectItemAt: indexPath)
                     
                     // Assert
-                    expect(selectedItem).toNot(beNil())
-                    expect(selectedItem).to(equal(indexPath.item))
+                    expect(selectedIndexPath).toNot(beNil())
+                    expect(selectedIndexPath).to(equal(indexPath))
                 }
             }
         }

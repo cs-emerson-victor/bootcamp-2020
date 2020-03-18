@@ -60,10 +60,24 @@ final class CardListScreen: UIView {
     func bind(to viewModel: CardListViewModel) {
         
         self.viewModel = viewModel
-        // TODO: Implement bind to list VM
-//        cardDelegate.didSelectItemAt = { (row) in
-//
-//        }
+        
+        cardDataSource.getViewModel = viewModel.cellViewModel
+        cardDelegate.didSelectItemAt = viewModel.didSelectCell
+        
+        switch viewModel.state {
+            // TODO: Initial loading
+//        case .initialLoading:
+        case .success(let cardSets):
+            cardDataSource.sets = cardSets
+            // TODO: Error handling
+//        case .error:
+            
+            // TODO: Loading state
+//        case .loading:
+        default:
+            break
+        }
+        
         listCollectionView.reloadData()
     }
 }
