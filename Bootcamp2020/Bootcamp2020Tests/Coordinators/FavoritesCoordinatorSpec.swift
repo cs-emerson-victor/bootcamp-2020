@@ -30,7 +30,7 @@ class FavoritesCoordinatorSpec: QuickSpec {
                     expect(sut.rootController).to(beIdenticalTo(rootController))
                     expect(sut.rootController.isNavigationBarHidden).to(equal(true))
                     expect(sut.childCoordinators).to(beEmpty())
-                    expect(sut.service).to(beIdenticalTo(service))
+                    expect(sut.localService).to(beIdenticalTo(service))
                 }
             }
             

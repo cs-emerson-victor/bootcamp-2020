@@ -75,7 +75,7 @@ class APIManagerSpec: QuickSpec {
                             sut.fetchCard(withName: "Abomination of Gudul") { result in
                                 switch result {
                                 case .failure(let error):
-                                    fail(error.localizedDescription)
+                                    Nimble.fail(error.localizedDescription)
                                 case .success(let cards):
                                     expect(cards.elementsEqual(correctCards, by: { $0.id == $1.id })).to(beTrue())
                                 }
@@ -104,7 +104,7 @@ class APIManagerSpec: QuickSpec {
                             sut.fetchCards(ofSet: set) { result in
                                 switch result {
                                 case .failure(let error):
-                                    fail(error.localizedDescription)
+                                    Nimble.fail(error.localizedDescription)
                                 case .success(let cards):
                                     expect(cards.elementsEqual(correctCards, by: { $0.id == $1.id })).to(beTrue())
                                 }
@@ -130,7 +130,7 @@ class APIManagerSpec: QuickSpec {
                         sut.fetchSets { result in
                             switch result {
                             case .failure(let error):
-                                fail(error.localizedDescription)
+                                Nimble.fail(error.localizedDescription)
                             case .success(let sets):
                                 expect(sets.elementsEqual(correctSets, by: { $0.id == $1.id })).to(beTrue())
                             }

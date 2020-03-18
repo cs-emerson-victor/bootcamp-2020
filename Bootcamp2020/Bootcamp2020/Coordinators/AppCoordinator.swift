@@ -13,7 +13,7 @@ final class AppCoordinator: Coordinator {
     let presenter: UIWindow
     let rootController: UINavigationController
     let tabBar: UITabBarController
-    let localService: LocalService
+    let localService: LocalService 
     let networkService: NetworkService
     var childCoordinators: [Coordinator]
     
@@ -36,7 +36,7 @@ final class AppCoordinator: Coordinator {
         homeCoordinator.start()
         add(homeCoordinator)
         
-        let favoritesCoordinator: FavoritesCoordinator = FavoritesCoordinator(service: localService)
+        let favoritesCoordinator: FavoritesCoordinator = FavoritesCoordinator(localService: localService)
         favoritesCoordinator.start()
         add(favoritesCoordinator)
         
