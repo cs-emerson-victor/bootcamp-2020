@@ -10,7 +10,7 @@
 import Quick
 import Nimble
 
-class HomeCoordinatorSpec: QuickSpec {
+final class HomeCoordinatorSpec: QuickSpec {
     
     override func spec() {
         describe("HomeCoordinator") {

@@ -34,7 +34,7 @@ struct CardListViewModel {
 }
 
 extension CardListViewModel {
-    enum UIState {
+    enum UIState: Equatable {
         case initialLoading
         case loading
         case success([CardSet])

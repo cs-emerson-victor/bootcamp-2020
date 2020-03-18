@@ -10,7 +10,7 @@
 import Quick
 import Nimble
 
-class CardCellViewModelSpec: QuickSpec {
+final class CardCellViewModelSpec: QuickSpec {
 
     override func spec() {
         describe("CardCellViewModel") {

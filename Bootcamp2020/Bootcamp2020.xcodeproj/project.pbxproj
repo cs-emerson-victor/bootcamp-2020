@@ -28,6 +28,8 @@
 		81C4A70F2422A8EB00E12BE6 /* AssetsTest.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81C4A70E2422A8EB00E12BE6 /* AssetsTest.xcassets */; };
 		81C4A7112422ABE700E12BE6 /* CardDetailViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C4A7102422ABE700E12BE6 /* CardDetailViewModelSpec.swift */; };
 		81C4A7142422ADDD00E12BE6 /* CardDetailViewModelDelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C4A7132422ADDD00E12BE6 /* CardDetailViewModelDelegateSpy.swift */; };
+		81C4A7162422B19E00E12BE6 /* CardListViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C4A7152422B19E00E12BE6 /* CardListViewModelSpec.swift */; };
+		81C4A7182422B27D00E12BE6 /* CardListViewModelDelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C4A7172422B27D00E12BE6 /* CardListViewModelDelegateSpy.swift */; };
 		81F69813241FBE7E00258920 /* AppCoordinatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F69812241FBE7E00258920 /* AppCoordinatorSpec.swift */; };
 		81F69816241FC4DF00258920 /* NetworkServiceDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F69815241FC4DF00258920 /* NetworkServiceDummy.swift */; };
 		81F6981A241FE78200258920 /* HomeCoordinatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F69819241FE78200258920 /* HomeCoordinatorSpec.swift */; };
@@ -106,6 +108,8 @@
 		81C4A70E2422A8EB00E12BE6 /* AssetsTest.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AssetsTest.xcassets; sourceTree = "<group>"; };
 		81C4A7102422ABE700E12BE6 /* CardDetailViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailViewModelSpec.swift; sourceTree = "<group>"; };
 		81C4A7132422ADDD00E12BE6 /* CardDetailViewModelDelegateSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailViewModelDelegateSpy.swift; sourceTree = "<group>"; };
+		81C4A7152422B19E00E12BE6 /* CardListViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListViewModelSpec.swift; sourceTree = "<group>"; };
+		81C4A7172422B27D00E12BE6 /* CardListViewModelDelegateSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListViewModelDelegateSpy.swift; sourceTree = "<group>"; };
 		81F69811241FBE7E00258920 /* Bootcamp2020Tests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bootcamp2020Tests-Bridging-Header.h"; sourceTree = "<group>"; };
 		81F69812241FBE7E00258920 /* AppCoordinatorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinatorSpec.swift; sourceTree = "<group>"; };
 		81F69815241FC4DF00258920 /* NetworkServiceDummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceDummy.swift; sourceTree = "<group>"; };
@@ -272,6 +276,7 @@
 			children = (
 				81C4A70B2422A50400E12BE6 /* CardCellViewModelSpec.swift */,
 				81C4A7102422ABE700E12BE6 /* CardDetailViewModelSpec.swift */,
+				81C4A7152422B19E00E12BE6 /* CardListViewModelSpec.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -288,6 +293,7 @@
 			isa = PBXGroup;
 			children = (
 				81C4A7132422ADDD00E12BE6 /* CardDetailViewModelDelegateSpy.swift */,
+				81C4A7172422B27D00E12BE6 /* CardListViewModelDelegateSpy.swift */,
 			);
 			path = Spies;
 			sourceTree = "<group>";
@@ -845,7 +851,9 @@
 				81F6981E241FEDB200258920 /* LocalServiceDummy.swift in Sources */,
 				1D175A0D2421492A0037E4B9 /* CardListDataSourceSpec.swift in Sources */,
 				81F69816241FC4DF00258920 /* NetworkServiceDummy.swift in Sources */,
+				81C4A7162422B19E00E12BE6 /* CardListViewModelSpec.swift in Sources */,
 				1D175A15242189E70037E4B9 /* CardListViewControllerSpec.swift in Sources */,
+				81C4A7182422B27D00E12BE6 /* CardListViewModelDelegateSpy.swift in Sources */,
 				816EA56C242154160032620F /* CardSpec.swift in Sources */,
 				1D175A132421680D0037E4B9 /* CardSetStub.swift in Sources */,
 				81F69813241FBE7E00258920 /* AppCoordinatorSpec.swift in Sources */,

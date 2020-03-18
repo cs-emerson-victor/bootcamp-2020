@@ -10,7 +10,7 @@
 import Quick
 import Nimble
 
-class CardSpec: QuickSpec {
+final class CardSpec: QuickSpec {
     
     override func spec() {
         describe("Card") {

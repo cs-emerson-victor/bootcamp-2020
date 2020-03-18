@@ -12,7 +12,7 @@ import RealmSwift
 import Quick
 import Nimble
 
-class RealmManagerSpec: QuickSpec {
+final class RealmManagerSpec: QuickSpec {
     
     override func spec() {
         describe("RealmManager") {

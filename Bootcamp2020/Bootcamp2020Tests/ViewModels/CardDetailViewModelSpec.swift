@@ -10,7 +10,7 @@
 import Quick
 import Nimble
 
-class CardDetailViewModelSpec: QuickSpec {
+final class CardDetailViewModelSpec: QuickSpec {
     override func spec() {
         describe("CardDetailViewModel") {
             var cards: [Card]!
@@ -53,6 +53,7 @@ class CardDetailViewModelSpec: QuickSpec {
             context("when toggle card favorite") {
                 it("it should call delegate toggle function") {
                     sut.toggleCardFavorite(at: IndexPath(row: 0, section: 0))
+                    
                     expect(delegate.toggleFunctionWasCalled).to(beTrue())
                     expect(delegate.card).to(beIdenticalTo(cards[0]))
                 }
