@@ -10,7 +10,7 @@
 import Quick
 import Nimble
 
-class AppCoordinatorSpec: QuickSpec {
+final class AppCoordinatorSpec: QuickSpec {
 
     override func spec() {
         describe("AppCoordinator") {
