@@ -10,6 +10,7 @@ protocol ViewCode {
     func buildViewHierarchy()
     func setupConstraints()
     func setupView()
+    func setupAdditionalConfiguration()
 }
 
 extension ViewCode {
