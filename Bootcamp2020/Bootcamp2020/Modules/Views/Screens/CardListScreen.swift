@@ -39,7 +39,7 @@ final class CardListScreen: UIView {
     
     var cardDelegate: CardListDelegate //swiftlint:disable:this weak_delegate
     
-    var viewModel: CardListViewModel!
+    private(set) var viewModel: CardListViewModel!
     
     // MARK: - Init -
     init(dataSource: CardListDataSource = CardListDataSource(),
