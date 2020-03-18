@@ -33,7 +33,7 @@ final class HomeCoordinator: Coordinator {
     }
 }
 
-extension HomeCoordinator: CardDetailDelegate {
+extension HomeCoordinator: ShowCardDetailDelegate {
     var saver: CardSaverProtocol {
         return localService
     }

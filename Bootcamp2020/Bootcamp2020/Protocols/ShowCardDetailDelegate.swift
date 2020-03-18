@@ -6,13 +6,13 @@
 //  Copyright © 2020 Team2. All rights reserved.
 //
 
-protocol CardDetailDelegate: AnyObject {
+protocol ShowCardDetailDelegate: AnyObject {
     var saver: CardSaverProtocol { get }
     
     func show(_ cards: [Card], selectedCardId id: String)
 }
 
-extension CardDetailDelegate where Self: Coordinator {
+extension ShowCardDetailDelegate where Self: Coordinator {
     func show(_ cards: [Card], selectedCardId id: String) {
         let controller = CardDetailViewController(cards: cards, selectedCardId: id, service: saver)
         rootController.pushViewController(controller, animated: true)
