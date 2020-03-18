@@ -54,7 +54,7 @@ class APIManagerSpec: QuickSpec {
                         composedURL = sut.composeURL(nil, withParams: params)
                     }
                     
-                    it("should return the same URL") {
+                    it("should return nil") {
                         expect(composedURL).to(beNil())
                     }
                 }
