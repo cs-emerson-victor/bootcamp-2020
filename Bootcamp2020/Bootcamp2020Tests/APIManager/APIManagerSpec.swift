@@ -13,7 +13,7 @@ import Nimble
 class APIManagerSpec: QuickSpec {
     override func spec() {
         let session = URLSessionMock()
-        let stub = CardsAndCollectionsStub()
+        let stub = CardsAndSetsStub()
         let sut = APIManager(session: session)
         var data: Data?
         
@@ -45,23 +45,23 @@ class APIManagerSpec: QuickSpec {
                 }
             }
             
-            context("when fetching a collections") {
-                var correctCollections: [Collection] = []
+            context("when fetching a set") {
+                var correctSets: [CardSet] = []
                 
                 beforeEach {
-                    correctCollections = stub.collections.sets
-                    data = try? JSONEncoder().encode(stub.collections)
+                    correctSets = stub.cardSets.sets
+                    data = try? JSONEncoder().encode(stub.cardSets)
                     session.data = data
                 }
                 
-                it("should return the expected collections") {
+                it("should return the expected sets") {
                     waitUntil { done in
-                        sut.fetchCollections { result in
+                        sut.fetchSets { result in
                             switch result {
                             case .failure(let error):
                                 fail(error.localizedDescription)
-                            case .success(let collections):
-                                expect(collections.elementsEqual(correctCollections, by: { $0.id == $1.id })).to(beTrue())
+                            case .success(let sets):
+                                expect(sets.elementsEqual(correctSets, by: { $0.id == $1.id })).to(beTrue())
                             }
                             
                             done()

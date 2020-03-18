@@ -8,8 +8,6 @@
 
 import Foundation
 
-// TODO: Refactor Collection name
-
 enum APIError: Error {
     case invalidURL
     case defaultError
@@ -24,10 +22,10 @@ class CardsResponse: Codable {
     }
 }
 
-class CollectionsResponse: Codable {
-    var sets: [Collection]
+class CardSetsResponse: Codable {
+    var sets: [CardSet]
     
-    init(sets: [Collection]) {
+    init(sets: [CardSet]) {
         self.sets = sets
     }
 }
@@ -130,19 +128,19 @@ class APIManager {
 // MARK: - Network Service
 
 extension APIManager: NetworkService {
-    func fetchCollections(completion: @escaping (Result<[Collection], Error>) -> Void) {
-        let endpoint = Endpoint(ofType: .collections)
+    func fetchSets(completion: @escaping (Result<[CardSet], Error>) -> Void) {
+        let endpoint = Endpoint(ofType: .sets)
         
-        fetch(from: endpoint) { (result: Result<CollectionsResponse, Error>) in
+        fetch(from: endpoint) { (result: Result<CardSetsResponse, Error>) in
             completion(result.map { $0.sets })
         }
     }
     
-    func fetchCards(ofCollection colletion: Collection,
+    func fetchCards(ofSet set: CardSet,
                     completion: @escaping (Result<[Card], Error>) -> Void) {
         
         let dispatchGroup = DispatchGroup()
-        let endpoint = Endpoint(ofType: .cards(collection: colletion))
+        let endpoint = Endpoint(ofType: .cards(set: set))
         var allCards = [Card]()
         var maxPages = 0
         

@@ -9,11 +9,11 @@
 @testable import Bootcamp2020
 
 final class LocalServiceDummy: LocalService {
-    func fetchCollections(completion: @escaping (Result<[Collection], Error>) -> Void) {
+    func fetchSets(completion: @escaping (Result<[CardSet], Error>) -> Void) {
         
     }
     
-    func fetchCards(ofCollection colletion: Collection, completion: @escaping (Result<[Card], Error>) -> Void) {
+    func fetchCards(ofSet set: CardSet, completion: @escaping (Result<[Card], Error>) -> Void) {
         
     }
     

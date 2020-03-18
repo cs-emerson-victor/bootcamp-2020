@@ -17,12 +17,12 @@ struct Endpoint {
         var queryItems: [URLQueryItem]
         
         switch type {
-        case .collections:
+        case .sets:
             path = "sets"
             queryItems = []
-        case .cards(let collection):
+        case .cards(let set):
             path = "cards"
-            queryItems = [URLQueryItem(name: "set", value: collection.name)]
+            queryItems = [URLQueryItem(name: "set", value: set.name)]
         case .card(let name):
             path = "cards"
             queryItems = [URLQueryItem(name: "name", value: name)]
@@ -45,8 +45,8 @@ struct Endpoint {
     }
     
     enum EndpointType {
-        case collections
-        case cards(collection: Collection)
+        case sets
+        case cards(set: CardSet)
         case card(name: String)
     }
 }

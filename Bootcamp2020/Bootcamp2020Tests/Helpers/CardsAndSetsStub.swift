@@ -1,5 +1,5 @@
 //
-//  CardsAndCollectionsStub.swift
+//  CardsAndSetsStub.swift
 //  Bootcamp2020Tests
 //
 //  Created by Jacqueline Alves on 17/03/20.
@@ -10,7 +10,7 @@
 
 import Foundation
 
-class CardsAndCollectionsStub {
+class CardsAndSetsStub {
     let fetchByNameCards: CardsResponse = {
         let card = Card()
         card.id = "1"
@@ -19,10 +19,10 @@ class CardsAndCollectionsStub {
         return CardsResponse(cards: [card])
     }()
     
-    let collections: CollectionsResponse = {
-        let cardSet1 = Collection(id: "1", name: "KTK", releaseDate: Date())
-        let cardSet2 = Collection(id: "2", name: "10E", releaseDate: Date())
+    let cardSets: CardSetsResponse = {
+        let cardSet1 = CardSet(id: "1", name: "KTK", releaseDate: Date())
+        let cardSet2 = CardSet(id: "2", name: "10E", releaseDate: Date())
         
-        return CollectionsResponse(sets: [cardSet1, cardSet2])
+        return CardSetsResponse(sets: [cardSet1, cardSet2])
     }()
 }

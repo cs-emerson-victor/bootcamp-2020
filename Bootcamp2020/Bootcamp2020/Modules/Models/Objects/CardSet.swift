@@ -1,5 +1,5 @@
 //
-//  Collection.swift
+//  CardSet.swift
 //  Bootcamp2020
 //
 //  Created by emerson.victor.f.luz on 17/03/20.
@@ -8,14 +8,14 @@
 
 import RealmSwift
 
-final class Collection: Object {
+final class CardSet: Object {
     @objc dynamic var id: String = ""
     @objc dynamic var name: String = ""
     @objc dynamic var releaseDate: Date = Date()
     let cards: List<Card> = List<Card>()
 }
 
-extension Collection: Codable {
+extension CardSet: Codable {
     static let dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
@@ -45,7 +45,7 @@ extension Collection: Codable {
         self.name = try container.decode(String.self, forKey: .name)
         
         let dateString = try container.decode(String.self, forKey: .releaseDate)
-        if let date = Collection.dateFormatter.date(from: dateString) {
+        if let date = CardSet.dateFormatter.date(from: dateString) {
             self.releaseDate = date
         }
     }
@@ -56,6 +56,6 @@ extension Collection: Codable {
         try container.encode(id, forKey: .id)
         try container.encode(name, forKey: .name)
         
-        try container.encode(Collection.dateFormatter.string(from: releaseDate), forKey: .releaseDate)
+        try container.encode(CardSet.dateFormatter.string(from: releaseDate), forKey: .releaseDate)
     }
 }

@@ -21,12 +21,12 @@ class EndpointSpec: QuickSpec {
             context("when generating an url") {
                 var correctURL: String!
                 
-                context("for collections") {
+                context("for sets") {
                     
                     beforeEach {
                         correctURL = "\(baseURL)/sets?"
 
-                        sut = Endpoint(ofType: .collections)
+                        sut = Endpoint(ofType: .sets)
                     }
                     
                     it("should return the correct url") {
@@ -35,15 +35,15 @@ class EndpointSpec: QuickSpec {
                     }
                 }
                 
-                context("for cards in collection") {
-                    var collection: Collection!
+                context("for cards in set") {
+                    var set: CardSet!
                     
                     beforeEach {
                         correctURL = "\(baseURL)/cards?set=KTK"
-                        collection = Collection()
-                        collection.name = "KTK"
+                        set = CardSet()
+                        set.name = "KTK"
                         
-                        sut = Endpoint(ofType: .cards(collection: collection))
+                        sut = Endpoint(ofType: .cards(set: set))
                     }
                     
                     it("should return the correct url") {
