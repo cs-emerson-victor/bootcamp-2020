@@ -13,7 +13,6 @@ protocol CardDetailViewModelDelegate: AnyObject {
     func toggleFavorite(_ card: Card)
 }
 
-
 struct CardDetailViewModel {
     
     let cards: [Card]

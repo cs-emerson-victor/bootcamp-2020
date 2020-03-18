@@ -17,7 +17,6 @@ struct CardCellViewModel {
     }
 }
 
-
 extension CardCellViewModel {
     
     var image: UIImage? {
