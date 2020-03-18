@@ -17,6 +17,7 @@ final class CardListScreen: UIView {
         layout.scrollDirection = .vertical
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
         view.showsVerticalScrollIndicator = false
+        view.accessibilityLabel = "listCollectionView"
         view.accessibilityIdentifier = "listCollectionView"
         view.backgroundColor = .clear
         return view
@@ -24,13 +25,13 @@ final class CardListScreen: UIView {
     
     private let searchBar: UISearchBar = {
         let view = UISearchBar()
-        view.accessibilityIdentifier = "listSearchBar"
+        view.accessibilityLabel = "listSearchBar"
         return view
     }()
     
     private let backgroundImageView: UIImageView = {
         let view = UIImageView(image: UIImage(named: "backgroundImage"))
-        view.accessibilityIdentifier = "backgroundImageView"
+        view.accessibilityLabel = "backgroundImageView"
         return view
     }()
     
@@ -47,7 +48,7 @@ final class CardListScreen: UIView {
         self.cardDataSource = dataSource
         self.cardDelegate = delegate
         super.init(frame: .zero)
-        self.accessibilityIdentifier = "CardListScreen"
+        self.accessibilityLabel = "CardListScreen"
         setupView()
     }
     

@@ -16,6 +16,7 @@
 		1D175A132421680D0037E4B9 /* CardSetStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D175A122421680D0037E4B9 /* CardSetStub.swift */; };
 		1D175A15242189E70037E4B9 /* CardListViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D175A14242189E70037E4B9 /* CardListViewControllerSpec.swift */; };
 		1D175A17242197BB0037E4B9 /* NetworkServiceStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D175A16242197BB0037E4B9 /* NetworkServiceStub.swift */; };
+		1D175A19242265D00037E4B9 /* CardListIntegrationSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D175A18242265D00037E4B9 /* CardListIntegrationSpec.swift */; };
 		2B1D084BD99C3DBEC940754F /* Pods_Bootcamp2020.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6817D7B18DA67B0C87627838 /* Pods_Bootcamp2020.framework */; };
 		5A17C769CE83FFEA6B0C7AB6 /* Pods_Bootcamp2020SnapshotTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3ABAABE0031DB5F028E6598 /* Pods_Bootcamp2020SnapshotTests.framework */; };
 		81354A37242138EC007896FF /* RealmManagerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81354A36242138EC007896FF /* RealmManagerSpec.swift */; };
@@ -84,6 +85,7 @@
 		1D175A122421680D0037E4B9 /* CardSetStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSetStub.swift; sourceTree = "<group>"; };
 		1D175A14242189E70037E4B9 /* CardListViewControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListViewControllerSpec.swift; sourceTree = "<group>"; };
 		1D175A16242197BB0037E4B9 /* NetworkServiceStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceStub.swift; sourceTree = "<group>"; };
+		1D175A18242265D00037E4B9 /* CardListIntegrationSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListIntegrationSpec.swift; sourceTree = "<group>"; };
 		2ECB7FF7F8166C3F105BF76A /* Pods-Bootcamp2020SnapshotTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bootcamp2020SnapshotTests.debug.xcconfig"; path = "Target Support Files/Pods-Bootcamp2020SnapshotTests/Pods-Bootcamp2020SnapshotTests.debug.xcconfig"; sourceTree = "<group>"; };
 		61FD2D32CEDE908EE4B6A5DC /* Pods-Bootcamp2020.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bootcamp2020.release.xcconfig"; path = "Target Support Files/Pods-Bootcamp2020/Pods-Bootcamp2020.release.xcconfig"; sourceTree = "<group>"; };
 		672235472A7D97E5E74ED19A /* Pods-Bootcamp2020Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bootcamp2020Tests.release.xcconfig"; path = "Target Support Files/Pods-Bootcamp2020Tests/Pods-Bootcamp2020Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				1D175A0224202EE20037E4B9 /* CardListDelegateSpec.swift */,
 				1D1759F8241FDCC40037E4B9 /* CardListScreenSpec.swift */,
 				1D175A14242189E70037E4B9 /* CardListViewControllerSpec.swift */,
+				1D175A18242265D00037E4B9 /* CardListIntegrationSpec.swift */,
 			);
 			path = "Card List";
 			sourceTree = "<group>";
@@ -783,6 +786,7 @@
 				81F6981C241FEAFC00258920 /* FavoritesCoordinatorSpec.swift in Sources */,
 				1D175A0524202FB20037E4B9 /* CardListDataSourceStub.swift in Sources */,
 				1D1759F9241FDCC40037E4B9 /* CardListScreenSpec.swift in Sources */,
+				1D175A19242265D00037E4B9 /* CardListIntegrationSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
