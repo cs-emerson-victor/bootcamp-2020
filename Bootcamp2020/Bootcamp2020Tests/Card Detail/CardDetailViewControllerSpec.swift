@@ -17,12 +17,14 @@ final class CardDetailViewControllerSpec: QuickSpec {
         var sut: CardDetailViewController!
         var screen: CardDetailScreen!
         var service: LocalServiceDummy!
+        var cards: [Card]!
         
         beforeEach {
             
+            cards = CardSetStub().getCardsOfSet(CardSet(id: "id", name: "Set name"))
             screen = CardDetailScreen()
             service = LocalServiceDummy()
-            sut = CardDetailViewController(service: service, screen: screen)
+            sut = CardDetailViewController(cards: cards, selectedCardId: cards[2].id, service: service, screen: screen)
             
             _ = sut.view
         }
@@ -32,6 +34,7 @@ final class CardDetailViewControllerSpec: QuickSpec {
             screen = nil
             service = nil
             sut = nil
+            cards = nil
         }
         
         describe("CardDetailViewController") {
@@ -40,6 +43,7 @@ final class CardDetailViewControllerSpec: QuickSpec {
                     
                     expect(sut.view).to(beIdenticalTo(screen))
                     expect(sut.service).to(beIdenticalTo(service))
+                    expect(sut.cards).to(equal(cards))
                 }
                 
                 context("the view") {

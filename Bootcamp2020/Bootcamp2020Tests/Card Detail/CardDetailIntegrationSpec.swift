@@ -21,14 +21,16 @@ class CardDetailIntegrationSpec: QuickSpec {
         var dataSource: CardDetailDataSource!
         var delegate: CardDetailDelegate!
         var window: UIWindow!
+        var cards: [Card]!
         
         beforeEach {
             
+            cards = CardSetStub().getCardsOfSet(CardSet(id: "id", name: "Set name"))
             service = NetworkServiceStub()
             dataSource = CardDetailDataSource()
             delegate = CardDetailDelegate()
             screen = CardDetailScreen(dataSource: dataSource, delegate: delegate)
-            viewController = CardDetailViewController(service: service, screen: screen)
+            viewController = CardDetailViewController(cards: cards, selectedCardId: cards[2].id, service: service, screen: screen)
             window = UIWindow(frame: UIScreen.main.bounds)
             
             window.rootViewController = viewController
@@ -42,6 +44,7 @@ class CardDetailIntegrationSpec: QuickSpec {
             screen = nil
             viewController = nil
             window = nil
+            cards = nil
         }
         
         describe("CardDetail") {

@@ -11,25 +11,21 @@ import UIKit
 final class CardDetailViewController: UIViewController {
 
     // MARK: - Properties -
-    private(set) var cards: [Card] = []
+    private(set) var cards: [Card]
     
     private var detailScreen: CardDetailScreen
     var service: Service
     
     // MARK: - Init -
-    init(service: Service,
+    init(cards: [Card],
+         selectedCardId: String,
+         service: Service,
          screen: CardDetailScreen = CardDetailScreen()) {
         
+        self.cards = cards
         self.service = service
         self.detailScreen = screen
-        
-        if detailScreen.cardDetailDataSource.getViewModel == nil {
-            detailScreen.cardDetailDataSource.getViewModel = { (indexPath) in
-                // TODO: Implement once ViewModel is made
-                return CardCellViewModel()
-            }
-        }
-        
+
         super.init(nibName: nil, bundle: nil)
     }
     
