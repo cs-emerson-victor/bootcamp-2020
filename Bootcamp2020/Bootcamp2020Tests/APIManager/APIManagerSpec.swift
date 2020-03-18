@@ -5,6 +5,7 @@
 //  Created by jacqueline alves barbosa on 16/03/20.
 //  Copyright © 2020 Team2. All rights reserved.
 //
+// swiftlint:disable function_body_length
 
 @testable import Bootcamp2020
 import Quick
@@ -72,6 +73,35 @@ class APIManagerSpec: QuickSpec {
                     it("should return the expected cards") {
                         waitUntil { done in
                             sut.fetchCard(withName: "Abomination of Gudul") { result in
+                                switch result {
+                                case .failure(let error):
+                                    fail(error.localizedDescription)
+                                case .success(let cards):
+                                    expect(cards.elementsEqual(correctCards, by: { $0.id == $1.id })).to(beTrue())
+                                }
+                                
+                                done()
+                            }
+                        }
+                    }
+                }
+                
+                context("by it's set") {
+                    let set = CardSet(id: "1", name: "KTK")
+                    
+                    beforeEach {
+                        correctCards = stub.fetchBySetCards.cards
+                        data = try? JSONEncoder().encode(stub.fetchBySetCards)
+                        session.data = data
+                        
+                        let response = HTTPURLResponse(url: URL(string: baseURL)!, statusCode: 200, httpVersion: nil, headerFields: ["total-count": "2"])
+                        session.response = response
+                        
+                    }
+                    
+                    it("should return the expected cards") {
+                        waitUntil { done in
+                            sut.fetchCards(ofSet: set) { result in
                                 switch result {
                                 case .failure(let error):
                                     fail(error.localizedDescription)

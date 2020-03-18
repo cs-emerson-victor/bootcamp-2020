@@ -48,7 +48,7 @@ class APIManager {
         self.session = session
     }
     
-    internal func fetch<T: Codable>(from endpoint: Endpoint,
+    private func fetch<T: Codable>(from endpoint: Endpoint,
                                     withParams params: Params? = nil,
                                     completion: @escaping (Result<T, Error>) -> Void) {
         
@@ -76,9 +76,9 @@ class APIManager {
         task.resume()
     }
     
-    internal func fetch<T: Codable>(from endpoint: Endpoint,
+    private func fetch<T: Codable>(from endpoint: Endpoint,
                                     withParams params: Params? = nil,
-                                    returningHeaderFields headerFields: [String],
+                                    returningHeaderFields headerFields: [AnyHashable],
                                     completion: @escaping (_ result: Result<(data: T, fields: HeaderFields), Error>) -> Void) {
         
         guard let url = composeURL(endpoint.url, withParams: params) else {
@@ -105,10 +105,9 @@ class APIManager {
         task.resume()
     }
     
-    internal func filterHeaderFields(_ fields: [AnyHashable: Any], withKeys: [String]) -> [AnyHashable: Any] {
+    internal func filterHeaderFields(_ fields: [AnyHashable: Any], withKeys: [AnyHashable]) -> [AnyHashable: Any] {
         return fields.filter { field -> Bool in
-            guard let key  = field.key as? String else { return false }
-            return withKeys.contains(key)
+            return withKeys.contains(field.key)
         }
     }
     
@@ -188,17 +187,17 @@ extension APIManager {
     private func fetchFirstPage(from endpoint: Endpoint,
                                 completion: @escaping (Result<(cards: [Card], pages: Int), Error>) -> Void) {
         
-        let fieldsToRecover = ["total-count"]
+        let totalCountField: AnyHashable = "total-count"
         
         fetch(from: endpoint,
               withParams: ["page": "1"],
-              returningHeaderFields: fieldsToRecover) { (result: Result<(data: CardsResponse, fields: HeaderFields), Error>) in
+              returningHeaderFields: [totalCountField]) { (result: Result<(data: CardsResponse, fields: HeaderFields), Error>) in
                 
                 switch result {
                 case .failure(let error):
                     completion(.failure(error))
                 case .success(let response):
-                    if let totalCardCountString = response.fields[fieldsToRecover] as? String,
+                    if let totalCardCountString = response.fields[totalCountField] as? String,
                         let totalCardCount = Int(totalCardCountString) {
                         let pageCount = Int(ceil(Double(totalCardCount)/100))
                         
@@ -214,10 +213,15 @@ extension APIManager {
                             pageCount: Int,
                             completion: @escaping (Result<[Card], Error>) -> Void) {
         
+        guard pageCount > 0 else {
+            completion(.success([]))
+            return
+        }
+        
         let dispatchGroup = DispatchGroup()
         var allCards = [Card]()
         var anyError: Error?
-        
+   
         for page in 2..<(pageCount + 1) {
             dispatchGroup.enter()
             
