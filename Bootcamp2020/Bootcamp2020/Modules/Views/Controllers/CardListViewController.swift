@@ -48,8 +48,10 @@ final class CardListViewController: UIViewController {
             guard let `self` = self else { return }
             switch result {
             case .success(let cardSets):
-                self.sets.append(contentsOf: cardSets)
-                guard let firstSet = cardSets.first else { return }
+                let sortedSets = cardSets.sorted(by: { $0.releaseDate > $1.releaseDate })
+                self.sets.append(contentsOf: sortedSets)
+                
+                guard let firstSet = sortedSets.first else { return }
                 DispatchQueue.main.async {
                     self.fetchCardsForSet(firstSet)
                 }
