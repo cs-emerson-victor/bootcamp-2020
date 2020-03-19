@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-final class CardListScreen: UIView {
+class CardListScreen: UIView {
     
     // MARK: - Properties -
     private let listCollectionView: UICollectionView = {

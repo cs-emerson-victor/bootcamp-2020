@@ -12,21 +12,24 @@ final class CardDetailViewController: UIViewController {
 
     // MARK: - Properties -
     private(set) var cards: [Card]
-    
     private var detailScreen: CardDetailScreen
+    weak var delegate: DismissCardDetailDelegate?
     var service: CardSaverProtocol
     
     // MARK: - Init -
     init(cards: [Card],
          selectedCardId: String,
          service: CardSaverProtocol,
+         delegate: DismissCardDetailDelegate,
          screen: CardDetailScreen = CardDetailScreen()) {
         
         self.cards = cards
         self.service = service
+        self.delegate = delegate
         self.detailScreen = screen
 
         super.init(nibName: nil, bundle: nil)
+        detailScreen.bind(to: CardDetailViewModel(cards: cards, delegate: self))
     }
     
     required init?(coder: NSCoder) {
@@ -42,5 +45,19 @@ final class CardDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+}
+
+// MARK: - View model delegate -
+extension CardDetailViewController: CardDetailViewModelDelegate {
+    
+    func toggleFavorite(_ card: Card) {
+        // TODO: Handle favorite error
+        _ = service.toggleFavorite(card)
+        detailScreen.bind(to: CardDetailViewModel(cards: cards, delegate: self))
+    }
+    
+    func dismissDetail(animated: Bool = true) {
+        delegate?.dismissDetail(animated: animated)
     }
 }
