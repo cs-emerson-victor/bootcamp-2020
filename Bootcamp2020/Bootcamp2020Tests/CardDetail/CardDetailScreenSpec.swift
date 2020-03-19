@@ -84,8 +84,21 @@ final class CardDetailScreenSpec: QuickSpec {
                 }
             }
             
-            // TODO: Test binding ViewModel
-            // TODO: Test states
+            context("when receiving a view model") {
+                it("should bind correctly") {
+                    // Act
+                    let viewModel = CardDetailViewModel(cards: [], delegate: CardDetailViewModelDelegateDummy())
+                    sut.bind(to: viewModel)
+                    // Assert
+                    expect(sut.viewModel).to(equal(viewModel))
+                }
+            }
         }
+    }
+}
+
+extension CardDetailViewModel: Equatable {
+    public static func == (lhs: CardDetailViewModel, rhs: CardDetailViewModel) -> Bool {
+        return lhs.cards == rhs.cards
     }
 }

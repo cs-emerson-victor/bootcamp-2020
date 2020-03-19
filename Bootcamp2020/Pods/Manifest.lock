@@ -7,6 +7,9 @@ PODS:
   - KIF (3.7.8):
     - KIF/Core (= 3.7.8)
   - KIF/Core (3.7.8)
+  - Kingfisher (5.13.2):
+    - Kingfisher/Core (= 5.13.2)
+  - Kingfisher/Core (5.13.2)
   - Nimble (8.0.5)
   - Nimble-Snapshots (8.1.1):
     - Nimble-Snapshots/Core (= 8.1.1)
@@ -24,6 +27,7 @@ PODS:
 
 DEPENDENCIES:
   - KIF
+  - Kingfisher (~> 5.11)
   - Nimble
   - Nimble-Snapshots
   - Quick
@@ -35,6 +39,7 @@ SPEC REPOS:
   trunk:
     - iOSSnapshotTestCase
     - KIF
+    - Kingfisher
     - Nimble
     - Nimble-Snapshots
     - Quick
@@ -46,6 +51,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   iOSSnapshotTestCase: 9ab44cb5aa62b84d31847f40680112e15ec579a6
   KIF: 52e1af1a78cf6fe4ec6777b14776f3dd2eccc32e
+  Kingfisher: d342c8354c10c3d85a27d6d4c42c41285924b898
   Nimble: 4ab1aeb9b45553c75b9687196b0fa0713170a332
   Nimble-Snapshots: 5058fb9b459e64371f54a0f8d9dde6f33db490a0
   Quick: 7fb19e13be07b5dfb3b90d4f9824c855a11af40e
@@ -54,6 +60,6 @@ SPEC CHECKSUMS:
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SwiftLint: 55e96a4a4d537d4a3156859fc1c54bd24851a046
 
-PODFILE CHECKSUM: d3efcf5262c88f227472417f59a8a0a7b49e89ae
+PODFILE CHECKSUM: 66549df26b76f7e75dea523a757cb3b1dc9ccd9b
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.8.4

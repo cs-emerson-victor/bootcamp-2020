@@ -27,7 +27,7 @@ final class HomeCoordinator: Coordinator {
     }
     
     func start() {
-        let controller = CardListViewController(service: networkService)
+        let controller = CardListViewController(service: networkService, detailDelegate: self)
         controller.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
         rootController.pushViewController(controller, animated: true)
     }
