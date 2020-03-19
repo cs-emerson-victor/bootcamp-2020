@@ -16,8 +16,4 @@ final class CardDetailViewModelDelegateDummy: CardDetailViewModelDelegate {
     func toggleFavorite(_ card: Card) {
         
     }
-    
-    func dismissDetail(animated: Bool) {
-        
-    }
 }
