@@ -90,7 +90,7 @@ extension CardDetailScreen: ViewCode {
         addSubview(detailBackgroundImageView)
         addSubview(cardDetailCollectionView)
         addSubview(favoriteButton)
-        detailBackgroundImageView.addSubview(closeButton)
+        addSubview(closeButton)
     }
     
     func setupConstraints() {
@@ -106,7 +106,7 @@ extension CardDetailScreen: ViewCode {
         
         closeButton.snp.makeConstraints { (make) in
             make.width.height.equalTo(44)
-            make.topMargin.equalToSuperview().offset(1)
+            make.topMargin.equalToSuperview().offset(25)
             make.leading.equalToSuperview().offset(8)
         }
         
