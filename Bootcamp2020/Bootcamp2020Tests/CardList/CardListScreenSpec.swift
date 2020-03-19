@@ -72,8 +72,10 @@ final class CardListScreenSpec: QuickSpec {
             
             context("when receiving a view model") {
                 it("should bind correctly") {
+                    // Arrange
+                    let cardSets = CardSetStub().getEmptySets()
                     // Act
-                    let viewModel = CardListViewModel(state: .loading, delegate: CardListViewController(service: NetworkServiceDummy()))
+                    let viewModel = CardListViewModel(state: .loading(cardSets), delegate: CardListViewController(service: NetworkServiceDummy()))
                     sut.bind(to: viewModel)
                     // Assert
                     expect(sut.viewModel).to(equal(viewModel))

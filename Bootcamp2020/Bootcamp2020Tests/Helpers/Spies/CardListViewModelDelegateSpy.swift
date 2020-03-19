@@ -22,4 +22,8 @@ final class CardListViewModelDelegateSpy: CardListViewModelDelegate {
         didSelectCard = true
         selectedCard = card
     }
+    
+    func prefetchSet(_ set: CardSet) {
+        
+    }
 }

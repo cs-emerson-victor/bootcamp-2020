@@ -51,24 +51,35 @@ final class CardListViewController: UIViewController {
             guard let `self` = self else { return }
             switch result {
             case .success(let cardSets):
-                self.sets.append(contentsOf: cardSets)
+                let sortedSets = cardSets.sorted(by: { $0.releaseDate > $1.releaseDate })
+                self.sets.append(contentsOf: sortedSets)
                 
-                guard let firstSet = self.sets.first else { return }
+                guard let firstSet = sortedSets.first else {
+                    // TODO: Implement empy list screen
+                    self.listScreen.bind(to: CardListViewModel(state: .success([]), delegate: self))
+                    return
+                }
                 DispatchQueue.main.async {
-                    self.service.fetchCards(ofSet: firstSet) { [weak self, weak firstSet] (result) in
-                        
-                        guard let `self` = self else { return }
-                        switch result {
-                        case .success(let cards):
-                            firstSet?.cards.append(objectsIn: cards)
-                            self.listScreen.bind(to: CardListViewModel(state: .success(self.sets), delegate: self))
-                        case .failure(let error):
-                            debugPrint(error.localizedDescription)
-                            self.listScreen.bind(to: CardListViewModel(state: .error, delegate: self))
-                        }
-                    }
+                    self.fetchCardsForSet(firstSet)
                 }
                 
+            case .failure(let error):
+                debugPrint(error.localizedDescription)
+                self.listScreen.bind(to: CardListViewModel(state: .error, delegate: self))
+            }
+        }
+    }
+    
+    func fetchCardsForSet(_ set: CardSet) {
+        guard set.cards.isEmpty else { return }
+        listScreen.bind(to: CardListViewModel(state: .loading(sets), delegate: self))
+        
+        service.fetchCards(ofSet: set) { [weak self, weak set] result in
+            guard let `self` = self else { return }
+            switch result {
+            case .success(let cards):
+                set?.cards.append(objectsIn: cards)
+                self.listScreen.bind(to: CardListViewModel(state: .success(self.sets), delegate: self))
             case .failure(let error):
                 debugPrint(error.localizedDescription)
                 self.listScreen.bind(to: CardListViewModel(state: .error, delegate: self))
@@ -84,5 +95,9 @@ extension CardListViewController: CardListViewModelDelegate {
     
     func didSelect(_ card: Card) {
         detailDelegate?.show([card], selectedCardId: card.id)
+    }
+    
+    func prefetchSet(_ set: CardSet) {
+        fetchCardsForSet(set)
     }
 }

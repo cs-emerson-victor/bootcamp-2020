@@ -33,10 +33,16 @@ class CardDetailScreen: UIView {
         let button = UIButton()
         button.accessibilityLabel = "closeButton"
         button.setImage(UIImage(named: "close"), for: .normal)
+        button.addTarget(self, action: #selector(closeTapped(_:)), for: .touchUpInside)
         return button
     }()
     
-    private let favoriteButton = FavoriteButton()
+    private let favoriteButton: FavoriteButton = {
+        let button = FavoriteButton()
+        button.addTarget(self, action: #selector(favoriteTapped(_:)), for: .touchUpInside)
+        
+        return button
+    }()
     
     var cardDetailDataSource: CardDetailDataSource
     var cardDetailDelegate: CardDetailDelegate //swiftlint:disable:this weak_delegate
@@ -71,6 +77,10 @@ class CardDetailScreen: UIView {
     
     @objc func favoriteTapped(_ sender: UIButton) {
         viewModel.toggleCardFavorite(at: IndexPath(item: 0, section: 0))
+    }
+    
+    @objc func closeTapped(_ sender: UIButton) {
+        viewModel.dismissDetail()
     }
 }
 
