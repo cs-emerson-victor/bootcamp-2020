@@ -6,6 +6,7 @@ target 'Bootcamp2020' do
   pod 'RealmSwift'
   pod 'SwiftLint'
   pod 'SnapKit'
+  pod 'Kingfisher', '~> 5.11'
 
   # Pods for Bootcamp2020
 
