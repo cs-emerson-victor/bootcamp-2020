@@ -27,7 +27,7 @@ extension CardListDelegate: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         // Width for 3 items per row, which is (screen size - spaces)/3
-        let width = (UIScreen.main.bounds.width - (16 * 4)) / 3
+        let width = (UIScreen.main.bounds.width - (16 * 4)) / 3 - 1
         let height = width / cellAspectRatio
         return CGSize(width: width, height: height)
     }
