@@ -72,6 +72,8 @@ class CardDetailScreen: UIView {
         }
         
         cardDetailDataSource.getViewModel = viewModel.cellViewModel
+        cardDetailDataSource.cards = viewModel.cards
+        cardDetailDelegate.numberOfItems = viewModel.cards.count
         cardDetailCollectionView.reloadData()
     }
     

@@ -56,8 +56,7 @@ class CardDetailIntegrationSpec: QuickSpec {
         describe("CardDetail") {
             context("when loaded") {
                 it("should display the correct views") {
-                    let collection = self.tester.waitForView(withAccessibilityLabel: "cardDetailCollectionView")
-                    collection?.backgroundColor = .red
+                    self.tester.waitForView(withAccessibilityLabel: "cardDetailCollectionView")
                     self.tester.waitForView(withAccessibilityLabel: "CardDetailScreen")
                     self.tester.waitForView(withAccessibilityLabel: "detailBackgroundImageView")
                     self.tester.waitForView(withAccessibilityLabel: "closeButton")

@@ -38,6 +38,13 @@ class CardListScreen: UIView {
     private let activityIndicator: UIActivityIndicatorView = {
         let view = UIActivityIndicatorView(style: .whiteLarge)
         view.accessibilityLabel = "activityIndicator"
+        view.hidesWhenStopped = true
+        return view
+    }()
+    
+    private let errorView: ErrorView = {
+        let view = ErrorView()
+        view.accessibilityLabel = "listErrorView"
         return view
     }()
     
@@ -76,15 +83,43 @@ class CardListScreen: UIView {
         case .success(let cardSets):
             cardDataSource.sets = cardSets
             DispatchQueue.main.async { [weak self] in
+                self?.hideError()
                 self?.activityIndicator.stopAnimating()
                 self?.listCollectionView.reloadData()
             }
-        // TODO: Error handling
         case .error:
-            break
-        // TODO: Loading state
+            DispatchQueue.main.async { [weak self] in
+                self?.displayError(message: "Error: something went wrong.\nPlease try again.")
+            }
         case .loading:
-            break
+            DispatchQueue.main.async { [weak self] in
+                self?.activityIndicator.startAnimating()
+                self?.hideError()
+            }
+        }
+    }
+    
+    // MARK: Error handling
+    private func displayError(message: String) {
+        errorView.display(message: message)
+        
+        guard errorView.superview == nil else { return }
+        
+        addSubview(errorView)
+        
+        makeErrorViewConstraints()
+    }
+    
+    private func hideError() {
+        errorView.removeFromSuperview()
+    }
+    
+    private func makeErrorViewConstraints() {
+        errorView.snp.makeConstraints { (make) in
+            make.center.equalToSuperview()
+            let width = UIScreen.main.bounds.width - 32
+            make.width.equalTo(width)
+            make.height.equalTo(width * 9/16)
         }
     }
 }

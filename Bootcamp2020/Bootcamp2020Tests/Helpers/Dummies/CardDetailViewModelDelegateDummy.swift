@@ -9,11 +9,11 @@
 @testable import Bootcamp2020
 
 final class CardDetailViewModelDelegateDummy: CardDetailViewModelDelegate {
-    func toggleFavorite(_ card: Card) {
+    func dismissDetail(animated: Bool) {
         
     }
     
-    func dismissDetail(animated: Bool) {
+    func toggleFavorite(_ card: Card) {
         
     }
 }
