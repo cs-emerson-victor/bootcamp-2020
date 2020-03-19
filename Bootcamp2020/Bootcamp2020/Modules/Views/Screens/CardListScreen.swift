@@ -35,6 +35,12 @@ final class CardListScreen: UIView {
         return view
     }()
     
+    private let activityIndicator: UIActivityIndicatorView = {
+        let view = UIActivityIndicatorView(style: .whiteLarge)
+        view.accessibilityLabel = "activityIndicator"
+        return view
+    }()
+    
     var cardDataSource: CardListDataSource
     
     var cardDelegate: CardListDelegate //swiftlint:disable:this weak_delegate
@@ -60,11 +66,26 @@ final class CardListScreen: UIView {
     func bind(to viewModel: CardListViewModel) {
         
         self.viewModel = viewModel
-        // TODO: Implement bind to list VM
-//        cardDelegate.didSelectItemAt = { (row) in
-//
-//        }
-        listCollectionView.reloadData()
+        
+        cardDataSource.getViewModel = viewModel.cellViewModel
+        cardDelegate.didSelectItemAt = viewModel.didSelectCell
+        
+        switch viewModel.state {
+        case .initialLoading:
+            activityIndicator.startAnimating()
+        case .success(let cardSets):
+            cardDataSource.sets = cardSets
+            DispatchQueue.main.async { [weak self] in
+                self?.activityIndicator.stopAnimating()
+                self?.listCollectionView.reloadData()
+            }
+        // TODO: Error handling
+        case .error:
+            break
+        // TODO: Loading state
+        case .loading:
+            break
+        }
     }
 }
 
@@ -75,6 +96,7 @@ extension CardListScreen: ViewCode {
         addSubview(backgroundImageView)
         addSubview(listCollectionView)
 //        addSubview(searchBar)
+        addSubview(activityIndicator)
     }
     
     func setupConstraints() {
@@ -94,6 +116,11 @@ extension CardListScreen: ViewCode {
 //            make.topMargin.equalToSuperview().offset(23)
 //            make.height.equalTo(30)
 //        }
+        
+        activityIndicator.snp.makeConstraints { (make) in
+            make.centerWithinMargins.equalTo(listCollectionView.snp.centerWithinMargins)
+            make.width.height.equalTo(100)
+        }
     }
     
     func setupAdditionalConfiguration() {

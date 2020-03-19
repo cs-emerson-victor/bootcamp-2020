@@ -33,7 +33,8 @@ final class CardCell: UICollectionViewCell {
     // MARK: Methods
     func bind(to viewModel: CardCellViewModel) {
         self.viewModel = viewModel
-        // TODO: Bind to CardCellViewModel
+        // TODO: Treat nil image
+        cardImageView.image = viewModel.image
     }
 }
 
