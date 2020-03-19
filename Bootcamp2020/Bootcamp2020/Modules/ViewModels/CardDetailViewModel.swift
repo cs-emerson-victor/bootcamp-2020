@@ -11,6 +11,7 @@ import UIKit
 protocol CardDetailViewModelDelegate: AnyObject {
     
     func toggleFavorite(_ card: Card)
+    func dismissDetail(animated: Bool)
 }
 
 struct CardDetailViewModel {
@@ -38,5 +39,9 @@ extension CardDetailViewModel {
     func toggleCardFavorite(at indexPath: IndexPath) {
         let card = cards[indexPath.row]
         delegate?.toggleFavorite(card)
+    }
+    
+    func dismissDetail(animated: Bool = true) {
+        delegate?.dismissDetail(animated: animated)
     }
 }

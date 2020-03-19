@@ -5,6 +5,7 @@
 //  Created by alexandre.c.ferreira on 18/03/20.
 //  Copyright © 2020 Team2. All rights reserved.
 //
+// swiftlint:disable function_body_length
 
 import Quick
 import Nimble
@@ -13,18 +14,23 @@ import Nimble
 final class CardDetailViewControllerSpec: QuickSpec {
     
     override func spec() {
-        
+
         var sut: CardDetailViewController!
-        var screen: CardDetailScreenSpy!
-        var service: CardSaverSpy!
         var cards: [Card]!
+        var service: CardSaverSpy!
+        var screen: CardDetailScreenSpy!
+        var delegate: DismissCardDetailDelegateSpy!
         
         beforeEach {
-            
             cards = CardSetStub().getCardsOfSet(CardSet(id: "id", name: "Set name"))
             screen = CardDetailScreenSpy()
             service = CardSaverSpy()
-            sut = CardDetailViewController(cards: cards, selectedCardId: cards[2].id, service: service, screen: screen)
+            delegate = DismissCardDetailDelegateSpy()
+            sut = CardDetailViewController(cards: cards,
+                                           selectedCardId: cards[2].id,
+                                           service: service,
+                                           delegate: delegate,
+                                           screen: screen)
             
             _ = sut.view
         }
@@ -44,6 +50,7 @@ final class CardDetailViewControllerSpec: QuickSpec {
                     expect(sut.view).to(beIdenticalTo(screen))
                     expect(sut.service).to(beIdenticalTo(service))
                     expect(sut.cards).to(equal(cards))
+                    expect(sut.delegate).to(beIdenticalTo(delegate))
                     expect(screen.countBind).to(equal(1))
                 }
                 
@@ -61,6 +68,14 @@ final class CardDetailViewControllerSpec: QuickSpec {
                     
                     expect(screen.countBind).to(equal(2))
                     expect(service.cardWasSaved).to(beTrue())
+                }
+            }
+            
+            context("when card detail it's dismissed") {
+                it("should call delegate") {
+                    sut.dismissDetail(animated: true)
+                    
+                    expect(delegate.modalWasDismissed).to(beTrue())
                 }
             }
         }
