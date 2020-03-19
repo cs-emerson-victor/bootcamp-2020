@@ -44,12 +44,27 @@ final class CardListViewController: UIViewController {
         listScreen.bind(to: CardListViewModel(state: .initialLoading, delegate: self))
         
         service.fetchSets { [weak self] (result) in
+            
             guard let `self` = self else { return }
             switch result {
             case .success(let cardSets):
                 self.sets.append(contentsOf: cardSets)
                 self.listScreen.bind(to: CardListViewModel(state: .success(self.sets), delegate: self))
+                guard let firstSet = self.sets.first else { return }
+                self.service.fetchCards(ofSet: firstSet) { [weak self, weak firstSet] (result) in
+                    
+                    guard let `self` = self else { return }
+                    switch result {
+                    case .success(let cards):
+                        firstSet?.cards.append(objectsIn: cards)
+                        self.listScreen.bind(to: CardListViewModel(state: .success(self.sets), delegate: self))
+                    case .failure(let error):
+                        debugPrint(error.localizedDescription)
+                        self.listScreen.bind(to: CardListViewModel(state: .error, delegate: self))
+                    }
+                }
             case .failure(let error):
+                debugPrint(error.localizedDescription)
                 self.listScreen.bind(to: CardListViewModel(state: .error, delegate: self))
             }
         }

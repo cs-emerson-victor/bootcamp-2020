@@ -77,8 +77,9 @@ final class CardListScreen: UIView {
         default:
             break
         }
-        
-        listCollectionView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+            self?.listCollectionView.reloadData()
+        }
     }
 }
 
