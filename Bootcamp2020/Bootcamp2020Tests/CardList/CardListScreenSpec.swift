@@ -100,6 +100,27 @@ final class CardListScreenSpec: QuickSpec {
                     }
                 }
                 
+                context("of error state") {
+                    it("should display the error view") {
+                        
+                        // Act
+                        let viewModel = CardListViewModel(state: .error, delegate: CardListViewModelDelegateDummy())
+                        sut.bind(to: viewModel)
+                        
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                            var errorView: ErrorView?
+                            for case let view as ErrorView in sut.subviews {
+                                errorView = view
+                                break
+                            }
+                            
+                            // Assert
+                            expect(errorView).toNot(beNil())
+                            expect(errorView?.superview).toNot(beNil())
+                        }
+                    }
+                }
+                
                 context("of success state") {
                     it("should pass the card sets and cell function to the data source") {
                         
