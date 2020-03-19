@@ -66,6 +66,7 @@ final class CardDetailScreen: UIView {
         }
         
         cardDetailDataSource.getViewModel = viewModel.cellViewModel
+        cardDetailDataSource.cards = viewModel.cards
         cardDetailCollectionView.reloadData()
     }
     

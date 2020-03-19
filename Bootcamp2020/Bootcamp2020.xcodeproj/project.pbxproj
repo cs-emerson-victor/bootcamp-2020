@@ -27,6 +27,7 @@
 		1D175A2C2423C43A0037E4B9 /* CardDetailViewModelDelegateDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D175A2B2423C43A0037E4B9 /* CardDetailViewModelDelegateDummy.swift */; };
 		1D175A2E2423C47A0037E4B9 /* CardListViewModelDelegateDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D175A2D2423C47A0037E4B9 /* CardListViewModelDelegateDummy.swift */; };
 		1D175A302423C7110037E4B9 /* CardCellSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D175A2F2423C7110037E4B9 /* CardCellSpec.swift */; };
+		1D175A322423D2780037E4B9 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D175A312423D2780037E4B9 /* ErrorView.swift */; };
 		2B1D084BD99C3DBEC940754F /* Pods_Bootcamp2020.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6817D7B18DA67B0C87627838 /* Pods_Bootcamp2020.framework */; };
 		5A17C769CE83FFEA6B0C7AB6 /* Pods_Bootcamp2020SnapshotTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3ABAABE0031DB5F028E6598 /* Pods_Bootcamp2020SnapshotTests.framework */; };
 		81354A37242138EC007896FF /* RealmManagerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81354A36242138EC007896FF /* RealmManagerSpec.swift */; };
@@ -120,6 +121,7 @@
 		1D175A2B2423C43A0037E4B9 /* CardDetailViewModelDelegateDummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailViewModelDelegateDummy.swift; sourceTree = "<group>"; };
 		1D175A2D2423C47A0037E4B9 /* CardListViewModelDelegateDummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListViewModelDelegateDummy.swift; sourceTree = "<group>"; };
 		1D175A2F2423C7110037E4B9 /* CardCellSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCellSpec.swift; sourceTree = "<group>"; };
+		1D175A312423D2780037E4B9 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		2ECB7FF7F8166C3F105BF76A /* Pods-Bootcamp2020SnapshotTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bootcamp2020SnapshotTests.debug.xcconfig"; path = "Target Support Files/Pods-Bootcamp2020SnapshotTests/Pods-Bootcamp2020SnapshotTests.debug.xcconfig"; sourceTree = "<group>"; };
 		61FD2D32CEDE908EE4B6A5DC /* Pods-Bootcamp2020.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bootcamp2020.release.xcconfig"; path = "Target Support Files/Pods-Bootcamp2020/Pods-Bootcamp2020.release.xcconfig"; sourceTree = "<group>"; };
 		672235472A7D97E5E74ED19A /* Pods-Bootcamp2020Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bootcamp2020Tests.release.xcconfig"; path = "Target Support Files/Pods-Bootcamp2020Tests/Pods-Bootcamp2020Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -529,6 +531,7 @@
 		C040729B241C0165005F9B97 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				1D175A312423D2780037E4B9 /* ErrorView.swift */,
 				C04072BB241C0E57005F9B97 /* FavoriteButton.swift */,
 				C04072D3241C3FC2005F9B97 /* Cells */,
 			);
@@ -892,6 +895,7 @@
 				C04072B8241C0CC1005F9B97 /* CardCell.swift in Sources */,
 				C04072C2241C0EDE005F9B97 /* CardListViewController.swift in Sources */,
 				C04072A0241C01ED005F9B97 /* HomeCoordinator.swift in Sources */,
+				1D175A322423D2780037E4B9 /* ErrorView.swift in Sources */,
 				C04072A4241C0236005F9B97 /* Coordinator.swift in Sources */,
 				C03D30C7241BFC0F0089B070 /* AppDelegate.swift in Sources */,
 				1D175A1B242273FE0037E4B9 /* CardDetailDataSource.swift in Sources */,
