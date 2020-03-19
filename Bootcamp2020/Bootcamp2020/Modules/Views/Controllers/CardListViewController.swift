@@ -54,7 +54,11 @@ final class CardListViewController: UIViewController {
                 let sortedSets = cardSets.sorted(by: { $0.releaseDate > $1.releaseDate })
                 self.sets.append(contentsOf: sortedSets)
                 
-                guard let firstSet = sortedSets.first else { return }
+                guard let firstSet = sortedSets.first else {
+                    // TODO: Implement empy list screen
+                    self.listScreen.bind(to: CardListViewModel(state: .success([]), delegate: self))
+                    return
+                }
                 DispatchQueue.main.async {
                     self.fetchCardsForSet(firstSet)
                 }
