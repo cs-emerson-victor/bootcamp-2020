@@ -22,7 +22,7 @@ struct Endpoint {
             queryItems = []
         case .cards(let set):
             path = "cards"
-            queryItems = [URLQueryItem(name: "set", value: set.name)]
+            queryItems = [URLQueryItem(name: "set", value: set.id)]
         case .card(let name):
             path = "cards"
             queryItems = [URLQueryItem(name: "name", value: name)]
