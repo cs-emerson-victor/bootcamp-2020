@@ -33,23 +33,21 @@ final class CardCellViewModelSpec: QuickSpec {
                     card = Card(id: "0", name: "Card1", imageData: nil)
                     sut = CardCellViewModel(card: card)
                     
-                    expect(sut.image).to(beNil())
+                    expect(sut.imageURL).to(beNil())
                 }
                 
-                it("should return the given image") {
-                    let image = UIImage(named: "card", in: Bundle(for: CardCellViewModelSpec.self), compatibleWith: nil)
-                    guard let imageData = image?.pngData() else {
+                it("should return the given url") {
+                    let urlString = "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=130483&type=card"
+                    guard let url = URL(string: urlString) else {
                         Nimble.fail()
                         return
                     }
                     
-                    card = Card(id: "0", name: "Card1", imageData: imageData)
+                    card = Card(id: "0", name: "Card1", imageURL: urlString)
                     sut = CardCellViewModel(card: card)
                     
-                    expect(sut.image).to(beAnInstanceOf(UIImage.self))
-                    
+                    expect(sut.imageURL).to(equal(url))
                 }
-                
             }
         }
     }
