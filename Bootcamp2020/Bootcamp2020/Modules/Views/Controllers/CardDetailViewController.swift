@@ -29,7 +29,6 @@ final class CardDetailViewController: UIViewController {
         self.detailScreen = screen
 
         super.init(nibName: nil, bundle: nil)
-        detailScreen.bind(to: CardDetailViewModel(cards: cards, delegate: self))
     }
     
     required init?(coder: NSCoder) {
@@ -45,6 +44,8 @@ final class CardDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        detailScreen.bind(to: CardDetailViewModel(cards: cards, delegate: self))
     }
 }
 

@@ -17,7 +17,7 @@ extension CardDetailDelegate: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let height = collectionViewLayout.collectionViewContentSize.height
+        let height = collectionView.frame.height
         let width = height * cellAspectRatio
         return CGSize(width: width, height: height)
     }
