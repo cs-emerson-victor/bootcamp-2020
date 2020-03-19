@@ -33,6 +33,7 @@ class CardDetailScreen: UIView {
         let button = UIButton()
         button.accessibilityLabel = "closeButton"
         button.setImage(UIImage(named: "close"), for: .normal)
+        button.addTarget(self, action: #selector(closeTapped(_:)), for: .touchUpInside)
         return button
     }()
     
@@ -76,6 +77,10 @@ class CardDetailScreen: UIView {
     
     @objc func favoriteTapped(_ sender: UIButton) {
         viewModel.toggleCardFavorite(at: IndexPath(item: 0, section: 0))
+    }
+    
+    @objc func closeTapped(_ sender: UIButton) {
+        viewModel.dismissDetail()
     }
 }
 
