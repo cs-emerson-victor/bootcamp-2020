@@ -52,7 +52,7 @@ final class CardListViewController: UIViewController {
             switch result {
             case .success(let cardSets):
                 self.sets.append(contentsOf: cardSets)
-                self.listScreen.bind(to: CardListViewModel(state: .success(self.sets), delegate: self))
+                
                 guard let firstSet = self.sets.first else { return }
                 DispatchQueue.main.async {
                     self.service.fetchCards(ofSet: firstSet) { [weak self, weak firstSet] (result) in
