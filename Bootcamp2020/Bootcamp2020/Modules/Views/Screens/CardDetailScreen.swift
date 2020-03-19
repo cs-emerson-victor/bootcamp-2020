@@ -60,8 +60,17 @@ final class CardDetailScreen: UIView {
     func bind(to viewModel: CardDetailViewModel) {
         self.viewModel = viewModel
         
-        // TODO: Implement binding to view model
+        if viewModel.cards.first != nil {
+            let isFavorite = viewModel.isCardFavorite(at: IndexPath(item: 0, section: 0))
+            favoriteButton.setTitle(isFavorite ? "remove card from favorites" : "add card to favorites", for: .normal)
+        }
+        
+        cardDetailDataSource.getViewModel = viewModel.cellViewModel
         cardDetailCollectionView.reloadData()
+    }
+    
+    @objc func favoriteTapped(_ sender: UIButton) {
+        viewModel.toggleCardFavorite(at: IndexPath(item: 0, section: 0))
     }
 }
 
