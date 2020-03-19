@@ -17,7 +17,7 @@ class CardDetailIntegrationSpec: QuickSpec {
         
         var viewController: CardDetailViewController!
         var screen: CardDetailScreen!
-        var service: NetworkServiceStub!
+        var service: LocalServiceDummy!
         var dataSource: CardDetailDataSource!
         var delegate: CardDetailDelegate!
         var window: UIWindow!
@@ -26,7 +26,7 @@ class CardDetailIntegrationSpec: QuickSpec {
         beforeEach {
             
             cards = CardSetStub().getCardsOfSet(CardSet(id: "id", name: "Set name"))
-            service = NetworkServiceStub()
+            service = LocalServiceDummy()
             dataSource = CardDetailDataSource()
             delegate = CardDetailDelegate()
             screen = CardDetailScreen(dataSource: dataSource, delegate: delegate)

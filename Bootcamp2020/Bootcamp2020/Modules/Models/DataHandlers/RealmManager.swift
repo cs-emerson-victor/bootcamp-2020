@@ -45,10 +45,14 @@ final class RealmManager: LocalService {
     }
     
     func fetchCards(ofSet cardSet: CardSet, completion: @escaping (Result<[Card], Error>) -> Void) {
-        
+        let cards = Array(cardSet.cards)
+        completion(.success(cards))
     }
-    
-    func save(_ card: Card) -> Error? {
+}
+
+extension RealmManager {
+    private func save(_ card: Card) -> Error? {
+        card.isFavorite = true
         guard let realm = self.realm else {
             return error
         }
@@ -62,5 +66,27 @@ final class RealmManager: LocalService {
         } catch {
             return error
         }
+    }
+    
+    private func delete(_ card: Card) -> Error? {
+        card.isFavorite = false
+        guard let realm = self.realm else {
+            return error
+        }
+        
+        do {
+            try realm.write {
+                realm.delete(card)
+            }
+            
+            return nil
+        } catch {
+            return error
+        }
+    }
+    
+    @discardableResult
+    func toggleFavorite(_ card: Card) -> Error? {
+        return card.isFavorite ? delete(card) : save(card)
     }
 }

@@ -9,7 +9,7 @@
 import Foundation
 
 protocol CardSaverProtocol {
-    func save(_ card: Card) -> Error?
+    func toggleFavorite(_ card: Card) -> Error?
 }
 
 protocol Service {
