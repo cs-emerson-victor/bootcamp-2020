@@ -36,7 +36,12 @@ class CardDetailScreen: UIView {
         return button
     }()
     
-    private let favoriteButton = FavoriteButton()
+    private let favoriteButton: FavoriteButton = {
+        let button = FavoriteButton()
+        button.addTarget(self, action: #selector(favoriteTapped(_:)), for: .touchUpInside)
+        
+        return button
+    }()
     
     var cardDetailDataSource: CardDetailDataSource
     var cardDetailDelegate: CardDetailDelegate //swiftlint:disable:this weak_delegate
