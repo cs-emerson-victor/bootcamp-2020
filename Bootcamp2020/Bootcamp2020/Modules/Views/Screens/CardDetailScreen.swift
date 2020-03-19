@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class CardDetailScreen: UIView {
+class CardDetailScreen: UIView {
     
     // MARK: - Properties -
     private let cardDetailCollectionView: UICollectionView = {
