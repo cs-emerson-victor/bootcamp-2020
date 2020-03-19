@@ -84,8 +84,15 @@ final class CardDetailScreenSpec: QuickSpec {
                 }
             }
             
-            // TODO: Test binding ViewModel
-            // TODO: Test states
+            context("when receiving a view model") {
+                it("should bind correctly") {
+                    // Act
+//                    let viewModel = CardDetailViewModel(cards: [], delegate: CardDetailViewController(cards: [], selectedCardId: "", service: LocalServiceDummy()))
+//                    sut.bind(to: viewModel)
+//                    // Assert
+//                    expect(sut.viewModel).to(equal(viewModel))
+                }
+            }
         }
     }
 }
