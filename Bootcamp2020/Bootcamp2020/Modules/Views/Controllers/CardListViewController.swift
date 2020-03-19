@@ -12,7 +12,6 @@ final class CardListViewController: UIViewController {
 
     // MARK: - Properties -
     private(set) var sets: [CardSet] = []
-    private var nextSet: Int = 0
     
     private var listScreen: CardListScreen
     var service: Service
@@ -50,9 +49,9 @@ final class CardListViewController: UIViewController {
             switch result {
             case .success(let cardSets):
                 self.sets.append(contentsOf: cardSets)
-                
+                guard let firstSet = cardSets.first else { return }
                 DispatchQueue.main.async {
-                    self.fetchNextCards()
+                    self.fetchCardsForSet(firstSet)
                 }
                 
             case .failure(let error):
@@ -62,20 +61,15 @@ final class CardListViewController: UIViewController {
         }
     }
     
-    func fetchNextCards() {
-        guard nextSet < sets.count else {
-           return
-        }
+    func fetchCardsForSet(_ set: CardSet) {
+        guard set.cards.isEmpty else { return }
+        listScreen.bind(to: CardListViewModel(state: .loading(sets), delegate: self))
         
-        listScreen.bind(to: CardListViewModel(state: .loading, delegate: self))
-        
-        let set = sets[nextSet]
         service.fetchCards(ofSet: set) { [weak self, weak set] result in
             guard let `self` = self else { return }
             switch result {
             case .success(let cards):
                 set?.cards.append(objectsIn: cards)
-                self.nextSet += 1
                 self.listScreen.bind(to: CardListViewModel(state: .success(self.sets), delegate: self))
             case .failure(let error):
                 debugPrint(error.localizedDescription)
@@ -94,5 +88,9 @@ extension CardListViewController: CardListViewModelDelegate {
         
         // TODO: Call coordinator delegate
         
+    }
+    
+    func prefetchSet(_ set: CardSet) {
+        fetchCardsForSet(set)
     }
 }
