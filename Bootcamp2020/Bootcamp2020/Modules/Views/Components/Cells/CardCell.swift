@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 final class CardCell: UICollectionViewCell {
     
@@ -33,8 +34,8 @@ final class CardCell: UICollectionViewCell {
     // MARK: Methods
     func bind(to viewModel: CardCellViewModel) {
         self.viewModel = viewModel
-        // TODO: Treat nil image
-        cardImageView.image = viewModel.image
+        // TODO: Treat nil imageData
+        cardImageView.kf.setImage(with: viewModel.imageURL, placeholder: UIImage(named: "placeholder"))
     }
 }
 
