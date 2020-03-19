@@ -12,6 +12,7 @@ final class CardListViewController: UIViewController {
 
     // MARK: - Properties -
     private(set) var sets: [CardSet] = []
+    private var nextSet: Int = 0
     
     private var listScreen: CardListScreen
     var service: Service
@@ -50,22 +51,32 @@ final class CardListViewController: UIViewController {
             case .success(let cardSets):
                 self.sets.append(contentsOf: cardSets)
                 
-                guard let firstSet = self.sets.first else { return }
                 DispatchQueue.main.async {
-                    self.service.fetchCards(ofSet: firstSet) { [weak self, weak firstSet] (result) in
-                        
-                        guard let `self` = self else { return }
-                        switch result {
-                        case .success(let cards):
-                            firstSet?.cards.append(objectsIn: cards)
-                            self.listScreen.bind(to: CardListViewModel(state: .success(self.sets), delegate: self))
-                        case .failure(let error):
-                            debugPrint(error.localizedDescription)
-                            self.listScreen.bind(to: CardListViewModel(state: .error, delegate: self))
-                        }
-                    }
+                    self.fetchNextCards()
                 }
                 
+            case .failure(let error):
+                debugPrint(error.localizedDescription)
+                self.listScreen.bind(to: CardListViewModel(state: .error, delegate: self))
+            }
+        }
+    }
+    
+    func fetchNextCards() {
+        guard nextSet < sets.count else {
+           return
+        }
+        
+        listScreen.bind(to: CardListViewModel(state: .loading, delegate: self))
+        
+        let set = sets[nextSet]
+        service.fetchCards(ofSet: set) { [weak self, weak set] result in
+            guard let `self` = self else { return }
+            switch result {
+            case .success(let cards):
+                set?.cards.append(objectsIn: cards)
+                self.nextSet += 1
+                self.listScreen.bind(to: CardListViewModel(state: .success(self.sets), delegate: self))
             case .failure(let error):
                 debugPrint(error.localizedDescription)
                 self.listScreen.bind(to: CardListViewModel(state: .error, delegate: self))
