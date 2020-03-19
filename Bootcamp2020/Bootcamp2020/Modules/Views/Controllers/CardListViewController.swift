@@ -15,13 +15,16 @@ final class CardListViewController: UIViewController {
     
     private var listScreen: CardListScreen
     var service: Service
+    weak var detailDelegate: ShowCardDetailDelegate?
     
     // MARK: - Init -
     init(service: Service,
-         screen: CardListScreen = CardListScreen()) {
+         screen: CardListScreen = CardListScreen(),
+         detailDelegate: ShowCardDetailDelegate? = nil) {
         
         self.service = service
         self.listScreen = screen
+        self.detailDelegate = detailDelegate
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -80,8 +83,6 @@ extension CardListViewController: CardListViewModelDelegate {
     }
     
     func didSelect(_ card: Card) {
-        
-        // TODO: Call coordinator delegate
-        
+        detailDelegate?.show([card], selectedCardId: card.id)
     }
 }
