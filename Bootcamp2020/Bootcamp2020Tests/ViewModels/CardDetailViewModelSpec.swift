@@ -51,11 +51,19 @@ final class CardDetailViewModelSpec: QuickSpec {
             }
             
             context("when toggle card favorite") {
-                it("it should call delegate toggle function") {
+                it("should call delegate toggle function") {
                     sut.toggleCardFavorite(at: IndexPath(row: 0, section: 0))
                     
                     expect(delegate.toggleFunctionWasCalled).to(beTrue())
                     expect(delegate.card).to(beIdenticalTo(cards[0]))
+                }
+            }
+            
+            context("when dismiss card detail modal") {
+                it("should call delegate dismiss function") {
+                    sut.dismissDetail()
+                    
+                    expect(delegate.modalWasDismissed).to(beTrue())
                 }
             }
         }

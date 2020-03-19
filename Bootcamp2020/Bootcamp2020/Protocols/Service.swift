@@ -9,6 +9,8 @@
 import Foundation
 
 protocol CardSaverProtocol {
+    
+    @discardableResult
     func toggleFavorite(_ card: Card) -> Error?
 }
 

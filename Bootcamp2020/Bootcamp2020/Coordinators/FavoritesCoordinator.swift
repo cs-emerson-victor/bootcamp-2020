@@ -30,7 +30,7 @@ final class FavoritesCoordinator: Coordinator {
     }
 }
 
-extension FavoritesCoordinator: ShowCardDetailDelegate {
+extension FavoritesCoordinator: ShowCardDetailDelegate, DismissCardDetailDelegate {
     var saver: CardSaverProtocol {
         return localService
     }

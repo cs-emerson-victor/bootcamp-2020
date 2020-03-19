@@ -51,9 +51,12 @@ final class RealmManager: LocalService {
 }
 
 extension RealmManager {
+    
+    // TODO: - Refactor save and delete
     private func save(_ card: Card) -> Error? {
         card.isFavorite = true
         guard let realm = self.realm else {
+            card.isFavorite = false
             return error
         }
         
@@ -64,6 +67,7 @@ extension RealmManager {
             
             return nil
         } catch {
+            card.isFavorite = false
             return error
         }
     }
@@ -71,6 +75,7 @@ extension RealmManager {
     private func delete(_ card: Card) -> Error? {
         card.isFavorite = false
         guard let realm = self.realm else {
+            card.isFavorite = true
             return error
         }
         
@@ -81,6 +86,7 @@ extension RealmManager {
             
             return nil
         } catch {
+            card.isFavorite = true
             return error
         }
     }

@@ -12,9 +12,9 @@ protocol ShowCardDetailDelegate: AnyObject {
     func show(_ cards: [Card], selectedCardId id: String)
 }
 
-extension ShowCardDetailDelegate where Self: Coordinator {
+extension ShowCardDetailDelegate where Self: Coordinator & DismissCardDetailDelegate {
     func show(_ cards: [Card], selectedCardId id: String) {
-        let controller = CardDetailViewController(cards: cards, selectedCardId: id, service: saver)
+        let controller = CardDetailViewController(cards: cards, selectedCardId: id, service: saver, delegate: self)
         rootController.pushViewController(controller, animated: true)
     }
 }

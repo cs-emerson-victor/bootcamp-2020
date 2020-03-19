@@ -5,6 +5,7 @@
 //  Created by alexandre.c.ferreira on 18/03/20.
 //  Copyright © 2020 Team2. All rights reserved.
 //
+// swiftlint:disable function_body_length
 
 import Quick
 import Nimble
@@ -13,18 +14,23 @@ import Nimble
 final class CardDetailViewControllerSpec: QuickSpec {
     
     override func spec() {
-        
+
         var sut: CardDetailViewController!
-        var screen: CardDetailScreen!
-        var service: LocalServiceDummy!
         var cards: [Card]!
+        var service: CardSaverSpy!
+        var screen: CardDetailScreenSpy!
+        var delegate: DismissCardDetailDelegateSpy!
         
         beforeEach {
-            
             cards = CardSetStub().getCardsOfSet(CardSet(id: "id", name: "Set name"))
-            screen = CardDetailScreen()
-            service = LocalServiceDummy()
-            sut = CardDetailViewController(cards: cards, selectedCardId: cards[2].id, service: service, screen: screen)
+            screen = CardDetailScreenSpy()
+            service = CardSaverSpy()
+            delegate = DismissCardDetailDelegateSpy()
+            sut = CardDetailViewController(cards: cards,
+                                           selectedCardId: cards[2].id,
+                                           service: service,
+                                           delegate: delegate,
+                                           screen: screen)
             
             _ = sut.view
         }
@@ -44,13 +50,32 @@ final class CardDetailViewControllerSpec: QuickSpec {
                     expect(sut.view).to(beIdenticalTo(screen))
                     expect(sut.service).to(beIdenticalTo(service))
                     expect(sut.cards).to(equal(cards))
+                    expect(sut.delegate).to(beIdenticalTo(delegate))
+                    expect(screen.countBind).to(equal(1))
                 }
                 
                 context("the view") {
                     it("should be of the correct type") {
-                        
                         expect(sut.view).to(beAKindOf(CardDetailScreen.self))
                     }
+                }
+            }
+            
+            context("when card it's favorited") {
+                it("should save card and bind new view model") {
+                    let card = cards[0]
+                    sut.toggleFavorite(card)
+                    
+                    expect(screen.countBind).to(equal(2))
+                    expect(service.cardWasSaved).to(beTrue())
+                }
+            }
+            
+            context("when card detail it's dismissed") {
+                it("should call delegate") {
+                    sut.dismissDetail(animated: true)
+                    
+                    expect(delegate.modalWasDismissed).to(beTrue())
                 }
             }
         }

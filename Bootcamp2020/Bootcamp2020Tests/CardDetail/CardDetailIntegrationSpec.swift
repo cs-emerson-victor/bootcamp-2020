@@ -20,6 +20,7 @@ class CardDetailIntegrationSpec: QuickSpec {
         var service: LocalServiceDummy!
         var dataSource: CardDetailDataSource!
         var delegate: CardDetailDelegate!
+        var dismissDelegate: DismissCardDetailDelegateSpy!
         var window: UIWindow!
         var cards: [Card]!
         
@@ -29,8 +30,13 @@ class CardDetailIntegrationSpec: QuickSpec {
             service = LocalServiceDummy()
             dataSource = CardDetailDataSource()
             delegate = CardDetailDelegate()
+            dismissDelegate = DismissCardDetailDelegateSpy()
             screen = CardDetailScreen(dataSource: dataSource, delegate: delegate)
-            viewController = CardDetailViewController(cards: cards, selectedCardId: cards[2].id, service: service, screen: screen)
+            viewController = CardDetailViewController(cards: cards,
+                                                      selectedCardId: cards[2].id,
+                                                      service: service,
+                                                      delegate: dismissDelegate,
+                                                      screen: screen)
             window = UIWindow(frame: UIScreen.main.bounds)
             
             window.rootViewController = viewController
