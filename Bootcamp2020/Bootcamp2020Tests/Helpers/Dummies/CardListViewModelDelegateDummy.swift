@@ -16,4 +16,8 @@ final class CardListViewModelDelegateDummy: CardListViewModelDelegate {
     func didSelect(_ card: Card) {
         
     }
+    
+    func prefetchSet(_ set: CardSet) {
+        
+    }
 }
