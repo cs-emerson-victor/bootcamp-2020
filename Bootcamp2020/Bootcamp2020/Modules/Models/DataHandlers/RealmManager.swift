@@ -45,7 +45,8 @@ final class RealmManager: LocalService {
     }
     
     func fetchCards(ofSet cardSet: CardSet, completion: @escaping (Result<[Card], Error>) -> Void) {
-        
+        let cards = Array(cardSet.cards)
+        completion(.success(cards))
     }
 }
 
