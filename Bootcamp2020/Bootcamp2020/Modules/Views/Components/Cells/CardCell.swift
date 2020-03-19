@@ -15,6 +15,7 @@ final class CardCell: UICollectionViewCell {
     private let cardImageView: UIImageView = {
         let view = UIImageView()
         view.accessibilityIdentifier = "cardCellImageView"
+        view.accessibilityLabel = "cardCellImageView"
         return view
     }()
     
@@ -24,6 +25,7 @@ final class CardCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         accessibilityIdentifier = "cardCell"
+        accessibilityLabel = "cardCell"
         setupView()
     }
     
