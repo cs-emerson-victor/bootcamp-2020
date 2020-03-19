@@ -26,9 +26,9 @@ final class CardListViewModelSpec: QuickSpec {
             
             context("when it's initialized") {
                 it("should have the given state and delegate, and an empty array of CardSet") {
-                    sut = CardListViewModel(state: .loading, delegate: delegate)
+                    sut = CardListViewModel(state: .loading(cardSets), delegate: delegate)
                     
-                    expect(sut.state).to(equal(CardListViewModel.UIState.loading))
+                    expect(sut.state).to(equal(CardListViewModel.UIState.loading(cardSets)))
                     expect(sut.delegate).to(beIdenticalTo(delegate))
                     expect(sut.cardSets).to(beEmpty())
                 }
