@@ -30,7 +30,7 @@ final class CardListViewModelSpec: QuickSpec {
                     
                     expect(sut.state).to(equal(CardListViewModel.UIState.loading(cardSets)))
                     expect(sut.delegate).to(beIdenticalTo(delegate))
-                    expect(sut.cardSets).to(beEmpty())
+                    expect(sut.cardSets).to(equal(cardSets))
                 }
                 
                 it("should have the given state, delegate and aray of CardSet") {

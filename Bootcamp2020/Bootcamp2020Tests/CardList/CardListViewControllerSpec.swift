@@ -53,7 +53,6 @@ final class CardListViewControllerSpec: QuickSpec {
             
             context("after loading view") {
                 it("should fetch initially") {
-                    
                     expect(sut.sets).to(equal(service.fetchedSets))
                 }
             }
