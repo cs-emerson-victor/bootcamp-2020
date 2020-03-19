@@ -90,7 +90,7 @@ final class CardListScreenSpec: QuickSpec {
                         }
                         
                         // Act
-                        let viewModel = CardListViewModel(state: .initialLoading, delegate: CardListViewController(service: NetworkServiceDummy()))
+                        let viewModel = CardListViewModel(state: .initialLoading, delegate: CardListViewModelDelegateDummy())
                         sut.bind(to: viewModel)
                         
                         // Assert
@@ -105,7 +105,7 @@ final class CardListScreenSpec: QuickSpec {
                         let cardSets = CardSetStub().getEmptySets()
                         
                         // Act
-                        let viewModel = CardListViewModel(state: .success(cardSets), delegate: CardListViewController(service: NetworkServiceDummy()))
+                        let viewModel = CardListViewModel(state: .success(cardSets), delegate: CardListViewModelDelegateDummy())
                         sut.bind(to: viewModel)
                         
                         // Assert
@@ -119,7 +119,7 @@ final class CardListScreenSpec: QuickSpec {
                         let cardSets = CardSetStub().getEmptySets()
                         
                         // Act
-                        let viewModel = CardListViewModel(state: .success(cardSets), delegate: CardListViewController(service: NetworkServiceDummy()))
+                        let viewModel = CardListViewModel(state: .success(cardSets), delegate: CardListViewModelDelegateDummy())
                         sut.bind(to: viewModel)
                         
                         // Assert
