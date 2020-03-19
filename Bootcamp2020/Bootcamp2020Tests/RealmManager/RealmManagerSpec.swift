@@ -92,17 +92,36 @@ final class RealmManagerSpec: QuickSpec {
                 }
             }
             
-            context("when it's saved card") {
-                it("should save the given card") {
-                    let card = Card(id: "0", name: "Card1")
-                    let saveReturn = sut.save(card)
+            context("when card it's favorited") {
+                var card: Card!
+                
+                beforeEach {
+                    card = Card(id: "0", name: "Card1", isFavorite: false)
+                }
+                
+                it("should favorite the given card") {
+                    let favoriteReturn = sut.toggleFavorite(card)
                     
-                    if let saveReturn = saveReturn {
-                        expect(saveReturn).to(beAnInstanceOf(Error.self))
-                    } else {
-                        let cards = sut.realm?.objects(Card.self)
-                        expect(cards?.count).to(equal(1))
+                    guard favoriteReturn == nil else {
+                        Nimble.fail()
+                        return
                     }
+                    
+                    let cards = sut.realm?.objects(Card.self)
+                    expect(cards?.count).to(equal(1))
+                }
+                
+                it("should unfavorite the given card") {
+                    _ = sut.toggleFavorite(card)
+                    let unfavoriteReturn = sut.toggleFavorite(card)
+
+                    guard unfavoriteReturn == nil else {
+                        Nimble.fail()
+                        return
+                    }
+
+                    let cards = sut.realm?.objects(Card.self)
+                    expect(cards?.count).to(equal(0))
                 }
             }
         }

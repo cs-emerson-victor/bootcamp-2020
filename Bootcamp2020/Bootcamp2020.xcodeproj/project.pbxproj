@@ -72,8 +72,8 @@
 		C04072D2241C3F78005F9B97 /* CardListDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04072D1241C3F78005F9B97 /* CardListDelegate.swift */; };
 		C04072D5241C3FF6005F9B97 /* CardTypeHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04072D4241C3FF6005F9B97 /* CardTypeHeaderCell.swift */; };
 		C04072D7241C4012005F9B97 /* CardSetHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04072D6241C4012005F9B97 /* CardSetHeaderCell.swift */; };
-		C0613712241FF72C00B75034 /* APIManagerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C4A85B241FF46F002CB8D9 /* APIManagerSpec.swift */; };
 		C054029E2422B376004F3629 /* ShowCardDetailDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C054029D2422B376004F3629 /* ShowCardDetailDelegate.swift */; };
+		C0613712241FF72C00B75034 /* APIManagerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C4A85B241FF46F002CB8D9 /* APIManagerSpec.swift */; };
 		C061372224200DE200B75034 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C061372124200DE200B75034 /* Endpoint.swift */; };
 		C091F1E82420F28900ECD238 /* EndpointSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C091F1E72420F28900ECD238 /* EndpointSpec.swift */; };
 		C0EC9FC124229121004C3526 /* APIResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EC9FC024229121004C3526 /* APIResponses.swift */; };
@@ -246,21 +246,12 @@
 			path = Stubs;
 			sourceTree = "<group>";
 		};
-		81354A3524213763007896FF /* DataHandlers */ = {
+		81354A3824213ECA007896FF /* RealmManager */ = {
 			isa = PBXGroup;
 			children = (
 				81354A36242138EC007896FF /* RealmManagerSpec.swift */,
 			);
-			path = DataHandlers;
-			sourceTree = "<group>";
-		};
-		81354A3824213ECA007896FF /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				81354A3524213763007896FF /* DataHandlers */,
-				81354A3924213EDD007896FF /* Objects */,
-			);
-			path = Models;
+			path = RealmManager;
 			sourceTree = "<group>";
 		};
 		81354A3924213EDD007896FF /* Objects */ = {
@@ -393,7 +384,8 @@
 				1D1759FA241FE5B80037E4B9 /* CardList */,
 				81606CF9241F9C0200CDEECA /* Coordinators */,
 				81606CFA241F9C1000CDEECA /* Helpers */,
-				81354A3824213ECA007896FF /* Models */,
+				81354A3924213EDD007896FF /* Objects */,
+				81354A3824213ECA007896FF /* RealmManager */,
 				81C4A70A2422A4E700E12BE6 /* ViewModels */,
 			);
 			path = Bootcamp2020Tests;

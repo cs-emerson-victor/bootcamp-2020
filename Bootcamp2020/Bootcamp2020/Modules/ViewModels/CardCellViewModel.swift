@@ -6,7 +6,7 @@
 //  Copyright © 2020 Team2. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 struct CardCellViewModel {
     
@@ -19,11 +19,12 @@ struct CardCellViewModel {
 
 extension CardCellViewModel {
     
-    var image: UIImage? {
-        guard let imageData = card.imageData else {
+    var imageURL: URL? {
+        guard let imageURLString = card.imageURL else { return nil }
+        guard let imageURL = URL(string: imageURLString) else {
             return nil
         }
         
-        return UIImage(data: imageData)
+        return imageURL
     }
 }

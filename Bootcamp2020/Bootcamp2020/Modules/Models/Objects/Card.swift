@@ -13,7 +13,7 @@ final class Card: Object {
     @objc dynamic var name: String = ""
     @objc dynamic var imageURL: String?
     @objc dynamic var imageData: Data?
-    private(set) var isFavorite: Bool = false
+    var isFavorite: Bool = false
     let types: List<CardType> = List<CardType>()
     
     convenience init(id: String,
@@ -33,16 +33,6 @@ final class Card: Object {
     
     override static func primaryKey() -> String? {
         return "id"
-    }
-    
-    override static func ignoredProperties() -> [String] {
-        return ["isFavorite"]
-    }
-    
-    @discardableResult
-    func toggleFavorite() -> Bool {
-        isFavorite = !isFavorite
-        return isFavorite
     }
 }
 

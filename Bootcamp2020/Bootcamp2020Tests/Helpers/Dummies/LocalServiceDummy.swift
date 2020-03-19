@@ -10,7 +10,7 @@
 
 final class LocalServiceDummy: LocalService {
     
-    func save(_ card: Card) -> Error? {
+    func toggleFavorite(_ card: Card) -> Error? {
         return nil
     }
     
