@@ -41,7 +41,7 @@ class EndpointSpec: QuickSpec {
                     beforeEach {
                         correctURL = "\(baseURL)/cards?set=KTK"
                         set = CardSet()
-                        set.name = "KTK"
+                        set.id = "KTK"
                         
                         sut = Endpoint(ofType: .cards(set: set))
                     }
