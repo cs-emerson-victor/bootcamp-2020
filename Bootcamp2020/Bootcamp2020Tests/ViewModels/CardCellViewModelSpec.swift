@@ -33,7 +33,7 @@ final class CardCellViewModelSpec: QuickSpec {
                     card = Card(id: "0", name: "Card1", imageData: nil)
                     sut = CardCellViewModel(card: card)
                     
-                    expect(sut.image).to(beNil())
+                    expect(sut.imageData).to(beNil())
                 }
                 
                 it("should return the given image") {
@@ -46,7 +46,7 @@ final class CardCellViewModelSpec: QuickSpec {
                     card = Card(id: "0", name: "Card1", imageData: imageData)
                     sut = CardCellViewModel(card: card)
                     
-                    expect(sut.image).to(beAnInstanceOf(UIImage.self))
+                    expect(sut.imageData).to(beAnInstanceOf(UIImage.self))
                     
                 }
                 
