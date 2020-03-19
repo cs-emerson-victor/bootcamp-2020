@@ -15,15 +15,15 @@ final class CardDetailViewControllerSpec: QuickSpec {
     override func spec() {
         
         var sut: CardDetailViewController!
-        var screen: CardDetailScreen!
-        var service: LocalServiceDummy!
+        var screen: CardDetailScreenSpy!
+        var service: CardSaverSpy!
         var cards: [Card]!
         
         beforeEach {
             
             cards = CardSetStub().getCardsOfSet(CardSet(id: "id", name: "Set name"))
-            screen = CardDetailScreen()
-            service = LocalServiceDummy()
+            screen = CardDetailScreenSpy()
+            service = CardSaverSpy()
             sut = CardDetailViewController(cards: cards, selectedCardId: cards[2].id, service: service, screen: screen)
             
             _ = sut.view
@@ -44,13 +44,23 @@ final class CardDetailViewControllerSpec: QuickSpec {
                     expect(sut.view).to(beIdenticalTo(screen))
                     expect(sut.service).to(beIdenticalTo(service))
                     expect(sut.cards).to(equal(cards))
+                    expect(screen.countBind).to(equal(1))
                 }
                 
                 context("the view") {
                     it("should be of the correct type") {
-                        
                         expect(sut.view).to(beAKindOf(CardDetailScreen.self))
                     }
+                }
+            }
+            
+            context("when card it's favorited") {
+                it("should save card and bind new view model") {
+                    let card = cards[0]
+                    sut.toggleFavorite(card)
+                    
+                    expect(screen.countBind).to(equal(2))
+                    expect(service.cardWasSaved).to(beTrue())
                 }
             }
         }

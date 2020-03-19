@@ -27,6 +27,8 @@
 		2B1D084BD99C3DBEC940754F /* Pods_Bootcamp2020.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6817D7B18DA67B0C87627838 /* Pods_Bootcamp2020.framework */; };
 		5A17C769CE83FFEA6B0C7AB6 /* Pods_Bootcamp2020SnapshotTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3ABAABE0031DB5F028E6598 /* Pods_Bootcamp2020SnapshotTests.framework */; };
 		81354A37242138EC007896FF /* RealmManagerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81354A36242138EC007896FF /* RealmManagerSpec.swift */; };
+		815F93CC2423C16300893DEC /* CardDetailScreenSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815F93CB2423C16300893DEC /* CardDetailScreenSpy.swift */; };
+		815F93CE2423C46500893DEC /* CardSaverSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815F93CD2423C46500893DEC /* CardSaverSpy.swift */; };
 		816EA56C242154160032620F /* CardSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816EA56B242154160032620F /* CardSpec.swift */; };
 		816EA56E2421544A0032620F /* CardTypeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816EA56D2421544A0032620F /* CardTypeSpec.swift */; };
 		816EA5702421545F0032620F /* CardSetSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816EA56F2421545F0032620F /* CardSetSpec.swift */; };
@@ -120,6 +122,8 @@
 		6817D7B18DA67B0C87627838 /* Pods_Bootcamp2020.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bootcamp2020.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		72B801A919CF97CD4C2717E8 /* Pods-Bootcamp2020Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bootcamp2020Tests.debug.xcconfig"; path = "Target Support Files/Pods-Bootcamp2020Tests/Pods-Bootcamp2020Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		81354A36242138EC007896FF /* RealmManagerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManagerSpec.swift; sourceTree = "<group>"; };
+		815F93CB2423C16300893DEC /* CardDetailScreenSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailScreenSpy.swift; sourceTree = "<group>"; };
+		815F93CD2423C46500893DEC /* CardSaverSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSaverSpy.swift; sourceTree = "<group>"; };
 		816EA56B242154160032620F /* CardSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSpec.swift; sourceTree = "<group>"; };
 		816EA56D2421544A0032620F /* CardTypeSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTypeSpec.swift; sourceTree = "<group>"; };
 		816EA56F2421545F0032620F /* CardSetSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSetSpec.swift; sourceTree = "<group>"; };
@@ -325,8 +329,10 @@
 		81C4A7122422AD9A00E12BE6 /* Spies */ = {
 			isa = PBXGroup;
 			children = (
+				815F93CB2423C16300893DEC /* CardDetailScreenSpy.swift */,
 				81C4A7132422ADDD00E12BE6 /* CardDetailViewModelDelegateSpy.swift */,
 				81C4A7172422B27D00E12BE6 /* CardListViewModelDelegateSpy.swift */,
+				815F93CD2423C46500893DEC /* CardSaverSpy.swift */,
 			);
 			path = Spies;
 			sourceTree = "<group>";
@@ -912,6 +918,7 @@
 				81E9945C2422B98D008D2BC7 /* URLSessionMock.swift in Sources */,
 				1D175A0324202EE20037E4B9 /* CardListDelegateSpec.swift in Sources */,
 				1D175A2224228A6A0037E4B9 /* CardDetailScreenSpec.swift in Sources */,
+				815F93CC2423C16300893DEC /* CardDetailScreenSpy.swift in Sources */,
 				1D175A17242197BB0037E4B9 /* NetworkServiceStub.swift in Sources */,
 				81C4A7142422ADDD00E12BE6 /* CardDetailViewModelDelegateSpy.swift in Sources */,
 				81C4A7112422ABE700E12BE6 /* CardDetailViewModelSpec.swift in Sources */,
@@ -923,6 +930,7 @@
 				1D175A262422A2330037E4B9 /* CardDetailDataSourceSpec.swift in Sources */,
 				81C4A7162422B19E00E12BE6 /* CardListViewModelSpec.swift in Sources */,
 				1D175A15242189E70037E4B9 /* CardListViewControllerSpec.swift in Sources */,
+				815F93CE2423C46500893DEC /* CardSaverSpy.swift in Sources */,
 				81C4A7182422B27D00E12BE6 /* CardListViewModelDelegateSpy.swift in Sources */,
 				816EA56C242154160032620F /* CardSpec.swift in Sources */,
 				1D175A132421680D0037E4B9 /* CardSetStub.swift in Sources */,
