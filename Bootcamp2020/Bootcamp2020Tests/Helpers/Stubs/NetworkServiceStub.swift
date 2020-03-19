@@ -27,9 +27,3 @@ final class NetworkServiceStub: Service {
         completion(.success(fethchedCards))
     }
 }
-
-extension NetworkServiceStub: CardSaverProtocol {
-    func save(_ card: Card) -> Error? {
-        return nil
-    }
-}

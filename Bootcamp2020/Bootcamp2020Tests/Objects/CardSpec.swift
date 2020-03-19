@@ -34,24 +34,6 @@ final class CardSpec: QuickSpec {
                     expect(sut.types).to(beEmpty())
                 }
             }
-            
-            context("when toggle favorite") {
-                it("should have isFavorite property as true") {
-                    sut = Card(id: "0", name: "Card1", isFavorite: false)
-                    let isFavorite = sut.toggleFavorite()
-                    
-                    expect(isFavorite).to(beTrue())
-                    expect(sut.isFavorite).to(beTrue())
-                }
-                
-                it("should have isFavorite property as false") {
-                    sut = Card(id: "0", name: "Card1", isFavorite: true)
-                    let isFavorite = sut.toggleFavorite()
-                    
-                    expect(isFavorite).to(beFalse())
-                    expect(sut.isFavorite).to(beFalse())
-                }
-            }
         }
     }
 }
