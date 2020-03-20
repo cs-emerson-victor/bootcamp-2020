@@ -71,7 +71,7 @@ final class CardListViewController: UIViewController {
     }
     
     func fetchCardsForSet(_ set: CardSet) {
-        guard set.cards.isEmpty else { return }
+        guard set.cards.isEmpty, !listScreen.isLoading else { return }
         listScreen.bind(to: CardListViewModel(state: .loading(sets), delegate: self))
         
         service.fetchCards(ofSet: set) { [weak self, weak set] result in
