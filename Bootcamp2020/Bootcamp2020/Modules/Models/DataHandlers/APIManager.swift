@@ -119,34 +119,36 @@ extension APIManager: Service {
     func fetchCards(ofSet cardSet: CardSet,
                     completion: @escaping (Result<[Card], Error>) -> Void) {
         
+        let backgroundQueue = DispatchQueue.global(qos: .background)
         let dispatchGroup = DispatchGroup()
         let endpoint = Endpoint(ofType: .cards(set: cardSet))
         var allCards = [Card]()
         var maxPages = 0
         
         dispatchGroup.enter()
-        
-        fetchFirstPage(from: endpoint) { (result: Result<(cards: [Card], pages: Int), Error>) in
-            switch result {
-            case .failure(let error):
-                completion(.failure(error))
-            case .success(let response):
-                allCards.append(contentsOf: response.cards)
-                maxPages = response.pages
+        backgroundQueue.async {
+            self.fetchFirstPage(from: endpoint) { (result: Result<(cards: [Card], pages: Int), Error>) in
+                switch result {
+                case .failure(let error):
+                    completion(.failure(error))
+                case .success(let response):
+                    allCards.append(contentsOf: response.cards)
+                    maxPages = response.pages
+                }
+                
+                dispatchGroup.leave()
             }
-            
-            dispatchGroup.leave()
         }
         
-        dispatchGroup.wait()
-        
-        fetchPages(from: endpoint, pageCount: maxPages) { result in
-            switch result {
-            case .failure(let error):
-                completion(.failure(error))
-            case .success(let cards):
-                allCards.append(contentsOf: cards)
-                completion(.success(allCards))
+        dispatchGroup.notify(queue: backgroundQueue) {
+            self.fetchPages(from: endpoint, pageCount: maxPages) { result in
+                switch result {
+                case .failure(let error):
+                    completion(.failure(error))
+                case .success(let cards):
+                    allCards.append(contentsOf: cards)
+                    completion(.success(allCards))
+                }
             }
         }
     }
