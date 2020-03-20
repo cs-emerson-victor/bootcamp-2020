@@ -26,7 +26,8 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      codeCoverageEnabled = "YES">
       <Testables>
          <TestableReference
             skipped = "NO">
@@ -45,6 +46,16 @@
                BlueprintIdentifier = "C03D30EE241BFC460089B070"
                BuildableName = "Bootcamp2020SnapshotTests.xctest"
                BlueprintName = "Bootcamp2020SnapshotTests"
+               ReferencedContainer = "container:Bootcamp2020.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "815F93D624252AA100893DEC"
+               BuildableName = "Bootcamp2020IntegrationTests.xctest"
+               BlueprintName = "Bootcamp2020IntegrationTests"
                ReferencedContainer = "container:Bootcamp2020.xcodeproj">
             </BuildableReference>
          </TestableReference>

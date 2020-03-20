@@ -12,24 +12,26 @@
 		1D175A0524202FB20037E4B9 /* CardListDataSourceStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D175A0424202FB20037E4B9 /* CardListDataSourceStub.swift */; };
 		1D175A0924212BF60037E4B9 /* UIKit+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D175A0824212BF60037E4B9 /* UIKit+Extensions.swift */; };
 		1D175A0D2421492A0037E4B9 /* CardListDataSourceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D175A0C2421492A0037E4B9 /* CardListDataSourceSpec.swift */; };
-		1D175A11242163ED0037E4B9 /* KIF+TesterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D175A10242163ED0037E4B9 /* KIF+TesterExtension.swift */; };
 		1D175A132421680D0037E4B9 /* CardSetStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D175A122421680D0037E4B9 /* CardSetStub.swift */; };
 		1D175A15242189E70037E4B9 /* CardListViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D175A14242189E70037E4B9 /* CardListViewControllerSpec.swift */; };
 		1D175A17242197BB0037E4B9 /* NetworkServiceStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D175A16242197BB0037E4B9 /* NetworkServiceStub.swift */; };
-		1D175A19242265D00037E4B9 /* CardListIntegrationSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D175A18242265D00037E4B9 /* CardListIntegrationSpec.swift */; };
 		1D175A1B242273FE0037E4B9 /* CardDetailDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D175A1A242273FE0037E4B9 /* CardDetailDataSource.swift */; };
 		1D175A1D242275300037E4B9 /* CardDetailDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D175A1C242275300037E4B9 /* CardDetailDelegate.swift */; };
 		1D175A2224228A6A0037E4B9 /* CardDetailScreenSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D175A2124228A6A0037E4B9 /* CardDetailScreenSpec.swift */; };
 		1D175A242422A0220037E4B9 /* CardDetailViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D175A232422A0220037E4B9 /* CardDetailViewControllerSpec.swift */; };
 		1D175A262422A2330037E4B9 /* CardDetailDataSourceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D175A252422A2330037E4B9 /* CardDetailDataSourceSpec.swift */; };
 		1D175A282422A3A60037E4B9 /* CardDetailDelegateSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D175A272422A3A60037E4B9 /* CardDetailDelegateSpec.swift */; };
-		1D175A2A2422A95E0037E4B9 /* CardDetailIntegrationSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D175A292422A95E0037E4B9 /* CardDetailIntegrationSpec.swift */; };
 		1D175A2C2423C43A0037E4B9 /* CardDetailViewModelDelegateDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D175A2B2423C43A0037E4B9 /* CardDetailViewModelDelegateDummy.swift */; };
 		1D175A2E2423C47A0037E4B9 /* CardListViewModelDelegateDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D175A2D2423C47A0037E4B9 /* CardListViewModelDelegateDummy.swift */; };
 		1D175A302423C7110037E4B9 /* CardCellSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D175A2F2423C7110037E4B9 /* CardCellSpec.swift */; };
 		1D175A322423D2780037E4B9 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D175A312423D2780037E4B9 /* ErrorView.swift */; };
+		284673936400331D128F9020 /* Pods_Bootcamp2020IntegrationTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C2B579E505A713E2A78D8E4 /* Pods_Bootcamp2020IntegrationTests.framework */; };
 		2B1D084BD99C3DBEC940754F /* Pods_Bootcamp2020.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6817D7B18DA67B0C87627838 /* Pods_Bootcamp2020.framework */; };
 		5A17C769CE83FFEA6B0C7AB6 /* Pods_Bootcamp2020SnapshotTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3ABAABE0031DB5F028E6598 /* Pods_Bootcamp2020SnapshotTests.framework */; };
+		8131F0FE24252DFE005F765C /* NetworkServiceStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D175A16242197BB0037E4B9 /* NetworkServiceStub.swift */; };
+		8131F0FF24252E0A005F765C /* LocalServiceDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F6981D241FEDB200258920 /* LocalServiceDummy.swift */; };
+		8131F10024252E1D005F765C /* DismissCardDetailDelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815F93CF2423CC4200893DEC /* DismissCardDetailDelegateSpy.swift */; };
+		8131F10124252E2C005F765C /* CardSetStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D175A122421680D0037E4B9 /* CardSetStub.swift */; };
 		81354A37242138EC007896FF /* RealmManagerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81354A36242138EC007896FF /* RealmManagerSpec.swift */; };
 		815F93CC2423C16300893DEC /* CardDetailScreenSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815F93CB2423C16300893DEC /* CardDetailScreenSpy.swift */; };
 		815F93CE2423C46500893DEC /* CardSaverSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815F93CD2423C46500893DEC /* CardSaverSpy.swift */; };
@@ -39,6 +41,9 @@
 		816EA56E2421544A0032620F /* CardTypeSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816EA56D2421544A0032620F /* CardTypeSpec.swift */; };
 		816EA5702421545F0032620F /* CardSetSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816EA56F2421545F0032620F /* CardSetSpec.swift */; };
 		8193839B24228376002A3EA7 /* Bootcamp2020SnapshotSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8193839A24228376002A3EA7 /* Bootcamp2020SnapshotSpec.swift */; };
+		81A23D4A24252C8F003A92A8 /* CardDetailIntegrationSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D175A292422A95E0037E4B9 /* CardDetailIntegrationSpec.swift */; };
+		81A23D4B24252C94003A92A8 /* CardListIntegrationSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D175A18242265D00037E4B9 /* CardListIntegrationSpec.swift */; };
+		81A23D4C24252C99003A92A8 /* KIF+TesterExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D175A10242163ED0037E4B9 /* KIF+TesterExtension.swift */; };
 		81C4A70C2422A50400E12BE6 /* CardCellViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C4A70B2422A50400E12BE6 /* CardCellViewModelSpec.swift */; };
 		81C4A70F2422A8EB00E12BE6 /* AssetsTest.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81C4A70E2422A8EB00E12BE6 /* AssetsTest.xcassets */; };
 		81C4A7112422ABE700E12BE6 /* CardDetailViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C4A7102422ABE700E12BE6 /* CardDetailViewModelSpec.swift */; };
@@ -88,6 +93,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		815F93DC24252AA100893DEC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C03D30BB241BFC0F0089B070 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C03D30C2241BFC0F0089B070;
+			remoteInfo = Bootcamp2020;
+		};
 		C03D30DD241BFC100089B070 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C03D30BB241BFC0F0089B070 /* Project object */;
@@ -126,6 +138,7 @@
 		1D175A2D2423C47A0037E4B9 /* CardListViewModelDelegateDummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListViewModelDelegateDummy.swift; sourceTree = "<group>"; };
 		1D175A2F2423C7110037E4B9 /* CardCellSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCellSpec.swift; sourceTree = "<group>"; };
 		1D175A312423D2780037E4B9 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		2C2B579E505A713E2A78D8E4 /* Pods_Bootcamp2020IntegrationTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bootcamp2020IntegrationTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2ECB7FF7F8166C3F105BF76A /* Pods-Bootcamp2020SnapshotTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bootcamp2020SnapshotTests.debug.xcconfig"; path = "Target Support Files/Pods-Bootcamp2020SnapshotTests/Pods-Bootcamp2020SnapshotTests.debug.xcconfig"; sourceTree = "<group>"; };
 		61FD2D32CEDE908EE4B6A5DC /* Pods-Bootcamp2020.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bootcamp2020.release.xcconfig"; path = "Target Support Files/Pods-Bootcamp2020/Pods-Bootcamp2020.release.xcconfig"; sourceTree = "<group>"; };
 		672235472A7D97E5E74ED19A /* Pods-Bootcamp2020Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bootcamp2020Tests.release.xcconfig"; path = "Target Support Files/Pods-Bootcamp2020Tests/Pods-Bootcamp2020Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -136,6 +149,9 @@
 		815F93CD2423C46500893DEC /* CardSaverSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSaverSpy.swift; sourceTree = "<group>"; };
 		815F93CF2423CC4200893DEC /* DismissCardDetailDelegateSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissCardDetailDelegateSpy.swift; sourceTree = "<group>"; };
 		815F93D12423CD7000893DEC /* DismissCardDetailDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissCardDetailDelegate.swift; sourceTree = "<group>"; };
+		815F93D724252AA100893DEC /* Bootcamp2020IntegrationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Bootcamp2020IntegrationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		815F93DB24252AA100893DEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		815F93E224252ACA00893DEC /* Bootcamp2020IntegrationTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bootcamp2020IntegrationTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		816EA56B242154160032620F /* CardSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSpec.swift; sourceTree = "<group>"; };
 		816EA56D2421544A0032620F /* CardTypeSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTypeSpec.swift; sourceTree = "<group>"; };
 		816EA56F2421545F0032620F /* CardSetSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSetSpec.swift; sourceTree = "<group>"; };
@@ -157,6 +173,8 @@
 		81F6982124211CC300258920 /* CardSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSet.swift; sourceTree = "<group>"; };
 		81F6982324211CDB00258920 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		81F6982624211D1600258920 /* CardType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardType.swift; sourceTree = "<group>"; };
+		9BE1EB613D518B71957B2B16 /* Pods-Bootcamp2020IntegrationTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bootcamp2020IntegrationTests.debug.xcconfig"; path = "Target Support Files/Pods-Bootcamp2020IntegrationTests/Pods-Bootcamp2020IntegrationTests.debug.xcconfig"; sourceTree = "<group>"; };
+		9E1604BEC52DBE5FB487021C /* Pods-Bootcamp2020IntegrationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bootcamp2020IntegrationTests.release.xcconfig"; path = "Target Support Files/Pods-Bootcamp2020IntegrationTests/Pods-Bootcamp2020IntegrationTests.release.xcconfig"; sourceTree = "<group>"; };
 		C03D30C3241BFC0F0089B070 /* Bootcamp2020.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bootcamp2020.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C03D30C6241BFC0F0089B070 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C03D30D2241BFC100089B070 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -200,6 +218,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		815F93D424252AA100893DEC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				284673936400331D128F9020 /* Pods_Bootcamp2020IntegrationTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C03D30C0241BFC0F0089B070 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -232,7 +258,6 @@
 			children = (
 				1D175A0C2421492A0037E4B9 /* CardListDataSourceSpec.swift */,
 				1D175A0224202EE20037E4B9 /* CardListDelegateSpec.swift */,
-				1D175A18242265D00037E4B9 /* CardListIntegrationSpec.swift */,
 				1D1759F8241FDCC40037E4B9 /* CardListScreenSpec.swift */,
 				1D175A14242189E70037E4B9 /* CardListViewControllerSpec.swift */,
 				1D175A2F2423C7110037E4B9 /* CardCellSpec.swift */,
@@ -245,7 +270,6 @@
 			children = (
 				1D175A252422A2330037E4B9 /* CardDetailDataSourceSpec.swift */,
 				1D175A272422A3A60037E4B9 /* CardDetailDelegateSpec.swift */,
-				1D175A292422A95E0037E4B9 /* CardDetailIntegrationSpec.swift */,
 				1D175A2124228A6A0037E4B9 /* CardDetailScreenSpec.swift */,
 				1D175A232422A0220037E4B9 /* CardDetailViewControllerSpec.swift */,
 			);
@@ -261,6 +285,27 @@
 				1D175A16242197BB0037E4B9 /* NetworkServiceStub.swift */,
 			);
 			path = Stubs;
+			sourceTree = "<group>";
+		};
+		8131F0FD24252D88005F765C /* Bootcamp2020TestHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				81C4A7082422863500E12BE6 /* Dummies */,
+				8131F10224252E72005F765C /* Extensions */,
+				81E9945A2422B956008D2BC7 /* Mocks */,
+				81C4A70D2422A8DC00E12BE6 /* Resources */,
+				81C4A7122422AD9A00E12BE6 /* Spies */,
+				812C46E32422852E003E1FF9 /* Stubs */,
+			);
+			path = Bootcamp2020TestHelpers;
+			sourceTree = "<group>";
+		};
+		8131F10224252E72005F765C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1D175A10242163ED0037E4B9 /* KIF+TesterExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		81354A3824213ECA007896FF /* RealmManager */ = {
@@ -281,6 +326,33 @@
 			path = Objects;
 			sourceTree = "<group>";
 		};
+		815F93D824252AA100893DEC /* Bootcamp2020IntegrationTests */ = {
+			isa = PBXGroup;
+			children = (
+				815F93E224252ACA00893DEC /* Bootcamp2020IntegrationTests-Bridging-Header.h */,
+				815F93DB24252AA100893DEC /* Info.plist */,
+				815F93E524252B0100893DEC /* CardDetail */,
+				815F93E124252ABB00893DEC /* CardList */,
+			);
+			path = Bootcamp2020IntegrationTests;
+			sourceTree = "<group>";
+		};
+		815F93E124252ABB00893DEC /* CardList */ = {
+			isa = PBXGroup;
+			children = (
+				1D175A18242265D00037E4B9 /* CardListIntegrationSpec.swift */,
+			);
+			path = CardList;
+			sourceTree = "<group>";
+		};
+		815F93E524252B0100893DEC /* CardDetail */ = {
+			isa = PBXGroup;
+			children = (
+				1D175A292422A95E0037E4B9 /* CardDetailIntegrationSpec.swift */,
+			);
+			path = CardDetail;
+			sourceTree = "<group>";
+		};
 		81606CF9241F9C0200CDEECA /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
@@ -289,19 +361,6 @@
 				81F69819241FE78200258920 /* HomeCoordinatorSpec.swift */,
 			);
 			path = Coordinators;
-			sourceTree = "<group>";
-		};
-		81606CFA241F9C1000CDEECA /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				81C4A7082422863500E12BE6 /* Dummies */,
-				81C4A7092422864F00E12BE6 /* Extensions */,
-				81E9945A2422B956008D2BC7 /* Mocks */,
-				81C4A70D2422A8DC00E12BE6 /* Resources */,
-				81C4A7122422AD9A00E12BE6 /* Spies */,
-				812C46E32422852E003E1FF9 /* Stubs */,
-			);
-			path = Helpers;
 			sourceTree = "<group>";
 		};
 		81C4A7082422863500E12BE6 /* Dummies */ = {
@@ -313,14 +372,6 @@
 				1D175A2D2423C47A0037E4B9 /* CardListViewModelDelegateDummy.swift */,
 			);
 			path = Dummies;
-			sourceTree = "<group>";
-		};
-		81C4A7092422864F00E12BE6 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				1D175A10242163ED0037E4B9 /* KIF+TesterExtension.swift */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		81C4A70A2422A4E700E12BE6 /* ViewModels */ = {
@@ -365,8 +416,10 @@
 			isa = PBXGroup;
 			children = (
 				C03D30C5241BFC0F0089B070 /* Bootcamp2020 */,
+				8131F0FD24252D88005F765C /* Bootcamp2020TestHelpers */,
 				C03D30DF241BFC100089B070 /* Bootcamp2020Tests */,
 				C03D30F0241BFC460089B070 /* Bootcamp2020SnapshotTests */,
+				815F93D824252AA100893DEC /* Bootcamp2020IntegrationTests */,
 				C03D30C4241BFC0F0089B070 /* Products */,
 				D82C761A6F17930AD92820A8 /* Pods */,
 				DD24B1E7FEFFDF772C29EA19 /* Frameworks */,
@@ -379,6 +432,7 @@
 				C03D30C3241BFC0F0089B070 /* Bootcamp2020.app */,
 				C03D30DC241BFC100089B070 /* Bootcamp2020Tests.xctest */,
 				C03D30EF241BFC460089B070 /* Bootcamp2020SnapshotTests.xctest */,
+				815F93D724252AA100893DEC /* Bootcamp2020IntegrationTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -405,7 +459,6 @@
 				1D175A1E24228A230037E4B9 /* CardDetail */,
 				1D1759FA241FE5B80037E4B9 /* CardList */,
 				81606CF9241F9C0200CDEECA /* Coordinators */,
-				81606CFA241F9C1000CDEECA /* Helpers */,
 				81354A3924213EDD007896FF /* Objects */,
 				81354A3824213ECA007896FF /* RealmManager */,
 				81C4A70A2422A4E700E12BE6 /* ViewModels */,
@@ -599,6 +652,8 @@
 				F530303C6F04D8EE7719938E /* Pods-Bootcamp2020SnapshotTests.release.xcconfig */,
 				72B801A919CF97CD4C2717E8 /* Pods-Bootcamp2020Tests.debug.xcconfig */,
 				672235472A7D97E5E74ED19A /* Pods-Bootcamp2020Tests.release.xcconfig */,
+				9BE1EB613D518B71957B2B16 /* Pods-Bootcamp2020IntegrationTests.debug.xcconfig */,
+				9E1604BEC52DBE5FB487021C /* Pods-Bootcamp2020IntegrationTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -609,6 +664,7 @@
 				6817D7B18DA67B0C87627838 /* Pods_Bootcamp2020.framework */,
 				E3ABAABE0031DB5F028E6598 /* Pods_Bootcamp2020SnapshotTests.framework */,
 				E53E60CF419399141C0A19B9 /* Pods_Bootcamp2020Tests.framework */,
+				2C2B579E505A713E2A78D8E4 /* Pods_Bootcamp2020IntegrationTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -616,6 +672,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		815F93D624252AA100893DEC /* Bootcamp2020IntegrationTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 815F93E024252AA100893DEC /* Build configuration list for PBXNativeTarget "Bootcamp2020IntegrationTests" */;
+			buildPhases = (
+				55D3FBD66CC9EAB5C37AB586 /* [CP] Check Pods Manifest.lock */,
+				815F93D324252AA100893DEC /* Sources */,
+				815F93D424252AA100893DEC /* Frameworks */,
+				815F93D524252AA100893DEC /* Resources */,
+				F3E812C996B3A14FEFA46B1B /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				815F93DD24252AA100893DEC /* PBXTargetDependency */,
+			);
+			name = Bootcamp2020IntegrationTests;
+			productName = Bootcamp2020IntegrationTests;
+			productReference = 815F93D724252AA100893DEC /* Bootcamp2020IntegrationTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		C03D30C2241BFC0F0089B070 /* Bootcamp2020 */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C03D30E5241BFC100089B070 /* Build configuration list for PBXNativeTarget "Bootcamp2020" */;
@@ -687,6 +763,11 @@
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = Team2;
 				TargetAttributes = {
+					815F93D624252AA100893DEC = {
+						CreatedOnToolsVersion = 11.3.1;
+						LastSwiftMigration = 1130;
+						TestTargetID = C03D30C2241BFC0F0089B070;
+					};
 					C03D30C2241BFC0F0089B070 = {
 						CreatedOnToolsVersion = 11.3.1;
 					};
@@ -718,11 +799,19 @@
 				C03D30C2241BFC0F0089B070 /* Bootcamp2020 */,
 				C03D30DB241BFC100089B070 /* Bootcamp2020Tests */,
 				C03D30EE241BFC460089B070 /* Bootcamp2020SnapshotTests */,
+				815F93D624252AA100893DEC /* Bootcamp2020IntegrationTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		815F93D524252AA100893DEC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C03D30C1241BFC0F0089B070 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -782,6 +871,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Bootcamp2020SnapshotTests/Pods-Bootcamp2020SnapshotTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		55D3FBD66CC9EAB5C37AB586 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Bootcamp2020IntegrationTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		5ACE2DC79222AF2C90D98233 /* [CP] Check Pods Manifest.lock */ = {
@@ -885,9 +996,40 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		F3E812C996B3A14FEFA46B1B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bootcamp2020IntegrationTests/Pods-Bootcamp2020IntegrationTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Bootcamp2020IntegrationTests/Pods-Bootcamp2020IntegrationTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Bootcamp2020IntegrationTests/Pods-Bootcamp2020IntegrationTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		815F93D324252AA100893DEC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8131F0FE24252DFE005F765C /* NetworkServiceStub.swift in Sources */,
+				8131F0FF24252E0A005F765C /* LocalServiceDummy.swift in Sources */,
+				81A23D4C24252C99003A92A8 /* KIF+TesterExtension.swift in Sources */,
+				8131F10024252E1D005F765C /* DismissCardDetailDelegateSpy.swift in Sources */,
+				81A23D4A24252C8F003A92A8 /* CardDetailIntegrationSpec.swift in Sources */,
+				81A23D4B24252C94003A92A8 /* CardListIntegrationSpec.swift in Sources */,
+				8131F10124252E2C005F765C /* CardSetStub.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C03D30BF241BFC0F0089B070 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -934,7 +1076,6 @@
 			files = (
 				81F6981A241FE78200258920 /* HomeCoordinatorSpec.swift in Sources */,
 				81E9945E2422B998008D2BC7 /* CardsAndSetsStub.swift in Sources */,
-				1D175A11242163ED0037E4B9 /* KIF+TesterExtension.swift in Sources */,
 				81E9945C2422B98D008D2BC7 /* URLSessionMock.swift in Sources */,
 				1D175A0324202EE20037E4B9 /* CardListDelegateSpec.swift in Sources */,
 				1D175A2224228A6A0037E4B9 /* CardDetailScreenSpec.swift in Sources */,
@@ -944,7 +1085,6 @@
 				81C4A7112422ABE700E12BE6 /* CardDetailViewModelSpec.swift in Sources */,
 				81F6981E241FEDB200258920 /* LocalServiceDummy.swift in Sources */,
 				1D175A2C2423C43A0037E4B9 /* CardDetailViewModelDelegateDummy.swift in Sources */,
-				1D175A2A2422A95E0037E4B9 /* CardDetailIntegrationSpec.swift in Sources */,
 				1D175A0D2421492A0037E4B9 /* CardListDataSourceSpec.swift in Sources */,
 				81F69816241FC4DF00258920 /* NetworkServiceDummy.swift in Sources */,
 				1D175A282422A3A60037E4B9 /* CardDetailDelegateSpec.swift in Sources */,
@@ -969,7 +1109,6 @@
 				1D175A0524202FB20037E4B9 /* CardListDataSourceStub.swift in Sources */,
 				815F93D02423CC4200893DEC /* DismissCardDetailDelegateSpy.swift in Sources */,
 				1D1759F9241FDCC40037E4B9 /* CardListScreenSpec.swift in Sources */,
-				1D175A19242265D00037E4B9 /* CardListIntegrationSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -984,6 +1123,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		815F93DD24252AA100893DEC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C03D30C2241BFC0F0089B070 /* Bootcamp2020 */;
+			targetProxy = 815F93DC24252AA100893DEC /* PBXContainerItemProxy */;
+		};
 		C03D30DE241BFC100089B070 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C03D30C2241BFC0F0089B070 /* Bootcamp2020 */;
@@ -1008,6 +1152,53 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		815F93DE24252AA100893DEC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9BE1EB613D518B71957B2B16 /* Pods-Bootcamp2020IntegrationTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Bootcamp2020IntegrationTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = team2.Bootcamp2020IntegrationTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Bootcamp2020IntegrationTests/Bootcamp2020IntegrationTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bootcamp2020.app/Bootcamp2020";
+			};
+			name = Debug;
+		};
+		815F93DF24252AA100893DEC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9E1604BEC52DBE5FB487021C /* Pods-Bootcamp2020IntegrationTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Bootcamp2020IntegrationTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = team2.Bootcamp2020IntegrationTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Bootcamp2020IntegrationTests/Bootcamp2020IntegrationTests-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bootcamp2020.app/Bootcamp2020";
+			};
+			name = Release;
+		};
 		C03D30E3241BFC100089B070 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1261,6 +1452,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		815F93E024252AA100893DEC /* Build configuration list for PBXNativeTarget "Bootcamp2020IntegrationTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				815F93DE24252AA100893DEC /* Debug */,
+				815F93DF24252AA100893DEC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C03D30BE241BFC0F0089B070 /* Build configuration list for PBXProject "Bootcamp2020" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
