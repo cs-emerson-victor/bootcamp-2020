@@ -64,11 +64,28 @@ final class CardListViewControllerSpec: QuickSpec {
                 beforeEach {
                     set = service.fetchedSets[0]
                     cards = set.cards
-                    set.cards.removeAll()
-                    sut.fetchCardsForSet(set)
                 }
                 
                 it("should add the correct cards to set") {
+                    set.cards.removeAll()
+                    sut.fetchCardsForSet(set)
+                    
+                    expect(set.cards).to(equal(cards))
+                }
+                
+                it("should not add cards if the set is alreay loaded") {
+                    sut.fetchCardsForSet(set)
+                    
+                    expect(set.cards).to(equal(cards))
+                }
+                
+                it("should not add cards if the state is loading") {
+                    let viewModel = CardListViewModel(state: .loading([]), delegate: CardListViewModelDelegateDummy())
+                    
+                    screen.bind(to: viewModel)
+                    set.cards.removeAll()
+                    sut.fetchCardsForSet(set)
+                    
                     expect(set.cards).to(equal(cards))
                 }
             }
