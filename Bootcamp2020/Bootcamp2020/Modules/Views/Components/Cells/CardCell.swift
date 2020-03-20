@@ -16,6 +16,7 @@ final class CardCell: UICollectionViewCell {
         let view = UIImageView()
         view.accessibilityIdentifier = "cardCellImageView"
         view.accessibilityLabel = "cardCellImageView"
+        view.clipsToBounds = true
         return view
     }()
     
@@ -51,5 +52,9 @@ extension CardCell: ViewCode {
         cardImageView.snp.makeConstraints { (make) in
             make.top.bottom.leading.trailing.equalToSuperview()
         }
+    }
+    
+    func setupAdditionalConfiguration() {
+        cardImageView.layer.cornerRadius = frame.width * 0.048
     }
 }
