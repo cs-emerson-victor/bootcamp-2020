@@ -45,6 +45,6 @@ extension CardListDelegate: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: UIScreen.main.bounds.width - 16 * 2, height: 82)
+        return CGSize(width: UIScreen.main.bounds.width - 16 * 2, height: 88)
     }
 }
