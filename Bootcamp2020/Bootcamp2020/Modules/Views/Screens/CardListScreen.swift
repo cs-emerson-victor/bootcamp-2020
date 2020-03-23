@@ -23,9 +23,11 @@ class CardListScreen: UIView {
         return view
     }()
     
-    private let searchBar: UISearchBar = {
+    private lazy var searchBar: UISearchBar = {
         let view = UISearchBar()
         view.accessibilityLabel = "listSearchBar"
+        view.setShowsCancelButton(true, animated: true)
+        view.delegate = self
         return view
     }()
     
@@ -57,7 +59,7 @@ class CardListScreen: UIView {
     var isLoading: Bool {
         guard viewModel != nil else { return false }
         switch viewModel.state {
-        case .loading:
+        case .loading, .searching:
             return true
         default:
             return false
@@ -178,5 +180,27 @@ extension CardListScreen: ViewCode {
         cardDataSource.registerCells(on: listCollectionView)
         listCollectionView.dataSource = cardDataSource
         listCollectionView.delegate = cardDelegate
+    }
+}
+
+extension CardListScreen: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let text = searchBar.text, text.trimmingCharacters(in: .whitespacesAndNewlines) != "" else {
+            return
+        }
+        searchBar.endEditing(true)
+        viewModel.didEnterSearchText(text)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        searchBar.endEditing(true)
+        viewModel.didCancelSearch()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText == "" {
+            viewModel.didCancelSearch()
+        }
     }
 }

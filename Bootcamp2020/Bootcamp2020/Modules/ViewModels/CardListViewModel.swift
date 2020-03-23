@@ -13,6 +13,8 @@ protocol CardListViewModelDelegate: AnyObject {
     func didSet(_ state: CardListViewModel.UIState)
     func didSelect(_ card: Card)
     func prefetchSet(_ set: CardSet)
+    func didEnterSearchText(_ text: String)
+    func didCancelSearch()
 }
 
 struct CardListViewModel {
@@ -59,5 +61,17 @@ extension CardListViewModel {
     func didSelectCell(at indexPath: IndexPath) {
         let card = cardSets[indexPath.section].cards[indexPath.row]
         delegate?.didSelect(card)
+    }
+}
+
+// MARK: - Search bar
+
+extension CardListViewModel {
+    func didEnterSearchText(_ text: String) {
+        delegate?.didEnterSearchText(text)
+    }
+    
+    func didCancelSearch() {
+        delegate?.didCancelSearch()
     }
 }

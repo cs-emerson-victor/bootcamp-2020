@@ -17,6 +17,8 @@ final class CardListViewController: UIViewController {
     var service: Service
     weak var detailDelegate: ShowCardDetailDelegate?
     
+    private var canceledSearch: Bool = false
+    
     // MARK: - Init -
     init(service: Service,
          screen: CardListScreen = CardListScreen(),
@@ -88,10 +90,14 @@ final class CardListViewController: UIViewController {
     }
     
     func searchCard(withName name: String) {
+        guard !listScreen.isLoading else { return }
+
         listScreen.bind(to: CardListViewModel(state: .searching, delegate: self))
         
         service.fetchCard(withName: name) { [weak self] result in
             guard let `self` = self else { return }
+            guard self.canceledSearch == false else { return }
+            
             switch result {
             case .success(let cards):
                 if cards.isEmpty {
@@ -154,5 +160,15 @@ extension CardListViewController: CardListViewModelDelegate {
     
     func prefetchSet(_ set: CardSet) {
         fetchCardsForSet(set)
+    }
+    
+    func didEnterSearchText(_ text: String) {
+        canceledSearch = false
+        searchCard(withName: text)
+    }
+    
+    func didCancelSearch() {
+        canceledSearch = true
+        listScreen.bind(to: CardListViewModel(state: .success(sets), delegate: self))
     }
 }
