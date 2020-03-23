@@ -47,7 +47,7 @@ final class CardDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        detailScreen.bind(to: CardDetailViewModel(cards: cards, delegate: self))
+        detailScreen.bind(to: CardDetailViewModel(cards: cards, selectedCardId: selectedCardId, delegate: self))
     }
 }
 
