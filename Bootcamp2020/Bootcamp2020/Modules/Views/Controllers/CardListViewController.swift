@@ -86,6 +86,38 @@ final class CardListViewController: UIViewController {
             }
         }
     }
+    
+    func searchCard(withName name: String) {
+        listScreen.bind(to: CardListViewModel(state: .loading([]), delegate: self))
+        
+        service.fetchCard(withName: name) { [weak self] result in
+            guard let `self` = self else { return }
+            switch result {
+            case .success(let cards):
+                let cardsBySetId = self.cardsBySetId(cards)
+                
+                print(cardsBySetId)
+                
+            case .failure(let error):
+                debugPrint(error.localizedDescription)
+                self.listScreen.bind(to: CardListViewModel(state: .error, delegate: self))
+            }
+        }
+    }
+    
+    internal func cardsBySetId(_ cards: [Card]) -> [String: [Card]] {
+        var cardsBySetId: [String: [Card]] = [:]
+        
+        for card in cards {
+            if cardsBySetId[card.cardSetID] == nil {
+                cardsBySetId[card.cardSetID] = []
+            }
+            
+            cardsBySetId[card.cardSetID]?.append(card)
+        }
+        
+        return cardsBySetId
+    }
 }
 
 extension CardListViewController: CardListViewModelDelegate {

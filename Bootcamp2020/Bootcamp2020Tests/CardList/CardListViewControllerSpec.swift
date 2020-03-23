@@ -89,6 +89,23 @@ final class CardListViewControllerSpec: QuickSpec {
                     expect(set.cards).to(equal(cards))
                 }
             }
+            
+            context("when converting list of cards in dictionary with set id") {
+                it("should return the correct dictionary") {
+                    // Arrange
+                    let sets = CardSetStub().getFullSets()
+                    let allCards = sets.reduce([]) { (all, set) -> [Card] in
+                        return all + Array(set.cards)
+                    }
+                    let correctCardsBySetId = CardSetStub().getCardsBySetIdDictionary(allCards)
+                    
+                    // Act
+                    let cardsBySetId = sut.cardsBySetId(allCards)
+                    
+                    // Assert
+                    expect(cardsBySetId).to(equal(correctCardsBySetId))
+                }
+            }
         }
     }
 }
