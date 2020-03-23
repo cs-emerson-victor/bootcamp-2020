@@ -20,8 +20,8 @@ class CardsAndSetsStub {
     }()
     
     lazy var fetchBySetCards: CardsResponse = {
-        let card1 = Card(id: "1", name: "Abomination of Gudul")
-        let card2 = Card(id: "2", name: "Love of Gudul")
+        let card1 = Card(id: "1", name: "Abomination of Gudul", cardSetID: "1")
+        let card2 = Card(id: "2", name: "Love of Gudul", cardSetID: "1")
         
         return CardsResponse(cards: [card1, card2])
     }()

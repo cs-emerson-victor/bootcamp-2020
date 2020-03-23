@@ -11,35 +11,22 @@ import RealmSwift
 
 final class RealmManager: LocalService {
     
-    let realm: Realm?
-    let error: Error?
+    let realm: Realm
     
     init(configuration: Realm.Configuration = Realm.Configuration.defaultConfiguration) {
         do {
             self.realm = try Realm(configuration: configuration)
-            self.error = nil
         } catch {
-            self.realm = nil
-            self.error = error
+            fatalError()
         }
     }
     
     func fetchSets(completion: @escaping (Result<[CardSet], Error>) -> Void) {
-        guard let realm = self.realm else {
-            completion(.failure(error!))
-            return
-        }
-        
         let cardSets = Array(realm.objects(CardSet.self).sorted(byKeyPath: "releaseDate"))
         completion(.success(cardSets))
     }
     
     func fetchCard(withName name: String, completion: @escaping (Result<[Card], Error>) -> Void) {
-        guard let realm = self.realm else {
-            completion(.failure(error!))
-            return
-        }
-        
         let cards = Array(realm.objects(Card.self).filter("name contains[c] %@", name))
         completion(.success(cards))
     }
@@ -52,13 +39,8 @@ final class RealmManager: LocalService {
 
 extension RealmManager {
     
-    // TODO: - Refactor save and delete
-    private func save(_ card: Card) -> Error? {
+    private func save(_ card: Card, of set: CardSet) -> Error? {
         card.isFavorite = true
-        guard let realm = self.realm else {
-            card.isFavorite = false
-            return error
-        }
         
         do {
             try realm.write {
@@ -72,12 +54,8 @@ extension RealmManager {
         }
     }
     
-    private func delete(_ card: Card) -> Error? {
+    private func delete(_ card: Card, of set: CardSet) -> Error? {
         card.isFavorite = false
-        guard let realm = self.realm else {
-            card.isFavorite = true
-            return error
-        }
         
         do {
             try realm.write {
@@ -92,7 +70,7 @@ extension RealmManager {
     }
     
     @discardableResult
-    func toggleFavorite(_ card: Card) -> Error? {
-        return card.isFavorite ? delete(card) : save(card)
+    func toggleFavorite(_ card: Card, of set: CardSet) -> Error? {
+        return card.isFavorite ? delete(card, of: set) : save(card, of: set)
     }
 }

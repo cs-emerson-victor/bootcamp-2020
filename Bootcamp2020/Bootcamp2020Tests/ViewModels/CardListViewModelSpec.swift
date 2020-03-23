@@ -20,7 +20,7 @@ final class CardListViewModelSpec: QuickSpec {
             
             beforeEach {
                 delegate = CardListViewModelDelegateSpy()
-                cards = [Card(id: "0", name: "Card1")]
+                cards = [Card(id: "0", name: "Card1", cardSetID: "0")]
                 cardSets = [CardSet(id: "0", name: "Set1", cards: cards)]
             }
             

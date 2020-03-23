@@ -18,8 +18,8 @@ final class CardDetailViewModelSpec: QuickSpec {
             var sut: CardDetailViewModel!
             
             beforeEach {
-                cards = [Card(id: "0", name: "Card1"),
-                         Card(id: "1", name: "Card2", isFavorite: true)]
+                cards = [Card(id: "0", name: "Card1", cardSetID: "0"),
+                         Card(id: "1", name: "Card2", cardSetID: "0", isFavorite: true)]
                 delegate = CardDetailViewModelDelegateSpy()
                 sut = CardDetailViewModel(cards: cards, delegate: delegate)
             }

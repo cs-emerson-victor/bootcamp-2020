@@ -22,7 +22,12 @@ final class CardSpec: QuickSpec {
             
             context("when it's initialized") {
                 beforeEach {
-                    sut = Card(id: "0", name: "Card1", imageURL: nil, imageData: nil, isFavorite: false, types: [])
+                    sut = Card(id: "0",
+                               name: "Card1",
+                               imageURL: nil,
+                               imageData: nil,
+                               cardSetID: "0",
+                               isFavorite: false, types: [])
                 }
                 
                 it("should have the given values") {
@@ -30,6 +35,7 @@ final class CardSpec: QuickSpec {
                     expect(sut.name).to(equal("Card1"))
                     expect(sut.imageURL).to(beNil())
                     expect(sut.imageData).to(beNil())
+                    expect(sut.cardSetID).to(equal("0"))
                     expect(sut.isFavorite).to(beFalse())
                     expect(sut.types).to(beEmpty())
                 }

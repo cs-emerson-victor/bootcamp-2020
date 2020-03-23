@@ -28,7 +28,7 @@ final class CardCellSpec: QuickSpec {
             context("when binding to view model") {
                 it("should store correctly") {
                     // Arrange
-                    let card = Card(id: "id", name: "name", imageURL: nil, imageData: UIImage(named: "backgroundImage")?.pngData(), isFavorite: false, types: [])
+                    let card = Card(id: "id", name: "name", imageURL: nil, imageData: UIImage(named: "backgroundImage")?.pngData(), cardSetID: "0", isFavorite: false, types: [])
                     let viewModel = CardCellViewModel(card: card)
                     
                     // Act

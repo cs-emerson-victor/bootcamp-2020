@@ -11,7 +11,7 @@ import Foundation
 protocol CardSaverProtocol {
     
     @discardableResult
-    func toggleFavorite(_ card: Card) -> Error?
+    func toggleFavorite(_ card: Card, of set: CardSet) -> Error?
 }
 
 protocol Service {

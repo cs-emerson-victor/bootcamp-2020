@@ -19,7 +19,7 @@ final class CardCellViewModelSpec: QuickSpec {
             
             context("when it's initialized") {
                 beforeEach {
-                    card = Card(id: "0", name: "Card1", imageData: nil)
+                    card = Card(id: "0", name: "Card1", imageData: nil, cardSetID: "0")
                     sut = CardCellViewModel(card: card)
                 }
                 
@@ -30,7 +30,7 @@ final class CardCellViewModelSpec: QuickSpec {
             
             context("when image is computed") {
                 it("should return nil") {
-                    card = Card(id: "0", name: "Card1", imageData: nil)
+                    card = Card(id: "0", name: "Card1", imageData: nil, cardSetID: "0")
                     sut = CardCellViewModel(card: card)
                     
                     expect(sut.imageURL).to(beNil())
@@ -43,7 +43,7 @@ final class CardCellViewModelSpec: QuickSpec {
                         return
                     }
                     
-                    card = Card(id: "0", name: "Card1", imageURL: urlString)
+                    card = Card(id: "0", name: "Card1", imageURL: urlString, cardSetID: "0")
                     sut = CardCellViewModel(card: card)
                     
                     expect(sut.imageURL).to(equal(url))
