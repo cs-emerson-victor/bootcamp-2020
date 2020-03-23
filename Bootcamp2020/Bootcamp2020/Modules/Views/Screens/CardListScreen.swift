@@ -27,6 +27,7 @@ class CardListScreen: UIView {
         let view = UISearchBar()
         view.accessibilityLabel = "listSearchBar"
         view.setShowsCancelButton(true, animated: true)
+        view.isUserInteractionEnabled = false
         view.delegate = self
         return view
     }()
@@ -95,6 +96,7 @@ class CardListScreen: UIView {
             activityIndicator.startAnimating()
         case .success:
             DispatchQueue.main.async { [weak self] in
+                self?.searchBar.isUserInteractionEnabled = true
                 self?.hideError()
                 self?.activityIndicator.stopAnimating()
                 self?.listCollectionView.reloadData()
