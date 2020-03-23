@@ -51,7 +51,7 @@ final class CardListViewController: UIViewController {
             guard let `self` = self else { return }
             switch result {
             case .success(let cardSets):
-                let sortedSets = cardSets.sorted(by: { $0.releaseDate > $1.releaseDate })
+                let sortedSets = self.sortSets(cardSets)
                 self.sets.append(contentsOf: sortedSets)
                 
                 guard let firstSet = sortedSets.first else {
@@ -88,7 +88,7 @@ final class CardListViewController: UIViewController {
     }
     
     func searchCard(withName name: String) {
-        listScreen.bind(to: CardListViewModel(state: .loading([]), delegate: self))
+        listScreen.bind(to: CardListViewModel(state: .searching, delegate: self))
         
         service.fetchCard(withName: name) { [weak self] result in
             guard let `self` = self else { return }
@@ -99,16 +99,19 @@ final class CardListViewController: UIViewController {
                 } else {
                     let cardsBySetId = self.cardsBySetId(cards)
                     let setsCopies = self.makeSetsCopies(withDictionaty: cardsBySetId)
+                    let sortedSets = self.sortSets(setsCopies)
                     
-                    // TODO: Replace with searching state
-                    self.listScreen.bind(to: CardListViewModel(state: .success(setsCopies), delegate: self))
+                    self.listScreen.bind(to: CardListViewModel(state: .success(sortedSets), delegate: self))
                 }
-                
             case .failure(let error):
                 debugPrint(error.localizedDescription)
                 self.listScreen.bind(to: CardListViewModel(state: .error, delegate: self))
             }
         }
+    }
+    
+    internal func sortSets(_ sets: [CardSet]) -> [CardSet] {
+        return sets.sorted(by: { $0.releaseDate > $1.releaseDate })
     }
     
     internal func cardsBySetId(_ cards: [Card]) -> [String: [Card]] {

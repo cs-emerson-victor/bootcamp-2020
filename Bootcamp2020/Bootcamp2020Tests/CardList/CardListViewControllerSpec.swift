@@ -90,6 +90,15 @@ final class CardListViewControllerSpec: QuickSpec {
                 }
             }
             
+            context("when sorting array of sets") {
+                it("should return the sets sorted by release data") {
+                    let sets = CardSetStub().getEmptySets()
+                    let sortedSets = sets.sorted(by: { $0.releaseDate > $1.releaseDate })
+                    
+                    expect(sut.sortSets(sets)).to(equal(sortedSets))
+                }
+            }
+            
             context("when converting list of cards in dictionary with set id") {
                // TODO: Check this implementation
                 it("should return the correct sets") {
