@@ -17,11 +17,13 @@ protocol CardDetailViewModelDelegate: AnyObject {
 struct CardDetailViewModel {
     
     let cards: [Card]
+    private let selectedCardId: String
     private(set) weak var delegate: CardDetailViewModelDelegate?
     
-    init(cards: [Card], delegate: CardDetailViewModelDelegate) {
+    init(cards: [Card], selectedCardId: String, delegate: CardDetailViewModelDelegate) {
         self.cards = cards
         self.delegate = delegate
+        self.selectedCardId = selectedCardId
     }
 }
 
@@ -43,5 +45,12 @@ extension CardDetailViewModel {
     
     func dismissDetail(animated: Bool = true) {
         delegate?.dismissDetail(animated: animated)
+    }
+    
+    var firstSelectedIndexPath: IndexPath {
+        guard let selectedIndex = cards.firstIndex(where: { $0.id == selectedCardId }) else {
+            return IndexPath(item: 0, section: 0)
+        }
+        return IndexPath(item: selectedIndex, section: 0)
     }
 }

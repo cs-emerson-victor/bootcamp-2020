@@ -15,6 +15,7 @@ final class CardDetailViewController: UIViewController {
     private var detailScreen: CardDetailScreen
     weak var delegate: DismissCardDetailDelegate?
     var service: CardSaverProtocol
+    var selectedCardId: String
     
     // MARK: - Init -
     init(cards: [Card],
@@ -27,6 +28,7 @@ final class CardDetailViewController: UIViewController {
         self.service = service
         self.delegate = delegate
         self.detailScreen = screen
+        self.selectedCardId = selectedCardId
 
         super.init(nibName: nil, bundle: nil)
     }
@@ -55,7 +57,7 @@ extension CardDetailViewController: CardDetailViewModelDelegate {
     func toggleFavorite(_ card: Card) {
         // TODO: Handle favorite error
         _ = service.toggleFavorite(card)
-        detailScreen.bind(to: CardDetailViewModel(cards: cards, delegate: self))
+        detailScreen.bind(to: CardDetailViewModel(cards: cards, selectedCardId: selectedCardId, delegate: self))
     }
     
     func dismissDetail(animated: Bool = true) {
