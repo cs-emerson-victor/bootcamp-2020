@@ -34,6 +34,12 @@ final class CardSetSpec: QuickSpec {
                     expect(sut.cards).to(beEmpty())
                 }
             }
+            
+            context("when it's copied") {
+                it("should return an object with the same values") {
+                    
+                }
+            }
         }
     }
 }

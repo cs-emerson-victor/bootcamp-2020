@@ -15,7 +15,7 @@ final class FavoritesCoordinator: Coordinator {
     var localService: LocalService
     
     init(rootController: UINavigationController = UINavigationController(),
-         localService: LocalService = RealmManager()) {
+         localService: LocalService) {
         
         self.rootController = rootController
         rootController.isNavigationBarHidden = true

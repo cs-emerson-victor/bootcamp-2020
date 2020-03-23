@@ -13,11 +13,11 @@ final class RealmManager: LocalService {
     
     let realm: Realm
     
-    init(configuration: Realm.Configuration = Realm.Configuration.defaultConfiguration) {
+    init(configuration: Realm.Configuration = Realm.Configuration.defaultConfiguration) throws {
         do {
             self.realm = try Realm(configuration: configuration)
         } catch {
-            fatalError()
+            throw error
         }
     }
     
@@ -44,6 +44,7 @@ extension RealmManager {
         
         do {
             try realm.write {
+                
                 realm.add(card)
             }
             
