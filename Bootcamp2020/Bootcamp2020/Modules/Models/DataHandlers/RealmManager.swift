@@ -40,38 +40,52 @@ final class RealmManager: LocalService {
 extension RealmManager {
     
     private func save(_ card: Card, of set: CardSet) -> Error? {
-        card.isFavorite = true
-        
         do {
-            try realm.write {
+            if let realmSet = realm.object(ofType: CardSet.self, forPrimaryKey: set.id) {
+                let realmCard = realm.object(ofType: Card.self, forPrimaryKey: card.id)
                 
-                realm.add(card)
+                try realm.write {
+                    if realmCard == nil {
+                        realmSet.cards.append(card.createCopy())
+                    }
+                }
+            } else {
+                let setCopy = set.createCopy()
+                setCopy.cards.removeAll()
+                
+                try realm.write {
+                    realm.add(setCopy)
+                    setCopy.cards.append(card.createCopy())
+                }
             }
             
             return nil
         } catch {
-            card.isFavorite = false
             return error
         }
     }
     
     private func delete(_ card: Card, of set: CardSet) -> Error? {
-        card.isFavorite = false
-        
         do {
-            try realm.write {
-                realm.delete(card)
+            if let realmSet = realm.object(ofType: CardSet.self, forPrimaryKey: set.id),
+                let realmCard = realm.object(ofType: Card.self, forPrimaryKey: card.id) {
+                
+                try realm.write {
+                    realm.delete(realmCard)
+                    if realmSet.cards.count == 0 {
+                        realm.delete(realmSet)
+                    }
+                }
             }
             
             return nil
         } catch {
-            card.isFavorite = true
             return error
         }
     }
     
     @discardableResult
     func toggleFavorite(_ card: Card, of set: CardSet) -> Error? {
-        return card.isFavorite ? delete(card, of: set) : save(card, of: set)
+        return card.isFavorite ? save(card, of: set) : delete(card, of: set)
     }
 }
