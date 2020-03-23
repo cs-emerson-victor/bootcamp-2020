@@ -146,7 +146,7 @@ extension CardListScreen: ViewCode {
     func buildViewHierarchy() {
         addSubview(backgroundImageView)
         addSubview(listCollectionView)
-//        addSubview(searchBar)
+        addSubview(searchBar)
         addSubview(activityIndicator)
     }
     
@@ -158,15 +158,15 @@ extension CardListScreen: ViewCode {
         
         listCollectionView.snp.makeConstraints { (make) in
             make.leading.trailing.bottomMargin.equalToSuperview()
-            make.top.equalTo(self.snp.topMargin)
+            make.top.equalTo(searchBar.snp.bottom).offset(16)
         }
         
-//        searchBar.snp.makeConstraints { (make) in
-//            make.leadingMargin.equalToSuperview().offset(16)
-//            make.trailingMargin.equalToSuperview().inset(16)
-//            make.topMargin.equalToSuperview().offset(23)
-//            make.height.equalTo(30)
-//        }
+        searchBar.snp.makeConstraints { (make) in
+            make.leadingMargin.equalToSuperview().offset(16)
+            make.trailingMargin.equalToSuperview().inset(16)
+            make.topMargin.equalToSuperview().offset(23)
+            make.height.equalTo(30)
+        }
         
         activityIndicator.snp.makeConstraints { (make) in
             make.centerWithinMargins.equalTo(listCollectionView.snp.centerWithinMargins)
