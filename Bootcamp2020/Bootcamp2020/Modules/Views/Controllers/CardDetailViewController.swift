@@ -55,8 +55,9 @@ final class CardDetailViewController: UIViewController {
 extension CardDetailViewController: CardDetailViewModelDelegate {
     
     func toggleFavorite(_ card: Card) {
+        _ = service.toggleFavorite(card, of: CardSet())
+        
         // TODO: Handle favorite error
-        _ = service.toggleFavorite(card)
         detailScreen.bind(to: CardDetailViewModel(cards: cards, selectedCardId: selectedCardId, delegate: self))
     }
     

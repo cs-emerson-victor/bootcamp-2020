@@ -26,7 +26,7 @@ final class CardSetStub {
         for setIndex in 0...10 {
             var cards = [Card]()
             for cardIndex in 0...5 {
-                cards.append(Card(id: "\(setIndex)\(cardIndex)", name: "Card \(cardIndex) of set \(setIndex)"))
+                cards.append(Card(id: "\(setIndex)\(cardIndex)", name: "Card \(cardIndex) of set \(setIndex)", cardSetID: "\(setIndex)"))
             }
             let set = CardSet(id: "\(setIndex)", name: "Set \(setIndex)", releaseDate: Date() - 100*TimeInterval(setIndex), cards: cards)
             cardSets.append(set)
@@ -38,7 +38,7 @@ final class CardSetStub {
         
         var cards = [Card]()
         for cardIndex in 0...5 {
-            cards.append(Card(id: "\(set.id)\(cardIndex)", name: "Card \(cardIndex) of set \(set.id)"))
+            cards.append(Card(id: "\(set.id)\(cardIndex)", name: "Card \(cardIndex) of set \(set.id)", cardSetID: set.id))
         }
         return cards
     }

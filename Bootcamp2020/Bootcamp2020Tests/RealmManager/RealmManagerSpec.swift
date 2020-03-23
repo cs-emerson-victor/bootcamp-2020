@@ -21,19 +21,19 @@ final class RealmManagerSpec: QuickSpec {
             
             beforeSuite {
                 config = Realm.Configuration(inMemoryIdentifier: "Bootcamp2020Test")
-                sut = RealmManager(configuration: config)
+                sut = try! RealmManager(configuration: config)
             }
             
             beforeEach {
-                try! sut.realm?.write {
-                    sut.realm?.deleteAll()
+                try! sut.realm.write {
+                    sut.realm.deleteAll()
                 }
             }
             
             context("when it's initialized") {
                 it("should have the given configuration") {
-                    expect(sut.realm?.configuration.inMemoryIdentifier).to(equal(config.inMemoryIdentifier))
-                    expect(sut.realm?.configuration.fileURL).to(beNil())
+                    expect(sut.realm.configuration.inMemoryIdentifier).to(equal(config.inMemoryIdentifier))
+                    expect(sut.realm.configuration.fileURL).to(beNil())
                 }
             }
             
@@ -43,12 +43,12 @@ final class RealmManagerSpec: QuickSpec {
                 
                 beforeEach {
                     cardSet = CardSet(id: "0", name: "CardSet1")
-                    card = Card(id: "0", name: "Card1")
+                    card = Card(id: "0", name: "Card1", cardSetID: "0")
                     cardSet.cards.append(card)
                     
-                    try! sut.realm?.write {
-                        sut.realm?.add(cardSet)
-                        sut.realm?.add(card)
+                    try! sut.realm.write {
+                        sut.realm.add(cardSet)
+                        sut.realm.add(card)
                     }
                 }
                 
@@ -93,35 +93,37 @@ final class RealmManagerSpec: QuickSpec {
             }
             
             context("when card it's favorited") {
+                var cardSet: CardSet!
                 var card: Card!
                 
                 beforeEach {
-                    card = Card(id: "0", name: "Card1", isFavorite: false)
+                    cardSet = CardSet(id: "0", name: "CardSet1")
                 }
                 
                 it("should favorite the given card") {
-                    let favoriteReturn = sut.toggleFavorite(card)
+                    card = Card(id: "0", name: "Card1", cardSetID: "0", isFavorite: true)
+                    let favoriteReturn = sut.toggleFavorite(card, of: cardSet)
                     
                     guard favoriteReturn == nil else {
                         Nimble.fail()
                         return
                     }
                     
-                    let cards = sut.realm?.objects(Card.self)
-                    expect(cards?.count).to(equal(1))
+                    let cards = sut.realm.objects(Card.self)
+                    expect(cards.count).to(equal(1))
                 }
                 
                 it("should unfavorite the given card") {
-                    _ = sut.toggleFavorite(card)
-                    let unfavoriteReturn = sut.toggleFavorite(card)
+                    card = Card(id: "0", name: "Card1", cardSetID: "0", isFavorite: false)
+                    let unfavoriteReturn = sut.toggleFavorite(card, of: cardSet)
 
                     guard unfavoriteReturn == nil else {
                         Nimble.fail()
                         return
                     }
 
-                    let cards = sut.realm?.objects(Card.self)
-                    expect(cards?.count).to(equal(0))
+                    let cards = sut.realm.objects(Card.self)
+                    expect(cards.count).to(equal(0))
                 }
             }
         }

@@ -10,11 +10,11 @@
 
 final class LocalServiceDummy: LocalService {
     
-    func toggleFavorite(_ card: Card) -> Error? {
+    func toggleFavorite(_ card: Card, of set: CardSet) -> Error? {
         return nil
     }
     
-    func fetchCard(withName name: String, completion: @escaping (Result<[Card], Error>) -> Void) {
+    func fetchCards(withName name: String, completion: @escaping (Result<[Card], Error>) -> Void) {
         
     }
     

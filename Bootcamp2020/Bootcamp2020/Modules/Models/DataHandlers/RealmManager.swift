@@ -11,35 +11,22 @@ import RealmSwift
 
 final class RealmManager: LocalService {
     
-    let realm: Realm?
-    let error: Error?
+    let realm: Realm
     
-    init(configuration: Realm.Configuration = Realm.Configuration.defaultConfiguration) {
+    init(configuration: Realm.Configuration = Realm.Configuration.defaultConfiguration) throws {
         do {
             self.realm = try Realm(configuration: configuration)
-            self.error = nil
         } catch {
-            self.realm = nil
-            self.error = error
+            throw error
         }
     }
     
     func fetchSets(completion: @escaping (Result<[CardSet], Error>) -> Void) {
-        guard let realm = self.realm else {
-            completion(.failure(error!))
-            return
-        }
-        
         let cardSets = Array(realm.objects(CardSet.self).sorted(byKeyPath: "releaseDate"))
         completion(.success(cardSets))
     }
     
-    func fetchCard(withName name: String, completion: @escaping (Result<[Card], Error>) -> Void) {
-        guard let realm = self.realm else {
-            completion(.failure(error!))
-            return
-        }
-        
+    func fetchCards(withName name: String, completion: @escaping (Result<[Card], Error>) -> Void) {
         let cards = Array(realm.objects(Card.self).filter("name contains[c] %@", name))
         completion(.success(cards))
     }
@@ -52,47 +39,53 @@ final class RealmManager: LocalService {
 
 extension RealmManager {
     
-    // TODO: - Refactor save and delete
-    private func save(_ card: Card) -> Error? {
-        card.isFavorite = true
-        guard let realm = self.realm else {
-            card.isFavorite = false
-            return error
-        }
-        
+    private func save(_ card: Card, of set: CardSet) -> Error? {
         do {
-            try realm.write {
-                realm.add(card)
+            if let realmSet = realm.object(ofType: CardSet.self, forPrimaryKey: set.id) {
+                let realmCard = realm.object(ofType: Card.self, forPrimaryKey: card.id)
+                
+                try realm.write {
+                    if realmCard == nil {
+                        realmSet.cards.append(card.createCopy())
+                    }
+                }
+            } else {
+                let setCopy = set.createCopy()
+                setCopy.cards.removeAll()
+                
+                try realm.write {
+                    realm.add(setCopy)
+                    setCopy.cards.append(card.createCopy())
+                }
             }
             
             return nil
         } catch {
-            card.isFavorite = false
             return error
         }
     }
     
-    private func delete(_ card: Card) -> Error? {
-        card.isFavorite = false
-        guard let realm = self.realm else {
-            card.isFavorite = true
-            return error
-        }
-        
+    private func delete(_ card: Card, of set: CardSet) -> Error? {
         do {
-            try realm.write {
-                realm.delete(card)
+            if let realmSet = realm.object(ofType: CardSet.self, forPrimaryKey: set.id),
+                let realmCard = realm.object(ofType: Card.self, forPrimaryKey: card.id) {
+                
+                try realm.write {
+                    realm.delete(realmCard)
+                    if realmSet.cards.count == 0 {
+                        realm.delete(realmSet)
+                    }
+                }
             }
             
             return nil
         } catch {
-            card.isFavorite = true
             return error
         }
     }
     
     @discardableResult
-    func toggleFavorite(_ card: Card) -> Error? {
-        return card.isFavorite ? delete(card) : save(card)
+    func toggleFavorite(_ card: Card, of set: CardSet) -> Error? {
+        return card.isFavorite ? save(card, of: set) : delete(card, of: set)
     }
 }

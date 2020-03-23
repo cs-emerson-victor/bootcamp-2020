@@ -13,7 +13,7 @@ final class CardSaverSpy: CardSaverProtocol {
     
     var cardWasSaved = false
     
-    func toggleFavorite(_ card: Card) -> Error? {
+    func toggleFavorite(_ card: Card, of set: CardSet) -> Error? {
         cardWasSaved = true
         return nil
     }
