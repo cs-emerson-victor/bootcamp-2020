@@ -17,7 +17,7 @@ final class RealmManager: LocalService {
         do {
             self.realm = try Realm(configuration: configuration)
         } catch {
-            fatalError()
+            fatalError("Realm initialisation has thrown an exception: \(error.localizedDescription)")
         }
     }
     
