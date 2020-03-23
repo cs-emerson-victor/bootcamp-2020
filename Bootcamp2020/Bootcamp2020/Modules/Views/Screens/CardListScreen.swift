@@ -84,14 +84,14 @@ class CardListScreen: UIView {
         
         self.viewModel = viewModel
         
+        cardDataSource.sets = viewModel.cardSets
         cardDataSource.getViewModel = viewModel.cellViewModel
         cardDelegate.didSelectItemAt = viewModel.didSelectCell
         
         switch viewModel.state {
         case .initialLoading:
             activityIndicator.startAnimating()
-        case .success(let cardSets):
-            cardDataSource.sets = cardSets
+        case .success:
             DispatchQueue.main.async { [weak self] in
                 self?.hideError()
                 self?.activityIndicator.stopAnimating()
