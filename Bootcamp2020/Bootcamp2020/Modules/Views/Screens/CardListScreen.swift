@@ -97,6 +97,12 @@ class CardListScreen: UIView {
                 self?.activityIndicator.stopAnimating()
                 self?.listCollectionView.reloadData()
             }
+        case .searching:
+            DispatchQueue.main.async { [weak self] in
+                self?.listCollectionView.reloadData()
+                self?.activityIndicator.startAnimating()
+                self?.hideError()
+            }
         case .error:
             DispatchQueue.main.async { [weak self] in
                 self?.displayError(message: "Error: something went wrong.\nPlease try again.")

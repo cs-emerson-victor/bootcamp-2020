@@ -42,6 +42,7 @@ extension CardListViewModel {
         case initialLoading
         case loading([CardSet])
         case success([CardSet])
+        case searching
         case error
     }
     
