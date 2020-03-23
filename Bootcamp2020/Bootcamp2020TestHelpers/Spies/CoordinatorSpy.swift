@@ -14,7 +14,7 @@ final class CoordinatorSpy: Coordinator {
     var rootController: UINavigationController
     var childCoordinators: [Coordinator]
     
-    init(rootController: UINavigationController) {
+    init(rootController: UINavigationController = UINavigationController()) {
         self.rootController = rootController
         self.childCoordinators = []
     }

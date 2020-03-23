@@ -33,16 +33,3 @@ final class DismissCardDetailDelegateSpec: QuickSpec {
         }
     }
 }
-
-
-//protocol DismissCardDetailDelegate: AnyObject {
-//
-//    func dismissDetail(animated: Bool)
-//}
-//
-//extension DismissCardDetailDelegate where Self: Coordinator {
-//
-//    func dismissDetail(animated: Bool = true) {
-//        rootController.dismiss(animated: animated, completion: nil)
-//    }
-//}
