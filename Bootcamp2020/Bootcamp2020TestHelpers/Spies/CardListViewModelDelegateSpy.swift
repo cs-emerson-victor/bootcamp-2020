@@ -11,6 +11,8 @@ import Foundation
 
 final class CardListViewModelDelegateSpy: CardListViewModelDelegate {
     
+    
+    
     private(set) var didSelectCard: Bool = false
     private(set) var selectedCard: Card?
     
@@ -18,7 +20,7 @@ final class CardListViewModelDelegateSpy: CardListViewModelDelegate {
         
     }
     
-    func didSelect(_ card: Card) {
+    func didSelect(_ card: Card, of set: CardSet) {
         didSelectCard = true
         selectedCard = card
     }
