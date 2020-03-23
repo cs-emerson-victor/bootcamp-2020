@@ -16,7 +16,7 @@ final class HomeCoordinator: Coordinator {
     var networkService: Service
     
     init(rootController: UINavigationController = UINavigationController(),
-         localService: LocalService = RealmManager(),
+         localService: LocalService,
          networkService: Service = APIManager()) {
         
         self.rootController = rootController

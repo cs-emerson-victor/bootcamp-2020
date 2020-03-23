@@ -5,6 +5,7 @@
 //  Created by jacqueline alves barbosa on 13/03/20.
 //  Copyright © 2020 Team2. All rights reserved.
 //
+// swiftlint:disable force_try
 
 import UIKit
 
@@ -19,7 +20,7 @@ final class AppCoordinator: Coordinator {
     
     init(presenter: UIWindow,
          rootController: UINavigationController = UINavigationController(),
-         localService: LocalService = RealmManager(),
+         localService: LocalService = try! RealmManager(),
          networkService: Service = APIManager()) {
         
         self.presenter = presenter

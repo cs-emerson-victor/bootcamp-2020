@@ -38,6 +38,7 @@ extension CardDetailViewModel {
     
     func toggleCardFavorite(at indexPath: IndexPath) {
         let card = cards[indexPath.row]
+        card.isFavorite = !card.isFavorite
         delegate?.toggleFavorite(card)
     }
     

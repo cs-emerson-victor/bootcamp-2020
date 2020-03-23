@@ -46,3 +46,17 @@ extension Card: Codable {
         case imageURL = "imageUrl"
     }
 }
+
+extension Card: Copyable {
+    
+    func createCopy() -> Card {
+
+        return Card(id: id,
+                    name: name,
+                    imageURL: imageURL,
+                    imageData: imageData,
+                    cardSetID: cardSetID,
+                    isFavorite: isFavorite,
+                    types: Array(types))
+    }
+}
