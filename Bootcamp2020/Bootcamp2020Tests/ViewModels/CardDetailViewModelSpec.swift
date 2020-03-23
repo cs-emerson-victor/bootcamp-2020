@@ -21,7 +21,7 @@ final class CardDetailViewModelSpec: QuickSpec {
                 cards = [Card(id: "0", name: "Card1"),
                          Card(id: "1", name: "Card2", isFavorite: true)]
                 delegate = CardDetailViewModelDelegateSpy()
-                sut = CardDetailViewModel(cards: cards, delegate: delegate)
+                sut = CardDetailViewModel(cards: cards, selectedCardId: cards[1].id, delegate: delegate)
             }
             
             context("when it's initialized") {
@@ -64,6 +64,12 @@ final class CardDetailViewModelSpec: QuickSpec {
                     sut.dismissDetail()
                     
                     expect(delegate.modalWasDismissed).to(beTrue())
+                }
+            }
+            
+            context("when asked for fisrt selected index path") {
+                it("should return the index path accoding to the card id") {
+                    expect(sut.firstSelectedIndexPath).to(equal(IndexPath(item: 1, section: 0)))
                 }
             }
         }
