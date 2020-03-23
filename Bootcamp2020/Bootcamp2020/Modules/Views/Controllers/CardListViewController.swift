@@ -80,7 +80,6 @@ final class CardListViewController: UIViewController {
             case .success(let cards):
                 set?.cards.append(objectsIn: cards)
                 self.listScreen.bind(to: CardListViewModel(state: .success(self.sets), delegate: self))
-                self.searchCard(withName: "Abomination")
             case .failure(let error):
                 debugPrint(error.localizedDescription)
                 self.listScreen.bind(to: CardListViewModel(state: .error, delegate: self))
@@ -89,18 +88,21 @@ final class CardListViewController: UIViewController {
     }
     
     func searchCard(withName name: String) {
-        // TODO: Replace with searching state
-        //listScreen.bind(to: CardListViewModel(state: .loading([]), delegate: self))
+        listScreen.bind(to: CardListViewModel(state: .loading([]), delegate: self))
         
         service.fetchCard(withName: name) { [weak self] result in
             guard let `self` = self else { return }
             switch result {
             case .success(let cards):
-                let cardsBySetId = self.cardsBySetId(cards)
-                let setsCopies = self.makeSetsCopies(withDictionaty: cardsBySetId)
-                
-                // TODO: Replace with searching state
-                self.listScreen.bind(to: CardListViewModel(state: .success(setsCopies), delegate: self))
+                if cards.isEmpty {
+                    // TODO: Bind screen to empty search error
+                } else {
+                    let cardsBySetId = self.cardsBySetId(cards)
+                    let setsCopies = self.makeSetsCopies(withDictionaty: cardsBySetId)
+                    
+                    // TODO: Replace with searching state
+                    self.listScreen.bind(to: CardListViewModel(state: .success(setsCopies), delegate: self))
+                }
                 
             case .failure(let error):
                 debugPrint(error.localizedDescription)
