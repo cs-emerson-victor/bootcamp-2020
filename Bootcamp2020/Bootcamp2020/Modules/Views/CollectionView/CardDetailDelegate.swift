@@ -11,6 +11,7 @@ import UIKit
 final class CardDetailDelegate: NSObject {
     
     var numberOfItems: Int = 0
+    var centerAtCellDidChange: ((IndexPath) -> Void)?
     fileprivate var cellAspectRatio: CGFloat = 85/118
 }
 
@@ -34,13 +35,20 @@ extension CardDetailDelegate: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         
         let size = self.collectionView(collectionView, layout: collectionViewLayout, sizeForItemAt: IndexPath(item: 0, section: 0))
-        let spacing = self.collectionView(collectionView, layout: collectionViewLayout, minimumInteritemSpacingForSectionAt: 0)
-        let totalCellWidth = size.width * CGFloat(numberOfItems)
-        let totalSpacingWidth = spacing * (CGFloat(numberOfItems - 1))
-        let leftInset = (collectionView.frame.width - CGFloat(totalCellWidth + totalSpacingWidth)) / 2
+        let leftInset = collectionView.frame.width / 2 - size.width / 2
         let rightInset = leftInset
         
         return UIEdgeInsets(top: 0, left: leftInset, bottom: 0, right: rightInset)
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         
+        if let collectionView = scrollView as? UICollectionView {
+            
+            if let indexPath = collectionView.indexPathForItem(at: CGPoint(x: collectionView.contentOffset.x + collectionView.center.x, y: collectionView.frame.height / 2)) {
+                
+                centerAtCellDidChange?(indexPath)
+            }
+        }
     }
 }

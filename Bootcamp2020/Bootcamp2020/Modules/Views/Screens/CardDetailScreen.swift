@@ -16,10 +16,10 @@ class CardDetailScreen: UIView {
         layout.scrollDirection = .horizontal
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
         view.showsVerticalScrollIndicator = false
+        view.showsHorizontalScrollIndicator = false
         view.accessibilityLabel = "cardDetailCollectionView"
         view.accessibilityIdentifier = "cardDetailCollectionView"
         view.backgroundColor = .clear
-        view.isPagingEnabled = true
         return view
     }()
     
