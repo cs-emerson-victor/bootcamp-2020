@@ -26,7 +26,7 @@ final class RealmManager: LocalService {
         completion(.success(cardSets))
     }
     
-    func fetchCard(withName name: String, completion: @escaping (Result<[Card], Error>) -> Void) {
+    func fetchCards(withName name: String, completion: @escaping (Result<[Card], Error>) -> Void) {
         let cards = Array(realm.objects(Card.self).filter("name contains[c] %@", name))
         completion(.success(cards))
     }

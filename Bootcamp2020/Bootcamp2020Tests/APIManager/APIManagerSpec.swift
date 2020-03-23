@@ -72,7 +72,7 @@ class APIManagerSpec: QuickSpec {
                     
                     it("should return the expected cards") {
                         waitUntil { done in
-                            sut.fetchCard(withName: "Abomination of Gudul") { result in
+                            sut.fetchCards(withName: "Abomination of Gudul") { result in
                                 switch result {
                                 case .failure(let error):
                                     Nimble.fail(error.localizedDescription)
