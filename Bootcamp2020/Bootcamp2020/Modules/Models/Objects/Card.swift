@@ -13,20 +13,23 @@ final class Card: Object {
     @objc dynamic var name: String = ""
     @objc dynamic var imageURL: String?
     @objc dynamic var imageData: Data?
+    @objc dynamic var cardSetID: String = ""
     var isFavorite: Bool = false
-    let types: List<CardType> = List<CardType>()
-    
+    let types: List<String> = List<String>()
+
     convenience init(id: String,
                      name: String,
                      imageURL: String? = nil,
                      imageData: Data? = nil,
+                     cardSetID: String,
                      isFavorite: Bool = false,
-                     types: [CardType] = []) {
+                     types: [String] = []) {
         self.init()
         self.id = id
         self.name = name
         self.imageURL = imageURL
         self.imageData = imageData
+        self.cardSetID = cardSetID
         self.isFavorite = isFavorite
         self.types.append(objectsIn: types)
     }
