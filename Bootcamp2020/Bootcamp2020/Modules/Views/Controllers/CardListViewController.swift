@@ -80,6 +80,7 @@ final class CardListViewController: UIViewController {
             case .success(let cards):
                 set?.cards.append(objectsIn: cards)
                 self.listScreen.bind(to: CardListViewModel(state: .success(self.sets), delegate: self))
+                self.searchCard(withName: "Abomination")
             case .failure(let error):
                 debugPrint(error.localizedDescription)
                 self.listScreen.bind(to: CardListViewModel(state: .error, delegate: self))
@@ -88,15 +89,18 @@ final class CardListViewController: UIViewController {
     }
     
     func searchCard(withName name: String) {
-        listScreen.bind(to: CardListViewModel(state: .loading([]), delegate: self))
+        // TODO: Replace with searching state
+        //listScreen.bind(to: CardListViewModel(state: .loading([]), delegate: self))
         
         service.fetchCard(withName: name) { [weak self] result in
             guard let `self` = self else { return }
             switch result {
             case .success(let cards):
                 let cardsBySetId = self.cardsBySetId(cards)
+                let setsCopies = self.makeSetsCopies(withDictionaty: cardsBySetId)
                 
-                print(cardsBySetId)
+                // TODO: Replace with searching state
+                self.listScreen.bind(to: CardListViewModel(state: .success(setsCopies), delegate: self))
                 
             case .failure(let error):
                 debugPrint(error.localizedDescription)
@@ -117,6 +121,20 @@ final class CardListViewController: UIViewController {
         }
         
         return cardsBySetId
+    }
+    
+    internal func makeSetsCopies(withDictionaty dict: [String: [Card]]) -> [CardSet] {
+        var setsCopies: [CardSet] = []
+        
+        for (setId, cards) in dict {
+            guard let set = sets.first(where: { $0.id == setId }) else { continue }
+            // TODO: Replace with copy function
+            let setCopy = CardSet(id: set.id, name: set.name, releaseDate: set.releaseDate, cards: cards)
+            
+            setsCopies.append(setCopy)
+        }
+        
+        return setsCopies
     }
 }
 
