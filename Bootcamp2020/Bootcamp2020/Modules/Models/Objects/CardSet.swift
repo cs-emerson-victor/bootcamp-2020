@@ -64,3 +64,10 @@ extension CardSet: Codable {
         try container.encode(CardSet.dateFormatter.string(from: releaseDate), forKey: .releaseDate)
     }
 }
+
+extension CardSet: Copyable {
+    
+    func createCopy() -> CardSet {
+        return CardSet(id: id, name: name, releaseDate: releaseDate, cards: Array(cards))
+    }
+}
