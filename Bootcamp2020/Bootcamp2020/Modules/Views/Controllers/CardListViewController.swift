@@ -71,6 +71,24 @@ final class CardListViewController: UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if service is LocalService {
+            service.fetchSets { [weak self] (result) in
+                guard let `self` = self else { return }
+                
+                switch result {
+                case .success(let cardSets):
+                    self.listScreen.bind(to: CardListViewModel(state: .success(cardSets), delegate: self))
+                case .failure:
+                    self.listScreen.bind(to: CardListViewModel(state: .error(.generic), delegate: self))
+                }
+            }
+        }
+    }
+    
+    // MARK: Other methods
     func fetchCardsForSet(_ set: CardSet) {
         guard set.cards.isEmpty, !listScreen.isLoading else {
             self.listScreen.bind(to: CardListViewModel(state: .success(self.sets), delegate: self))
