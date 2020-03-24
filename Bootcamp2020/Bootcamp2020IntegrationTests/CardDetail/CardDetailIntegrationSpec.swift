@@ -26,9 +26,8 @@ class CardDetailIntegrationSpec: QuickSpec {
         var cardSet: CardSet!
         
         beforeEach {
-            
-            cards = CardSetStub().getCardsOfSet(CardSet(id: "id", name: "Set name"))
-            cards[2].isFavorite = true
+            cardSet = CardSetStub().getFullSets()[0]
+            cardSet.cards[2].isFavorite = true
             service = LocalServiceDummy()
             dataSource = CardDetailDataSource()
             delegate = CardDetailDelegate()

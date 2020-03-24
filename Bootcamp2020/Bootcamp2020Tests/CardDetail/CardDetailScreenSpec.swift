@@ -73,7 +73,7 @@ final class CardDetailScreenSpec: QuickSpec {
             context("when receiving a view model") {
                 it("should bind correctly") {
                     // Act
-                    let cards = [Card(id: "a", name: "a")]
+                    let cards = [Card(id: "a", name: "a", cardSetID: "a")]
                     let viewModel = CardDetailViewModel(cards: cards, selectedCardId: "a", delegate: CardDetailViewModelDelegateDummy())
                     sut.bind(to: viewModel)
                     // Assert
