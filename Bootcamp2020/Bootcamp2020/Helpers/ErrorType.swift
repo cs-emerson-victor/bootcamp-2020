@@ -17,7 +17,7 @@ enum ErrorType: Equatable {
     case noInternet
     
     /// Inform the user the API had an error.
-    case api(_ message: String)
+    case api
     
     /// Inform that the user search was empty.
     case emptySearch(_ searchedText: String)
@@ -27,14 +27,14 @@ extension ErrorType {
     
     var message: String {
         switch self {
-        case .api(let message):
-            return "Error: The server had a problem\n\(message)"
+        case .api:
+            return "Sorry, we had an internal problem. Please try again later."
         case .emptySearch(let searchedText):
-            return "Your search of \"\(searchedText)\" found nothing"
+            return "Sorry, we couldn't find any card with name \"\(searchedText)\"."
         case .generic:
-            return "Error: something went wrong.\nPlease try again later."
+            return "Ops, an error occurred. Please try again later."
         case .noInternet:
-            return "Error: no internet connection.\nPlease check your connection."
+            return "It looks like you're not connected to the internet. Please connect and try again."
         }
     }
 }

@@ -65,8 +65,8 @@ final class CardListViewController: UIViewController {
                     self.fetchCardsForSet(firstSet)
                 }
                 
-            case .failure(let error):
-                self.listScreen.bind(to: CardListViewModel(state: .error(.api(error.localizedDescription)), delegate: self))
+            case .failure:
+                self.listScreen.bind(to: CardListViewModel(state: .error(.api), delegate: self))
             }
         }
     }
@@ -84,8 +84,8 @@ final class CardListViewController: UIViewController {
             case .success(let cards):
                 set?.cards.append(objectsIn: cards)
                 self.listScreen.bind(to: CardListViewModel(state: .success(self.sets), delegate: self))
-            case .failure(let error):
-                self.listScreen.bind(to: CardListViewModel(state: .error(.api(error.localizedDescription)), delegate: self))
+            case .failure:
+                self.listScreen.bind(to: CardListViewModel(state: .error(.api), delegate: self))
             }
         }
     }
@@ -110,8 +110,8 @@ final class CardListViewController: UIViewController {
                     
                     self.listScreen.bind(to: CardListViewModel(state: .searchSuccess(sortedSets), delegate: self))
                 }
-            case .failure(let error):
-                self.listScreen.bind(to: CardListViewModel(state: .error(.api(error.localizedDescription)), delegate: self))
+            case .failure:
+                self.listScreen.bind(to: CardListViewModel(state: .error(.api), delegate: self))
             }
         }
     }

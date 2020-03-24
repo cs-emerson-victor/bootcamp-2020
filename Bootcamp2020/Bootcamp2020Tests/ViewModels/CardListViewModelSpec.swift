@@ -96,29 +96,28 @@ final class CardListViewModelSpec: QuickSpec {
             
             context("when state is of error") {
                 it("should display the correct message for API") {
-                    let message = "test API message"
-                    sut = CardListViewModel(state: .error(.api(message)), delegate: delegate)
+                    sut = CardListViewModel(state: .error(.api), delegate: delegate)
                     
-                    expect(sut.errorMessage).to(equal("Error: The server had a problem\n\(message)"))
+                    expect(sut.errorMessage).to(equal("Sorry, we had an internal problem. Please try again later."))
                 }
                 
                 it("should display the correct message for empty search") {
                     let searchedText = "test search message"
                     sut = CardListViewModel(state: .error(.emptySearch(searchedText)), delegate: delegate)
                     
-                    expect(sut.errorMessage).to(equal("Your search of \"\(searchedText)\" found nothing"))
+                    expect(sut.errorMessage).to(equal("Sorry, we couldn't find any card with name \"\(searchedText)\"."))
                 }
                 
                 it("should display generic message") {
                     sut = CardListViewModel(state: .error(.generic), delegate: delegate)
                     
-                    expect(sut.errorMessage).to(equal("Error: something went wrong.\nPlease try again later."))
+                    expect(sut.errorMessage).to(equal("Ops, an error occurred. Please try again later."))
                 }
                 
                 it("should display the correct message for empty search") {
                     sut = CardListViewModel(state: .error(.noInternet), delegate: delegate)
                     
-                    expect(sut.errorMessage).to(equal("Error: no internet connection.\nPlease check your connection."))
+                    expect(sut.errorMessage).to(equal("It looks like you're not connected to the internet. Please connect and try again."))
                 }
             }
             
