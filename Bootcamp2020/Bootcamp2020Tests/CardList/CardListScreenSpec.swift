@@ -106,7 +106,7 @@ final class CardListScreenSpec: QuickSpec {
                     it("should display the error view") {
                         
                         // Act
-                        let viewModel = CardListViewModel(state: .error, delegate: CardListViewModelDelegateDummy())
+                        let viewModel = CardListViewModel(state: .error(.generic), delegate: CardListViewModelDelegateDummy())
                         sut.bind(to: viewModel)
                         
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
