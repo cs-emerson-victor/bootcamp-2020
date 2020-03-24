@@ -1,4 +1,4 @@
-module Pods_Bootcamp2020 {
+framework module Pods_Bootcamp2020 {
   umbrella header "Pods-Bootcamp2020-umbrella.h"
 
   export *

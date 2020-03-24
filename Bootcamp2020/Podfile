@@ -1,7 +1,7 @@
 platform :ios, '10.0'
 
 target 'Bootcamp2020' do
-  use_modular_headers!
+  use_frameworks!
 
   pod 'RealmSwift'
   pod 'SwiftLint'
