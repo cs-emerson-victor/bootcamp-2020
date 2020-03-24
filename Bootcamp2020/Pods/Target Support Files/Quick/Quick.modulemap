@@ -1,4 +1,4 @@
-module Quick {
+framework module Quick {
   umbrella header "Quick-umbrella.h"
 
   export *
