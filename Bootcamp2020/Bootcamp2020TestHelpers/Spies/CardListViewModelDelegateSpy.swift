@@ -13,6 +13,9 @@ final class CardListViewModelDelegateSpy: CardListViewModelDelegate {
     
     private(set) var didSelectCard: Bool = false
     private(set) var selectedCard: Card?
+    private(set) var didBeginSearch: Bool = false
+    private(set) var searchedText: String?
+    private(set) var canceledSearch: Bool = false
     
     func didSet(_ state: CardListViewModel.UIState) {
         
@@ -28,10 +31,11 @@ final class CardListViewModelDelegateSpy: CardListViewModelDelegate {
     }
     
     func didEnterSearchText(_ text: String) {
-        
+        didBeginSearch = true
+        searchedText = text
     }
     
     func didCancelSearch() {
-        
+        canceledSearch = true
     }
 }

@@ -66,6 +66,32 @@ final class CardListViewModelSpec: QuickSpec {
                     expect(delegate.selectedCard).to(beIdenticalTo(cards[0]))
                 }
             }
+            
+            context("when search for card") {
+                beforeEach {
+                   sut = CardListViewModel(state: .searching, delegate: delegate)
+                }
+                
+                it("should call delegate didEnterSearchText function") {
+                    let searchedText = "Abomination of Gudul"
+                    sut.didEnterSearchText(searchedText)
+                    
+                    expect(delegate.didBeginSearch).to(beTrue())
+                    expect(delegate.searchedText).to(equal(searchedText))
+                }
+            }
+            
+            context("when cancel search") {
+                beforeEach {
+                   sut = CardListViewModel(state: .searching, delegate: delegate)
+                }
+                
+                it("should call delegate didEnterSearchText function") {
+                    sut.didCancelSearch()
+                    
+                    expect(delegate.canceledSearch).to(beTrue())
+                }
+            }
         }
     }
 }
