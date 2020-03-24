@@ -16,18 +16,18 @@ final class CardDetailViewControllerSpec: QuickSpec {
     override func spec() {
 
         var sut: CardDetailViewController!
-        var cards: [Card]!
+        var cardSet: CardSet!
         var service: CardSaverSpy!
         var screen: CardDetailScreenSpy!
         var delegate: DismissCardDetailDelegateSpy!
         
         beforeEach {
-            cards = CardSetStub().getCardsOfSet(CardSet(id: "id", name: "Set name"))
+            cardSet = CardSetStub().getFullSets()[0]
             screen = CardDetailScreenSpy()
             service = CardSaverSpy()
             delegate = DismissCardDetailDelegateSpy()
-            sut = CardDetailViewController(cards: cards,
-                                           selectedCardId: cards[2].id,
+            sut = CardDetailViewController(cardSet: cardSet,
+                                           selectedCardId: cardSet.cards[2].id,
                                            service: service,
                                            delegate: delegate,
                                            screen: screen)
@@ -40,7 +40,7 @@ final class CardDetailViewControllerSpec: QuickSpec {
             screen = nil
             service = nil
             sut = nil
-            cards = nil
+            cardSet = nil
         }
         
         describe("CardDetailViewController") {
@@ -49,7 +49,7 @@ final class CardDetailViewControllerSpec: QuickSpec {
                     
                     expect(sut.view).to(beIdenticalTo(screen))
                     expect(sut.service).to(beIdenticalTo(service))
-                    expect(sut.cards).to(equal(cards))
+                    expect(sut.cardSet).to(equal(cardSet))
                     expect(sut.delegate).to(beIdenticalTo(delegate))
                     expect(screen.countBind).to(equal(1))
                 }
@@ -63,7 +63,7 @@ final class CardDetailViewControllerSpec: QuickSpec {
             
             context("when card it's favorited") {
                 it("should save card and bind new view model") {
-                    let card = cards[0]
+                    let card = cardSet.cards[0]
                     sut.toggleFavorite(card)
                     
                     expect(screen.countBind).to(equal(2))

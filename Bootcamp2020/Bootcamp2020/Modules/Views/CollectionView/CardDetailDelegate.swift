@@ -62,7 +62,10 @@ extension CardDetailDelegate: UICollectionViewDelegateFlowLayout {
         
         if let collectionView = scrollView as? UICollectionView {
             
-            if let indexPath = collectionView.indexPathForItem(at: CGPoint(x: collectionView.contentOffset.x + collectionView.frame.width / 2, y: collectionView.frame.height / 2)) {
+            let point = CGPoint(x: collectionView.contentOffset.x + collectionView.frame.width / 2,
+                                y: collectionView.frame.height / 2)
+            
+            if let indexPath = collectionView.indexPathForItem(at: point) {
                 
                 cellAtCenterDidChange?(indexPath)
             }
