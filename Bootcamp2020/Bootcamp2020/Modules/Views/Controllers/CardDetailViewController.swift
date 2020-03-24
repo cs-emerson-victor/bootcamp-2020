@@ -49,16 +49,32 @@ final class CardDetailViewController: UIViewController {
         
         detailScreen.bind(to: CardDetailViewModel(cards: Array(cardSet.cards), selectedCardId: selectedCardId, delegate: self))
     }
+    
+    // MARK: Show favorite error
+    func showFavoriteError() {
+        let alert = UIAlertController(title: "We couldn't favorite this card. Please try again.",
+                                      message: nil,
+                                      preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+        
+        alert.addAction(action)
+        
+        self.present(alert, animated: true, completion: nil)
+        
+    }
 }
 
 // MARK: - View model delegate -
 extension CardDetailViewController: CardDetailViewModelDelegate {
     
     func toggleFavorite(_ card: Card) {
-        _ = service.toggleFavorite(card, of: cardSet)
-        
-        // TODO: Handle favorite error
-        detailScreen.bind(to: CardDetailViewModel(cards: Array(cardSet.cards), selectedCardId: selectedCardId, delegate: self))
+        guard let error = service.toggleFavorite(card, of: cardSet) else {
+            showFavoriteError()
+            return
+        }
+
+        detailScreen.bind(to: CardDetailViewModel(cards: Array(cardSet.cards),
+                                                  selectedCardId: selectedCardId, delegate: self))
     }
     
     func isFavorite(_ card: Card) -> Bool {
