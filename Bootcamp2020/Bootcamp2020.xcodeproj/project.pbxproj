@@ -38,6 +38,8 @@
 		8131F112242972C0005F765C /* UINavigationControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8131F111242972C0005F765C /* UINavigationControllerSpy.swift */; };
 		8131F11424297550005F765C /* CoordinatorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8131F11324297550005F765C /* CoordinatorSpec.swift */; };
 		8131F116242A4664005F765C /* ShowCardDetailDelegateSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8131F115242A4664005F765C /* ShowCardDetailDelegateSpec.swift */; };
+		8131F119242A4D31005F765C /* ViewControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8131F117242A4D19005F765C /* ViewControllerSpy.swift */; };
+		8131F11C242A502E005F765C /* AppCordinatorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8131F11A242A5028005F765C /* AppCordinatorSpy.swift */; };
 		81354A37242138EC007896FF /* RealmManagerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81354A36242138EC007896FF /* RealmManagerSpec.swift */; };
 		815F93CC2423C16300893DEC /* CardDetailScreenSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815F93CB2423C16300893DEC /* CardDetailScreenSpy.swift */; };
 		815F93CE2423C46500893DEC /* CardSaverSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815F93CD2423C46500893DEC /* CardSaverSpy.swift */; };
@@ -154,6 +156,8 @@
 		8131F111242972C0005F765C /* UINavigationControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationControllerSpy.swift; sourceTree = "<group>"; };
 		8131F11324297550005F765C /* CoordinatorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorSpec.swift; sourceTree = "<group>"; };
 		8131F115242A4664005F765C /* ShowCardDetailDelegateSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCardDetailDelegateSpec.swift; sourceTree = "<group>"; };
+		8131F117242A4D19005F765C /* ViewControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerSpy.swift; sourceTree = "<group>"; };
+		8131F11A242A5028005F765C /* AppCordinatorSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCordinatorSpy.swift; sourceTree = "<group>"; };
 		81354A36242138EC007896FF /* RealmManagerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManagerSpec.swift; sourceTree = "<group>"; };
 		815F93CB2423C16300893DEC /* CardDetailScreenSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailScreenSpy.swift; sourceTree = "<group>"; };
 		815F93CD2423C46500893DEC /* CardSaverSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSaverSpy.swift; sourceTree = "<group>"; };
@@ -412,6 +416,7 @@
 		81C4A7122422AD9A00E12BE6 /* Spies */ = {
 			isa = PBXGroup;
 			children = (
+				8131F11A242A5028005F765C /* AppCordinatorSpy.swift */,
 				815F93CB2423C16300893DEC /* CardDetailScreenSpy.swift */,
 				81C4A7132422ADDD00E12BE6 /* CardDetailViewModelDelegateSpy.swift */,
 				81C4A7172422B27D00E12BE6 /* CardListViewModelDelegateSpy.swift */,
@@ -419,6 +424,7 @@
 				8131F10F2429720B005F765C /* CoordinatorSpy.swift */,
 				815F93CF2423CC4200893DEC /* DismissCardDetailDelegateSpy.swift */,
 				8131F111242972C0005F765C /* UINavigationControllerSpy.swift */,
+				8131F117242A4D19005F765C /* ViewControllerSpy.swift */,
 			);
 			path = Spies;
 			sourceTree = "<group>";
@@ -1105,6 +1111,7 @@
 				8131F112242972C0005F765C /* UINavigationControllerSpy.swift in Sources */,
 				81C4A7142422ADDD00E12BE6 /* CardDetailViewModelDelegateSpy.swift in Sources */,
 				81C4A7112422ABE700E12BE6 /* CardDetailViewModelSpec.swift in Sources */,
+				8131F119242A4D31005F765C /* ViewControllerSpy.swift in Sources */,
 				8131F11424297550005F765C /* CoordinatorSpec.swift in Sources */,
 				81F6981E241FEDB200258920 /* LocalServiceDummy.swift in Sources */,
 				1D175A2C2423C43A0037E4B9 /* CardDetailViewModelDelegateDummy.swift in Sources */,
@@ -1126,6 +1133,7 @@
 				1D175A242422A0220037E4B9 /* CardDetailViewControllerSpec.swift in Sources */,
 				816EA5702421545F0032620F /* CardSetSpec.swift in Sources */,
 				81354A37242138EC007896FF /* RealmManagerSpec.swift in Sources */,
+				8131F11C242A502E005F765C /* AppCordinatorSpy.swift in Sources */,
 				81C4A70C2422A50400E12BE6 /* CardCellViewModelSpec.swift in Sources */,
 				81F6981C241FEAFC00258920 /* FavoritesCoordinatorSpec.swift in Sources */,
 				C0613712241FF72C00B75034 /* APIManagerSpec.swift in Sources */,

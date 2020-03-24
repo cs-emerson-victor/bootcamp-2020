@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class AppCoordinator: Coordinator {
+class AppCoordinator: Coordinator {
     
     let presenter: UIWindow
     let rootController: UINavigationController
@@ -19,7 +19,7 @@ final class AppCoordinator: Coordinator {
     
     init(presenter: UIWindow,
          rootController: UINavigationController = UINavigationController(),
-         localService: LocalService,
+         localService: LocalService?,
          networkService: Service = APIManager()) {
         
         self.presenter = presenter

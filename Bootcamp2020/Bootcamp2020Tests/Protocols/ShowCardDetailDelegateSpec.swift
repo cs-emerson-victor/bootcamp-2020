@@ -36,17 +36,3 @@ final class ShowCardDetailDelegateSpec: QuickSpec {
         }
     }
 }
-
-//protocol ShowCardDetailDelegate: AnyObject {
-//    var saver: CardSaverProtocol { get }
-//
-//    func show(_ cardSet: CardSet, selectedCardId id: String)
-//}
-//
-//extension ShowCardDetailDelegate where Self: Coordinator & DismissCardDetailDelegate {
-//    func show(_ cardSet: CardSet, selectedCardId id: String) {
-//        let controller = CardDetailViewController(cardSet: cardSet, selectedCardId: id, service: saver, delegate: self)
-//        controller.modalPresentationStyle = .fullScreen
-//        rootController.present(controller, animated: true)
-//    }
-//}
