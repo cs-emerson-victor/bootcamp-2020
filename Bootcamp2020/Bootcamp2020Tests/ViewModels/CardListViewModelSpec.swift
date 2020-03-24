@@ -5,6 +5,7 @@
 //  Created by emerson.victor.f.luz on 18/03/20.
 //  Copyright © 2020 Team2. All rights reserved.
 //
+//swiftlint:disable function_body_length
 
 @testable import Bootcamp2020
 import Quick
@@ -42,7 +43,7 @@ final class CardListViewModelSpec: QuickSpec {
                 }
             }
             
-            context("when CardCellViewModel it's created") {
+            context("when CardCellViewModel is created") {
                 beforeEach {
                     sut = CardListViewModel(state: .success(cardSets), delegate: delegate)
                 }
@@ -54,7 +55,7 @@ final class CardListViewModelSpec: QuickSpec {
                 }
             }
             
-            context("when select a card") {
+            context("when selecting a card") {
                 beforeEach {
                     sut = CardListViewModel(state: .success(cardSets), delegate: delegate)
                 }
@@ -64,6 +65,42 @@ final class CardListViewModelSpec: QuickSpec {
                     
                     expect(delegate.didSelectCard).to(beTrue())
                     expect(delegate.selectedCard).to(beIdenticalTo(cards[0]))
+                }
+            }
+            
+            context("when state is of error") {
+                it("should display the correct message for API") {
+                    let message = "test API message"
+                    sut = CardListViewModel(state: .error(.api(message)), delegate: delegate)
+                    
+                    expect(sut.errorMessage).to(equal("Error: The server had a problem\n\(message)"))
+                }
+                
+                it("should display the correct message for empty search") {
+                    let searchedText = "test search message"
+                    sut = CardListViewModel(state: .error(.emptySearch(searchedText)), delegate: delegate)
+                    
+                    expect(sut.errorMessage).to(equal("Your search of \"\(searchedText)\" found nothing"))
+                }
+                
+                it("should display generic message") {
+                    sut = CardListViewModel(state: .error(.generic), delegate: delegate)
+                    
+                    expect(sut.errorMessage).to(equal("Error: something went wrong.\nPlease try again later."))
+                }
+                
+                it("should display the correct message for empty search") {
+                    sut = CardListViewModel(state: .error(.noInternet), delegate: delegate)
+                    
+                    expect(sut.errorMessage).to(equal("Error: no internet connection.\nPlease check your connection."))
+                }
+            }
+            
+            context("when state is not error") {
+                it("should not have an error message") {
+                    sut = CardListViewModel(state: .initialLoading, delegate: delegate)
+                    
+                    expect(sut.errorMessage).to(beNil())
                 }
             }
         }

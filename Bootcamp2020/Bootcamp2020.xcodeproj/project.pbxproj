@@ -545,8 +545,8 @@
 			isa = PBXGroup;
 			children = (
 				C061372124200DE200B75034 /* Endpoint.swift */,
-				1D175A0824212BF60037E4B9 /* UIKit+Extensions.swift */,
 				1DB5CA2F242A7A6D001D409D /* ErrorType.swift */,
+				1D175A0824212BF60037E4B9 /* UIKit+Extensions.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";

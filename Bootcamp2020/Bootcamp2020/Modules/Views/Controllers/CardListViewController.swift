@@ -55,7 +55,7 @@ final class CardListViewController: UIViewController {
                 self.sets.append(contentsOf: sortedSets)
                 
                 guard let firstSet = sortedSets.first else {
-                    // TODO: Implement empy list screen
+                    // TODO: Implement empty list screen
                     self.listScreen.bind(to: CardListViewModel(state: .success([]), delegate: self))
                     return
                 }
@@ -64,8 +64,7 @@ final class CardListViewController: UIViewController {
                 }
                 
             case .failure(let error):
-                debugPrint(error.localizedDescription)
-                self.listScreen.bind(to: CardListViewModel(state: .error, delegate: self))
+                self.listScreen.bind(to: CardListViewModel(state: .error(.api(error.localizedDescription)), delegate: self))
             }
         }
     }
@@ -84,8 +83,7 @@ final class CardListViewController: UIViewController {
                 set?.cards.append(objectsIn: cards)
                 self.listScreen.bind(to: CardListViewModel(state: .success(self.sets), delegate: self))
             case .failure(let error):
-                debugPrint(error.localizedDescription)
-                self.listScreen.bind(to: CardListViewModel(state: .error, delegate: self))
+                self.listScreen.bind(to: CardListViewModel(state: .error(.api(error.localizedDescription)), delegate: self))
             }
         }
     }

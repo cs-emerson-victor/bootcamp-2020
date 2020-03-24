@@ -39,7 +39,7 @@ final class ErrorView: UIView {
     }
     
     // MARK: - Methods -
-    func display(message: String) {
+    func display(message: String?) {
         label.text = message
     }
 }

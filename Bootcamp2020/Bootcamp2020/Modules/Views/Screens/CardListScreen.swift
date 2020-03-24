@@ -99,7 +99,7 @@ class CardListScreen: UIView {
             }
         case .error:
             DispatchQueue.main.async { [weak self] in
-                self?.displayError(message: "Error: something went wrong.\nPlease try again.")
+                self?.displayError()
             }
         case .loading:
             DispatchQueue.main.async { [weak self] in
@@ -110,8 +110,8 @@ class CardListScreen: UIView {
     }
     
     // MARK: Error handling
-    private func displayError(message: String) {
-        errorView.display(message: message)
+    private func displayError() {
+        errorView.display(message: viewModel.errorMessage)
         
         guard errorView.superview == nil else { return }
         

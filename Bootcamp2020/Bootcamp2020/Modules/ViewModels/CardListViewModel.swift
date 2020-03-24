@@ -42,7 +42,7 @@ extension CardListViewModel {
         case initialLoading
         case loading([CardSet])
         case success([CardSet])
-        case error
+        case error(_ type: ErrorType)
     }
     
     func cellViewModel(for indexPath: IndexPath) -> CardCellViewModel {
@@ -58,5 +58,14 @@ extension CardListViewModel {
     func didSelectCell(at indexPath: IndexPath) {
         let set = cardSets[indexPath.section]
         delegate?.didSelect(set.cards[indexPath.row], of: set)
+    }
+    
+    var errorMessage: String? {
+        switch state {
+        case .error(let type):
+            return type.message
+        default:
+            return nil
+        }
     }
 }
