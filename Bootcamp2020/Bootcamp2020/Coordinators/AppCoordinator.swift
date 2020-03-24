@@ -76,8 +76,8 @@ class AppCoordinator: Coordinator {
     }
     
     func presentInitializationError(in controller: UIViewController?) {
-        let alert = UIAlertController(title: "Ops, tivemos um problema :(",
-                                      message: "Tivemos um problema ao carregar suas informações. Por favor reinicie o aplicativo",
+        let alert = UIAlertController(title: "Ops, we had a problem :(",
+                                      message: "We had a problem loading your information. Please restart the application.",
                                       preferredStyle: .alert)
         controller?.present(alert, animated: true, completion: nil)
     }
