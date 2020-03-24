@@ -13,6 +13,7 @@ final class CardDetailViewModelDelegateSpy: CardDetailViewModelDelegate {
     
     private(set) var toggleFunctionWasCalled: Bool = false
     private(set) var modalWasDismissed: Bool = false
+    private(set) var checkCardFavorite: Bool = false
     private(set) var card: Card?
     
     func toggleFavorite(_ card: Card) {
@@ -22,5 +23,10 @@ final class CardDetailViewModelDelegateSpy: CardDetailViewModelDelegate {
     
     func dismissDetail(animated: Bool) {
         modalWasDismissed = true
+    }
+    
+    func isFavorite(_ card: Card) -> Bool {
+        checkCardFavorite = true
+        return true
     }
 }

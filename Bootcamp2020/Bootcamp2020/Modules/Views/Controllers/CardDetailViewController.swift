@@ -61,6 +61,10 @@ extension CardDetailViewController: CardDetailViewModelDelegate {
         detailScreen.bind(to: CardDetailViewModel(cards: Array(cardSet.cards), selectedCardId: selectedCardId, delegate: self))
     }
     
+    func isFavorite(_ card: Card) -> Bool {
+        return service.isFavorite(card)
+    }
+    
     func dismissDetail(animated: Bool = true) {
         delegate?.dismissDetail(animated: animated)
     }

@@ -126,6 +126,31 @@ final class RealmManagerSpec: QuickSpec {
                     expect(cards.count).to(equal(0))
                 }
             }
+            
+            context("when checked if card it's favorite") {
+                var cardSet: CardSet!
+                var card: Card!
+                
+                beforeEach {
+                    cardSet = CardSet(id: "0", name: "CardSet1")
+                }
+                
+                it("should return true") {
+                    card = Card(id: "0", name: "Card1", cardSetID: "0", isFavorite: true)
+                    
+                    if sut.toggleFavorite(card, of: cardSet) != nil {
+                        Nimble.fail()
+                    }
+                    
+                    expect(sut.isFavorite(card)).to(beTrue())
+                }
+                
+                it("should return false") {
+                    card = Card(id: "0", name: "Card1", cardSetID: "0", isFavorite: false)
+                    
+                    expect(sut.isFavorite(card)).to(beFalse())
+                }
+            }
         }
         
     }

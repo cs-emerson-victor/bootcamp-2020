@@ -38,15 +38,10 @@ final class CardDetailViewModelSpec: QuickSpec {
                 }
             }
             
-            context("when checked if card was favorited") {
+            context("when checked if card it's favorite") {
                 it("should return true") {
                     let isFavorite = sut.isCardFavorite(at: IndexPath(row: 1, section: 0))
                     expect(isFavorite).to(beTrue())
-                }
-                
-                it("should return false") {
-                    let isFavorite = sut.isCardFavorite(at: IndexPath(row: 0, section: 0))
-                    expect(isFavorite).to(beFalse())
                 }
             }
             

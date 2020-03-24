@@ -11,6 +11,7 @@ import UIKit
 protocol CardDetailViewModelDelegate: AnyObject {
     
     func toggleFavorite(_ card: Card)
+    func isFavorite(_ card: Card) -> Bool
     func dismissDetail(animated: Bool)
 }
 
@@ -35,7 +36,11 @@ extension CardDetailViewModel {
     
     func isCardFavorite(at indexPath: IndexPath) -> Bool {
         let card = cards[indexPath.row]
-        return card.isFavorite
+        guard let isFavorite = delegate?.isFavorite(card) else {
+            return false
+        }
+        
+        return isFavorite
     }
     
     func toggleCardFavorite(at indexPath: IndexPath) {
