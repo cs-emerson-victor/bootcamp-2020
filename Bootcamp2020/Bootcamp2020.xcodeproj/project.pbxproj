@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		199143B0B0BD659C1CA9AD26 /* libPods-Bootcamp2020Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 86C25D96782874C9D158B69F /* libPods-Bootcamp2020Tests.a */; };
 		1D1759F9241FDCC40037E4B9 /* CardListScreenSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1759F8241FDCC40037E4B9 /* CardListScreenSpec.swift */; };
 		1D175A0324202EE20037E4B9 /* CardListDelegateSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D175A0224202EE20037E4B9 /* CardListDelegateSpec.swift */; };
 		1D175A0524202FB20037E4B9 /* CardListDataSourceStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D175A0424202FB20037E4B9 /* CardListDataSourceStub.swift */; };
@@ -25,9 +26,7 @@
 		1D175A2E2423C47A0037E4B9 /* CardListViewModelDelegateDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D175A2D2423C47A0037E4B9 /* CardListViewModelDelegateDummy.swift */; };
 		1D175A302423C7110037E4B9 /* CardCellSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D175A2F2423C7110037E4B9 /* CardCellSpec.swift */; };
 		1D175A322423D2780037E4B9 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D175A312423D2780037E4B9 /* ErrorView.swift */; };
-		284673936400331D128F9020 /* Pods_Bootcamp2020IntegrationTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C2B579E505A713E2A78D8E4 /* Pods_Bootcamp2020IntegrationTests.framework */; };
-		2B1D084BD99C3DBEC940754F /* Pods_Bootcamp2020.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6817D7B18DA67B0C87627838 /* Pods_Bootcamp2020.framework */; };
-		5A17C769CE83FFEA6B0C7AB6 /* Pods_Bootcamp2020SnapshotTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3ABAABE0031DB5F028E6598 /* Pods_Bootcamp2020SnapshotTests.framework */; };
+		71F277A254612158873FCE49 /* libPods-Bootcamp2020.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C11843A5B8DE35FFE8B2DB8 /* libPods-Bootcamp2020.a */; };
 		8131F0FE24252DFE005F765C /* NetworkServiceStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D175A16242197BB0037E4B9 /* NetworkServiceStub.swift */; };
 		8131F0FF24252E0A005F765C /* LocalServiceDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F6981D241FEDB200258920 /* LocalServiceDummy.swift */; };
 		8131F10024252E1D005F765C /* DismissCardDetailDelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815F93CF2423CC4200893DEC /* DismissCardDetailDelegateSpy.swift */; };
@@ -66,7 +65,6 @@
 		81F6981E241FEDB200258920 /* LocalServiceDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F6981D241FEDB200258920 /* LocalServiceDummy.swift */; };
 		81F6982224211CC300258920 /* CardSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F6982124211CC300258920 /* CardSet.swift */; };
 		81F6982424211CDB00258920 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F6982324211CDB00258920 /* Card.swift */; };
-		8E8C271AED7F85AFB55FB756 /* Pods_Bootcamp2020Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E53E60CF419399141C0A19B9 /* Pods_Bootcamp2020Tests.framework */; };
 		C03D30C7241BFC0F0089B070 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03D30C6241BFC0F0089B070 /* AppDelegate.swift */; };
 		C03D30D3241BFC100089B070 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C03D30D2241BFC100089B070 /* Assets.xcassets */; };
 		C03D30D6241BFC100089B070 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C03D30D4241BFC100089B070 /* LaunchScreen.storyboard */; };
@@ -97,6 +95,8 @@
 		C091F1E82420F28900ECD238 /* EndpointSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C091F1E72420F28900ECD238 /* EndpointSpec.swift */; };
 		C0BD8FDA242A9C9300F5C35E /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BD8FD9242A9C9300F5C35E /* Reachability.swift */; };
 		C0EC9FC124229121004C3526 /* APIResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EC9FC024229121004C3526 /* APIResponses.swift */; };
+		DEB88F370D2DD09BA2EA1C0E /* libPods-Bootcamp2020SnapshotTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CAE80C9A699975DD26B0F36 /* libPods-Bootcamp2020SnapshotTests.a */; };
+		EABA7E2A30B789847C9A97E0 /* libPods-Bootcamp2020IntegrationTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C3BE074445438CF07B20933 /* libPods-Bootcamp2020IntegrationTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +124,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0BF17A6A34B61290C67C3E95 /* Pods-Bootcamp2020Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bootcamp2020Tests.debug.xcconfig"; path = "Target Support Files/Pods-Bootcamp2020Tests/Pods-Bootcamp2020Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		19659381AF76376D73B48E51 /* Pods-Bootcamp2020SnapshotTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bootcamp2020SnapshotTests.debug.xcconfig"; path = "Target Support Files/Pods-Bootcamp2020SnapshotTests/Pods-Bootcamp2020SnapshotTests.debug.xcconfig"; sourceTree = "<group>"; };
+		1C3BE074445438CF07B20933 /* libPods-Bootcamp2020IntegrationTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Bootcamp2020IntegrationTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D1759F8241FDCC40037E4B9 /* CardListScreenSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListScreenSpec.swift; sourceTree = "<group>"; };
 		1D175A0224202EE20037E4B9 /* CardListDelegateSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardListDelegateSpec.swift; sourceTree = "<group>"; };
 		1D175A0424202FB20037E4B9 /* CardListDataSourceStub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardListDataSourceStub.swift; sourceTree = "<group>"; };
@@ -145,12 +148,10 @@
 		1D175A2D2423C47A0037E4B9 /* CardListViewModelDelegateDummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListViewModelDelegateDummy.swift; sourceTree = "<group>"; };
 		1D175A2F2423C7110037E4B9 /* CardCellSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCellSpec.swift; sourceTree = "<group>"; };
 		1D175A312423D2780037E4B9 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
-		2C2B579E505A713E2A78D8E4 /* Pods_Bootcamp2020IntegrationTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bootcamp2020IntegrationTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2ECB7FF7F8166C3F105BF76A /* Pods-Bootcamp2020SnapshotTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bootcamp2020SnapshotTests.debug.xcconfig"; path = "Target Support Files/Pods-Bootcamp2020SnapshotTests/Pods-Bootcamp2020SnapshotTests.debug.xcconfig"; sourceTree = "<group>"; };
-		61FD2D32CEDE908EE4B6A5DC /* Pods-Bootcamp2020.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bootcamp2020.release.xcconfig"; path = "Target Support Files/Pods-Bootcamp2020/Pods-Bootcamp2020.release.xcconfig"; sourceTree = "<group>"; };
-		672235472A7D97E5E74ED19A /* Pods-Bootcamp2020Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bootcamp2020Tests.release.xcconfig"; path = "Target Support Files/Pods-Bootcamp2020Tests/Pods-Bootcamp2020Tests.release.xcconfig"; sourceTree = "<group>"; };
-		6817D7B18DA67B0C87627838 /* Pods_Bootcamp2020.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bootcamp2020.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		72B801A919CF97CD4C2717E8 /* Pods-Bootcamp2020Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bootcamp2020Tests.debug.xcconfig"; path = "Target Support Files/Pods-Bootcamp2020Tests/Pods-Bootcamp2020Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		2CAE80C9A699975DD26B0F36 /* libPods-Bootcamp2020SnapshotTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Bootcamp2020SnapshotTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C11843A5B8DE35FFE8B2DB8 /* libPods-Bootcamp2020.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Bootcamp2020.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		60675B8E6C0BA21B9421DA23 /* Pods-Bootcamp2020SnapshotTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bootcamp2020SnapshotTests.release.xcconfig"; path = "Target Support Files/Pods-Bootcamp2020SnapshotTests/Pods-Bootcamp2020SnapshotTests.release.xcconfig"; sourceTree = "<group>"; };
+		751C0BCFB7A4DF3C44BFA109 /* Pods-Bootcamp2020.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bootcamp2020.release.xcconfig"; path = "Target Support Files/Pods-Bootcamp2020/Pods-Bootcamp2020.release.xcconfig"; sourceTree = "<group>"; };
 		8131F10524290782005F765C /* Copyable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Copyable.swift; sourceTree = "<group>"; };
 		8131F10C24296D69005F765C /* DismissCardDetailDelegateSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissCardDetailDelegateSpec.swift; sourceTree = "<group>"; };
 		8131F10F2429720B005F765C /* CoordinatorSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorSpy.swift; sourceTree = "<group>"; };
@@ -186,8 +187,9 @@
 		81F6981D241FEDB200258920 /* LocalServiceDummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalServiceDummy.swift; sourceTree = "<group>"; };
 		81F6982124211CC300258920 /* CardSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSet.swift; sourceTree = "<group>"; };
 		81F6982324211CDB00258920 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
-		9BE1EB613D518B71957B2B16 /* Pods-Bootcamp2020IntegrationTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bootcamp2020IntegrationTests.debug.xcconfig"; path = "Target Support Files/Pods-Bootcamp2020IntegrationTests/Pods-Bootcamp2020IntegrationTests.debug.xcconfig"; sourceTree = "<group>"; };
-		9E1604BEC52DBE5FB487021C /* Pods-Bootcamp2020IntegrationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bootcamp2020IntegrationTests.release.xcconfig"; path = "Target Support Files/Pods-Bootcamp2020IntegrationTests/Pods-Bootcamp2020IntegrationTests.release.xcconfig"; sourceTree = "<group>"; };
+		86C25D96782874C9D158B69F /* libPods-Bootcamp2020Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Bootcamp2020Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		916E8E62CED6684BB087D3B1 /* Pods-Bootcamp2020IntegrationTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bootcamp2020IntegrationTests.debug.xcconfig"; path = "Target Support Files/Pods-Bootcamp2020IntegrationTests/Pods-Bootcamp2020IntegrationTests.debug.xcconfig"; sourceTree = "<group>"; };
+		97A7E80628F434EEA7C06EFD /* Pods-Bootcamp2020IntegrationTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bootcamp2020IntegrationTests.release.xcconfig"; path = "Target Support Files/Pods-Bootcamp2020IntegrationTests/Pods-Bootcamp2020IntegrationTests.release.xcconfig"; sourceTree = "<group>"; };
 		C03D30C3241BFC0F0089B070 /* Bootcamp2020.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bootcamp2020.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C03D30C6241BFC0F0089B070 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C03D30D2241BFC100089B070 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -226,10 +228,8 @@
 		C0C4A85A241FF46E002CB8D9 /* Bootcamp2020Tests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bootcamp2020Tests-Bridging-Header.h"; sourceTree = "<group>"; };
 		C0C4A85B241FF46F002CB8D9 /* APIManagerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManagerSpec.swift; sourceTree = "<group>"; };
 		C0EC9FC024229121004C3526 /* APIResponses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponses.swift; sourceTree = "<group>"; };
-		C5651C9C98875CE89327C3E5 /* Pods-Bootcamp2020.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bootcamp2020.debug.xcconfig"; path = "Target Support Files/Pods-Bootcamp2020/Pods-Bootcamp2020.debug.xcconfig"; sourceTree = "<group>"; };
-		E3ABAABE0031DB5F028E6598 /* Pods_Bootcamp2020SnapshotTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bootcamp2020SnapshotTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E53E60CF419399141C0A19B9 /* Pods_Bootcamp2020Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bootcamp2020Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F530303C6F04D8EE7719938E /* Pods-Bootcamp2020SnapshotTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bootcamp2020SnapshotTests.release.xcconfig"; path = "Target Support Files/Pods-Bootcamp2020SnapshotTests/Pods-Bootcamp2020SnapshotTests.release.xcconfig"; sourceTree = "<group>"; };
+		D87A31C7DF33AC9DD3468F03 /* Pods-Bootcamp2020.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bootcamp2020.debug.xcconfig"; path = "Target Support Files/Pods-Bootcamp2020/Pods-Bootcamp2020.debug.xcconfig"; sourceTree = "<group>"; };
+		E973242225C6E8A6552ADE66 /* Pods-Bootcamp2020Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bootcamp2020Tests.release.xcconfig"; path = "Target Support Files/Pods-Bootcamp2020Tests/Pods-Bootcamp2020Tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -237,7 +237,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				284673936400331D128F9020 /* Pods_Bootcamp2020IntegrationTests.framework in Frameworks */,
+				EABA7E2A30B789847C9A97E0 /* libPods-Bootcamp2020IntegrationTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,7 +245,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2B1D084BD99C3DBEC940754F /* Pods_Bootcamp2020.framework in Frameworks */,
+				71F277A254612158873FCE49 /* libPods-Bootcamp2020.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,7 +253,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8E8C271AED7F85AFB55FB756 /* Pods_Bootcamp2020Tests.framework in Frameworks */,
+				199143B0B0BD659C1CA9AD26 /* libPods-Bootcamp2020Tests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,7 +261,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A17C769CE83FFEA6B0C7AB6 /* Pods_Bootcamp2020SnapshotTests.framework in Frameworks */,
+				DEB88F370D2DD09BA2EA1C0E /* libPods-Bootcamp2020SnapshotTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -676,14 +676,14 @@
 		D82C761A6F17930AD92820A8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				C5651C9C98875CE89327C3E5 /* Pods-Bootcamp2020.debug.xcconfig */,
-				61FD2D32CEDE908EE4B6A5DC /* Pods-Bootcamp2020.release.xcconfig */,
-				2ECB7FF7F8166C3F105BF76A /* Pods-Bootcamp2020SnapshotTests.debug.xcconfig */,
-				F530303C6F04D8EE7719938E /* Pods-Bootcamp2020SnapshotTests.release.xcconfig */,
-				72B801A919CF97CD4C2717E8 /* Pods-Bootcamp2020Tests.debug.xcconfig */,
-				672235472A7D97E5E74ED19A /* Pods-Bootcamp2020Tests.release.xcconfig */,
-				9BE1EB613D518B71957B2B16 /* Pods-Bootcamp2020IntegrationTests.debug.xcconfig */,
-				9E1604BEC52DBE5FB487021C /* Pods-Bootcamp2020IntegrationTests.release.xcconfig */,
+				D87A31C7DF33AC9DD3468F03 /* Pods-Bootcamp2020.debug.xcconfig */,
+				751C0BCFB7A4DF3C44BFA109 /* Pods-Bootcamp2020.release.xcconfig */,
+				916E8E62CED6684BB087D3B1 /* Pods-Bootcamp2020IntegrationTests.debug.xcconfig */,
+				97A7E80628F434EEA7C06EFD /* Pods-Bootcamp2020IntegrationTests.release.xcconfig */,
+				19659381AF76376D73B48E51 /* Pods-Bootcamp2020SnapshotTests.debug.xcconfig */,
+				60675B8E6C0BA21B9421DA23 /* Pods-Bootcamp2020SnapshotTests.release.xcconfig */,
+				0BF17A6A34B61290C67C3E95 /* Pods-Bootcamp2020Tests.debug.xcconfig */,
+				E973242225C6E8A6552ADE66 /* Pods-Bootcamp2020Tests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -692,10 +692,10 @@
 			isa = PBXGroup;
 			children = (
 				C0BD8FDB242AA25600F5C35E /* Kingfisher.framework */,
-				6817D7B18DA67B0C87627838 /* Pods_Bootcamp2020.framework */,
-				E3ABAABE0031DB5F028E6598 /* Pods_Bootcamp2020SnapshotTests.framework */,
-				E53E60CF419399141C0A19B9 /* Pods_Bootcamp2020Tests.framework */,
-				2C2B579E505A713E2A78D8E4 /* Pods_Bootcamp2020IntegrationTests.framework */,
+				5C11843A5B8DE35FFE8B2DB8 /* libPods-Bootcamp2020.a */,
+				1C3BE074445438CF07B20933 /* libPods-Bootcamp2020IntegrationTests.a */,
+				2CAE80C9A699975DD26B0F36 /* libPods-Bootcamp2020SnapshotTests.a */,
+				86C25D96782874C9D158B69F /* libPods-Bootcamp2020Tests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -707,11 +707,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 815F93E024252AA100893DEC /* Build configuration list for PBXNativeTarget "Bootcamp2020IntegrationTests" */;
 			buildPhases = (
-				55D3FBD66CC9EAB5C37AB586 /* [CP] Check Pods Manifest.lock */,
+				5C779A80E63E623EC92468DD /* [CP] Check Pods Manifest.lock */,
 				815F93D324252AA100893DEC /* Sources */,
 				815F93D424252AA100893DEC /* Frameworks */,
 				815F93D524252AA100893DEC /* Resources */,
-				F3E812C996B3A14FEFA46B1B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -727,11 +726,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C03D30E5241BFC100089B070 /* Build configuration list for PBXNativeTarget "Bootcamp2020" */;
 			buildPhases = (
-				9CD221D4BC3F8CE08CB35576 /* [CP] Check Pods Manifest.lock */,
+				64504C219FDA2E127B68DDE7 /* [CP] Check Pods Manifest.lock */,
 				C03D30BF241BFC0F0089B070 /* Sources */,
 				C03D30C0241BFC0F0089B070 /* Frameworks */,
 				C03D30C1241BFC0F0089B070 /* Resources */,
-				A032ABF16F400C7B316BE517 /* [CP] Embed Pods Frameworks */,
 				C0407289241BFC8E005F9B97 /* SwiftLint */,
 			);
 			buildRules = (
@@ -747,11 +745,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C03D30E8241BFC100089B070 /* Build configuration list for PBXNativeTarget "Bootcamp2020Tests" */;
 			buildPhases = (
-				5ACE2DC79222AF2C90D98233 /* [CP] Check Pods Manifest.lock */,
+				E2C62C42BA2F963DB6C6AC0E /* [CP] Check Pods Manifest.lock */,
 				C03D30D8241BFC100089B070 /* Sources */,
 				C03D30D9241BFC100089B070 /* Frameworks */,
 				C03D30DA241BFC100089B070 /* Resources */,
-				03C1B4CA658E21C5A78ABAE3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -767,11 +764,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C03D30F6241BFC460089B070 /* Build configuration list for PBXNativeTarget "Bootcamp2020SnapshotTests" */;
 			buildPhases = (
-				DA1BB0C6DDDA6BFF6C2E454A /* [CP] Check Pods Manifest.lock */,
+				C6D3C42851D0ED9EEC01FC8A /* [CP] Check Pods Manifest.lock */,
 				C03D30EB241BFC460089B070 /* Sources */,
 				C03D30EC241BFC460089B070 /* Frameworks */,
 				C03D30ED241BFC460089B070 /* Resources */,
-				2B242C56147494234AC7F5EF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -870,41 +866,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		03C1B4CA658E21C5A78ABAE3 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Bootcamp2020Tests/Pods-Bootcamp2020Tests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Bootcamp2020Tests/Pods-Bootcamp2020Tests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Bootcamp2020Tests/Pods-Bootcamp2020Tests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		2B242C56147494234AC7F5EF /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Bootcamp2020SnapshotTests/Pods-Bootcamp2020SnapshotTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Bootcamp2020SnapshotTests/Pods-Bootcamp2020SnapshotTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Bootcamp2020SnapshotTests/Pods-Bootcamp2020SnapshotTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		55D3FBD66CC9EAB5C37AB586 /* [CP] Check Pods Manifest.lock */ = {
+		5C779A80E63E623EC92468DD /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -926,29 +888,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		5ACE2DC79222AF2C90D98233 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Bootcamp2020Tests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9CD221D4BC3F8CE08CB35576 /* [CP] Check Pods Manifest.lock */ = {
+		64504C219FDA2E127B68DDE7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -970,23 +910,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A032ABF16F400C7B316BE517 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Bootcamp2020/Pods-Bootcamp2020-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Bootcamp2020/Pods-Bootcamp2020-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Bootcamp2020/Pods-Bootcamp2020-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		C0407289241BFC8E005F9B97 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1005,7 +928,7 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
-		DA1BB0C6DDDA6BFF6C2E454A /* [CP] Check Pods Manifest.lock */ = {
+		C6D3C42851D0ED9EEC01FC8A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1027,21 +950,26 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F3E812C996B3A14FEFA46B1B /* [CP] Embed Pods Frameworks */ = {
+		E2C62C42BA2F963DB6C6AC0E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Bootcamp2020IntegrationTests/Pods-Bootcamp2020IntegrationTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Bootcamp2020IntegrationTests/Pods-Bootcamp2020IntegrationTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Bootcamp2020Tests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Bootcamp2020IntegrationTests/Pods-Bootcamp2020IntegrationTests-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1192,7 +1120,7 @@
 /* Begin XCBuildConfiguration section */
 		815F93DE24252AA100893DEC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9BE1EB613D518B71957B2B16 /* Pods-Bootcamp2020IntegrationTests.debug.xcconfig */;
+			baseConfigurationReference = 916E8E62CED6684BB087D3B1 /* Pods-Bootcamp2020IntegrationTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
@@ -1216,7 +1144,7 @@
 		};
 		815F93DF24252AA100893DEC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9E1604BEC52DBE5FB487021C /* Pods-Bootcamp2020IntegrationTests.release.xcconfig */;
+			baseConfigurationReference = 97A7E80628F434EEA7C06EFD /* Pods-Bootcamp2020IntegrationTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
@@ -1353,7 +1281,7 @@
 		};
 		C03D30E6241BFC100089B070 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C5651C9C98875CE89327C3E5 /* Pods-Bootcamp2020.debug.xcconfig */;
+			baseConfigurationReference = D87A31C7DF33AC9DD3468F03 /* Pods-Bootcamp2020.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -1372,7 +1300,7 @@
 		};
 		C03D30E7241BFC100089B070 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 61FD2D32CEDE908EE4B6A5DC /* Pods-Bootcamp2020.release.xcconfig */;
+			baseConfigurationReference = 751C0BCFB7A4DF3C44BFA109 /* Pods-Bootcamp2020.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -1391,7 +1319,7 @@
 		};
 		C03D30E9241BFC100089B070 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 72B801A919CF97CD4C2717E8 /* Pods-Bootcamp2020Tests.debug.xcconfig */;
+			baseConfigurationReference = 0BF17A6A34B61290C67C3E95 /* Pods-Bootcamp2020Tests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1416,7 +1344,7 @@
 		};
 		C03D30EA241BFC100089B070 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 672235472A7D97E5E74ED19A /* Pods-Bootcamp2020Tests.release.xcconfig */;
+			baseConfigurationReference = E973242225C6E8A6552ADE66 /* Pods-Bootcamp2020Tests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1440,7 +1368,7 @@
 		};
 		C03D30F7241BFC460089B070 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2ECB7FF7F8166C3F105BF76A /* Pods-Bootcamp2020SnapshotTests.debug.xcconfig */;
+			baseConfigurationReference = 19659381AF76376D73B48E51 /* Pods-Bootcamp2020SnapshotTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1464,7 +1392,7 @@
 		};
 		C03D30F8241BFC460089B070 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F530303C6F04D8EE7719938E /* Pods-Bootcamp2020SnapshotTests.release.xcconfig */;
+			baseConfigurationReference = 60675B8E6C0BA21B9421DA23 /* Pods-Bootcamp2020SnapshotTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
