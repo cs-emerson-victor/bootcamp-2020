@@ -102,7 +102,7 @@ final class CardListViewController: UIViewController {
             switch result {
             case .success(let cards):
                 if cards.isEmpty {
-                    // TODO: Bind screen to empty search error
+                    self.listScreen.bind(to: CardListViewModel(state: .error(.emptySearch(name)), delegate: self))
                 } else {
                     let cardsBySetId = self.cardsBySetId(cards)
                     let setsCopies = self.makeSetsCopies(withDictionaty: cardsBySetId)
