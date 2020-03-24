@@ -73,10 +73,16 @@ final class CardDetailScreenSpec: QuickSpec {
             context("when receiving a view model") {
                 it("should bind correctly") {
                     // Act
-                    let viewModel = CardDetailViewModel(cards: [], delegate: CardDetailViewModelDelegateDummy())
+                    let cards = [Card(id: "a", name: "a", cardSetID: "a")]
+                    let viewModel = CardDetailViewModel(cards: cards, selectedCardId: "a", delegate: CardDetailViewModelDelegateDummy())
                     sut.bind(to: viewModel)
                     // Assert
                     expect(sut.viewModel).to(equal(viewModel))
+                    expect(dataSource.cards).to(equal(cards))
+                    expect(dataSource.getViewModel).toNot(beNil())
+                    expect(delegate.numberOfItems).to(equal(cards.count))
+                    expect(delegate.cellAtCenterDidChange).toNot(beNil())
+                    expect(sut.currentIndexPath).to(equal(viewModel.firstSelectedIndexPath))
                 }
             }
         }

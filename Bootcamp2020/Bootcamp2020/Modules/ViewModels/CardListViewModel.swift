@@ -11,7 +11,7 @@ import Foundation
 protocol CardListViewModelDelegate: AnyObject {
     
     func didSet(_ state: CardListViewModel.UIState)
-    func didSelect(_ card: Card)
+    func didSelect(_ card: Card, of set: CardSet)
     func prefetchSet(_ set: CardSet)
     func didEnterSearchText(_ text: String)
     func didCancelSearch()
@@ -59,8 +59,8 @@ extension CardListViewModel {
     }
     
     func didSelectCell(at indexPath: IndexPath) {
-        let card = cardSets[indexPath.section].cards[indexPath.row]
-        delegate?.didSelect(card)
+        let set = cardSets[indexPath.section]
+        delegate?.didSelect(set.cards[indexPath.row], of: set)
     }
 }
 

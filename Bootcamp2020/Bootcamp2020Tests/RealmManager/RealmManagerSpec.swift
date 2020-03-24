@@ -16,114 +16,116 @@ final class RealmManagerSpec: QuickSpec {
     
     override func spec() {
         describe("RealmManager") {
-//            var sut: RealmManager!
-//            var config: Realm.Configuration!
-//            
-//            beforeSuite {
-//                config = Realm.Configuration(inMemoryIdentifier: "Bootcamp2020Test")
-//                sut = RealmManager(configuration: config)
-//            }
-//            
-//            beforeEach {
-//                try! sut.realm?.write {
-//                    sut.realm?.deleteAll()
-//                }
-//            }
-//            
-//            context("when it's initialized") {
-//                it("should have the given configuration") {
-//                    expect(sut.realm?.configuration.inMemoryIdentifier).to(equal(config.inMemoryIdentifier))
-//                    expect(sut.realm?.configuration.fileURL).to(beNil())
-//                }
-//            }
-//            
-//            context("when it's perfomed fetch") {
-//                var cardSet: CardSet!
-//                var card: Card!
-//                
-//                beforeEach {
-//                    cardSet = CardSet(id: "0", name: "CardSet1")
-//                    card = Card(id: "0", name: "Card1")
-//                    cardSet.cards.append(card)
-//                    
-//                    try! sut.realm?.write {
-//                        sut.realm?.add(cardSet)
-//                        sut.realm?.add(card)
-//                    }
-//                }
-//                
-//                it("should return an array with one set") {
-//                    sut.fetchSets { (result) in
-//                        switch result {
-//                        case .success(let cardSets):
-//                            expect(cardSets.count).to(equal(1))
-//                        case .failure(let error):
-//                            expect(error).to(beAnInstanceOf(Error.self))
-//                            
-//                        }
-//                    }
-//                }
-//                
-//                context("when it's fetched by name") {
-//                    it("should return an empty array") {
-//                        sut.fetchCard(withName: "Collection") { (result) in
-//                            switch result {
-//                            case .success(let cards):
-//                                expect(cards).to(beEmpty())
-//                            case .failure(let error):
-//                                expect(error).to(beAnInstanceOf(Error.self))
-//                                
-//                            }
-//                        }
-//                    }
-//                    
-//                    it("should return an array with one card") {
-//                        sut.fetchCard(withName: "Card") { (result) in
-//                            switch result {
-//                            case .success(let cards):
-//                                expect(cards.count).to(equal(1))
-//                            case .failure(let error):
-//                                expect(error).to(beAnInstanceOf(Error.self))
-//                                
-//                            }
-//                        }
-//                    }
-//                    
-//                }
-//            }
-//            
-//            context("when card it's favorited") {
-//                var card: Card!
-//                
-//                beforeEach {
-//                    card = Card(id: "0", name: "Card1", isFavorite: false)
-//                }
-//                
-//                it("should favorite the given card") {
-//                    let favoriteReturn = sut.toggleFavorite(card)
-//                    
-//                    guard favoriteReturn == nil else {
-//                        Nimble.fail()
-//                        return
-//                    }
-//                    
-//                    let cards = sut.realm?.objects(Card.self)
-//                    expect(cards?.count).to(equal(1))
-//                }
-//                
-//                it("should unfavorite the given card") {
-//                    _ = sut.toggleFavorite(card)
-//                    let unfavoriteReturn = sut.toggleFavorite(card)
-//
-//                    guard unfavoriteReturn == nil else {
-//                        Nimble.fail()
-//                        return
-//                    }
-//
-//                    let cards = sut.realm?.objects(Card.self)
-//                    expect(cards?.count).to(equal(0))
-//                }
-//            }
+            var sut: RealmManager!
+            var config: Realm.Configuration!
+            
+            beforeSuite {
+                config = Realm.Configuration(inMemoryIdentifier: "Bootcamp2020Test")
+                sut = try! RealmManager(configuration: config)
+            }
+            
+            beforeEach {
+                try! sut.realm.write {
+                    sut.realm.deleteAll()
+                }
+            }
+            
+            context("when it's initialized") {
+                it("should have the given configuration") {
+                    expect(sut.realm.configuration.inMemoryIdentifier).to(equal(config.inMemoryIdentifier))
+                    expect(sut.realm.configuration.fileURL).to(beNil())
+                }
+            }
+            
+            context("when it's perfomed fetch") {
+                var cardSet: CardSet!
+                var card: Card!
+                
+                beforeEach {
+                    cardSet = CardSet(id: "0", name: "CardSet1")
+                    card = Card(id: "0", name: "Card1", cardSetID: "0")
+                    cardSet.cards.append(card)
+                    
+                    try! sut.realm.write {
+                        sut.realm.add(cardSet)
+                        sut.realm.add(card)
+                    }
+                }
+                
+                it("should return an array with one set") {
+                    sut.fetchSets { (result) in
+                        switch result {
+                        case .success(let cardSets):
+                            expect(cardSets.count).to(equal(1))
+                        case .failure(let error):
+                            expect(error).to(beAnInstanceOf(Error.self))
+                            
+                        }
+                    }
+                }
+                
+                context("when it's fetched by name") {
+                    it("should return an empty array") {
+                        sut.fetchCards(withName: "Collection") { (result) in
+                            switch result {
+                            case .success(let cards):
+                                expect(cards).to(beEmpty())
+                            case .failure(let error):
+                                expect(error).to(beAnInstanceOf(Error.self))
+                                
+                            }
+                        }
+                    }
+                    
+                    it("should return an array with one card") {
+                        sut.fetchCards(withName: "Card") { (result) in
+                            switch result {
+                            case .success(let cards):
+                                expect(cards.count).to(equal(1))
+                            case .failure(let error):
+                                expect(error).to(beAnInstanceOf(Error.self))
+                                
+                            }
+                        }
+                    }
+                    
+                }
+            }
+            
+            context("when card it's favorited") {
+                var cardSet: CardSet!
+                var card: Card!
+                
+                beforeEach {
+                    cardSet = CardSet(id: "0", name: "CardSet1")
+                }
+                
+                it("should favorite the given card") {
+                    card = Card(id: "0", name: "Card1", cardSetID: "0", isFavorite: true)
+                    let favoriteReturn = sut.toggleFavorite(card, of: cardSet)
+                    
+                    guard favoriteReturn == nil else {
+                        Nimble.fail()
+                        return
+                    }
+                    
+                    let cards = sut.realm.objects(Card.self)
+                    expect(cards.count).to(equal(1))
+                }
+                
+                it("should unfavorite the given card") {
+                    card = Card(id: "0", name: "Card1", cardSetID: "0", isFavorite: false)
+                    let unfavoriteReturn = sut.toggleFavorite(card, of: cardSet)
+
+                    guard unfavoriteReturn == nil else {
+                        Nimble.fail()
+                        return
+                    }
+
+                    let cards = sut.realm.objects(Card.self)
+                    expect(cards.count).to(equal(0))
+                }
+            }
         }
         
     }

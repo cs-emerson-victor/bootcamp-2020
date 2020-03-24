@@ -9,11 +9,11 @@
 @testable import Bootcamp2020
 
 final class CardListViewModelDelegateDummy: CardListViewModelDelegate {
-    func didSet(_ state: CardListViewModel.UIState) {
+    func didSelect(_ card: Card, of set: CardSet) {
         
     }
     
-    func didSelect(_ card: Card) {
+    func didSet(_ state: CardListViewModel.UIState) {
         
     }
     

@@ -14,7 +14,7 @@ final class LocalServiceDummy: LocalService {
         return nil
     }
     
-    func fetchCard(withName name: String, completion: @escaping (Result<[Card], Error>) -> Void) {
+    func fetchCards(withName name: String, completion: @escaping (Result<[Card], Error>) -> Void) {
         
     }
     

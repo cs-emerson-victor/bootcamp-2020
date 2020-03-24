@@ -153,8 +153,8 @@ extension APIManager: Service {
         }
     }
     
-    func fetchCard(withName name: String,
-                   completion: @escaping (Result<[Card], Error>) -> Void) {
+    func fetchCards(withName name: String,
+                    completion: @escaping (Result<[Card], Error>) -> Void) {
         
         let endpoint = Endpoint(ofType: .card(name: name))
         

@@ -9,12 +9,12 @@
 protocol ShowCardDetailDelegate: AnyObject {
     var saver: CardSaverProtocol { get }
     
-    func show(_ cards: [Card], selectedCardId id: String)
+    func show(_ cardSet: CardSet, selectedCardId id: String)
 }
 
 extension ShowCardDetailDelegate where Self: Coordinator & DismissCardDetailDelegate {
-    func show(_ cards: [Card], selectedCardId id: String) {
-        let controller = CardDetailViewController(cards: cards, selectedCardId: id, service: saver, delegate: self)
+    func show(_ cardSet: CardSet, selectedCardId id: String) {
+        let controller = CardDetailViewController(cardSet: cardSet, selectedCardId: id, service: saver, delegate: self)
         controller.modalPresentationStyle = .fullScreen
         rootController.present(controller, animated: true)
     }

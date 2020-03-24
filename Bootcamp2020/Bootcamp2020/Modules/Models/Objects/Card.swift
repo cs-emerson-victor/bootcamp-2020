@@ -72,3 +72,17 @@ extension Card: Codable {
         try container.encode(Array(types), forKey: .types)
     }
 }
+
+extension Card: Copyable {
+    
+    func createCopy() -> Card {
+
+        return Card(id: id,
+                    name: name,
+                    imageURL: imageURL,
+                    imageData: imageData,
+                    cardSetID: cardSetID,
+                    isFavorite: isFavorite,
+                    types: Array(types))
+    }
+}
