@@ -21,17 +21,17 @@ final class RealmManager: LocalService {
         }
     }
     
-    func fetchSets(completion: @escaping (Result<[CardSet], Error>) -> Void) {
+    func fetchSets(completion: @escaping (Result<[CardSet], ServiceError>) -> Void) {
         let cardSets = Array(realm.objects(CardSet.self).sorted(byKeyPath: "releaseDate"))
         completion(.success(cardSets))
     }
     
-    func fetchCards(withName name: String, completion: @escaping (Result<[Card], Error>) -> Void) {
+    func fetchCards(withName name: String, completion: @escaping (Result<[Card], ServiceError>) -> Void) {
         let cards = Array(realm.objects(Card.self).filter("name contains[c] %@", name))
         completion(.success(cards))
     }
     
-    func fetchCards(ofSet cardSet: CardSet, completion: @escaping (Result<[Card], Error>) -> Void) {
+    func fetchCards(ofSet cardSet: CardSet, completion: @escaping (Result<[Card], ServiceError>) -> Void) {
         let cards = Array(cardSet.cards)
         completion(.success(cards))
     }

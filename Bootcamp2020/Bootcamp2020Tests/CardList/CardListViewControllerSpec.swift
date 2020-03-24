@@ -91,6 +91,51 @@ final class CardListViewControllerSpec: QuickSpec {
                 }
             }
             
+            context("when handling an error") {
+                var error: ServiceError?
+                
+                afterEach {
+                    error = nil
+                }
+                
+                it("should change the view state to api error") {
+                    error = .apiError
+                    sut.handleError(error!)
+                    
+                    switch screen.viewModel.state {
+                    case .error(let sutType):
+                        expect(sutType).to(equal(.api))
+                    default:
+                        Nimble.fail("Wrong state type, should be api")
+                    }
+                }
+                
+                it("should change the view state to internet error") {
+                    error = .networkError
+                    sut.handleError(error!)
+                    
+                    switch screen.viewModel.state {
+                    case .error(let sutType):
+                        expect(sutType).to(equal(.noInternet))
+                    default:
+                        Nimble.fail("Wrong state type, should be noInternet")
+                    }
+                }
+                
+                it("should change the view state to generic error") {
+                    error = .defaultError
+                    sut.handleError(error!)
+                    
+                    switch screen.viewModel.state {
+                    case .error(let sutType):
+                        expect(sutType).to(equal(.generic))
+                    default:
+                        Nimble.fail("Wrong state type, should be generic")
+                    }
+                }
+                
+            }
+            
             context("when sorting array of sets") {
                 it("should return the sets sorted by release data") {
                     let sets = CardSetStub().getEmptySets()

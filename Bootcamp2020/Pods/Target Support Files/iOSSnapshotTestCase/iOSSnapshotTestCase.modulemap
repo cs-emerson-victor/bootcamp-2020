@@ -1,4 +1,4 @@
-framework module FBSnapshotTestCase {
+module FBSnapshotTestCase {
   umbrella header "iOSSnapshotTestCase-umbrella.h"
 
   export *

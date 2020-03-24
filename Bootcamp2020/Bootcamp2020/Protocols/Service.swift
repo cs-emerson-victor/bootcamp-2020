@@ -8,6 +8,13 @@
 
 import Foundation
 
+enum ServiceError: Error {
+    case networkError
+    case emptySearch
+    case apiError
+    case defaultError
+}
+
 protocol CardSaverProtocol {
     
     @discardableResult
@@ -16,9 +23,9 @@ protocol CardSaverProtocol {
 }
 
 protocol Service {
-    func fetchSets(completion: @escaping (Result<[CardSet], Error>) -> Void)
-    func fetchCards(withName name: String, completion: @escaping (Result<[Card], Error>) -> Void)
-    func fetchCards(ofSet cardSet: CardSet, completion: @escaping (Result<[Card], Error>) -> Void)
+    func fetchSets(completion: @escaping (Result<[CardSet], ServiceError>) -> Void)
+    func fetchCards(withName name: String, completion: @escaping (Result<[Card], ServiceError>) -> Void)
+    func fetchCards(ofSet cardSet: CardSet, completion: @escaping (Result<[Card], ServiceError>) -> Void)
 }
 
 typealias LocalService = Service & CardSaverProtocol

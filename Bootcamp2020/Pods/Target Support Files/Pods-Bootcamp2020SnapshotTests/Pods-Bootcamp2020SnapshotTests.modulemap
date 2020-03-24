@@ -1,4 +1,4 @@
-framework module Pods_Bootcamp2020SnapshotTests {
+module Pods_Bootcamp2020SnapshotTests {
   umbrella header "Pods-Bootcamp2020SnapshotTests-umbrella.h"
 
   export *

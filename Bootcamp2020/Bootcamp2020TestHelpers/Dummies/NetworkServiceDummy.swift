@@ -9,15 +9,15 @@
 @testable import Bootcamp2020
 
 final class NetworkServiceDummy: Service {
-    func fetchSets(completion: @escaping (Result<[CardSet], Error>) -> Void) {
+    func fetchSets(completion: @escaping (Result<[CardSet], ServiceError>) -> Void) {
         
     }
     
-    func fetchCards(withName name: String, completion: @escaping (Result<[Card], Error>) -> Void) {
+    func fetchCards(withName name: String, completion: @escaping (Result<[Card], ServiceError>) -> Void) {
         
     }
     
-    func fetchCards(ofSet cardSet: CardSet, completion: @escaping (Result<[Card], Error>) -> Void) {
+    func fetchCards(ofSet cardSet: CardSet, completion: @escaping (Result<[Card], ServiceError>) -> Void) {
         
     }
 }
