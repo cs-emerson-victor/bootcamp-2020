@@ -19,8 +19,12 @@ final class CoordinatorSpy: Coordinator {
         self.childCoordinators = []
     }
     
-    func start() {
-        
+    func start() { }
+}
+
+extension CoordinatorSpy: ShowCardDetailDelegate {
+    var saver: CardSaverProtocol {
+        return LocalServiceDummy()
     }
 }
 

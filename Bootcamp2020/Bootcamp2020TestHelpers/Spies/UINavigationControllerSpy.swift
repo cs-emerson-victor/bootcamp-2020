@@ -10,10 +10,20 @@
 import UIKit
 
 final class UINavigationControllerSpy: UINavigationController {
+    
     var dismissWasCalled = false
+    var showWasCalled = false
     
     override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
         super.dismiss(animated: flag, completion: completion)
         dismissWasCalled = true
+    }
+    
+    override func present(_ viewControllerToPresent: UIViewController,
+                          animated flag: Bool,
+                          completion: (() -> Void)? = nil) {
+        
+        super.present(viewControllerToPresent, animated: flag, completion: completion)
+        showWasCalled = true
     }
 }
