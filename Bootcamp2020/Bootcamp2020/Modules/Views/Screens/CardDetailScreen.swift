@@ -16,10 +16,10 @@ class CardDetailScreen: UIView {
         layout.scrollDirection = .horizontal
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
         view.showsVerticalScrollIndicator = false
+        view.showsHorizontalScrollIndicator = false
         view.accessibilityLabel = "cardDetailCollectionView"
         view.accessibilityIdentifier = "cardDetailCollectionView"
         view.backgroundColor = .clear
-        view.isPagingEnabled = true
         return view
     }()
     
@@ -48,6 +48,8 @@ class CardDetailScreen: UIView {
     var cardDetailDelegate: CardDetailDelegate //swiftlint:disable:this weak_delegate
     private(set) var viewModel: CardDetailViewModel!
     
+    var currentIndexPath: IndexPath!
+    
     // MARK: - Init -
     init(dataSource: CardDetailDataSource = CardDetailDataSource(),
          delegate: CardDetailDelegate = CardDetailDelegate()) {
@@ -66,19 +68,29 @@ class CardDetailScreen: UIView {
     func bind(to viewModel: CardDetailViewModel) {
         self.viewModel = viewModel
         
-        if viewModel.cards.first != nil {
-            let isFavorite = viewModel.isCardFavorite(at: IndexPath(item: 0, section: 0))
-            favoriteButton.setTitle(isFavorite ? "remove card from favorites" : "add card to favorites", for: .normal)
+        currentIndexPath = viewModel.firstSelectedIndexPath
+        setFavoriteButtonTitle(isFavorite: viewModel.isCardFavorite(at: currentIndexPath))
+        cardDetailDelegate.cellAtCenterDidChange = { [weak self] indexPath in
+            let isFavorite = viewModel.isCardFavorite(at: indexPath)
+            self?.currentIndexPath = indexPath
+            self?.setFavoriteButtonTitle(isFavorite: isFavorite)
         }
-        
         cardDetailDataSource.getViewModel = viewModel.cellViewModel
         cardDetailDataSource.cards = viewModel.cards
         cardDetailDelegate.numberOfItems = viewModel.cards.count
         cardDetailCollectionView.reloadData()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) { [weak self] in
+            guard let self = self else { return }
+            self.cardDetailCollectionView.scrollToItem(at: self.currentIndexPath, at: .centeredHorizontally, animated: false)
+        }
+    }
+    
+    private func setFavoriteButtonTitle(isFavorite: Bool) {
+        favoriteButton.setTitle(isFavorite ? "remove card from favorites" : "add card to favorites", for: .normal)
     }
     
     @objc func favoriteTapped(_ sender: UIButton) {
-        viewModel.toggleCardFavorite(at: IndexPath(item: 0, section: 0))
+        viewModel.toggleCardFavorite(at: currentIndexPath)
     }
     
     @objc func closeTapped(_ sender: UIButton) {
