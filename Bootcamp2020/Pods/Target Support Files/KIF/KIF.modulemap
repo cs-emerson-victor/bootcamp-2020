@@ -1,4 +1,4 @@
-framework module KIF {
+module KIF {
   umbrella header "KIF-umbrella.h"
 
   export *

@@ -29,7 +29,6 @@ class APIManager {
                                     completion: @escaping (Result<T, ServiceError>) -> Void) {
         
         guard Reachability.shared.currentStatus == .reachable else {
-            print("sem internet")
             completion(.failure(.networkError))
             return
         }
@@ -63,7 +62,6 @@ class APIManager {
                                    completion: @escaping (_ result: Result<(data: T, fields: HeaderFields), ServiceError>) -> Void) {
         
         guard Reachability.shared.currentStatus == .reachable else {
-            print("sem internet")
             completion(.failure(.networkError))
             return
         }
