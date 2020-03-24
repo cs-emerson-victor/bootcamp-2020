@@ -58,15 +58,15 @@ final class CardListViewController: UIViewController {
                 
                 guard let firstSet = sortedSets.first else {
                     // TODO: Implement empty list screen
-                    self.listScreen.bind(to: CardListViewModel(state: .success([]), delegate: self))
+                    self.listScreen.bind(to: CardListViewModel(state: .error(.api), delegate: self))
                     return
                 }
                 DispatchQueue.main.async {
                     self.fetchCardsForSet(firstSet)
                 }
                 
-            case .failure:
-                self.listScreen.bind(to: CardListViewModel(state: .error(.api), delegate: self))
+            case .failure(let error):
+                self.handleError(error)
             }
         }
     }
@@ -86,8 +86,8 @@ final class CardListViewController: UIViewController {
                 
                 set?.cards.append(objectsIn: sortedCards)
                 self.listScreen.bind(to: CardListViewModel(state: .success(self.sets), delegate: self))
-            case .failure:
-                self.listScreen.bind(to: CardListViewModel(state: .error(.api), delegate: self))
+            case .failure(let error):
+                self.handleError(error)
             }
         }
     }
@@ -112,9 +112,20 @@ final class CardListViewController: UIViewController {
                     
                     self.listScreen.bind(to: CardListViewModel(state: .searchSuccess(sortedSets), delegate: self))
                 }
-            case .failure:
-                self.listScreen.bind(to: CardListViewModel(state: .error(.api), delegate: self))
+            case .failure(let error):
+                self.handleError(error)
             }
+        }
+    }
+    
+    internal func handleError(_ error: ServiceError) {
+        switch error {
+        case .networkError:
+            self.listScreen.bind(to: CardListViewModel(state: .error(.noInternet), delegate: self))
+        case .apiError:
+            self.listScreen.bind(to: CardListViewModel(state: .error(.api), delegate: self))
+        default:
+            self.listScreen.bind(to: CardListViewModel(state: .error(.generic), delegate: self))
         }
     }
     
@@ -141,8 +152,12 @@ final class CardListViewController: UIViewController {
         
         for (setId, cards) in dict {
             guard let set = sets.first(where: { $0.id == setId }) else { continue }
-            // TODO: Replace with copy function
-            let setCopy = CardSet(id: set.id, name: set.name, releaseDate: set.releaseDate, cards: cards)
+            
+            let sortedCards = cards.sorted(by: { $0.name < $1.name })
+            let setCopy = CardSet(id: set.id,
+                                  name: set.name,
+                                  releaseDate: set.releaseDate,
+                                  cards: sortedCards)
             
             setsCopies.append(setCopy)
         }

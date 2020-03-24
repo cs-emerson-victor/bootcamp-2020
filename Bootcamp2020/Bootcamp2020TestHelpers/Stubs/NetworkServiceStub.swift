@@ -13,16 +13,16 @@ final class NetworkServiceStub: Service {
     var fetchedSets: [CardSet] = []
     var fethchedCards: [Card] = []
     
-    func fetchSets(completion: @escaping (Result<[CardSet], Error>) -> Void) {
+    func fetchSets(completion: @escaping (Result<[CardSet], ServiceError>) -> Void) {
         fetchedSets = CardSetStub().getFullSets()
         completion(.success(fetchedSets))
     }
     
-    func fetchCards(withName name: String, completion: @escaping (Result<[Card], Error>) -> Void) {
+    func fetchCards(withName name: String, completion: @escaping (Result<[Card], ServiceError>) -> Void) {
         
     }
     
-    func fetchCards(ofSet cardSet: CardSet, completion: @escaping (Result<[Card], Error>) -> Void) {
+    func fetchCards(ofSet cardSet: CardSet, completion: @escaping (Result<[Card], ServiceError>) -> Void) {
         fethchedCards = CardSetStub().getCardsOfSet(cardSet)
         completion(.success(fethchedCards))
     }
