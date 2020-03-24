@@ -109,9 +109,10 @@ class CardListScreen: UIView {
                 self?.activityIndicator.startAnimating()
                 self?.hideError()
             }
-        case .error:
+        case .error(let type):
             DispatchQueue.main.async { [weak self] in
-                self?.displayError()
+                self?.displayError(type: type)
+                self?.activityIndicator.stopAnimating()
             }
         case .loading:
             DispatchQueue.main.async { [weak self] in
@@ -122,13 +123,12 @@ class CardListScreen: UIView {
     }
     
     // MARK: Error handling
-    private func displayError() {
-        errorView.display(message: viewModel.errorMessage)
+    private func displayError(type: ErrorType) {
+        errorView.display(type: type)
         
         guard errorView.superview == nil else { return }
         
         addSubview(errorView)
-        
         makeErrorViewConstraints()
     }
     

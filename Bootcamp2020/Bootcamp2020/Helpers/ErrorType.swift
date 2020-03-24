@@ -6,7 +6,7 @@
 //  Copyright © 2020 Team2. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 enum ErrorType: Equatable {
     
@@ -35,6 +35,17 @@ extension ErrorType {
             return "Ops, an error occurred. Please try again later."
         case .noInternet:
             return "It looks like you're not connected to the internet. Please connect and try again."
+        }
+    }
+    
+    var image: UIImage {
+        switch self {
+        case .api, .generic:
+            return #imageLiteral(resourceName: "error")
+        case .noInternet:
+            return #imageLiteral(resourceName: "internetError")
+        case .emptySearch:
+            return #imageLiteral(resourceName: "emptySearch")
         }
     }
 }

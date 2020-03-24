@@ -39,8 +39,9 @@ final class ErrorView: UIView {
     }
     
     // MARK: - Methods -
-    func display(message: String?) {
-        label.text = message
+    func display(type: ErrorType) {
+        label.text = type.message
+        imageView.image = type.image
     }
 }
 

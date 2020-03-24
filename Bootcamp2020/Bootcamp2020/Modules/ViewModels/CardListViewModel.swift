@@ -66,15 +66,6 @@ extension CardListViewModel {
         let set = cardSets[indexPath.section]
         delegate?.didSelect(set.cards[indexPath.row], of: set)
     }
-    
-    var errorMessage: String? {
-        switch state {
-        case .error(let type):
-            return type.message
-        default:
-            return nil
-        }
-    }
 }
 
 // MARK: - Search bar

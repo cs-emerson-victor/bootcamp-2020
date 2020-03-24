@@ -95,37 +95,53 @@ final class CardListViewModelSpec: QuickSpec {
             }
             
             context("when state is of error") {
-                it("should display the correct message for API") {
-                    sut = CardListViewModel(state: .error(.api), delegate: delegate)
+                it("should display API") {
+                    let type = ErrorType.api
+                    sut = CardListViewModel(state: .error(type), delegate: delegate)
                     
-                    expect(sut.errorMessage).to(equal("Sorry, we had an internal problem. Please try again later."))
+                    switch sut.state {
+                    case .error(let sutType):
+                        expect(sutType).to(equal(type))
+                    default:
+                        Nimble.fail("Wrong state type, should be error")
+                    }
                 }
                 
-                it("should display the correct message for empty search") {
+                it("should display empty search") {
                     let searchedText = "test search message"
-                    sut = CardListViewModel(state: .error(.emptySearch(searchedText)), delegate: delegate)
+                    let type = ErrorType.emptySearch(searchedText)
+                    sut = CardListViewModel(state: .error(type), delegate: delegate)
                     
-                    expect(sut.errorMessage).to(equal("Sorry, we couldn't find any card with name \"\(searchedText)\"."))
+                    switch sut.state {
+                    case .error(let sutType):
+                        expect(sutType).to(equal(type))
+                    default:
+                        Nimble.fail("Wrong state type, should be error")
+                    }
                 }
                 
-                it("should display generic message") {
-                    sut = CardListViewModel(state: .error(.generic), delegate: delegate)
+                it("should display generic") {
+                    let type = ErrorType.generic
+                    sut = CardListViewModel(state: .error(type), delegate: delegate)
                     
-                    expect(sut.errorMessage).to(equal("Ops, an error occurred. Please try again later."))
+                    switch sut.state {
+                    case .error(let sutType):
+                        expect(sutType).to(equal(type))
+                    default:
+                        Nimble.fail("Wrong state type, should be error")
+                    }
                 }
                 
-                it("should display the correct message for empty search") {
-                    sut = CardListViewModel(state: .error(.noInternet), delegate: delegate)
+                it("should display no internet") {
+                    let type = ErrorType.noInternet
+                    sut = CardListViewModel(state: .error(type), delegate: delegate)
                     
-                    expect(sut.errorMessage).to(equal("It looks like you're not connected to the internet. Please connect and try again."))
-                }
-            }
-            
-            context("when state is not error") {
-                it("should not have an error message") {
-                    sut = CardListViewModel(state: .initialLoading, delegate: delegate)
-                    
-                    expect(sut.errorMessage).to(beNil())
+                    switch sut.state {
+                    case .error(let sutType):
+                        expect(sutType).to(equal(type))
+                    default:
+                        Nimble.fail("Wrong state type, should be error")
+                    }
                 }
             }
         }
