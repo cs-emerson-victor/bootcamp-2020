@@ -89,6 +89,9 @@ class CardListScreen: UIView {
         cardDataSource.sets = viewModel.cardSets
         cardDataSource.getViewModel = viewModel.cellViewModel
         cardDelegate.didSelectItemAt = viewModel.didSelectCell
+        cardDelegate.didScroll = { [weak self] in
+            self?.searchBar.endEditing(true)
+        }
         
         switch viewModel.state {
         case .initialLoading:
@@ -106,9 +109,10 @@ class CardListScreen: UIView {
                 self?.activityIndicator.startAnimating()
                 self?.hideError()
             }
-        case .error:
+        case .error(let type):
             DispatchQueue.main.async { [weak self] in
-                self?.displayError(message: "Error: something went wrong.\nPlease try again.")
+                self?.displayError(type: type)
+                self?.activityIndicator.stopAnimating()
             }
         case .loading:
             DispatchQueue.main.async { [weak self] in
@@ -119,13 +123,12 @@ class CardListScreen: UIView {
     }
     
     // MARK: Error handling
-    private func displayError(message: String) {
-        errorView.display(message: message)
+    private func displayError(type: ErrorType) {
+        errorView.display(type: type)
         
         guard errorView.superview == nil else { return }
         
         addSubview(errorView)
-        
         makeErrorViewConstraints()
     }
     

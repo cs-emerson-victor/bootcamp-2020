@@ -11,6 +11,7 @@ import UIKit
 final class CardListDelegate: NSObject {
     
     var didSelectItemAt: ((_ item: IndexPath) -> Void)?
+    var didScroll: (() -> Void)?
     
     fileprivate var cellAspectRatio: CGFloat = 85/118
 }
@@ -19,6 +20,10 @@ extension CardListDelegate: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         didSelectItemAt?(indexPath)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        didScroll?()
     }
 }
 
