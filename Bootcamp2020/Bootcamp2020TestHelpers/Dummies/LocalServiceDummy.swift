@@ -10,6 +10,10 @@
 
 final class LocalServiceDummy: LocalService {
     
+    func isFavorite(_ card: Card) -> Bool {
+        return true
+    }
+    
     func toggleFavorite(_ card: Card, of set: CardSet) -> Error? {
         return nil
     }
