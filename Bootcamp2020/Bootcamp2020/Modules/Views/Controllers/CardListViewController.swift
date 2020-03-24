@@ -17,6 +17,8 @@ final class CardListViewController: UIViewController {
     var service: Service
     weak var detailDelegate: ShowCardDetailDelegate?
     
+    private var canceledSearch: Bool = false
+    
     // MARK: - Init -
     init(service: Service,
          screen: CardListScreen = CardListScreen(),
@@ -51,7 +53,7 @@ final class CardListViewController: UIViewController {
             guard let `self` = self else { return }
             switch result {
             case .success(let cardSets):
-                let sortedSets = cardSets.sorted(by: { $0.releaseDate > $1.releaseDate })
+                let sortedSets = self.sortSets(cardSets)
                 self.sets.append(contentsOf: sortedSets)
                 
                 guard let firstSet = sortedSets.first else {
@@ -89,6 +91,65 @@ final class CardListViewController: UIViewController {
             }
         }
     }
+    
+    func searchCard(withName name: String) {
+        guard !listScreen.isLoading else { return }
+
+        listScreen.bind(to: CardListViewModel(state: .searching, delegate: self))
+        
+        service.fetchCards(withName: name) { [weak self] result in
+            guard let `self` = self else { return }
+            guard self.canceledSearch == false else { return }
+            
+            switch result {
+            case .success(let cards):
+                if cards.isEmpty {
+                    // TODO: Bind screen to empty search error
+                } else {
+                    let cardsBySetId = self.cardsBySetId(cards)
+                    let setsCopies = self.makeSetsCopies(withDictionaty: cardsBySetId)
+                    let sortedSets = self.sortSets(setsCopies)
+                    
+                    self.listScreen.bind(to: CardListViewModel(state: .searchSuccess(sortedSets), delegate: self))
+                }
+            case .failure(let error):
+                debugPrint(error.localizedDescription)
+                self.listScreen.bind(to: CardListViewModel(state: .error, delegate: self))
+            }
+        }
+    }
+    
+    internal func sortSets(_ sets: [CardSet]) -> [CardSet] {
+        return sets.sorted(by: { $0.releaseDate > $1.releaseDate })
+    }
+    
+    internal func cardsBySetId(_ cards: [Card]) -> [String: [Card]] {
+        var cardsBySetId: [String: [Card]] = [:]
+        
+        for card in cards {
+            if cardsBySetId[card.cardSetID] == nil {
+                cardsBySetId[card.cardSetID] = []
+            }
+            
+            cardsBySetId[card.cardSetID]?.append(card)
+        }
+        
+        return cardsBySetId
+    }
+    
+    internal func makeSetsCopies(withDictionaty dict: [String: [Card]]) -> [CardSet] {
+        var setsCopies: [CardSet] = []
+        
+        for (setId, cards) in dict {
+            guard let set = sets.first(where: { $0.id == setId }) else { continue }
+            // TODO: Replace with copy function
+            let setCopy = CardSet(id: set.id, name: set.name, releaseDate: set.releaseDate, cards: cards)
+            
+            setsCopies.append(setCopy)
+        }
+        
+        return setsCopies
+    }
 }
 
 extension CardListViewController: CardListViewModelDelegate {
@@ -102,5 +163,15 @@ extension CardListViewController: CardListViewModelDelegate {
     
     func prefetchSet(_ set: CardSet) {
         fetchCardsForSet(set)
+    }
+    
+    func didEnterSearchText(_ text: String) {
+        canceledSearch = false
+        searchCard(withName: text)
+    }
+    
+    func didCancelSearch() {
+        canceledSearch = true
+        listScreen.bind(to: CardListViewModel(state: .success(sets), delegate: self))
     }
 }

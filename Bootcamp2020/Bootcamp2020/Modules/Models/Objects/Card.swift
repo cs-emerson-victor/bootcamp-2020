@@ -44,6 +44,32 @@ extension Card: Codable {
         case id
         case name
         case imageURL = "imageUrl"
+        case cardSetID = "set"
+        case types
+    }
+    
+    convenience init(from decoder: Decoder) throws {
+        self.init()
+        
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.id = try container.decode(String.self, forKey: .id)
+        self.name = try container.decode(String.self, forKey: .name)
+        self.imageURL = try container.decodeIfPresent(String.self, forKey: .imageURL)
+        self.cardSetID = try container.decode(String.self, forKey: .cardSetID)
+        
+        let types = try container.decode([String].self, forKey: .types)
+        self.types.append(objectsIn: types)
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        
+        try container.encode(id, forKey: .id)
+        try container.encode(name, forKey: .name)
+        try container.encode(imageURL, forKey: .imageURL)
+        try container.encode(cardSetID, forKey: .cardSetID)
+        try container.encode(Array(types), forKey: .types)
     }
 }
 

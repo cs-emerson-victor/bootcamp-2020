@@ -42,4 +42,22 @@ final class CardSetStub {
         }
         return cards
     }
+    
+    func getCardsBySetId(_ sets: [CardSet]) -> [String: [Card]] {
+        var dict: [String: [Card]] = [:]
+        
+        let allCards = sets.reduce([]) { (all, set) -> [Card] in
+            return all + Array(set.cards)
+        }
+        
+        for card in allCards {
+            if dict[card.cardSetID] == nil {
+                dict[card.cardSetID] = []
+            }
+            
+            dict[card.cardSetID]?.append(card)
+        }
+        
+        return dict
+    }
 }
