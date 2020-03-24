@@ -83,7 +83,9 @@ final class CardListViewController: UIViewController {
             guard let `self` = self else { return }
             switch result {
             case .success(let cards):
-                set?.cards.append(objectsIn: cards)
+                let sortedCards = cards.sorted(by: { $0.name < $1.name })
+                
+                set?.cards.append(objectsIn: sortedCards)
                 self.listScreen.bind(to: CardListViewModel(state: .success(self.sets), delegate: self))
             case .failure(let error):
                 debugPrint(error.localizedDescription)
