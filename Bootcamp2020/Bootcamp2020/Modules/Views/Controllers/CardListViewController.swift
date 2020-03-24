@@ -152,8 +152,12 @@ final class CardListViewController: UIViewController {
         
         for (setId, cards) in dict {
             guard let set = sets.first(where: { $0.id == setId }) else { continue }
-            // TODO: Replace with copy function
-            let setCopy = CardSet(id: set.id, name: set.name, releaseDate: set.releaseDate, cards: cards)
+            
+            let sortedCards = cards.sorted(by: { $0.name < $1.name })
+            let setCopy = CardSet(id: set.id,
+                                  name: set.name,
+                                  releaseDate: set.releaseDate,
+                                  cards: sortedCards)
             
             setsCopies.append(setCopy)
         }
