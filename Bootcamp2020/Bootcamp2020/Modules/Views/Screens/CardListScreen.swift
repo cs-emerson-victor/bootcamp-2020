@@ -26,7 +26,6 @@ class CardListScreen: UIView {
     private lazy var searchBar: UISearchBar = {
         let view = UISearchBar()
         view.accessibilityLabel = "listSearchBar"
-        view.setShowsCancelButton(true, animated: true)
         view.isUserInteractionEnabled = false
         view.delegate = self
         return view
@@ -200,9 +199,11 @@ extension CardListScreen: UISearchBarDelegate {
         viewModel.didCancelSearch()
     }
     
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText == "" {
-            viewModel.didCancelSearch()
-        }
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(false, animated: true)
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(true, animated: true)
     }
 }
