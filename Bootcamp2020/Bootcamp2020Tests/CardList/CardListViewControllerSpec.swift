@@ -5,6 +5,7 @@
 //  Created by alexandre.c.ferreira on 17/03/20.
 //  Copyright © 2020 Team2. All rights reserved.
 //
+// swiftlint:disable function_body_length
 
 import Quick
 import Nimble

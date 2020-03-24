@@ -14,16 +14,12 @@ final class CardListViewModelDelegateSpy: CardListViewModelDelegate {
     private(set) var didSelectCard: Bool = false
     private(set) var selectedCard: Card?
     
-    func didSet(_ state: CardListViewModel.UIState) {
-        
-    }
+    func didSet(_ state: CardListViewModel.UIState) { }
     
-    func didSelect(_ card: Card) {
+    func didSelect(_ card: Card, of set: CardSet) {
         didSelectCard = true
         selectedCard = card
     }
     
-    func prefetchSet(_ set: CardSet) {
-        
-    }
+    func prefetchSet(_ set: CardSet) { }
 }

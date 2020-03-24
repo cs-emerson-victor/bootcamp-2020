@@ -66,7 +66,7 @@ final class RealmManagerSpec: QuickSpec {
                 
                 context("when it's fetched by name") {
                     it("should return an empty array") {
-                        sut.fetchCard(withName: "Collection") { (result) in
+                        sut.fetchCards(withName: "Collection") { (result) in
                             switch result {
                             case .success(let cards):
                                 expect(cards).to(beEmpty())
@@ -78,7 +78,7 @@ final class RealmManagerSpec: QuickSpec {
                     }
                     
                     it("should return an array with one card") {
-                        sut.fetchCard(withName: "Card") { (result) in
+                        sut.fetchCards(withName: "Card") { (result) in
                             switch result {
                             case .success(let cards):
                                 expect(cards.count).to(equal(1))

@@ -23,19 +23,18 @@ class CardDetailIntegrationSpec: QuickSpec {
         var delegate: CardDetailDelegate!
         var dismissDelegate: DismissCardDetailDelegateSpy!
         var window: UIWindow!
-        var cards: [Card]!
+        var cardSet: CardSet!
         
         beforeEach {
-            
-            cards = CardSetStub().getCardsOfSet(CardSet(id: "id", name: "Set name"))
-            cards[2].isFavorite = true
+            cardSet = CardSetStub().getFullSets()[0]
+            cardSet.cards[2].isFavorite = true
             service = LocalServiceDummy()
             dataSource = CardDetailDataSource()
             delegate = CardDetailDelegate()
             dismissDelegate = DismissCardDetailDelegateSpy()
             screen = CardDetailScreen(dataSource: dataSource, delegate: delegate)
-            viewController = CardDetailViewController(cards: cards,
-                                                      selectedCardId: cards[2].id,
+            viewController = CardDetailViewController(cardSet: cardSet,
+                                                      selectedCardId: cardSet.cards[2].id,
                                                       service: service,
                                                       delegate: dismissDelegate,
                                                       screen: screen)
@@ -52,7 +51,7 @@ class CardDetailIntegrationSpec: QuickSpec {
             screen = nil
             viewController = nil
             window = nil
-            cards = nil
+            cardSet = nil
         }
         
         describe("CardDetail") {

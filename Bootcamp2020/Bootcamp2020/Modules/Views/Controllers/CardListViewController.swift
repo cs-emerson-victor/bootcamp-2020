@@ -71,7 +71,10 @@ final class CardListViewController: UIViewController {
     }
     
     func fetchCardsForSet(_ set: CardSet) {
-        guard set.cards.isEmpty, !listScreen.isLoading else { return }
+        guard set.cards.isEmpty, !listScreen.isLoading else {
+            self.listScreen.bind(to: CardListViewModel(state: .success(self.sets), delegate: self))
+            return
+        }
         listScreen.bind(to: CardListViewModel(state: .loading(sets), delegate: self))
         
         service.fetchCards(ofSet: set) { [weak self, weak set] result in
@@ -93,8 +96,8 @@ extension CardListViewController: CardListViewModelDelegate {
         listScreen.bind(to: CardListViewModel(state: state, delegate: self))
     }
     
-    func didSelect(_ card: Card) {
-        detailDelegate?.show([card], selectedCardId: card.id)
+    func didSelect(_ card: Card, of set: CardSet) {
+        detailDelegate?.show(set, selectedCardId: card.id)
     }
     
     func prefetchSet(_ set: CardSet) {
