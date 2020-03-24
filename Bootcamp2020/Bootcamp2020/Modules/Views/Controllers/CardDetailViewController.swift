@@ -68,13 +68,13 @@ final class CardDetailViewController: UIViewController {
 extension CardDetailViewController: CardDetailViewModelDelegate {
     
     func toggleFavorite(_ card: Card) {
-        guard let error = service.toggleFavorite(card, of: cardSet) else {
-            showFavoriteError()
+        guard service.toggleFavorite(card, of: cardSet) != nil else {
+            detailScreen.bind(to: CardDetailViewModel(cards: Array(cardSet.cards),
+                                                      selectedCardId: selectedCardId, delegate: self))
             return
         }
 
-        detailScreen.bind(to: CardDetailViewModel(cards: Array(cardSet.cards),
-                                                  selectedCardId: selectedCardId, delegate: self))
+        showFavoriteError()
     }
     
     func isFavorite(_ card: Card) -> Bool {
