@@ -95,6 +95,7 @@
 		C0613712241FF72C00B75034 /* APIManagerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C4A85B241FF46F002CB8D9 /* APIManagerSpec.swift */; };
 		C061372224200DE200B75034 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C061372124200DE200B75034 /* Endpoint.swift */; };
 		C091F1E82420F28900ECD238 /* EndpointSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C091F1E72420F28900ECD238 /* EndpointSpec.swift */; };
+		C0BD8FDA242A9C9300F5C35E /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BD8FD9242A9C9300F5C35E /* Reachability.swift */; };
 		C0EC9FC124229121004C3526 /* APIResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EC9FC024229121004C3526 /* APIResponses.swift */; };
 /* End PBXBuildFile section */
 
@@ -220,6 +221,8 @@
 		C054029D2422B376004F3629 /* ShowCardDetailDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCardDetailDelegate.swift; sourceTree = "<group>"; };
 		C061372124200DE200B75034 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		C091F1E72420F28900ECD238 /* EndpointSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndpointSpec.swift; sourceTree = "<group>"; };
+		C0BD8FD9242A9C9300F5C35E /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		C0BD8FDB242AA25600F5C35E /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0C4A85A241FF46E002CB8D9 /* Bootcamp2020Tests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bootcamp2020Tests-Bridging-Header.h"; sourceTree = "<group>"; };
 		C0C4A85B241FF46F002CB8D9 /* APIManagerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManagerSpec.swift; sourceTree = "<group>"; };
 		C0EC9FC024229121004C3526 /* APIResponses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponses.swift; sourceTree = "<group>"; };
@@ -544,6 +547,7 @@
 			children = (
 				C061372124200DE200B75034 /* Endpoint.swift */,
 				1D175A0824212BF60037E4B9 /* UIKit+Extensions.swift */,
+				C0BD8FD9242A9C9300F5C35E /* Reachability.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -687,6 +691,7 @@
 		DD24B1E7FEFFDF772C29EA19 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C0BD8FDB242AA25600F5C35E /* Kingfisher.framework */,
 				6817D7B18DA67B0C87627838 /* Pods_Bootcamp2020.framework */,
 				E3ABAABE0031DB5F028E6598 /* Pods_Bootcamp2020SnapshotTests.framework */,
 				E53E60CF419399141C0A19B9 /* Pods_Bootcamp2020Tests.framework */,
@@ -1066,6 +1071,7 @@
 				C061372224200DE200B75034 /* Endpoint.swift in Sources */,
 				C040729E241C01E1005F9B97 /* AppCoordinator.swift in Sources */,
 				1D175A1D242275300037E4B9 /* CardDetailDelegate.swift in Sources */,
+				C0BD8FDA242A9C9300F5C35E /* Reachability.swift in Sources */,
 				C04072C8241C1412005F9B97 /* CardListViewModel.swift in Sources */,
 				C04072D5241C3FF6005F9B97 /* CardTypeHeaderCell.swift in Sources */,
 				C04072BC241C0E57005F9B97 /* FavoriteButton.swift in Sources */,
@@ -1349,10 +1355,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C5651C9C98875CE89327C3E5 /* Pods-Bootcamp2020.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9554U789HP;
+				DEVELOPMENT_TEAM = 58VB5X9JHX;
 				INFOPLIST_FILE = Bootcamp2020/Application/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1369,10 +1374,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 61FD2D32CEDE908EE4B6A5DC /* Pods-Bootcamp2020.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9554U789HP;
+				DEVELOPMENT_TEAM = 58VB5X9JHX;
 				INFOPLIST_FILE = Bootcamp2020/Application/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
