@@ -12,6 +12,12 @@ import Foundation
 final class CardSaverSpy: CardSaverProtocol {
     
     var cardWasSaved = false
+    var checkCardFavorite = false
+    
+    func isFavorite(_ card: Card) -> Bool {
+        checkCardFavorite = true
+        return false
+    }
     
     func toggleFavorite(_ card: Card, of set: CardSet) -> Error? {
         cardWasSaved = true

@@ -12,6 +12,7 @@ protocol CardSaverProtocol {
     
     @discardableResult
     func toggleFavorite(_ card: Card, of set: CardSet) -> Error?
+    func isFavorite(_ card: Card) -> Bool
 }
 
 protocol Service {

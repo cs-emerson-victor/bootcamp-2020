@@ -5,6 +5,7 @@
 //  Created by emerson.victor.f.luz on 18/03/20.
 //  Copyright © 2020 Team2. All rights reserved.
 //
+// swiftlint:disable function_body_length
 
 @testable import Bootcamp2020
 import Quick

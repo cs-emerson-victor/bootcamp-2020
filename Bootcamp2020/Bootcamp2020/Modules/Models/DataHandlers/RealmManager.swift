@@ -88,4 +88,9 @@ extension RealmManager {
     func toggleFavorite(_ card: Card, of set: CardSet) -> Error? {
         return card.isFavorite ? save(card, of: set) : delete(card, of: set)
     }
+    
+    func isFavorite(_ card: Card) -> Bool {
+        let card = realm.object(ofType: Card.self, forPrimaryKey: card.id)
+        return card == nil ? false : true
+    }
 }

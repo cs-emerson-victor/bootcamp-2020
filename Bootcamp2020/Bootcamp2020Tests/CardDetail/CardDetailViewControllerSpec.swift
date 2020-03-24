@@ -78,6 +78,14 @@ final class CardDetailViewControllerSpec: QuickSpec {
                     expect(delegate.modalWasDismissed).to(beTrue())
                 }
             }
+            
+            context("when checked if card it's favorite") {
+                it("should call service") {
+                    _ = sut.isFavorite(cardSet.cards[0])
+                    
+                    expect(service.checkCardFavorite).to(beTrue())
+                }
+            }
         }
     }
 }
