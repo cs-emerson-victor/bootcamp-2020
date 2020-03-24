@@ -12,7 +12,7 @@ final class CardSet: Object {
     @objc dynamic var id: String = ""
     @objc dynamic var name: String = ""
     @objc dynamic var releaseDate: Date = Date()
-    let cards: List<Card> = List<Card>()
+    var cards: List<Card> = List<Card>()
     
     convenience init(id: String, name: String, releaseDate: Date = Date(), cards: [Card] = []) {
         self.init()
