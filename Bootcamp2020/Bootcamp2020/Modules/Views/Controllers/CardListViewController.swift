@@ -57,7 +57,7 @@ final class CardListViewController: UIViewController {
                 self.sets.append(contentsOf: sortedSets)
                 
                 guard let firstSet = sortedSets.first else {
-                    // TODO: Implement empy list screen
+                    // TODO: Implement empty list screen
                     self.listScreen.bind(to: CardListViewModel(state: .success([]), delegate: self))
                     return
                 }
@@ -65,9 +65,8 @@ final class CardListViewController: UIViewController {
                     self.fetchCardsForSet(firstSet)
                 }
                 
-            case .failure(let error):
-                debugPrint(error.localizedDescription)
-                self.listScreen.bind(to: CardListViewModel(state: .error, delegate: self))
+            case .failure:
+                self.listScreen.bind(to: CardListViewModel(state: .error(.api), delegate: self))
             }
         }
     }
@@ -83,11 +82,12 @@ final class CardListViewController: UIViewController {
             guard let `self` = self else { return }
             switch result {
             case .success(let cards):
-                set?.cards.append(objectsIn: cards)
+                let sortedCards = cards.sorted(by: { $0.name < $1.name })
+                
+                set?.cards.append(objectsIn: sortedCards)
                 self.listScreen.bind(to: CardListViewModel(state: .success(self.sets), delegate: self))
-            case .failure(let error):
-                debugPrint(error.localizedDescription)
-                self.listScreen.bind(to: CardListViewModel(state: .error, delegate: self))
+            case .failure:
+                self.listScreen.bind(to: CardListViewModel(state: .error(.api), delegate: self))
             }
         }
     }
@@ -104,7 +104,7 @@ final class CardListViewController: UIViewController {
             switch result {
             case .success(let cards):
                 if cards.isEmpty {
-                    // TODO: Bind screen to empty search error
+                    self.listScreen.bind(to: CardListViewModel(state: .error(.emptySearch(name)), delegate: self))
                 } else {
                     let cardsBySetId = self.cardsBySetId(cards)
                     let setsCopies = self.makeSetsCopies(withDictionaty: cardsBySetId)
@@ -112,9 +112,8 @@ final class CardListViewController: UIViewController {
                     
                     self.listScreen.bind(to: CardListViewModel(state: .searchSuccess(sortedSets), delegate: self))
                 }
-            case .failure(let error):
-                debugPrint(error.localizedDescription)
-                self.listScreen.bind(to: CardListViewModel(state: .error, delegate: self))
+            case .failure:
+                self.listScreen.bind(to: CardListViewModel(state: .error(.api), delegate: self))
             }
         }
     }

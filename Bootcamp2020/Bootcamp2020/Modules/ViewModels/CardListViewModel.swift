@@ -36,6 +36,14 @@ struct CardListViewModel {
         default:
             self.cardSets = []
         }
+        
+        sortSetsCards(cardSets)
+    }
+    
+    func sortSetsCards(_ sets: [CardSet]) {
+        for set in sets {
+            set.cards.sort(by: { $0.name < $1.name })
+        }
     }
 }
 
@@ -46,7 +54,7 @@ extension CardListViewModel {
         case success([CardSet])
         case searching
         case searchSuccess([CardSet])
-        case error
+        case error(_ type: ErrorType)
     }
     
     func cellViewModel(for indexPath: IndexPath) -> CardCellViewModel {

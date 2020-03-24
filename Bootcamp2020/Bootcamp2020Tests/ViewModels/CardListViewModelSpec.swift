@@ -5,6 +5,7 @@
 //  Created by emerson.victor.f.luz on 18/03/20.
 //  Copyright © 2020 Team2. All rights reserved.
 //
+//swiftlint:disable function_body_length
 
 @testable import Bootcamp2020
 import Quick
@@ -42,7 +43,7 @@ final class CardListViewModelSpec: QuickSpec {
                 }
             }
             
-            context("when CardCellViewModel it's created") {
+            context("when CardCellViewModel is created") {
                 beforeEach {
                     sut = CardListViewModel(state: .success(cardSets), delegate: delegate)
                 }
@@ -54,7 +55,7 @@ final class CardListViewModelSpec: QuickSpec {
                 }
             }
             
-            context("when select a card") {
+            context("when selecting a card") {
                 beforeEach {
                     sut = CardListViewModel(state: .success(cardSets), delegate: delegate)
                 }
@@ -90,6 +91,57 @@ final class CardListViewModelSpec: QuickSpec {
                     sut.didCancelSearch()
                     
                     expect(delegate.canceledSearch).to(beTrue())
+                }
+            }
+            
+            context("when state is of error") {
+                it("should display API") {
+                    let type = ErrorType.api
+                    sut = CardListViewModel(state: .error(type), delegate: delegate)
+                    
+                    switch sut.state {
+                    case .error(let sutType):
+                        expect(sutType).to(equal(type))
+                    default:
+                        Nimble.fail("Wrong state type, should be error")
+                    }
+                }
+                
+                it("should display empty search") {
+                    let searchedText = "test search message"
+                    let type = ErrorType.emptySearch(searchedText)
+                    sut = CardListViewModel(state: .error(type), delegate: delegate)
+                    
+                    switch sut.state {
+                    case .error(let sutType):
+                        expect(sutType).to(equal(type))
+                    default:
+                        Nimble.fail("Wrong state type, should be error")
+                    }
+                }
+                
+                it("should display generic") {
+                    let type = ErrorType.generic
+                    sut = CardListViewModel(state: .error(type), delegate: delegate)
+                    
+                    switch sut.state {
+                    case .error(let sutType):
+                        expect(sutType).to(equal(type))
+                    default:
+                        Nimble.fail("Wrong state type, should be error")
+                    }
+                }
+                
+                it("should display no internet") {
+                    let type = ErrorType.noInternet
+                    sut = CardListViewModel(state: .error(type), delegate: delegate)
+                    
+                    switch sut.state {
+                    case .error(let sutType):
+                        expect(sutType).to(equal(type))
+                    default:
+                        Nimble.fail("Wrong state type, should be error")
+                    }
                 }
             }
         }
