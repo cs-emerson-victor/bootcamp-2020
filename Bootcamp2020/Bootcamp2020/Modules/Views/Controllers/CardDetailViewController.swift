@@ -68,7 +68,7 @@ final class CardDetailViewController: UIViewController {
 extension CardDetailViewController: CardDetailViewModelDelegate {
     
     func toggleFavorite(_ card: Card) {
-        guard let _ = service.toggleFavorite(card, of: cardSet) else {
+        guard service.toggleFavorite(card, of: cardSet) != nil else {
             detailScreen.bind(to: CardDetailViewModel(cards: Array(cardSet.cards),
                                                       selectedCardId: selectedCardId, delegate: self))
             return
