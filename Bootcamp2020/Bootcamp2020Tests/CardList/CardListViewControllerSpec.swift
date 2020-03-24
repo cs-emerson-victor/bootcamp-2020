@@ -90,6 +90,50 @@ final class CardListViewControllerSpec: QuickSpec {
                     expect(set.cards).to(equal(cards))
                 }
             }
+            
+            context("when sorting array of sets") {
+                it("should return the sets sorted by release data") {
+                    let sets = CardSetStub().getEmptySets()
+                    let sortedSets = sets.sorted(by: { $0.releaseDate > $1.releaseDate })
+                    
+                    expect(sut.sortSets(sets)).to(equal(sortedSets))
+                }
+            }
+            
+            context("when converting list of cards in dictionary with set id") {
+               // TODO: Check this implementation
+                it("should return the correct sets") {
+                    // Arrange
+                    let sets = CardSetStub().getFullSets()
+                    let correctCardsBySetId = CardSetStub().getCardsBySetId(sets)
+                    
+                    // Act
+                    let allCards = sets.reduce([]) { (all, set) -> [Card] in
+                        return all + Array(set.cards)
+                    }
+                    let cardsBySetId = sut.cardsBySetId(allCards)
+                    
+                    // Assert
+                    expect(cardsBySetId).to(equal(correctCardsBySetId))
+                }
+            }
+            
+            context("when making copies of sets using a dictionary") {
+                // TODO: Check this implementation
+                it("should return the correct sets") {
+                    // Arrange
+                    let sets = CardSetStub().getFullSets()
+                    let dict = CardSetStub().getCardsBySetId(sets)
+                    
+                    // Act
+                    var setsCopies = sut.makeSetsCopies(withDictionaty: dict)
+                    setsCopies.sort(by: { Int($0.id)! < Int($1.id)! })
+                    
+                    // Assert
+                    expect(setsCopies.map { $0.id }).to(equal(sets.map { $0.id }))
+                    expect(setsCopies.map { $0.name }).to(equal(sets.map { $0.name }))
+                }
+            }
         }
     }
 }

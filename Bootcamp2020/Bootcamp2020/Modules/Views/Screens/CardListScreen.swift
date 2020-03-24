@@ -23,9 +23,11 @@ class CardListScreen: UIView {
         return view
     }()
     
-    private let searchBar: UISearchBar = {
+    private lazy var searchBar: UISearchBar = {
         let view = UISearchBar()
         view.accessibilityLabel = "listSearchBar"
+        view.isUserInteractionEnabled = false
+        view.delegate = self
         return view
     }()
     
@@ -57,7 +59,7 @@ class CardListScreen: UIView {
     var isLoading: Bool {
         guard viewModel != nil else { return false }
         switch viewModel.state {
-        case .loading:
+        case .loading, .searching:
             return true
         default:
             return false
@@ -84,18 +86,25 @@ class CardListScreen: UIView {
         
         self.viewModel = viewModel
         
+        cardDataSource.sets = viewModel.cardSets
         cardDataSource.getViewModel = viewModel.cellViewModel
         cardDelegate.didSelectItemAt = viewModel.didSelectCell
         
         switch viewModel.state {
         case .initialLoading:
             activityIndicator.startAnimating()
-        case .success(let cardSets):
-            cardDataSource.sets = cardSets
+        case .success, .searchSuccess:
             DispatchQueue.main.async { [weak self] in
+                self?.searchBar.isUserInteractionEnabled = true
                 self?.hideError()
                 self?.activityIndicator.stopAnimating()
                 self?.listCollectionView.reloadData()
+            }
+        case .searching:
+            DispatchQueue.main.async { [weak self] in
+                self?.listCollectionView.reloadData()
+                self?.activityIndicator.startAnimating()
+                self?.hideError()
             }
         case .error:
             DispatchQueue.main.async { [weak self] in
@@ -140,7 +149,7 @@ extension CardListScreen: ViewCode {
     func buildViewHierarchy() {
         addSubview(backgroundImageView)
         addSubview(listCollectionView)
-//        addSubview(searchBar)
+        addSubview(searchBar)
         addSubview(activityIndicator)
     }
     
@@ -152,15 +161,15 @@ extension CardListScreen: ViewCode {
         
         listCollectionView.snp.makeConstraints { (make) in
             make.leading.trailing.bottomMargin.equalToSuperview()
-            make.top.equalTo(self.snp.topMargin)
+            make.top.equalTo(searchBar.snp.bottom).offset(16)
         }
         
-//        searchBar.snp.makeConstraints { (make) in
-//            make.leadingMargin.equalToSuperview().offset(16)
-//            make.trailingMargin.equalToSuperview().inset(16)
-//            make.topMargin.equalToSuperview().offset(23)
-//            make.height.equalTo(30)
-//        }
+        searchBar.snp.makeConstraints { (make) in
+            make.leadingMargin.equalToSuperview().offset(16)
+            make.trailingMargin.equalToSuperview().inset(16)
+            make.topMargin.equalToSuperview().offset(23)
+            make.height.equalTo(30)
+        }
         
         activityIndicator.snp.makeConstraints { (make) in
             make.centerWithinMargins.equalTo(listCollectionView.snp.centerWithinMargins)
@@ -172,5 +181,29 @@ extension CardListScreen: ViewCode {
         cardDataSource.registerCells(on: listCollectionView)
         listCollectionView.dataSource = cardDataSource
         listCollectionView.delegate = cardDelegate
+    }
+}
+
+extension CardListScreen: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let text = searchBar.text, text.trimmingCharacters(in: .whitespacesAndNewlines) != "" else {
+            return
+        }
+        searchBar.endEditing(true)
+        viewModel.didEnterSearchText(text)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        searchBar.endEditing(true)
+        viewModel.didCancelSearch()
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(false, animated: true)
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(true, animated: true)
     }
 }

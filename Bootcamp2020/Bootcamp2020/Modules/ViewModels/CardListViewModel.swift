@@ -13,6 +13,8 @@ protocol CardListViewModelDelegate: AnyObject {
     func didSet(_ state: CardListViewModel.UIState)
     func didSelect(_ card: Card, of set: CardSet)
     func prefetchSet(_ set: CardSet)
+    func didEnterSearchText(_ text: String)
+    func didCancelSearch()
 }
 
 struct CardListViewModel {
@@ -26,7 +28,7 @@ struct CardListViewModel {
         self.state = state
         
         switch state {
-        case .success(let cardSets):
+        case .success(let cardSets), .searchSuccess(let cardSets):
             self.cardSets = cardSets
         case .loading(let cardSets):
             // TODO: Check this implementation
@@ -42,15 +44,20 @@ extension CardListViewModel {
         case initialLoading
         case loading([CardSet])
         case success([CardSet])
+        case searching
+        case searchSuccess([CardSet])
         case error(_ type: ErrorType)
     }
     
     func cellViewModel(for indexPath: IndexPath) -> CardCellViewModel {
         let card = cardSets[indexPath.section].cards[indexPath.row]
-        if indexPath.row == cardSets[indexPath.section].cards.count - 1,
-            indexPath.section < cardSets.count - 1 {
-            
-            delegate?.prefetchSet(cardSets[indexPath.section + 1])
+        
+        if case .success = state {
+            if indexPath.row == cardSets[indexPath.section].cards.count - 1,
+                indexPath.section < cardSets.count - 1 {
+                
+                delegate?.prefetchSet(cardSets[indexPath.section + 1])
+            }
         }
         return CardCellViewModel(card: card)
     }
@@ -67,5 +74,17 @@ extension CardListViewModel {
         default:
             return nil
         }
+    }
+}
+
+// MARK: - Search bar
+
+extension CardListViewModel {
+    func didEnterSearchText(_ text: String) {
+        delegate?.didEnterSearchText(text)
+    }
+    
+    func didCancelSearch() {
+        delegate?.didCancelSearch()
     }
 }

@@ -9,6 +9,7 @@
 
 import Quick
 import Nimble
+import UIKit
 @testable import Bootcamp2020
 
 final class CardListScreenSpec: QuickSpec {
@@ -37,7 +38,7 @@ final class CardListScreenSpec: QuickSpec {
                 it("should have added its subviews") {
                     
                     // Act
-//                    var hasSearchBar = false
+                    var searchBar: UISearchBar?
                     var hasCollectionView = false
                     var hasBackgroundImageView = false
                     var hasActivityIndicator = false
@@ -45,8 +46,8 @@ final class CardListScreenSpec: QuickSpec {
                         switch view.accessibilityLabel {
                         case "listCollectionView":
                             hasCollectionView = true
-//                        case "listSearchBar":
-//                            hasSearchBar = true
+                        case "listSearchBar":
+                            searchBar = view as? UISearchBar
                         case "backgroundImageView":
                             hasBackgroundImageView = true
                         case "activityIndicator":
@@ -60,7 +61,8 @@ final class CardListScreenSpec: QuickSpec {
                     expect(hasBackgroundImageView).to(beTrue())
                     expect(hasActivityIndicator).to(beTrue())
                     expect(hasCollectionView).to(beTrue())
-//                    expect(hasSearchBar).to(beTrue())
+                    expect(searchBar).notTo(beNil())
+                    expect(searchBar?.delegate).to(be(sut))
                 }
                 
                 it("should have the correct given objects") {
