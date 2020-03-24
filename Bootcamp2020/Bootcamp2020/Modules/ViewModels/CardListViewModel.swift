@@ -36,14 +36,6 @@ struct CardListViewModel {
         default:
             self.cardSets = []
         }
-        
-        sortSetsCards(cardSets)
-    }
-    
-    func sortSetsCards(_ sets: [CardSet]) {
-        for set in sets {
-            set.cards.sort(by: { $0.name < $1.name })
-        }
     }
 }
 
