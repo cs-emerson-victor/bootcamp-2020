@@ -8,12 +8,6 @@
 
 import Foundation
 
-enum APIError: Error {
-    case invalidURL
-    case defaultError
-    case serializationError
-}
-
 class APIManager {
     typealias HeaderFields = [AnyHashable: Any]
     typealias Params = [String: String]
@@ -32,16 +26,21 @@ class APIManager {
     
     private func fetch<T: Codable>( from endpoint: Endpoint,
                                     withParams params: Params? = nil,
-                                    completion: @escaping (Result<T, Error>) -> Void) {
+                                    completion: @escaping (Result<T, ServiceError>) -> Void) {
+        
+        guard Reachability.shared.currentStatus == .reachable else {
+            completion(.failure(.networkError))
+            return
+        }
         
         guard let url = composeURL(endpoint.url, withParams: params) else {
-            completion(.failure(APIError.invalidURL))
+            completion(.failure(.apiError))
             return
         }
         
         let task = session.dataTask(with: url) { (data, _, error) in
             guard let data = data, error == nil else {
-                completion(.failure(error ?? APIError.defaultError))
+                completion(.failure(.apiError))
                 return
             }
             
@@ -50,7 +49,7 @@ class APIManager {
                 completion(.success(decodedData))
                 
             } catch {
-                completion(.failure(APIError.serializationError))
+                completion(.failure(.apiError))
             }
         }
         
@@ -60,16 +59,21 @@ class APIManager {
     private func fetch<T: Codable>(from endpoint: Endpoint,
                                    withParams params: Params? = nil,
                                    returningHeaderFields headerFields: [AnyHashable],
-                                   completion: @escaping (_ result: Result<(data: T, fields: HeaderFields), Error>) -> Void) {
+                                   completion: @escaping (_ result: Result<(data: T, fields: HeaderFields), ServiceError>) -> Void) {
+        
+        guard Reachability.shared.currentStatus == .reachable else {
+            completion(.failure(.networkError))
+            return
+        }
         
         guard let url = composeURL(endpoint.url, withParams: params) else {
-            completion(.failure(APIError.invalidURL))
+            completion(.failure(.apiError))
             return
         }
         
         let task = session.dataTask(with: url) { (data, response, error) in
             guard let httpResponse = response as? HTTPURLResponse, let data = data, error == nil else {
-                completion(.failure(error ?? APIError.defaultError))
+                completion(.failure(.apiError))
                 return
             }
             
@@ -79,7 +83,7 @@ class APIManager {
                 completion(.success((data: decodedData, fields: fields)))
                 
             } catch {
-                completion(.failure(APIError.serializationError))
+                completion(.failure(.apiError))
             }
         }
         
@@ -108,16 +112,16 @@ class APIManager {
 // MARK: - Network Service
 
 extension APIManager: Service {
-    func fetchSets(completion: @escaping (Result<[CardSet], Error>) -> Void) {
+    func fetchSets(completion: @escaping (Result<[CardSet], ServiceError>) -> Void) {
         let endpoint = Endpoint(ofType: .sets)
         
-        fetch(from: endpoint) { (result: Result<CardSetsResponse, Error>) in
+        fetch(from: endpoint) { (result: Result<CardSetsResponse, ServiceError>) in
             completion(result.map { $0.sets })
         }
     }
     
     func fetchCards(ofSet cardSet: CardSet,
-                    completion: @escaping (Result<[Card], Error>) -> Void) {
+                    completion: @escaping (Result<[Card], ServiceError>) -> Void) {
         
         let backgroundQueue = DispatchQueue.global(qos: .background)
         let dispatchGroup = DispatchGroup()
@@ -127,7 +131,7 @@ extension APIManager: Service {
         
         dispatchGroup.enter()
         backgroundQueue.async {
-            self.fetchFirstPage(from: endpoint) { (result: Result<(cards: [Card], pages: Int), Error>) in
+            self.fetchFirstPage(from: endpoint) { (result: Result<(cards: [Card], pages: Int), ServiceError>) in
                 switch result {
                 case .failure(let error):
                     completion(.failure(error))
@@ -154,11 +158,11 @@ extension APIManager: Service {
     }
     
     func fetchCards(withName name: String,
-                    completion: @escaping (Result<[Card], Error>) -> Void) {
+                    completion: @escaping (Result<[Card], ServiceError>) -> Void) {
         
         let endpoint = Endpoint(ofType: .card(name: name))
         
-        fetch(from: endpoint) { (result: Result<CardsResponse, Error>) in
+        fetch(from: endpoint) { (result: Result<CardsResponse, ServiceError>) in
             completion(result.map { $0.cards })
         }
     }
@@ -168,13 +172,13 @@ extension APIManager: Service {
 
 extension APIManager {
     private func fetchFirstPage(from endpoint: Endpoint,
-                                completion: @escaping (Result<(cards: [Card], pages: Int), Error>) -> Void) {
+                                completion: @escaping (Result<(cards: [Card], pages: Int), ServiceError>) -> Void) {
         
         let totalCountField: AnyHashable = "total-count"
         
         fetch(from: endpoint,
               withParams: ["page": "1"],
-              returningHeaderFields: [totalCountField]) { (result: Result<(data: CardsResponse, fields: HeaderFields), Error>) in
+              returningHeaderFields: [totalCountField]) { (result: Result<(data: CardsResponse, fields: HeaderFields), ServiceError>) in
                 
                 switch result {
                 case .failure(let error):
@@ -186,7 +190,7 @@ extension APIManager {
                         
                         completion(.success((cards: response.data.cards, pages: pageCount)))
                     } else {
-                        completion(.failure(APIError.defaultError))
+                        completion(.failure(.apiError))
                     }
                 }
         }
@@ -194,7 +198,7 @@ extension APIManager {
     
     private func fetchPages(from endpoint: Endpoint,
                             pageCount: Int,
-                            completion: @escaping (Result<[Card], Error>) -> Void) {
+                            completion: @escaping (Result<[Card], ServiceError>) -> Void) {
         
         guard pageCount > 0 else {
             completion(.success([]))
@@ -203,12 +207,12 @@ extension APIManager {
         
         let dispatchGroup = DispatchGroup()
         var allCards = [Card]()
-        var anyError: Error?
+        var anyError: ServiceError?
         
         for page in 2..<(pageCount + 1) {
             dispatchGroup.enter()
             
-            fetch(from: endpoint, withParams: ["page": "\(page)"]) { (result: Result<CardsResponse, Error>) in
+            fetch(from: endpoint, withParams: ["page": "\(page)"]) { (result: Result<CardsResponse, ServiceError>) in
                 switch result {
                 case .failure(let error):
                     anyError = error
