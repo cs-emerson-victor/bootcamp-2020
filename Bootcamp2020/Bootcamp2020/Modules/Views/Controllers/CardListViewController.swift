@@ -97,7 +97,7 @@ final class CardListViewController: UIViewController {
 
         listScreen.bind(to: CardListViewModel(state: .searching, delegate: self))
         
-        service.fetchCard(withName: name) { [weak self] result in
+        service.fetchCards(withName: name) { [weak self] result in
             guard let `self` = self else { return }
             guard self.canceledSearch == false else { return }
             
@@ -110,7 +110,7 @@ final class CardListViewController: UIViewController {
                     let setsCopies = self.makeSetsCopies(withDictionaty: cardsBySetId)
                     let sortedSets = self.sortSets(setsCopies)
                     
-                    self.listScreen.bind(to: CardListViewModel(state: .success(sortedSets), delegate: self))
+                    self.listScreen.bind(to: CardListViewModel(state: .searchSuccess(sortedSets), delegate: self))
                 }
             case .failure(let error):
                 debugPrint(error.localizedDescription)

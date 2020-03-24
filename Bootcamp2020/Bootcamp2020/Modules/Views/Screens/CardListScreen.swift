@@ -93,7 +93,7 @@ class CardListScreen: UIView {
         switch viewModel.state {
         case .initialLoading:
             activityIndicator.startAnimating()
-        case .success:
+        case .success, .searchSuccess:
             DispatchQueue.main.async { [weak self] in
                 self?.searchBar.isUserInteractionEnabled = true
                 self?.hideError()

@@ -28,7 +28,7 @@ struct CardListViewModel {
         self.state = state
         
         switch state {
-        case .success(let cardSets):
+        case .success(let cardSets), .searchSuccess(let cardSets):
             self.cardSets = cardSets
         case .loading(let cardSets):
             // TODO: Check this implementation
@@ -45,15 +45,19 @@ extension CardListViewModel {
         case loading([CardSet])
         case success([CardSet])
         case searching
+        case searchSuccess([CardSet])
         case error
     }
     
     func cellViewModel(for indexPath: IndexPath) -> CardCellViewModel {
         let card = cardSets[indexPath.section].cards[indexPath.row]
-        if indexPath.row == cardSets[indexPath.section].cards.count - 1,
-            indexPath.section < cardSets.count - 1 {
-            
-            delegate?.prefetchSet(cardSets[indexPath.section + 1])
+        
+        if case .success = state {
+            if indexPath.row == cardSets[indexPath.section].cards.count - 1,
+                indexPath.section < cardSets.count - 1 {
+                
+                delegate?.prefetchSet(cardSets[indexPath.section + 1])
+            }
         }
         return CardCellViewModel(card: card)
     }
