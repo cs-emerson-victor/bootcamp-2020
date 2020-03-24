@@ -26,4 +26,12 @@ final class CardListViewModelDelegateSpy: CardListViewModelDelegate {
     func prefetchSet(_ set: CardSet) {
         
     }
+    
+    func didEnterSearchText(_ text: String) {
+        
+    }
+    
+    func didCancelSearch() {
+        
+    }
 }
