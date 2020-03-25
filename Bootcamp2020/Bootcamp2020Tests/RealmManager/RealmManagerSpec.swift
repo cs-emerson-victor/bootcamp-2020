@@ -5,7 +5,7 @@
 //  Created by emerson.victor.f.luz on 17/03/20.
 //  Copyright © 2020 Team2. All rights reserved.
 //
-// swiftlint:disable function_body_length force_try
+// swiftlint:disable function_body_length force_try cyclomatic_complexity
 
 @testable import Bootcamp2020
 import RealmSwift
@@ -88,6 +88,20 @@ final class RealmManagerSpec: QuickSpec {
                         }
                     }
                 }
+                
+                context("when fetch cards of set") {
+                    it("should return an array with one card") {
+                        sut.fetchCards(ofSet: cardSet) { (result) in
+                            switch result {
+                            case .success(let cards):
+                                expect(cards.count).to(equal(1))
+                            case .failure(let error):
+                                expect(error).to(beAnInstanceOf(Error.self))
+                                
+                            }
+                        }
+                    }
+                }
             }
 
             context("when card it's favorited") {
@@ -110,9 +124,27 @@ final class RealmManagerSpec: QuickSpec {
                     let cards = sut.realm.objects(RealmCard.self)
                     expect(cards.count).to(equal(1))
                 }
+                
+                it("should favorite card of an existing set") {
+                    card = Card(id: "0", name: "Card1", cardSetID: "0", isFavorite: true)
+                    let newCard = Card(id: "1", name: "Card2", cardSetID: "0", isFavorite: true)
+                    
+                    _ = sut.toggleFavorite(card, of: cardSet)
+                    let favoriteReturn = sut.toggleFavorite(newCard, of: cardSet)
+                    
+                    guard favoriteReturn == nil else {
+                        Nimble.fail()
+                        return
+                    }
+                    
+                    let cards = sut.realm.objects(RealmCard.self)
+                    expect(cards.count).to(equal(2))
+                }
 
                 it("should unfavorite the given card") {
-                    card = Card(id: "0", name: "Card1", cardSetID: "0", isFavorite: false)
+                    card = Card(id: "0", name: "Card1", cardSetID: "0", isFavorite: true)
+                    _ = sut.toggleFavorite(card, of: cardSet)
+                    card.isFavorite = false
                     let unfavoriteReturn = sut.toggleFavorite(card, of: cardSet)
 
                     guard unfavoriteReturn == nil else {

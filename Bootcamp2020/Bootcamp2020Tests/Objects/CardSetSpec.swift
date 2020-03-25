@@ -19,20 +19,32 @@ final class CardSetSpec: QuickSpec {
             
             beforeEach {
                 date = Date()
-                sut = CardSet(id: "0", name: "Set1", releaseDate: date, cards: [])
             }
-            
-//            it("should have 'id' as primary key") {
-//                expect(CardSet.primaryKey()).to(equal("id"))
-//            }
             
             context("when it's initialized") {
                 it("should have the given values") {
+                    sut = CardSet(id: "0", name: "Set1", releaseDate: date, cards: [])
+                    
                     expect(sut.id).to(equal("0"))
                     expect(sut.name).to(equal("Set1"))
                     expect(sut.releaseDate).to(equal(date))
                     expect(sut.cards).to(beEmpty())
                 }
+            }
+            
+            it("should have the object values") {
+                let realmSet = RealmCardSet()
+                realmSet.id = "0"
+                realmSet.name = "Set1"
+                realmSet.releaseDate = date
+                
+                
+                sut = CardSet(set: realmSet)
+                
+                expect(sut.id).to(equal("0"))
+                expect(sut.name).to(equal("Set1"))
+                expect(sut.releaseDate).to(equal(date))
+                expect(sut.cards).to(beEmpty())
             }
         }
     }
