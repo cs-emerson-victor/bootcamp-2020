@@ -92,7 +92,6 @@ class CardDetailScreen: UIView {
         }
         cardDetailDataSource.getViewModel = viewModel.cellViewModel
         cardDetailDataSource.cards = viewModel.cards
-        cardDetailDelegate.numberOfItems = viewModel.cards.count
         cardDetailCollectionView.reloadData()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) { [weak self] in
             guard let self = self else { return }

@@ -9,7 +9,7 @@
 import Foundation
 @testable import Bootcamp2020
 
-class CardListDataSourceProtocolSpy: CardListDataSourceProtocol {
+final class CardListDataSourceProtocolSpy: CardListDataSourceProtocol {
     
     let sets = CardSetStub().getFullSets()
     
@@ -25,7 +25,7 @@ class CardListDataSourceProtocolSpy: CardListDataSourceProtocol {
         return sets[section].cards.count
     }
     
-    func getCellType(forItemAt indexPath: IndexPath) -> CellType {
+    func getCellTypeForDataSource(forItemAt indexPath: IndexPath) -> CellType {
         lastSelectedIndexPath = indexPath
         lastSelectedSection = indexPath.section
         return .card(CardCellViewModel(card: sets[indexPath.section].cards[indexPath.item]))

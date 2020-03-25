@@ -17,15 +17,14 @@ final class CardListDelegateSpec: QuickSpec {
         var sut: CardListDelegate!
         var collectionView: UICollectionView!
         var dataSource: CardListDataSourceStub!
-        var selectedIndexPath: IndexPath?
+        var delegateProtocol: CardListDelegateProtocolSpy!
         
         beforeEach {
             
             dataSource = CardListDataSourceStub()
+            delegateProtocol = CardListDelegateProtocolSpy()
             sut = CardListDelegate()
-            sut.didSelectItemAt = { item in
-                selectedIndexPath = item
-            }
+            sut.delegateProtocol = delegateProtocol
             collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
             collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
             collectionView.dataSource = dataSource
@@ -33,16 +32,15 @@ final class CardListDelegateSpec: QuickSpec {
         }
         
         afterEach {
-            
+            delegateProtocol = nil
             sut = nil
             collectionView = nil
-            selectedIndexPath = nil
             dataSource = nil
         }
         
         describe("CardListDelegate") {
             context("when selecting an item") {
-                it("should call the selection closure") {
+                it("should call the delegate protocol") {
                     // Arrange
                     let indexPath = IndexPath(item: 2, section: 0)
                     collectionView.reloadData()
@@ -51,8 +49,8 @@ final class CardListDelegateSpec: QuickSpec {
                     sut.collectionView(collectionView, didSelectItemAt: indexPath)
                     
                     // Assert
-                    expect(selectedIndexPath).toNot(beNil())
-                    expect(selectedIndexPath).to(equal(indexPath))
+                    expect(delegateProtocol.indexPathOfSelectedItem).toNot(beNil())
+                    expect(delegateProtocol.indexPathOfSelectedItem).to(equal(indexPath))
                 }
             }
         }

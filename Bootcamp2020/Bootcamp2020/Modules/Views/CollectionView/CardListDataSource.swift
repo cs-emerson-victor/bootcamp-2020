@@ -8,10 +8,10 @@
 
 import UIKit
 
-protocol CardListDataSourceProtocol  {
+protocol CardListDataSourceProtocol {
     var numberOfSections: Int { get }
     func numberOfItems(in section: Int) -> Int
-    func getCellType(forItemAt indexPath: IndexPath) -> CellType
+    func getCellTypeForDataSource(forItemAt indexPath: IndexPath) -> CellType
     func getSetHeaderName(in section: Int) -> String
 }
 
@@ -40,7 +40,7 @@ extension CardListDataSource: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        guard let cellType = dataSourceProtocol?.getCellType(forItemAt: indexPath) else {
+        guard let cellType = dataSourceProtocol?.getCellTypeForDataSource(forItemAt: indexPath) else {
             fatalError("CollectionView \(collectionView) had no way to get the cell type")
         }
         
