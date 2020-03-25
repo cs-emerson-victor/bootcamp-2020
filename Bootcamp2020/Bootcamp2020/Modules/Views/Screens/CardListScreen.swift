@@ -28,12 +28,20 @@ class CardListScreen: UIView {
         view.accessibilityLabel = "listSearchBar"
         view.isUserInteractionEnabled = false
         view.placeholder = "Search for cards"
-        view.searchTextField.backgroundColor = UIColor(white: 0.15, alpha: 1)
-        view.searchTextField.textColor = .white
-        if let searchIcon = view.searchTextField.leftView as? UIImageView {
-            searchIcon.image = searchIcon.image?.withRenderingMode(.alwaysTemplate)
-            searchIcon.tintColor = .gray
+        if #available(iOS 13.0, *) {
+            view.searchTextField.backgroundColor = UIColor(white: 0.15, alpha: 1)
+            view.searchTextField.textColor = .white
+            if let searchIcon = view.searchTextField.leftView as? UIImageView {
+                searchIcon.image = searchIcon.image?.withRenderingMode(.alwaysTemplate)
+                searchIcon.tintColor = .gray
+            }
+        } else {
+            if let textField = view.value(forKey: "searchField") as? UITextField {
+                textField.backgroundColor = UIColor(white: 0.15, alpha: 1)
+                textField.textColor = .white
+            }
         }
+        
         view.isTranslucent = true
         view.setBackgroundImage(UIImage(), for: .any, barMetrics: .default)
         view.tintColor = UIColor(red: 0.92, green: 0.60, blue: 0.18, alpha: 1.00)

@@ -23,9 +23,9 @@ struct CardListViewModel {
     let cardSets: [CardSet]
     private(set) weak var delegate: CardListViewModelDelegate?
     
-    private var loadedCardSets: [CardSet] {
-        return cardSets.filter { !$0.cards.isEmpty }
-    }
+    private let loadedCardSets: [CardSet]
+    
+    let cellTypes: [[CellType]]
     
     init(state: UIState, delegate: CardListViewModelDelegate) {
         self.delegate = delegate
@@ -34,8 +34,24 @@ struct CardListViewModel {
         switch state {
         case .success(let cardSets), .searchSuccess(let cardSets), .loading(let cardSets):
             self.cardSets = cardSets
+            self.loadedCardSets = cardSets.filter { !$0.cards.isEmpty }
         default:
             self.cardSets = []
+            self.loadedCardSets = []
+        }
+        
+        self.cellTypes = loadedCardSets.map { set -> [CellType] in
+            var types: [CellType] = []
+            
+            set.types.forEach { type in
+                types.append(.typeHeader(type))
+                
+                set.cardsByType[type]?.forEach({ card in
+                    types.append(.card(CardCellViewModel(card: card)))
+                })
+            }
+            
+            return types
         }
     }
 }
@@ -51,9 +67,7 @@ extension CardListViewModel {
     }
     
     func cellType(for indexPath: IndexPath) -> CellType {
-        let card = loadedCardSets[indexPath.section].cards[indexPath.row]
-        
-        return .card(CardCellViewModel(card: card))
+        return cellTypes[indexPath.section][indexPath.row]
     }
     
     func didSelectCell(at indexPath: IndexPath) {
@@ -80,7 +94,10 @@ extension CardListViewModel: CardListDataSourceProtocol {
     }
     
     func numberOfItems(in section: Int) -> Int {
-        return loadedCardSets[section].cards.count
+        let cardsForType = loadedCardSets[section].cardsByType.values.reduce(0) { (count, cards) -> Int in
+            return count + cards.count
+        }
+        return loadedCardSets[section].types.count + cardsForType
     }
     
     func getCellTypeForDataSource(forItemAt indexPath: IndexPath) -> CellType {
