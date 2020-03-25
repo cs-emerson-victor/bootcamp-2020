@@ -217,6 +217,6 @@ extension CardListScreen: CardListDelegateProtocol {
     }
     
     func getCellType(forItemAt indexPath: IndexPath) -> CellType {
-        return viewModel.getCellType(forItemAt: indexPath)
+        return viewModel.cellType(for: indexPath)
     }
 }
