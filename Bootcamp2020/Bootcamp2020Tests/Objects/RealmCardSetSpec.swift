@@ -37,5 +37,3 @@ final class RealmCardSetSpec: QuickSpec {
         }
     }
 }
-
-

@@ -38,7 +38,6 @@ final class CardSetSpec: QuickSpec {
                 realmSet.name = "Set1"
                 realmSet.releaseDate = date
                 
-                
                 sut = CardSet(set: realmSet)
                 
                 expect(sut.id).to(equal("0"))

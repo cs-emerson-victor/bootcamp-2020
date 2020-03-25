@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol CardListDataSourceProtocol  {
+protocol CardListDataSourceProtocol {
     var numberOfSections: Int { get }
     func numberOfItems(in section: Int) -> Int
     func getCellType(forItemAt indexPath: IndexPath) -> CellType

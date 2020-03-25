@@ -18,6 +18,24 @@ final class CardSet {
         }
     }
     
+    private(set) lazy var types = cardsByType.keys.sorted()
+    private(set) lazy var cardsByType: [String: [Card]] = {
+        var cardsByType: [String: [Card]] = [:]
+        
+        self.cards.forEach { (card) in
+            card.types.forEach { (type) in
+                
+                if var cardsOfType = cardsByType[type] {
+                    cardsOfType.append(card)
+                } else {
+                    cardsByType[type] = [card]
+                }
+            }
+        }
+        
+        return cardsByType
+    }()
+    
     init(id: String, name: String, releaseDate: Date = Date(), cards: [Card] = []) {
         self.id = id
         self.name = name
