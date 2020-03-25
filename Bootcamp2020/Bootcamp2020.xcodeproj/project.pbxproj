@@ -97,6 +97,8 @@
 		C0613712241FF72C00B75034 /* APIManagerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C4A85B241FF46F002CB8D9 /* APIManagerSpec.swift */; };
 		C061372224200DE200B75034 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C061372124200DE200B75034 /* Endpoint.swift */; };
 		C091F1E82420F28900ECD238 /* EndpointSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C091F1E72420F28900ECD238 /* EndpointSpec.swift */; };
+		C0950474242BD115001042CD /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0950473242BD115001042CD /* TabBarController.swift */; };
+		C0950477242BD2AA001042CD /* TabBarControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0950476242BD2AA001042CD /* TabBarControllerSpec.swift */; };
 		C0BD8FDA242A9C9300F5C35E /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BD8FD9242A9C9300F5C35E /* Reachability.swift */; };
 		C0EC9FC124229121004C3526 /* APIResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EC9FC024229121004C3526 /* APIResponses.swift */; };
 		C6F103D1FC0136167B523E22 /* Pods_Bootcamp2020Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2FF698BF34895B6C9D49984 /* Pods_Bootcamp2020Tests.framework */; };
@@ -228,6 +230,8 @@
 		C054029D2422B376004F3629 /* ShowCardDetailDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCardDetailDelegate.swift; sourceTree = "<group>"; };
 		C061372124200DE200B75034 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		C091F1E72420F28900ECD238 /* EndpointSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndpointSpec.swift; sourceTree = "<group>"; };
+		C0950473242BD115001042CD /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		C0950476242BD2AA001042CD /* TabBarControllerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControllerSpec.swift; sourceTree = "<group>"; };
 		C0BD8FD9242A9C9300F5C35E /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		C0BD8FDB242AA25600F5C35E /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0C4A85A241FF46E002CB8D9 /* Bootcamp2020Tests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bootcamp2020Tests-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -499,6 +503,7 @@
 				8131F10B24296D42005F765C /* Protocols */,
 				81354A3824213ECA007896FF /* RealmManager */,
 				81C4A70A2422A4E700E12BE6 /* ViewModels */,
+				C0950475242BD28D001042CD /* Views */,
 			);
 			path = Bootcamp2020Tests;
 			sourceTree = "<group>";
@@ -620,6 +625,7 @@
 			children = (
 				C04072C3241C0F04005F9B97 /* CardDetailViewController.swift */,
 				C04072C1241C0EDE005F9B97 /* CardListViewController.swift */,
+				C0950473242BD115001042CD /* TabBarController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -681,6 +687,14 @@
 				C091F1E72420F28900ECD238 /* EndpointSpec.swift */,
 			);
 			path = APIManager;
+			sourceTree = "<group>";
+		};
+		C0950475242BD28D001042CD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C0950476242BD2AA001042CD /* TabBarControllerSpec.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		D82C761A6F17930AD92820A8 /* Pods */ = {
@@ -1108,6 +1122,7 @@
 				1DB5CA30242A7A6D001D409D /* ErrorType.swift in Sources */,
 				C04072BE241C0E7F005F9B97 /* CardDetailScreen.swift in Sources */,
 				1D1377EE242BAC1600571BCF /* CellType.swift in Sources */,
+				C0950474242BD115001042CD /* TabBarController.swift in Sources */,
 				C04072B4241C0853005F9B97 /* RealmManager.swift in Sources */,
 				C04072D7241C4012005F9B97 /* CardSetHeaderCell.swift in Sources */,
 				815F93D22423CD7000893DEC /* DismissCardDetailDelegate.swift in Sources */,
@@ -1144,6 +1159,7 @@
 				81C4A7162422B19E00E12BE6 /* CardListViewModelSpec.swift in Sources */,
 				1D175A302423C7110037E4B9 /* CardCellSpec.swift in Sources */,
 				1D175A15242189E70037E4B9 /* CardListViewControllerSpec.swift in Sources */,
+				C0950477242BD2AA001042CD /* TabBarControllerSpec.swift in Sources */,
 				815F93CE2423C46500893DEC /* CardSaverSpy.swift in Sources */,
 				81C4A7182422B27D00E12BE6 /* CardListViewModelDelegateSpy.swift in Sources */,
 				816EA56C242154160032620F /* CardSpec.swift in Sources */,

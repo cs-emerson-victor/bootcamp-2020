@@ -42,9 +42,12 @@ final class HomeCoordinatorSpec: QuickSpec {
                 it("should have the correct tab bar item and push the correct controller") {
                     sut.start()
                     let controllers = sut.rootController.viewControllers
+                    let correctTabImage = UIImage(named: "home")?.pngData()
                     
                     expect(controllers.count).to(equal(1))
                     expect(controllers[0].tabBarItem.tag).to(equal(0))
+                    expect(controllers[0].tabBarItem.title).to(equal("Home"))
+                    expect(controllers[0].tabBarItem.image?.pngData()).to(equal(correctTabImage))
                 }
             }
         }
