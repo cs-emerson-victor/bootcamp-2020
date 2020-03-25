@@ -138,6 +138,8 @@ class CardListScreen: UIView {
                 self?.hideError()
             }
         }
+        
+        remakeActivityIndicationConstraints()
     }
     
     // MARK: Error handling
@@ -162,6 +164,32 @@ class CardListScreen: UIView {
             make.height.equalTo(width * 9/16)
         }
     }
+    
+    private func remakeActivityIndicationConstraints() {
+        switch viewModel.state {
+        case .initialLoading, .searching:
+            DispatchQueue.main.async {
+                self.activityIndicator.snp.remakeConstraints { (make) in
+                    make.top.equalTo(self.searchBar.snp.bottom).offset(8)
+                    make.bottom.right.left.equalToSuperview()
+                }
+            }
+        case .loading:
+            DispatchQueue.main.async {
+                self.activityIndicator.snp.remakeConstraints { (make) in
+                    make.bottom.right.left.equalToSuperview()
+                    make.height.equalTo(60)
+                }
+            }
+        default:
+            DispatchQueue.main.async {
+                self.activityIndicator.snp.remakeConstraints { (make) in
+                    make.bottom.right.left.equalToSuperview()
+                    make.height.equalTo(0)
+                }
+            }
+        }
+    }
 }
 
 // MARK: - ViewCode
@@ -181,8 +209,9 @@ extension CardListScreen: ViewCode {
         }
         
         listCollectionView.snp.makeConstraints { (make) in
-            make.leading.trailing.bottomMargin.equalToSuperview()
+            make.leading.trailing.equalToSuperview()
             make.top.equalTo(searchBar.snp.bottom).offset(8)
+            make.bottom.equalTo(activityIndicator.snp.top)
         }
         
         searchBar.snp.makeConstraints { (make) in
@@ -193,8 +222,8 @@ extension CardListScreen: ViewCode {
         }
         
         activityIndicator.snp.makeConstraints { (make) in
-            make.centerWithinMargins.equalTo(listCollectionView.snp.centerWithinMargins)
-            make.width.height.equalTo(100)
+            make.top.equalTo(searchBar.snp.bottom).offset(8)
+            make.bottom.right.left.equalToSuperview()
         }
     }
     
