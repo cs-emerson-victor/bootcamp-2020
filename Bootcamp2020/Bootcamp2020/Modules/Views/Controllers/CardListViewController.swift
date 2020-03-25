@@ -80,7 +80,8 @@ final class CardListViewController: UIViewController {
                 
                 switch result {
                 case .success(let cardSets):
-                    self.listScreen.bind(to: CardListViewModel(state: .success(cardSets), delegate: self))
+                    self.sets = self.sortSets(cardSets)
+                    self.listScreen.bind(to: CardListViewModel(state: .success(self.sets), delegate: self))
                 case .failure:
                     self.listScreen.bind(to: CardListViewModel(state: .error(.generic), delegate: self))
                 }
