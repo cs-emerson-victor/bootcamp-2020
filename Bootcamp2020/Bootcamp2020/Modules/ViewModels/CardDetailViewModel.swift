@@ -34,6 +34,12 @@ extension CardDetailViewModel {
         return CardCellViewModel(card: card)
     }
     
+    func cardName(for indexPath: IndexPath) -> String {
+        let card = cards[indexPath.row]
+        
+        return card.name
+    }
+    
     func isCardFavorite(at indexPath: IndexPath) -> Bool {
         let card = cards[indexPath.row]
         guard let isFavorite = delegate?.isFavorite(card) else {

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D1377EE242BAC1600571BCF /* CellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1377ED242BAC1600571BCF /* CellType.swift */; };
+		1D1377F1242BBBE000571BCF /* CardListDataSourceProtocolSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1377EF242BBBB700571BCF /* CardListDataSourceProtocolSpy.swift */; };
+		1D1377F3242BBBE200571BCF /* CardListDataSourceProtocolSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1377EF242BBBB700571BCF /* CardListDataSourceProtocolSpy.swift */; };
 		1D1759F9241FDCC40037E4B9 /* CardListScreenSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1759F8241FDCC40037E4B9 /* CardListScreenSpec.swift */; };
 		1D175A0324202EE20037E4B9 /* CardListDelegateSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D175A0224202EE20037E4B9 /* CardListDelegateSpec.swift */; };
 		1D175A0524202FB20037E4B9 /* CardListDataSourceStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D175A0424202FB20037E4B9 /* CardListDataSourceStub.swift */; };
@@ -130,6 +133,8 @@
 /* Begin PBXFileReference section */
 		0BF17A6A34B61290C67C3E95 /* Pods-Bootcamp2020Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bootcamp2020Tests.debug.xcconfig"; path = "Target Support Files/Pods-Bootcamp2020Tests/Pods-Bootcamp2020Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		19659381AF76376D73B48E51 /* Pods-Bootcamp2020SnapshotTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bootcamp2020SnapshotTests.debug.xcconfig"; path = "Target Support Files/Pods-Bootcamp2020SnapshotTests/Pods-Bootcamp2020SnapshotTests.debug.xcconfig"; sourceTree = "<group>"; };
+		1D1377ED242BAC1600571BCF /* CellType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellType.swift; sourceTree = "<group>"; };
+		1D1377EF242BBBB700571BCF /* CardListDataSourceProtocolSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListDataSourceProtocolSpy.swift; sourceTree = "<group>"; };
 		1D1759F8241FDCC40037E4B9 /* CardListScreenSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListScreenSpec.swift; sourceTree = "<group>"; };
 		1D175A0224202EE20037E4B9 /* CardListDelegateSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardListDelegateSpec.swift; sourceTree = "<group>"; };
 		1D175A0424202FB20037E4B9 /* CardListDataSourceStub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardListDataSourceStub.swift; sourceTree = "<group>"; };
@@ -432,6 +437,7 @@
 				8131F11A242A5028005F765C /* AppCordinatorSpy.swift */,
 				815F93CB2423C16300893DEC /* CardDetailScreenSpy.swift */,
 				81C4A7132422ADDD00E12BE6 /* CardDetailViewModelDelegateSpy.swift */,
+				1D1377EF242BBBB700571BCF /* CardListDataSourceProtocolSpy.swift */,
 				81C4A7172422B27D00E12BE6 /* CardListViewModelDelegateSpy.swift */,
 				815F93CD2423C46500893DEC /* CardSaverSpy.swift */,
 				8131F10F2429720B005F765C /* CoordinatorSpy.swift */,
@@ -559,6 +565,7 @@
 				1DB5CA2F242A7A6D001D409D /* ErrorType.swift */,
 				1D175A0824212BF60037E4B9 /* UIKit+Extensions.swift */,
 				C0BD8FD9242A9C9300F5C35E /* Reachability.swift */,
+				1D1377ED242BAC1600571BCF /* CellType.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1063,6 +1070,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D1377F3242BBBE200571BCF /* CardListDataSourceProtocolSpy.swift in Sources */,
 				8131F0FE24252DFE005F765C /* NetworkServiceStub.swift in Sources */,
 				8131F0FF24252E0A005F765C /* LocalServiceDummy.swift in Sources */,
 				81A23D4C24252C99003A92A8 /* KIF+TesterExtension.swift in Sources */,
@@ -1109,6 +1117,7 @@
 				C04072A2241C01F9005F9B97 /* FavoritesCoordinator.swift in Sources */,
 				1DB5CA30242A7A6D001D409D /* ErrorType.swift in Sources */,
 				C04072BE241C0E7F005F9B97 /* CardDetailScreen.swift in Sources */,
+				1D1377EE242BAC1600571BCF /* CellType.swift in Sources */,
 				C04072B4241C0853005F9B97 /* RealmManager.swift in Sources */,
 				C04072D7241C4012005F9B97 /* CardSetHeaderCell.swift in Sources */,
 				815F93D22423CD7000893DEC /* DismissCardDetailDelegate.swift in Sources */,
@@ -1137,6 +1146,7 @@
 				81F6981E241FEDB200258920 /* LocalServiceDummy.swift in Sources */,
 				1D175A2C2423C43A0037E4B9 /* CardDetailViewModelDelegateDummy.swift in Sources */,
 				8131F10D24296D69005F765C /* DismissCardDetailDelegateSpec.swift in Sources */,
+				1D1377F1242BBBE000571BCF /* CardListDataSourceProtocolSpy.swift in Sources */,
 				1D175A0D2421492A0037E4B9 /* CardListDataSourceSpec.swift in Sources */,
 				81F69816241FC4DF00258920 /* NetworkServiceDummy.swift in Sources */,
 				8131F116242A4664005F765C /* ShowCardDetailDelegateSpec.swift in Sources */,

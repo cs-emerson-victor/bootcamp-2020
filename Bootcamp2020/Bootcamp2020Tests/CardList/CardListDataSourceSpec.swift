@@ -16,22 +16,13 @@ final class CardListDataSourceSpec: QuickSpec {
     override func spec() {
         
         var sut: CardListDataSource!
-        var selectedIndexPath: IndexPath?
         var collectionView: UICollectionView!
-        var viewModelHandler: ((_ indexPath: IndexPath) -> CardCellViewModel)!
-        var sets: [CardSet]!
+        var dataSourceProtocol: CardListDataSourceProtocolSpy!
         
         beforeEach {
-            viewModelHandler = { indexPath in
-                selectedIndexPath = indexPath
-                
-                return CardCellViewModel(card: Card(id: "", name: "", cardSetID: ""))
-            }
-            
-            sets = CardSetStub().getFullSets()
+            dataSourceProtocol = CardListDataSourceProtocolSpy()
             sut = CardListDataSource()
-            sut.getViewModel = viewModelHandler
-            sut.sets = sets
+            sut.dataSourceProtocol = dataSourceProtocol
             let layout = UICollectionViewFlowLayout()
             layout.scrollDirection = .vertical
             collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -40,16 +31,15 @@ final class CardListDataSourceSpec: QuickSpec {
         }
         
         afterEach {
-            selectedIndexPath = nil
             sut = nil
-            sets = nil
             collectionView = nil
+            dataSourceProtocol = nil
         }
         
         describe("CardListDataSource") {
             
             it("should have the correct number of sections") {
-                expect(sut.numberOfSections(in: collectionView)).to(equal(sets.count))
+                expect(sut.numberOfSections(in: collectionView)).to(equal(dataSourceProtocol.sets.count))
             }
             
             it("should have registered the correct cells") {
@@ -70,7 +60,8 @@ final class CardListDataSourceSpec: QuickSpec {
             context("when loading section") {
                 it("should have the correct number of items") {
                     let section: Int = 0
-                    expect(sut.collectionView(collectionView, numberOfItemsInSection: section)).to(equal(sets[section].cards.count))
+                    let numberOfItems = dataSourceProtocol.sets[section].cards.count
+                    expect(sut.collectionView(collectionView, numberOfItemsInSection: section)).to(equal(numberOfItems))
                 }
             }
             
@@ -83,18 +74,22 @@ final class CardListDataSourceSpec: QuickSpec {
                     _ = sut.collectionView(collectionView, cellForItemAt: indexPath)
                     
                     // Assert
-                    expect(selectedIndexPath).toNot(beNil())
-                    expect(selectedIndexPath).to(equal(indexPath))
+                    expect(dataSourceProtocol.lastSelectedIndexPath).toNot(beNil())
+                    expect(dataSourceProtocol.lastSelectedIndexPath).to(equal(indexPath))
                 }
                 
                 it("should load the last cell of the last section") {
                     
                     // Act
-                    let indexPath = IndexPath(item: sets[sets.count - 1].cards.count - 1, section: sets.count - 1)
+                    let section = dataSourceProtocol.sets.count - 1
+                    let item = dataSourceProtocol.sets[section].cards.count - 1
+                    let indexPath = IndexPath(item: item, section: section)
                     let cell = sut.collectionView(collectionView, cellForItemAt: indexPath) as? CardCell
                     
-                    // Arrange
+                    // Assert
                     expect(cell).toNot(beNil())
+                    expect(dataSourceProtocol.lastSelectedSection).toNot(beNil())
+                    expect(dataSourceProtocol.lastSelectedSection).to(equal(section))
                 }
             }
         }
