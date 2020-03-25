@@ -25,7 +25,7 @@ final class FavoritesCoordinator: Coordinator {
     
     func start() {
         let controller = CardListViewController(service: localService, detailDelegate: self)
-        controller.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
+        controller.tabBarItem = UITabBarItem(title: "Favorites", image: UIImage(named: "favorite"), tag: 1)
         rootController.pushViewController(controller, animated: true)
     }
 }

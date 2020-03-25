@@ -27,13 +27,25 @@ class CardListScreen: UIView {
         let view = UISearchBar()
         view.accessibilityLabel = "listSearchBar"
         view.isUserInteractionEnabled = false
+        view.placeholder = "Search for cards"
+        view.searchTextField.backgroundColor = UIColor(white: 0.15, alpha: 1)
+        view.searchTextField.textColor = .white
+        if let searchIcon = view.searchTextField.leftView as? UIImageView {
+            searchIcon.image = searchIcon.image?.withRenderingMode(.alwaysTemplate)
+            searchIcon.tintColor = .gray
+        }
+        view.isTranslucent = true
+        view.setBackgroundImage(UIImage(), for: .any, barMetrics: .default)
+        view.tintColor = UIColor(red: 0.92, green: 0.60, blue: 0.18, alpha: 1.00)
         view.delegate = self
         return view
     }()
     
-    private let backgroundImageView: UIImageView = {
-        let view = UIImageView(image: UIImage(named: "backgroundImage"))
+    private let backgroundImageView: UIView = {
+        let view = UIView(frame: .zero)
         view.accessibilityLabel = "backgroundImageView"
+        view.backgroundColor = UIColor(red: 0.05, green: 0.05, blue: 0.05, alpha: 1.00)
+
         return view
     }()
     
@@ -163,14 +175,14 @@ extension CardListScreen: ViewCode {
         
         listCollectionView.snp.makeConstraints { (make) in
             make.leading.trailing.bottomMargin.equalToSuperview()
-            make.top.equalTo(searchBar.snp.bottom).offset(16)
+            make.top.equalTo(searchBar.snp.bottom).offset(8)
         }
         
         searchBar.snp.makeConstraints { (make) in
-            make.leadingMargin.equalToSuperview().offset(16)
-            make.trailingMargin.equalToSuperview().inset(16)
+            make.leadingMargin.equalToSuperview()
+            make.trailingMargin.equalToSuperview()
             make.topMargin.equalToSuperview().offset(23)
-            make.height.equalTo(30)
+            make.height.equalTo(40)
         }
         
         activityIndicator.snp.makeConstraints { (make) in

@@ -88,6 +88,10 @@ final class CardListViewController: UIViewController {
         }
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+          return .lightContent
+    }
+    
     // MARK: Other methods
     func fetchCardsForSet(_ set: CardSet) {
         guard set.cards.isEmpty, !listScreen.isLoading else {

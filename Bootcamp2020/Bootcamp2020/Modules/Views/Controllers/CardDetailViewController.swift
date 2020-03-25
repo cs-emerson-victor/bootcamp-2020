@@ -50,6 +50,10 @@ final class CardDetailViewController: UIViewController {
         detailScreen.bind(to: CardDetailViewModel(cards: cardSet.cards, selectedCardId: selectedCardId, delegate: self))
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+          return .lightContent
+    }
+    
     // MARK: Show favorite error
     func showFavoriteError() {
         let alert = UIAlertController(title: "We couldn't favorite this card. Please try again.",

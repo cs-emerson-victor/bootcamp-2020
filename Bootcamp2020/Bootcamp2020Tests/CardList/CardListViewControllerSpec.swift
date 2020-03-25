@@ -49,6 +49,10 @@ final class CardListViewControllerSpec: QuickSpec {
                         
                         expect(sut.view).to(beAKindOf(CardListScreen.self))
                     }
+                    
+                    it("should have a light status bar") {
+                        expect(sut.preferredStatusBarStyle).to(equal(.lightContent))
+                    }
                 }
             }
             
