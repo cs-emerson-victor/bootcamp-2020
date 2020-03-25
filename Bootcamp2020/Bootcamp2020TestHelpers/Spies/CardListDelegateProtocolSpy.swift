@@ -23,6 +23,6 @@ final class CardListDelegateProtocolSpy: CardListDelegateProtocol {
     }
     
     func getCellType(forItemAt indexPath: IndexPath) -> CellType {
-        return .card(CardCellViewModel(card: Card()))
+        return .card(CardCellViewModel(card: sets[indexPath.section].cards[indexPath.row]))
     }
 }
