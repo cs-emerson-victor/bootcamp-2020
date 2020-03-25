@@ -79,7 +79,7 @@ extension CardDetailViewController: CardDetailViewModelDelegate {
         }
                  
         detailScreen.bind(to: CardDetailViewModel(cards: cardSet.cards,
-                                                  selectedCardId: selectedCardId,
+                                                  selectedCardId: card.id,
                                                   delegate: self))
     }
     
