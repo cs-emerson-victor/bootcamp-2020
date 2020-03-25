@@ -23,7 +23,7 @@ final class RealmCard: Object {
         self.imageURL = card.imageURL
         self.imageData = card.imageData
         self.cardSetID = card.cardSetID
-        self.types.append(objectsIn: types)
+        self.types.append(objectsIn: card.types)
     }
     
     override static func primaryKey() -> String? {
