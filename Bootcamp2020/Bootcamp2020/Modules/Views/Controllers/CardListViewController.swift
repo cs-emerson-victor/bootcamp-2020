@@ -57,8 +57,7 @@ final class CardListViewController: UIViewController {
                 self.sets.append(contentsOf: sortedSets)
                 
                 guard let firstSet = sortedSets.first else {
-                    // TODO: Implement empty list screen
-                    self.listScreen.bind(to: CardListViewModel(state: .error(.api), delegate: self))
+                    self.listScreen.bind(to: CardListViewModel(state: .error(.emptyList), delegate: self))
                     return
                 }
                 DispatchQueue.main.async {
@@ -81,7 +80,12 @@ final class CardListViewController: UIViewController {
                 switch result {
                 case .success(let cardSets):
                     self.sets = self.sortSets(cardSets)
-                    self.listScreen.bind(to: CardListViewModel(state: .success(self.sets), delegate: self))
+
+                    if cardSets.isEmpty {
+                        self.listScreen.bind(to: CardListViewModel(state: .error(.emptyList), delegate: self))
+                    } else {
+                        self.listScreen.bind(to: CardListViewModel(state: .success(self.sets), delegate: self))
+                    }
                 case .failure:
                     self.listScreen.bind(to: CardListViewModel(state: .error(.generic), delegate: self))
                 }
