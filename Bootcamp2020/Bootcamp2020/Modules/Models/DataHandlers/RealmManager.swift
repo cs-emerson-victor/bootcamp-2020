@@ -90,7 +90,14 @@ extension RealmManager {
     }
     
     func isFavorite(_ card: Card) -> Bool {
-        let card = realm.object(ofType: Card.self, forPrimaryKey: card.id)
-        return card == nil ? false : true
+        let realmCard = realm.object(ofType: Card.self, forPrimaryKey: card.id)
+        
+        if realmCard == nil {
+            card.isFavorite = false
+        } else {
+            card.isFavorite = true
+        }
+        
+        return card.isFavorite
     }
 }
