@@ -39,6 +39,7 @@ final class CardDetailScreenSpec: QuickSpec {
                     // Act
                     var hasCloseButton = false
                     var hasFavoriteButton = false
+                    var hasNameLabel = false
                     var hasCollectionView = false
                     var hasBackgroundImageView = false
                     for view in sut.subviews {
@@ -51,6 +52,8 @@ final class CardDetailScreenSpec: QuickSpec {
                             hasFavoriteButton = true
                         case "closeButton":
                             hasCloseButton = true
+                        case "cardNameLabel":
+                            hasNameLabel = true
                         default:
                             break
                         }
@@ -61,6 +64,7 @@ final class CardDetailScreenSpec: QuickSpec {
                     expect(hasCollectionView).to(beTrue())
                     expect(hasFavoriteButton).to(beTrue())
                     expect(hasCloseButton).to(beTrue())
+                    expect(hasNameLabel).to(beTrue())
                 }
                 
                 it("should have the correct given objects") {

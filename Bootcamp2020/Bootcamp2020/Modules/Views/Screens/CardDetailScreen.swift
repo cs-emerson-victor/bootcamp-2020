@@ -11,6 +11,16 @@ import UIKit
 class CardDetailScreen: UIView {
     
     // MARK: - Properties -
+    private let nameLabel: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.accessibilityLabel = "cardNameLabel"
+        label.font = .boldSystemFont(ofSize: 24)
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        label.textColor = .white
+        return label
+    }()
+    
     private let cardDetailCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -70,10 +80,13 @@ class CardDetailScreen: UIView {
         
         currentIndexPath = viewModel.firstSelectedIndexPath
         setFavoriteButtonTitle(isFavorite: viewModel.isCardFavorite(at: currentIndexPath))
+        setNameLabel(to: viewModel.cardName(for: currentIndexPath))
         cardDetailDelegate.cellAtCenterDidChange = { [weak self] indexPath in
             let isFavorite = viewModel.isCardFavorite(at: indexPath)
+            let cardName = viewModel.cardName(for: indexPath)
             self?.currentIndexPath = indexPath
             self?.setFavoriteButtonTitle(isFavorite: isFavorite)
+            self?.setNameLabel(to: cardName)
         }
         cardDetailDataSource.getViewModel = viewModel.cellViewModel
         cardDetailDataSource.cards = viewModel.cards
@@ -89,6 +102,10 @@ class CardDetailScreen: UIView {
         favoriteButton.setTitle(isFavorite ? "remove card from favorites" : "add card to favorites", for: .normal)
     }
     
+    private func setNameLabel(to name: String) {
+        nameLabel.text = name
+    }
+    
     @objc func favoriteTapped(_ sender: UIButton) {
         viewModel.toggleCardFavorite(at: currentIndexPath)
     }
@@ -102,6 +119,7 @@ extension CardDetailScreen: ViewCode {
     
     func buildViewHierarchy() {
         addSubview(detailBackgroundImageView)
+        addSubview(nameLabel)
         addSubview(cardDetailCollectionView)
         addSubview(favoriteButton)
         addSubview(closeButton)
@@ -110,6 +128,13 @@ extension CardDetailScreen: ViewCode {
     func setupConstraints() {
         detailBackgroundImageView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
+        }
+        
+        nameLabel.snp.makeConstraints { (make) in
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().inset(16)
+            make.topMargin.equalTo(closeButton.snp.bottomMargin).offset(10)
+            make.height.equalTo(100)
         }
         
         cardDetailCollectionView.snp.makeConstraints { (make) in
