@@ -87,7 +87,7 @@ final class CardListViewControllerSpec: QuickSpec {
                     set.cards.removeAll()
                     sut.fetchCardsForSet(set)
                     
-                    expect(set.cards).to(equal(cards))
+                    expect(set.cards).to(equal([]))
                 }
             }
             
