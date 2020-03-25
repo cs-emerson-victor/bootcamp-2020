@@ -58,6 +58,10 @@ final class CardDetailViewControllerSpec: QuickSpec {
                     it("should be of the correct type") {
                         expect(sut.view).to(beAKindOf(CardDetailScreen.self))
                     }
+                    
+                    it("should have a light status bar") {
+                        expect(sut.preferredStatusBarStyle).to(equal(.lightContent))
+                    }
                 }
             }
             
