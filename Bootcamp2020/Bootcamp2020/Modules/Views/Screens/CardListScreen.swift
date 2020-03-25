@@ -78,6 +78,16 @@ class CardListScreen: UIView {
         }
     }
     
+    var isInitialLoading: Bool {
+        guard viewModel != nil else { return false }
+        switch viewModel.state {
+        case .initialLoading:
+            return true
+        default:
+            return false
+        }
+    }
+    
     // MARK: - Init -
     init(dataSource: CardListDataSource = CardListDataSource(),
          delegate: CardListDelegate = CardListDelegate()) {
