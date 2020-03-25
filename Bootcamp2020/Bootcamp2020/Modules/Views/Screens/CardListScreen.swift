@@ -109,10 +109,7 @@ class CardListScreen: UIView {
         self.viewModel = viewModel
         
         cardDataSource.dataSourceProtocol = viewModel
-        cardDelegate.didSelectItemAt = viewModel.didSelectCell
-        cardDelegate.didScroll = { [weak self] in
-            self?.searchBar.endEditing(true)
-        }
+        cardDelegate.delegateProtocol = self
         
         switch viewModel.state {
         case .initialLoading:
@@ -229,5 +226,19 @@ extension CardListScreen: UISearchBarDelegate {
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchBar.setShowsCancelButton(true, animated: true)
+    }
+}
+
+extension CardListScreen: CardListDelegateProtocol {
+    func didSelectItem(at indexPath: IndexPath) {
+        viewModel.didSelectCell(at: indexPath)
+    }
+    
+    func didScroll() {
+        searchBar.endEditing(true)
+    }
+    
+    func getCellType(forItemAt indexPath: IndexPath) -> CellType {
+        return viewModel.cellType(for: indexPath)
     }
 }

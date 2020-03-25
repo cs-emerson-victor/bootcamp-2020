@@ -10,7 +10,6 @@ import UIKit
 
 final class CardDetailDelegate: NSObject {
     
-    var numberOfItems: Int = 0
     var cellAtCenterDidChange: ((IndexPath) -> Void)?
     fileprivate var cellAspectRatio: CGFloat = 85/118
 }

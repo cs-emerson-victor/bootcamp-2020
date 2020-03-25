@@ -23,7 +23,6 @@ final class CardDetailDelegateSpec: QuickSpec {
             
             dataSource = CardListDataSourceStub()
             sut = CardDetailDelegate()
-            sut.numberOfItems = 1
             layout = UICollectionViewFlowLayout()
             layout.scrollDirection = .horizontal
             collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -41,13 +40,7 @@ final class CardDetailDelegateSpec: QuickSpec {
         }
         
         describe("CardDetailDelegate") {
-            it("should return the correct number of items") {
-                
-                expect(sut.numberOfItems).to(equal(1))
-            }
-            
             context("when loading sizes") {
-                
                 it("should return the correct minimum interitem spacing") {
                     
                     expect(sut.collectionView(collectionView, layout: layout, minimumInteritemSpacingForSectionAt: 0)).to(equal(16))

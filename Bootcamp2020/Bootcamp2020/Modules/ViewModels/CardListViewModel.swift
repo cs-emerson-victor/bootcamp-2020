@@ -49,17 +49,10 @@ extension CardListViewModel {
         case error(_ type: ErrorType)
     }
     
-    func cellViewModel(for indexPath: IndexPath) -> CardCellViewModel {
+    func cellType(for indexPath: IndexPath) -> CellType {
         let card = cardSets[indexPath.section].cards[indexPath.row]
         
-        if case .success = state {
-            if indexPath.row == cardSets[indexPath.section].cards.count - 1,
-                indexPath.section < cardSets.count - 1 {
-                
-                delegate?.prefetchSet(cardSets[indexPath.section + 1])
-            }
-        }
-        return CardCellViewModel(card: card)
+        return .card(CardCellViewModel(card: card))
     }
     
     func didSelectCell(at indexPath: IndexPath) {
@@ -89,9 +82,16 @@ extension CardListViewModel: CardListDataSourceProtocol {
         return cardSets[section].cards.count
     }
     
-    func getCellType(forItemAt indexPath: IndexPath) -> CellType {
-        let cellVM = cellViewModel(for: indexPath)
-        return .card(cellVM)
+    func getCellTypeForDataSource(forItemAt indexPath: IndexPath) -> CellType {
+        let type = cellType(for: indexPath)
+        if case .success = state {
+            if indexPath.row == cardSets[indexPath.section].cards.count - 1,
+                indexPath.section < cardSets.count - 1 {
+                
+                delegate?.prefetchSet(cardSets[indexPath.section + 1])
+            }
+        }
+        return type
     }
     
     func getSetHeaderName(in section: Int) -> String {

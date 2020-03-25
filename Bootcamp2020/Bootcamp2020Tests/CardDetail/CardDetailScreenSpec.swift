@@ -84,7 +84,6 @@ final class CardDetailScreenSpec: QuickSpec {
                     expect(sut.viewModel).to(equal(viewModel))
                     expect(dataSource.cards).to(equal(cards))
                     expect(dataSource.getViewModel).toNot(beNil())
-                    expect(delegate.numberOfItems).to(equal(cards.count))
                     expect(delegate.cellAtCenterDidChange).toNot(beNil())
                     expect(sut.currentIndexPath).to(equal(viewModel.firstSelectedIndexPath))
                 }

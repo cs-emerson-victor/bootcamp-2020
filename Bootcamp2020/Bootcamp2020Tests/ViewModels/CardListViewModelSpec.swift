@@ -49,10 +49,15 @@ final class CardListViewModelSpec: QuickSpec {
                 }
                 
                 it("should return a viewModel with the correct card") {
-                    let viewModel = sut.cellViewModel(for: IndexPath(row: 0, section: 0))
-                    expect(viewModel.card.id).to(equal("0"))
-                    
+                    let type = sut.cellType(for: IndexPath(row: 0, section: 0))
+                    if case CellType.card(let viewModel) = type {
+                        expect(viewModel.card.id).to(equal("0"))
+                    } else {
+                        Nimble.fail("Card cell type wrong")
+                    }
                 }
+                
+                // TODO: Test type header cell
             }
             
             context("when selecting a card") {
