@@ -23,15 +23,16 @@ struct CardListViewModel {
     let cardSets: [CardSet]
     private(set) weak var delegate: CardListViewModelDelegate?
     
+    private var loadedCardSets: [CardSet] {
+        return cardSets.filter { !$0.cards.isEmpty }
+    }
+    
     init(state: UIState, delegate: CardListViewModelDelegate) {
         self.delegate = delegate
         self.state = state
         
         switch state {
-        case .success(let cardSets), .searchSuccess(let cardSets):
-            self.cardSets = cardSets
-        case .loading(let cardSets):
-            // TODO: Check this implementation
+        case .success(let cardSets), .searchSuccess(let cardSets), .loading(let cardSets):
             self.cardSets = cardSets
         default:
             self.cardSets = []
@@ -50,10 +51,10 @@ extension CardListViewModel {
     }
     
     func cellViewModel(for indexPath: IndexPath) -> CardCellViewModel {
-        let card = cardSets[indexPath.section].cards[indexPath.row]
+        let card = loadedCardSets[indexPath.section].cards[indexPath.row]
         
         if case .success = state {
-            if indexPath.row == cardSets[indexPath.section].cards.count - 1,
+            if indexPath.row == loadedCardSets[indexPath.section].cards.count - 1,
                 indexPath.section < cardSets.count - 1 {
                 
                 delegate?.prefetchSet(cardSets[indexPath.section + 1])
@@ -63,7 +64,7 @@ extension CardListViewModel {
     }
     
     func didSelectCell(at indexPath: IndexPath) {
-        let set = cardSets[indexPath.section]
+        let set = loadedCardSets[indexPath.section]
         delegate?.didSelect(set.cards[indexPath.row], of: set)
     }
 }
@@ -82,11 +83,11 @@ extension CardListViewModel {
 // MARK: - DataSourceProtocol
 extension CardListViewModel: CardListDataSourceProtocol {
     var numberOfSections: Int {
-        return cardSets.count
+        return loadedCardSets.count
     }
     
     func numberOfItems(in section: Int) -> Int {
-        return cardSets[section].cards.count
+        return loadedCardSets[section].cards.count
     }
     
     func getCellType(forItemAt indexPath: IndexPath) -> CellType {
@@ -95,6 +96,6 @@ extension CardListViewModel: CardListDataSourceProtocol {
     }
     
     func getSetHeaderName(in section: Int) -> String {
-        return cardSets[section].name
+        return loadedCardSets[section].name
     }
 }
