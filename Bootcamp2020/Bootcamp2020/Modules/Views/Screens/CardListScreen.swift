@@ -86,8 +86,7 @@ class CardListScreen: UIView {
         
         self.viewModel = viewModel
         
-        cardDataSource.sets = viewModel.cardSets
-        cardDataSource.getViewModel = viewModel.cellViewModel
+        cardDataSource.dataSourceProtocol = viewModel
         cardDelegate.didSelectItemAt = viewModel.didSelectCell
         cardDelegate.didScroll = { [weak self] in
             self?.searchBar.endEditing(true)

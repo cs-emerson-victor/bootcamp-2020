@@ -18,19 +18,19 @@ final class CardListDataSourceSpec: QuickSpec {
         var sut: CardListDataSource!
         var selectedIndexPath: IndexPath?
         var collectionView: UICollectionView!
-        var viewModelHandler: ((_ indexPath: IndexPath) -> CardCellViewModel)!
+        var cellTypeHandler: ((_ indexPath: IndexPath) -> CellType)!
         var sets: [CardSet]!
         
         beforeEach {
-            viewModelHandler = { indexPath in
+            cellTypeHandler = { indexPath in
                 selectedIndexPath = indexPath
                 
-                return CardCellViewModel(card: Card())
+                return .card(CardCellViewModel(card: Card()))
             }
             
             sets = CardSetStub().getFullSets()
             sut = CardListDataSource()
-            sut.getViewModel = viewModelHandler
+            sut.getCellType = cellTypeHandler
             sut.sets = sets
             let layout = UICollectionViewFlowLayout()
             layout.scrollDirection = .vertical

@@ -9,6 +9,6 @@
 import Foundation
 
 enum CellType {
-    case card
-    case typeHeader
+    case card(_ viewModel: CardCellViewModel)
+    case typeHeader(_ title: String)
 }
