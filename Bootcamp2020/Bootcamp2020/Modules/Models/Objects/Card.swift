@@ -6,36 +6,48 @@
 //  Copyright © 2020 Team2. All rights reserved.
 //
 
-import RealmSwift
+import Foundation
 
-final class Card: Object {
-    @objc dynamic var id: String = ""
-    @objc dynamic var name: String = ""
-    @objc dynamic var imageURL: String?
-    @objc dynamic var imageData: Data?
-    @objc dynamic var cardSetID: String = ""
-    var isFavorite: Bool = false
-    let types: List<String> = List<String>()
+final class Card {
+    let id: String
+    let name: String
+    var imageURL: String?
+    var imageData: Data?
+    let cardSetID: String
+    var isFavorite: Bool
+    var types: [String] = []
 
-    convenience init(id: String,
-                     name: String,
-                     imageURL: String? = nil,
-                     imageData: Data? = nil,
-                     cardSetID: String,
-                     isFavorite: Bool = false,
-                     types: [String] = []) {
-        self.init()
+    init(id: String,
+         name: String,
+         imageURL: String? = nil,
+         imageData: Data? = nil,
+         cardSetID: String,
+         isFavorite: Bool = false,
+         types: [String] = []) {
+        
         self.id = id
         self.name = name
         self.imageURL = imageURL
         self.imageData = imageData
         self.cardSetID = cardSetID
         self.isFavorite = isFavorite
-        self.types.append(objectsIn: types)
+        self.types.append(contentsOf: types)
     }
     
-    override static func primaryKey() -> String? {
-        return "id"
+    convenience init(card: RealmCard) {
+        self.init(id: card.id,
+                  name: card.name,
+                  imageURL: card.imageURL,
+                  imageData: card.imageData,
+                  cardSetID: card.cardSetID,
+                  isFavorite: true,
+                  types: Array(card.types))
+    }
+}
+
+extension Card: Equatable {
+    static func == (lhs: Card, rhs: Card) -> Bool {
+        return lhs.id == rhs.id
     }
 }
 
@@ -49,17 +61,15 @@ extension Card: Codable {
     }
     
     convenience init(from decoder: Decoder) throws {
-        self.init()
-        
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
-        self.id = try container.decode(String.self, forKey: .id)
-        self.name = try container.decode(String.self, forKey: .name)
-        self.imageURL = try container.decodeIfPresent(String.self, forKey: .imageURL)
-        self.cardSetID = try container.decode(String.self, forKey: .cardSetID)
-        
+        let id = try container.decode(String.self, forKey: .id)
+        let name = try container.decode(String.self, forKey: .name)
+        let imageURL = try container.decodeIfPresent(String.self, forKey: .imageURL)
+        let cardSetID = try container.decode(String.self, forKey: .cardSetID)
         let types = try container.decode([String].self, forKey: .types)
-        self.types.append(objectsIn: types)
+        
+        self.init(id: id, name: name, imageURL: imageURL, cardSetID: cardSetID, types: types)
     }
     
     func encode(to encoder: Encoder) throws {
@@ -69,20 +79,6 @@ extension Card: Codable {
         try container.encode(name, forKey: .name)
         try container.encode(imageURL, forKey: .imageURL)
         try container.encode(cardSetID, forKey: .cardSetID)
-        try container.encode(Array(types), forKey: .types)
-    }
-}
-
-extension Card: Copyable {
-    
-    func createCopy() -> Card {
-
-        return Card(id: id,
-                    name: name,
-                    imageURL: imageURL,
-                    imageData: imageData,
-                    cardSetID: cardSetID,
-                    isFavorite: isFavorite,
-                    types: Array(types))
+        try container.encode(types, forKey: .types)
     }
 }

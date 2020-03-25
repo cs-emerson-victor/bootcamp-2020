@@ -18,40 +18,39 @@ final class RealmManagerSpec: QuickSpec {
         describe("RealmManager") {
             var sut: RealmManager!
             var config: Realm.Configuration!
-            
+
             beforeSuite {
                 config = Realm.Configuration(inMemoryIdentifier: "Bootcamp2020Test")
                 sut = try! RealmManager(configuration: config)
             }
-            
+
             beforeEach {
                 try! sut.realm.write {
                     sut.realm.deleteAll()
                 }
             }
-            
+
             context("when it's initialized") {
                 it("should have the given configuration") {
                     expect(sut.realm.configuration.inMemoryIdentifier).to(equal(config.inMemoryIdentifier))
                     expect(sut.realm.configuration.fileURL).to(beNil())
                 }
             }
-            
+
             context("when it's perfomed fetch") {
                 var cardSet: CardSet!
                 var card: Card!
-                
+
                 beforeEach {
                     cardSet = CardSet(id: "0", name: "CardSet1")
                     card = Card(id: "0", name: "Card1", cardSetID: "0")
                     cardSet.cards.append(card)
-                    
+
                     try! sut.realm.write {
-                        sut.realm.add(cardSet)
-                        sut.realm.add(card)
+                        sut.realm.add(RealmCardSet(set: cardSet))
                     }
                 }
-                
+
                 it("should return an array with one set") {
                     sut.fetchSets { (result) in
                         switch result {
@@ -59,11 +58,11 @@ final class RealmManagerSpec: QuickSpec {
                             expect(cardSets.count).to(equal(1))
                         case .failure(let error):
                             expect(error).to(beAnInstanceOf(Error.self))
-                            
+
                         }
                     }
                 }
-                
+
                 context("when it's fetched by name") {
                     it("should return an empty array") {
                         sut.fetchCards(withName: "Collection") { (result) in
@@ -72,11 +71,11 @@ final class RealmManagerSpec: QuickSpec {
                                 expect(cards).to(beEmpty())
                             case .failure(let error):
                                 expect(error).to(beAnInstanceOf(Error.self))
-                                
+
                             }
                         }
                     }
-                    
+
                     it("should return an array with one card") {
                         sut.fetchCards(withName: "Card") { (result) in
                             switch result {
@@ -84,35 +83,34 @@ final class RealmManagerSpec: QuickSpec {
                                 expect(cards.count).to(equal(1))
                             case .failure(let error):
                                 expect(error).to(beAnInstanceOf(Error.self))
-                                
+
                             }
                         }
                     }
-                    
                 }
             }
-            
+
             context("when card it's favorited") {
                 var cardSet: CardSet!
                 var card: Card!
-                
+
                 beforeEach {
                     cardSet = CardSet(id: "0", name: "CardSet1")
                 }
-                
+
                 it("should favorite the given card") {
                     card = Card(id: "0", name: "Card1", cardSetID: "0", isFavorite: true)
                     let favoriteReturn = sut.toggleFavorite(card, of: cardSet)
-                    
+
                     guard favoriteReturn == nil else {
                         Nimble.fail()
                         return
                     }
-                    
-                    let cards = sut.realm.objects(Card.self)
+
+                    let cards = sut.realm.objects(RealmCard.self)
                     expect(cards.count).to(equal(1))
                 }
-                
+
                 it("should unfavorite the given card") {
                     card = Card(id: "0", name: "Card1", cardSetID: "0", isFavorite: false)
                     let unfavoriteReturn = sut.toggleFavorite(card, of: cardSet)
@@ -122,36 +120,35 @@ final class RealmManagerSpec: QuickSpec {
                         return
                     }
 
-                    let cards = sut.realm.objects(Card.self)
+                    let cards = sut.realm.objects(RealmCard.self)
                     expect(cards.count).to(equal(0))
                 }
             }
-            
+
             context("when checked if card it's favorite") {
                 var cardSet: CardSet!
                 var card: Card!
-                
+
                 beforeEach {
                     cardSet = CardSet(id: "0", name: "CardSet1")
                 }
-                
+
                 it("should return true") {
                     card = Card(id: "0", name: "Card1", cardSetID: "0", isFavorite: true)
-                    
+
                     if sut.toggleFavorite(card, of: cardSet) != nil {
                         Nimble.fail()
                     }
-                    
+
                     expect(sut.isFavorite(card)).to(beTrue())
                 }
-                
+
                 it("should return false") {
                     card = Card(id: "0", name: "Card1", cardSetID: "0", isFavorite: false)
-                    
+
                     expect(sut.isFavorite(card)).to(beFalse())
                 }
             }
         }
-        
     }
 }

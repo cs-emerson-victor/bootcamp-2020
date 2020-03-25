@@ -47,7 +47,7 @@ final class CardSetStub {
         var dict: [String: [Card]] = [:]
         
         let allCards = sets.reduce([]) { (all, set) -> [Card] in
-            return all + Array(set.cards)
+            return all + set.cards
         }
         
         for card in allCards {

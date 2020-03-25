@@ -25,7 +25,7 @@ final class CardListDataSourceSpec: QuickSpec {
             viewModelHandler = { indexPath in
                 selectedIndexPath = indexPath
                 
-                return CardCellViewModel(card: Card())
+                return CardCellViewModel(card: Card(id: "", name: "", cardSetID: ""))
             }
             
             sets = CardSetStub().getFullSets()

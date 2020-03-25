@@ -66,6 +66,12 @@ class CardDetailScreen: UIView {
     
     // MARK: - Methods -
     func bind(to viewModel: CardDetailViewModel) {
+        
+        guard viewModel.cards.count > 0 else {
+            closeTapped(nil)
+            return
+        }
+        
         self.viewModel = viewModel
         
         currentIndexPath = viewModel.firstSelectedIndexPath
@@ -93,7 +99,7 @@ class CardDetailScreen: UIView {
         viewModel.toggleCardFavorite(at: currentIndexPath)
     }
     
-    @objc func closeTapped(_ sender: UIButton) {
+    @objc func closeTapped(_ sender: UIButton?) {
         viewModel.dismissDetail()
     }
 }

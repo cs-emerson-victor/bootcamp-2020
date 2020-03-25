@@ -47,7 +47,7 @@ final class CardDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        detailScreen.bind(to: CardDetailViewModel(cards: Array(cardSet.cards), selectedCardId: selectedCardId, delegate: self))
+        detailScreen.bind(to: CardDetailViewModel(cards: cardSet.cards, selectedCardId: selectedCardId, delegate: self))
     }
     
     // MARK: Show favorite error
@@ -68,13 +68,13 @@ final class CardDetailViewController: UIViewController {
 extension CardDetailViewController: CardDetailViewModelDelegate {
     
     func toggleFavorite(_ card: Card) {
-        guard service.toggleFavorite(card, of: cardSet) != nil else {
-            detailScreen.bind(to: CardDetailViewModel(cards: Array(cardSet.cards),
-                                                      selectedCardId: selectedCardId, delegate: self))
+        guard service.toggleFavorite(card, of: cardSet) == nil else {
+            showFavoriteError()
             return
         }
-
-        showFavoriteError()
+        
+        detailScreen.bind(to: CardDetailViewModel(cards: cardSet.cards,
+                                                  selectedCardId: selectedCardId, delegate: self))
     }
     
     func isFavorite(_ card: Card) -> Bool {

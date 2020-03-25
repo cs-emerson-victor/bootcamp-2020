@@ -31,7 +31,6 @@
 		8131F0FF24252E0A005F765C /* LocalServiceDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F6981D241FEDB200258920 /* LocalServiceDummy.swift */; };
 		8131F10024252E1D005F765C /* DismissCardDetailDelegateSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815F93CF2423CC4200893DEC /* DismissCardDetailDelegateSpy.swift */; };
 		8131F10124252E2C005F765C /* CardSetStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D175A122421680D0037E4B9 /* CardSetStub.swift */; };
-		8131F10624290782005F765C /* Copyable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8131F10524290782005F765C /* Copyable.swift */; };
 		8131F10D24296D69005F765C /* DismissCardDetailDelegateSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8131F10C24296D69005F765C /* DismissCardDetailDelegateSpec.swift */; };
 		8131F1102429720B005F765C /* CoordinatorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8131F10F2429720B005F765C /* CoordinatorSpy.swift */; };
 		8131F112242972C0005F765C /* UINavigationControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8131F111242972C0005F765C /* UINavigationControllerSpy.swift */; };
@@ -39,6 +38,8 @@
 		8131F116242A4664005F765C /* ShowCardDetailDelegateSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8131F115242A4664005F765C /* ShowCardDetailDelegateSpec.swift */; };
 		8131F119242A4D31005F765C /* ViewControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8131F117242A4D19005F765C /* ViewControllerSpy.swift */; };
 		8131F11C242A502E005F765C /* AppCordinatorSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8131F11A242A5028005F765C /* AppCordinatorSpy.swift */; };
+		8131F198242BA90B005F765C /* RealmCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8131F197242BA90B005F765C /* RealmCard.swift */; };
+		8131F19B242BA938005F765C /* RealmCardSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8131F19A242BA938005F765C /* RealmCardSet.swift */; };
 		81354A37242138EC007896FF /* RealmManagerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81354A36242138EC007896FF /* RealmManagerSpec.swift */; };
 		815F93CC2423C16300893DEC /* CardDetailScreenSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815F93CB2423C16300893DEC /* CardDetailScreenSpy.swift */; };
 		815F93CE2423C46500893DEC /* CardSaverSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815F93CD2423C46500893DEC /* CardSaverSpy.swift */; };
@@ -153,7 +154,6 @@
 		5E2BC5F018CBA7305A0EFF22 /* Pods_Bootcamp2020IntegrationTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bootcamp2020IntegrationTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		60675B8E6C0BA21B9421DA23 /* Pods-Bootcamp2020SnapshotTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bootcamp2020SnapshotTests.release.xcconfig"; path = "Target Support Files/Pods-Bootcamp2020SnapshotTests/Pods-Bootcamp2020SnapshotTests.release.xcconfig"; sourceTree = "<group>"; };
 		751C0BCFB7A4DF3C44BFA109 /* Pods-Bootcamp2020.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bootcamp2020.release.xcconfig"; path = "Target Support Files/Pods-Bootcamp2020/Pods-Bootcamp2020.release.xcconfig"; sourceTree = "<group>"; };
-		8131F10524290782005F765C /* Copyable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Copyable.swift; sourceTree = "<group>"; };
 		8131F10C24296D69005F765C /* DismissCardDetailDelegateSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissCardDetailDelegateSpec.swift; sourceTree = "<group>"; };
 		8131F10F2429720B005F765C /* CoordinatorSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorSpy.swift; sourceTree = "<group>"; };
 		8131F111242972C0005F765C /* UINavigationControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationControllerSpy.swift; sourceTree = "<group>"; };
@@ -161,6 +161,8 @@
 		8131F115242A4664005F765C /* ShowCardDetailDelegateSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCardDetailDelegateSpec.swift; sourceTree = "<group>"; };
 		8131F117242A4D19005F765C /* ViewControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerSpy.swift; sourceTree = "<group>"; };
 		8131F11A242A5028005F765C /* AppCordinatorSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCordinatorSpy.swift; sourceTree = "<group>"; };
+		8131F197242BA90B005F765C /* RealmCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCard.swift; sourceTree = "<group>"; };
+		8131F19A242BA938005F765C /* RealmCardSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCardSet.swift; sourceTree = "<group>"; };
 		81354A36242138EC007896FF /* RealmManagerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManagerSpec.swift; sourceTree = "<group>"; };
 		815F93CB2423C16300893DEC /* CardDetailScreenSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailScreenSpy.swift; sourceTree = "<group>"; };
 		815F93CD2423C46500893DEC /* CardSaverSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSaverSpy.swift; sourceTree = "<group>"; };
@@ -561,6 +563,8 @@
 				C0EC9FC024229121004C3526 /* APIResponses.swift */,
 				81F6982324211CDB00258920 /* Card.swift */,
 				81F6982124211CC300258920 /* CardSet.swift */,
+				8131F197242BA90B005F765C /* RealmCard.swift */,
+				8131F19A242BA938005F765C /* RealmCardSet.swift */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -582,7 +586,6 @@
 				C04072CB241C2E07005F9B97 /* Service.swift */,
 				C054029D2422B376004F3629 /* ShowCardDetailDelegate.swift */,
 				C04072B9241C0D02005F9B97 /* ViewCode.swift */,
-				8131F10524290782005F765C /* Copyable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -1069,7 +1072,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C04072CC241C2E07005F9B97 /* Service.swift in Sources */,
-				8131F10624290782005F765C /* Copyable.swift in Sources */,
 				C04072C0241C0EA2005F9B97 /* CardListScreen.swift in Sources */,
 				C061372224200DE200B75034 /* Endpoint.swift in Sources */,
 				C040729E241C01E1005F9B97 /* AppCoordinator.swift in Sources */,
@@ -1077,6 +1079,7 @@
 				C0BD8FDA242A9C9300F5C35E /* Reachability.swift in Sources */,
 				C04072C8241C1412005F9B97 /* CardListViewModel.swift in Sources */,
 				C04072D5241C3FF6005F9B97 /* CardTypeHeaderCell.swift in Sources */,
+				8131F198242BA90B005F765C /* RealmCard.swift in Sources */,
 				C04072BC241C0E57005F9B97 /* FavoriteButton.swift in Sources */,
 				1D175A0924212BF60037E4B9 /* UIKit+Extensions.swift in Sources */,
 				81F6982224211CC300258920 /* CardSet.swift in Sources */,
@@ -1087,6 +1090,7 @@
 				C04072A0241C01ED005F9B97 /* HomeCoordinator.swift in Sources */,
 				1D175A322423D2780037E4B9 /* ErrorView.swift in Sources */,
 				C04072A4241C0236005F9B97 /* Coordinator.swift in Sources */,
+				8131F19B242BA938005F765C /* RealmCardSet.swift in Sources */,
 				C03D30C7241BFC0F0089B070 /* AppDelegate.swift in Sources */,
 				1D175A1B242273FE0037E4B9 /* CardDetailDataSource.swift in Sources */,
 				C054029E2422B376004F3629 /* ShowCardDetailDelegate.swift in Sources */,

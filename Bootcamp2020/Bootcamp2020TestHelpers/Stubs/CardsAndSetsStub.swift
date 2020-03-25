@@ -12,9 +12,7 @@ import Foundation
 
 class CardsAndSetsStub {
     lazy var fetchByNameCards: CardsResponse = {
-        let card = Card()
-        card.id = "1"
-        card.name = "Abomination of Gudul"
+        let card = Card(id: "1", name: "Abomination of Gudul", cardSetID: "1")
         
         return CardsResponse(cards: [card])
     }()

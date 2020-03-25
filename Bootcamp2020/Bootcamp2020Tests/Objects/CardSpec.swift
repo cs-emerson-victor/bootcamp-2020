@@ -16,9 +16,9 @@ final class CardSpec: QuickSpec {
         describe("Card") {
             var sut: Card!
             
-            it("should have 'id' as primary key") {
-                expect(Card.primaryKey()).to(equal("id"))
-            }
+//            it("should have 'id' as primary key") {
+//                expect(Card.primaryKey()).to(equal("id"))
+//            }
             
             context("when it's initialized") {
                 beforeEach {
@@ -38,20 +38,6 @@ final class CardSpec: QuickSpec {
                     expect(sut.cardSetID).to(equal("0"))
                     expect(sut.isFavorite).to(beFalse())
                     expect(sut.types).to(beEmpty())
-                }
-            }
-            
-            context("when it's copied") {
-                it("should return an object with the same values") {
-                    let copy = sut.createCopy()
-                    
-                    expect(copy.id).to(equal(sut.id))
-                    expect(copy.name).to(equal(sut.name))
-                    expect(copy.imageURL).to(beNil())
-                    expect(copy.imageData).to(beNil())
-                    expect(copy.cardSetID).to(equal(sut.cardSetID))
-                    expect(copy.isFavorite).to(equal(sut.isFavorite))
-                    expect(Array(copy.types)).to(equal(Array(sut.types)))
                 }
             }
         }
