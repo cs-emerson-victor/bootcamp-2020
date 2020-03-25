@@ -8,22 +8,26 @@
 
 import UIKit
 
+protocol CardListDelegateProtocol: AnyObject {
+    func didSelectItem(at indexPath: IndexPath)
+    func didScroll()
+    func getCellType(forItemAt indexPath: IndexPath) -> CellType
+}
+
 final class CardListDelegate: NSObject {
     
-    var didSelectItemAt: ((_ item: IndexPath) -> Void)?
-    var didScroll: (() -> Void)?
-    
-    fileprivate var cellAspectRatio: CGFloat = 85/118
+    weak var delegateProtocol: CardListDelegateProtocol?
+    fileprivate var cardCellAspectRatio: CGFloat = 85/118
 }
 
 extension CardListDelegate: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        didSelectItemAt?(indexPath)
+        delegateProtocol?.didSelectItem(at: indexPath)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        didScroll?()
+        delegateProtocol?.didScroll()
     }
 }
 
@@ -31,10 +35,23 @@ extension CardListDelegate: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        // Width for 3 items per row, which is (screen size - spaces)/3
-        let width = (UIScreen.main.bounds.width - (16 * 4)) / 3 - 1
-        let height = width / cellAspectRatio
-        return CGSize(width: width, height: height)
+        guard let cellType = delegateProtocol?.getCellType(forItemAt: indexPath) else {
+            return .zero
+        }
+        let insets = self.collectionView(collectionView, layout: collectionViewLayout, insetForSectionAt: indexPath.section)
+        
+        switch cellType {
+        case .card:
+            // Width for 3 items per row, which is (screen size - spaces)/3
+            let numberOfItemsPerRow: CGFloat = 3
+            let minimumInteritemSpacing = self.collectionView(collectionView, layout: collectionViewLayout, minimumInteritemSpacingForSectionAt: indexPath.section)
+            let totalSpacing = minimumInteritemSpacing * (numberOfItemsPerRow - 1) + insets.left + insets.right
+            let width = (UIScreen.main.bounds.width - totalSpacing) / 3 - 1
+            let height = width / cardCellAspectRatio
+            return CGSize(width: width, height: height)
+        case .typeHeader:
+            return CGSize(width: collectionView.frame.width - insets.left - insets.right, height: 17)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
