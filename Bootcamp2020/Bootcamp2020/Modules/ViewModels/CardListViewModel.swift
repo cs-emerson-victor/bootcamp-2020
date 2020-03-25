@@ -51,7 +51,7 @@ extension CardListViewModel {
     }
     
     func cellType(for indexPath: IndexPath) -> CellType {
-        let card = cardSets[indexPath.section].cards[indexPath.row]
+        let card = loadedCardSets[indexPath.section].cards[indexPath.row]
         
         return .card(CardCellViewModel(card: card))
     }
