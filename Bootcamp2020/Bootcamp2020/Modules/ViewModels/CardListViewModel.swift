@@ -69,7 +69,6 @@ extension CardListViewModel {
 }
 
 // MARK: - Search bar
-
 extension CardListViewModel {
     func didEnterSearchText(_ text: String) {
         delegate?.didEnterSearchText(text)
@@ -77,5 +76,25 @@ extension CardListViewModel {
     
     func didCancelSearch() {
         delegate?.didCancelSearch()
+    }
+}
+
+// MARK: - DataSourceProtocol
+extension CardListViewModel: CardListDataSourceProtocol {
+    var numberOfSections: Int {
+        return cardSets.count
+    }
+    
+    func numberOfItems(in section: Int) -> Int {
+        return cardSets[section].cards.count
+    }
+    
+    func getCellType(forItemAt indexPath: IndexPath) -> CellType {
+        let cellVM = cellViewModel(for: indexPath)
+        return .card(cellVM)
+    }
+    
+    func getSetHeaderName(in section: Int) -> String {
+        return cardSets[section].name
     }
 }

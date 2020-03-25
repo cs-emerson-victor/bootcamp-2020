@@ -124,7 +124,7 @@ final class CardListScreenSpec: QuickSpec {
                 }
                 
                 context("of success state") {
-                    it("should pass the card sets and cell function to the data source") {
+                    it("should pass the dataSource protocol") {
                         
                         // Arrange
                         let cardSets = CardSetStub().getEmptySets()
@@ -134,8 +134,7 @@ final class CardListScreenSpec: QuickSpec {
                         sut.bind(to: viewModel)
                         
                         // Assert
-                        expect(dataSource.getViewModel).toNot(beNil())
-                        expect(dataSource.sets).to(equal(cardSets))
+                        expect(dataSource.dataSourceProtocol).toNot(beNil())
                     }
                     
                     it("should pass the selection function ") {
