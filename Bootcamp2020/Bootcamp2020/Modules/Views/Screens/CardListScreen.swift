@@ -41,9 +41,11 @@ class CardListScreen: UIView {
         return view
     }()
     
-    private let backgroundImageView: UIImageView = {
-        let view = UIImageView(image: UIImage(named: "backgroundImage"))
+    private let backgroundImageView: UIView = {
+        let view = UIView(frame: .zero)
         view.accessibilityLabel = "backgroundImageView"
+        view.backgroundColor = UIColor(red: 0.05, green: 0.05, blue: 0.05, alpha: 1.00)
+
         return view
     }()
     
