@@ -24,12 +24,7 @@ final class CardSet {
         
         self.cards.forEach { (card) in
             card.types.forEach { (type) in
-                
-                if var cardsOfType = cardsByType[type] {
-                    cardsOfType.append(card)
-                } else {
-                    cardsByType[type] = [card]
-                }
+                cardsByType[type, default: []].append(card)
             }
         }
         
