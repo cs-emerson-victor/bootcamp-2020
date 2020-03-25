@@ -42,12 +42,15 @@ final class RealmManagerSpec: QuickSpec {
                 var card: Card!
 
                 beforeEach {
-                    cardSet = CardSet(id: "0", name: "CardSet1")
                     card = Card(id: "0", name: "Card1", cardSetID: "0")
-                    cardSet.cards.append(card)
-
+                    cardSet = CardSet(id: "0", name: "CardSet1", cards: [card])
+                    
+                    let realmSet = RealmCardSet(set: cardSet)
+                    let realmCard = RealmCard(card: card)
+                    
                     try! sut.realm.write {
-                        sut.realm.add(RealmCardSet(set: cardSet))
+                        sut.realm.add(realmSet)
+                        realmSet.cards.append(realmCard)
                     }
                 }
 

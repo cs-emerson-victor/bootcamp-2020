@@ -19,9 +19,6 @@ final class RealmCardSet: Object {
         self.id = set.id
         self.name = set.name
         self.releaseDate = set.releaseDate
-        set.cards.forEach { (card) in
-            self.cards.append(RealmCard(card: card))
-        }
     }
     
     override static func primaryKey() -> String? {

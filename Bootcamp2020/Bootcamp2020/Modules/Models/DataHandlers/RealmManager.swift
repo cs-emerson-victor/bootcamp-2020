@@ -50,12 +50,16 @@ extension RealmManager {
     
     private func save(_ card: Card, of set: CardSet) -> Error? {
         do {
-            let realmCard = RealmCard(card: card)
+            if realm.object(ofType: RealmCard.self, forPrimaryKey: card.id) != nil {
+                return nil
+            }
             
+            let realmCard = RealmCard(card: card)
             if let realmSet = realm.object(ofType: RealmCardSet.self, forPrimaryKey: set.id) {
                 try realm.write {
                     realmSet.cards.append(realmCard)
                 }
+                
             } else {
                 let realmSet = RealmCardSet(set: set)
                 try realm.write {

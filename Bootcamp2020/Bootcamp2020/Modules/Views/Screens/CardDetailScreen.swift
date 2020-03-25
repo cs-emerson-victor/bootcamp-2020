@@ -66,12 +66,6 @@ class CardDetailScreen: UIView {
     
     // MARK: - Methods -
     func bind(to viewModel: CardDetailViewModel) {
-        
-        guard viewModel.cards.count > 0 else {
-            closeTapped(nil)
-            return
-        }
-        
         self.viewModel = viewModel
         
         currentIndexPath = viewModel.firstSelectedIndexPath
