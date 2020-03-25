@@ -110,7 +110,7 @@ class CardDetailScreen: UIView {
         viewModel.toggleCardFavorite(at: currentIndexPath)
     }
     
-    @objc func closeTapped(_ sender: UIButton) {
+    @objc func closeTapped(_ sender: UIButton?) {
         viewModel.dismissDetail()
     }
 }

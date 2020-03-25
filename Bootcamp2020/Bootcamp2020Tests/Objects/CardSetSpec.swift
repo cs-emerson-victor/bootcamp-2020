@@ -19,15 +19,12 @@ final class CardSetSpec: QuickSpec {
             
             beforeEach {
                 date = Date()
-                sut = CardSet(id: "0", name: "Set1", releaseDate: date, cards: [])
-            }
-            
-            it("should have 'id' as primary key") {
-                expect(CardSet.primaryKey()).to(equal("id"))
             }
             
             context("when it's initialized") {
                 it("should have the given values") {
+                    sut = CardSet(id: "0", name: "Set1", releaseDate: date, cards: [])
+                    
                     expect(sut.id).to(equal("0"))
                     expect(sut.name).to(equal("Set1"))
                     expect(sut.releaseDate).to(equal(date))
@@ -35,15 +32,19 @@ final class CardSetSpec: QuickSpec {
                 }
             }
             
-            context("when it's copied") {
-                it("should return an object with the same values") {
-                    let copy = sut.createCopy()
-                    
-                    expect(copy.id).to(equal(sut.id))
-                    expect(copy.name).to(equal(sut.name))
-                    expect(copy.releaseDate).to(equal(sut.releaseDate))
-                    expect(copy.cards).to(beEmpty())
-                }
+            it("should have the object values") {
+                let realmSet = RealmCardSet()
+                realmSet.id = "0"
+                realmSet.name = "Set1"
+                realmSet.releaseDate = date
+                
+                
+                sut = CardSet(set: realmSet)
+                
+                expect(sut.id).to(equal("0"))
+                expect(sut.name).to(equal("Set1"))
+                expect(sut.releaseDate).to(equal(date))
+                expect(sut.cards).to(beEmpty())
             }
         }
     }

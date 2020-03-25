@@ -60,7 +60,7 @@ final class CardListViewControllerSpec: QuickSpec {
             
             context("when fetching cards for set") {
                 var set: CardSet!
-                var cards: List<Card>!
+                var cards: [Card]!
                 
                 beforeEach {
                     set = service.fetchedSets[0]
@@ -87,7 +87,7 @@ final class CardListViewControllerSpec: QuickSpec {
                     set.cards.removeAll()
                     sut.fetchCardsForSet(set)
                     
-                    expect(set.cards).to(equal(cards))
+                    expect(set.cards).to(equal([]))
                 }
             }
             
@@ -154,7 +154,7 @@ final class CardListViewControllerSpec: QuickSpec {
                     
                     // Act
                     let allCards = sets.reduce([]) { (all, set) -> [Card] in
-                        return all + Array(set.cards)
+                        return all + set.cards
                     }
                     let cardsBySetId = sut.cardsBySetId(allCards)
                     
