@@ -21,6 +21,9 @@ enum ErrorType: Equatable {
     
     /// Inform that the user search was empty.
     case emptySearch(_ searchedText: String)
+    
+    /// When card list is empty
+    case emptyList
 }
 
 extension ErrorType {
@@ -35,12 +38,14 @@ extension ErrorType {
             return "Ops, an error occurred. Please try again later."
         case .noInternet:
             return "It looks like you're not connected to the internet. Please connect and try again."
+        case .emptyList:
+            return "You don't have any favorite cards yet.\nHow about adding some?"
         }
     }
     
     var image: UIImage {
         switch self {
-        case .api, .generic:
+        case .api, .generic, .emptyList:
             return #imageLiteral(resourceName: "error")
         case .noInternet:
             return #imageLiteral(resourceName: "internetError")
