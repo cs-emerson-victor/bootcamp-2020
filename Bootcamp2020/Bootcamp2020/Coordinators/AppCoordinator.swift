@@ -25,7 +25,7 @@ class AppCoordinator: Coordinator {
         self.presenter = presenter
         self.rootController = rootController
         rootController.isNavigationBarHidden = true
-        self.tabBar = UITabBarController()
+        self.tabBar = TabBarController()
         self.localService = localService
         self.networkService = networkService
         self.childCoordinators = []
@@ -38,7 +38,7 @@ class AppCoordinator: Coordinator {
         self.presenter = presenter
         self.rootController = rootController
         rootController.isNavigationBarHidden = true
-        self.tabBar = UITabBarController()
+        self.tabBar = TabBarController()
         self.networkService = networkService
         self.childCoordinators = []
         do {

@@ -33,9 +33,11 @@ class CardDetailScreen: UIView {
         return view
     }()
     
-    private let detailBackgroundImageView: UIImageView = {
-        let view = UIImageView(image: UIImage(named: "backgroundImage"))
+    private let detailBackgroundImageView: UIView = {
+        let view = UIView(frame: .zero)
         view.accessibilityLabel = "detailBackgroundImageView"
+        view.backgroundColor = UIColor(red: 0.05, green: 0.05, blue: 0.05, alpha: 1.00)
+
         return view
     }()
     
@@ -109,7 +111,7 @@ class CardDetailScreen: UIView {
         viewModel.toggleCardFavorite(at: currentIndexPath)
     }
     
-    @objc func closeTapped(_ sender: UIButton) {
+    @objc func closeTapped(_ sender: UIButton?) {
         viewModel.dismissDetail()
     }
 }

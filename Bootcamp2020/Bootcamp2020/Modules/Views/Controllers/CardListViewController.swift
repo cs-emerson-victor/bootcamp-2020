@@ -80,12 +80,17 @@ final class CardListViewController: UIViewController {
                 
                 switch result {
                 case .success(let cardSets):
-                    self.listScreen.bind(to: CardListViewModel(state: .success(cardSets), delegate: self))
+                    self.sets = self.sortSets(cardSets)
+                    self.listScreen.bind(to: CardListViewModel(state: .success(self.sets), delegate: self))
                 case .failure:
                     self.listScreen.bind(to: CardListViewModel(state: .error(.generic), delegate: self))
                 }
             }
         }
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+          return .lightContent
     }
     
     // MARK: Other methods
@@ -94,15 +99,16 @@ final class CardListViewController: UIViewController {
             self.listScreen.bind(to: CardListViewModel(state: .success(self.sets), delegate: self))
             return
         }
-        listScreen.bind(to: CardListViewModel(state: .loading(sets), delegate: self))
+        
+        if !listScreen.isInitialLoading {
+            listScreen.bind(to: CardListViewModel(state: .loading(sets), delegate: self))
+        }
         
         service.fetchCards(ofSet: set) { [weak self, weak set] result in
             guard let `self` = self else { return }
             switch result {
             case .success(let cards):
-                let sortedCards = cards.sorted(by: { $0.name < $1.name })
-                
-                set?.cards.append(objectsIn: sortedCards)
+                set?.cards.append(contentsOf: cards)
                 self.listScreen.bind(to: CardListViewModel(state: .success(self.sets), delegate: self))
             case .failure(let error):
                 self.handleError(error)

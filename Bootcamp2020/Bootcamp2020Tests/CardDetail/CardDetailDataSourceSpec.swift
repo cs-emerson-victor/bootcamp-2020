@@ -23,7 +23,7 @@ final class CardDetailDataSourceSpec: QuickSpec {
         beforeEach {
             viewModelHandler = { indexPath in
                 selectedIndexPath = indexPath
-                return CardCellViewModel(card: Card())
+                return CardCellViewModel(card: Card(id: "", name: "", cardSetID: ""))
             }
             
             cards = CardSetStub().getCardsOfSet(CardSet(id: "1", name: "Set 1"))
