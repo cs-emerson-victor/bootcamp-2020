@@ -137,7 +137,7 @@ final class CardListScreenSpec: QuickSpec {
                         expect(dataSource.dataSourceProtocol).toNot(beNil())
                     }
                     
-                    it("should pass the selection function ") {
+                    it("should pass the delegate protocol") {
                         
                         // Arrange
                         let cardSets = CardSetStub().getEmptySets()
@@ -147,7 +147,7 @@ final class CardListScreenSpec: QuickSpec {
                         sut.bind(to: viewModel)
                         
                         // Assert
-                        expect(delegate.didSelectItemAt).toNot(beNil())
+                        expect(delegate.delegateProtocol).toNot(beNil())
                     }
                 }
             }
