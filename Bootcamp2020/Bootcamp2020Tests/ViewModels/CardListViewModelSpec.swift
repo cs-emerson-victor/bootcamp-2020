@@ -21,7 +21,7 @@ final class CardListViewModelSpec: QuickSpec {
             
             beforeEach {
                 delegate = CardListViewModelDelegateSpy()
-                cards = [Card(id: "0", name: "Card1", cardSetID: "0")]
+                cards = [Card(id: "0", name: "Card1", cardSetID: "0", types: ["Creature"])]
                 cardSets = [CardSet(id: "0", name: "Set1", cards: cards)]
             }
             
@@ -49,7 +49,7 @@ final class CardListViewModelSpec: QuickSpec {
                 }
                 
                 it("should return a viewModel with the correct card") {
-                    let type = sut.cellType(for: IndexPath(row: 0, section: 0))
+                    let type = sut.cellType(for: IndexPath(row: 1, section: 0))
                     if case CellType.card(let viewModel) = type {
                         expect(viewModel.card.id).to(equal("0"))
                     } else {
