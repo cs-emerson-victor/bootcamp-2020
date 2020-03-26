@@ -71,8 +71,11 @@ extension CardListViewModel {
     }
     
     func didSelectCell(at indexPath: IndexPath) {
-        let set = loadedCardSets[indexPath.section]
-        delegate?.didSelect(set.cards[indexPath.row], of: set)
+        let cellTypeSet = cellTypes[indexPath.section]
+        guard case let CellType.card(viewModel) = cellTypeSet[indexPath.item] else {
+            return
+        }
+        delegate?.didSelect(viewModel.card, of: loadedCardSets[indexPath.section])
     }
 }
 
