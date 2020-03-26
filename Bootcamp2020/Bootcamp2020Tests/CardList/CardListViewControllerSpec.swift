@@ -150,7 +150,6 @@ final class CardListViewControllerSpec: QuickSpec {
             }
             
             context("when converting list of cards in dictionary with set id") {
-               // TODO: Check this implementation
                 it("should return the correct sets") {
                     // Arrange
                     let sets = CardSetStub().getFullSets()
@@ -180,6 +179,46 @@ final class CardListViewControllerSpec: QuickSpec {
                     // Assert
                     expect(setsCopies.map { $0.id }).to(equal(sets.map { $0.id }))
                     expect(setsCopies.map { $0.name }).to(equal(sets.map { $0.name }))
+                }
+            }
+            
+            context("when handling view model delegate actions") {
+                context("should set screen state") {
+                    it("to initial loading") {
+                        sut.didSet(.initialLoading)
+                        
+                        expect(screen.viewModel.state).to(equal(.initialLoading))
+                    }
+                    
+                    it("to loading") {
+                        sut.didSet(.loading([]))
+                        
+                        expect(screen.viewModel.state).to(equal(.loading([])))
+                    }
+                    
+                    it("to success") {
+                        sut.didSet(.success([]))
+                        
+                        expect(screen.viewModel.state).to(equal(.success([])))
+                    }
+                    
+                    it("to error") {
+                        sut.didSet(.error(.generic))
+                        
+                        expect(screen.viewModel.state).to(equal(.error(.generic)))
+                    }
+                    
+                    it("to searching") {
+                        sut.didSet(.searching)
+                        
+                        expect(screen.viewModel.state).to(equal(.searching))
+                    }
+                    
+                    it("to search success") {
+                        sut.didSet(.searchSuccess([]))
+                        
+                        expect(screen.viewModel.state).to(equal(.searchSuccess([])))
+                    }
                 }
             }
         }
