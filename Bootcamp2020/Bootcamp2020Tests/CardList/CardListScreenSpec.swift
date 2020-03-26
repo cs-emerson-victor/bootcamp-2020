@@ -18,12 +18,14 @@ final class CardListScreenSpec: QuickSpec {
         
         var dataSource: CardListDataSource!
         var delegate: CardListDelegate!
+        var viewModelDelegate: CardListViewModelDelegateDummy!
         var sut: CardListScreen!
         
         beforeEach {
             
             dataSource = CardListDataSource()
             delegate = CardListDelegate()
+            viewModelDelegate = CardListViewModelDelegateDummy()
             sut = CardListScreen(dataSource: dataSource, delegate: delegate)
         }
         
@@ -31,6 +33,7 @@ final class CardListScreenSpec: QuickSpec {
             sut = nil
             dataSource = nil
             delegate = nil
+            viewModelDelegate = nil
         }
         
         describe("CardListScreen") {
@@ -94,7 +97,7 @@ final class CardListScreenSpec: QuickSpec {
                         }
                         
                         // Act
-                        let viewModel = CardListViewModel(state: .initialLoading, delegate: CardListViewModelDelegateDummy())
+                        let viewModel = CardListViewModel(state: .initialLoading, delegate: viewModelDelegate)
                         sut.bind(to: viewModel)
                         
                         // Assert
@@ -106,7 +109,7 @@ final class CardListScreenSpec: QuickSpec {
                     it("should display the error view") {
                         
                         // Act
-                        let viewModel = CardListViewModel(state: .error(.generic), delegate: CardListViewModelDelegateDummy())
+                        let viewModel = CardListViewModel(state: .error(.generic), delegate: viewModelDelegate)
                         sut.bind(to: viewModel)
                         
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
@@ -130,7 +133,7 @@ final class CardListScreenSpec: QuickSpec {
                         let cardSets = CardSetStub().getEmptySets()
                         
                         // Act
-                        let viewModel = CardListViewModel(state: .success(cardSets), delegate: CardListViewModelDelegateDummy())
+                        let viewModel = CardListViewModel(state: .success(cardSets), delegate: viewModelDelegate)
                         sut.bind(to: viewModel)
                         
                         // Assert
@@ -143,12 +146,151 @@ final class CardListScreenSpec: QuickSpec {
                         let cardSets = CardSetStub().getEmptySets()
                         
                         // Act
-                        let viewModel = CardListViewModel(state: .success(cardSets), delegate: CardListViewModelDelegateDummy())
+                        let viewModel = CardListViewModel(state: .success(cardSets), delegate: viewModelDelegate)
                         sut.bind(to: viewModel)
                         
                         // Assert
                         expect(delegate.delegateProtocol).toNot(beNil())
                     }
+                }
+            }
+            
+            context("when checking loading state") {
+                var viewModel: CardListViewModel!
+                
+                afterEach {
+                    viewModel = nil
+                }
+                
+                it("should return true if state is loading") {
+                    viewModel = CardListViewModel(state: .loading([]), delegate: viewModelDelegate)
+                    
+                    sut.bind(to: viewModel)
+                    
+                    expect(sut.isLoading).to(beTrue())
+                }
+                
+                it("should return true if state is searching") {
+                    viewModel = CardListViewModel(state: .searching, delegate: viewModelDelegate)
+                    
+                    sut.bind(to: viewModel)
+                    
+                    expect(sut.isLoading).to(beTrue())
+                }
+                
+                it("should return true if state is initialLoading") {
+                    viewModel = CardListViewModel(state: .initialLoading, delegate: viewModelDelegate)
+                    
+                    sut.bind(to: viewModel)
+                   
+                    expect(sut.isInitialLoading).to(beTrue())
+                }
+                
+                it("should return false if state is error") {
+                    viewModel = CardListViewModel(state: .error(.generic), delegate: viewModelDelegate)
+                    
+                    sut.bind(to: viewModel)
+                    
+                    expect(sut.isLoading).to(beFalse())
+                    expect(sut.isInitialLoading).to(beFalse())
+                }
+                
+                it("should return false if state is success") {
+                    viewModel = CardListViewModel(state: .success([]), delegate: viewModelDelegate)
+                   
+                    sut.bind(to: viewModel)
+                   
+                    expect(sut.isLoading).to(beFalse())
+                    expect(sut.isInitialLoading).to(beFalse())
+                }
+                
+                it("should return false if state is success") {
+                    viewModel = CardListViewModel(state: .searchSuccess([]), delegate: viewModelDelegate)
+                   
+                    sut.bind(to: viewModel)
+                   
+                    expect(sut.isLoading).to(beFalse())
+                    expect(sut.isInitialLoading).to(beFalse())
+                }
+                
+                it("should return false if view model is nil") {
+                    expect(sut.isLoading).to(beFalse())
+                    expect(sut.isInitialLoading).to(beFalse())
+                }
+            }
+        }
+        
+        context("when binding view model") {
+            var viewModel: CardListViewModel!
+            
+            afterEach {
+                viewModel = nil
+            }
+            
+            it("should change to initial loading state") {
+                viewModel = CardListViewModel(state: .initialLoading, delegate: viewModelDelegate)
+                
+                sut.bind(to: viewModel)
+                
+                DispatchQueue.main.async {
+                    expect(sut.searchBar.isUserInteractionEnabled).to(beFalse())
+                    expect(sut.activityIndicator.isAnimating).to(beTrue())
+                }
+            }
+            
+            it("should change to loading state") {
+                viewModel = CardListViewModel(state: .initialLoading, delegate: viewModelDelegate)
+                
+                sut.bind(to: viewModel)
+                
+                DispatchQueue.main.async {
+                    expect(sut.activityIndicator.isAnimating).to(beTrue())
+                    expect(sut.errorView.superview).to(beNil())
+                }
+            }
+            
+            it("should change to success state") {
+                viewModel = CardListViewModel(state: .success([]), delegate: viewModelDelegate)
+                
+                sut.bind(to: viewModel)
+                
+                DispatchQueue.main.async {
+                    expect(sut.searchBar.isUserInteractionEnabled).to(beTrue())
+                    expect(sut.errorView.superview).to(beNil())
+                    expect(sut.activityIndicator.isAnimating).to(beFalse())
+                }
+            }
+            
+            it("should change to search success state") {
+                viewModel = CardListViewModel(state: .searchSuccess([]), delegate: viewModelDelegate)
+                
+                sut.bind(to: viewModel)
+                
+                DispatchQueue.main.async {
+                    expect(sut.errorView.superview).to(beNil())
+                    expect(sut.activityIndicator.isAnimating).to(beFalse())
+                }
+            }
+            
+            it("should change to searching") {
+                viewModel = CardListViewModel(state: .searching, delegate: viewModelDelegate)
+                
+                sut.bind(to: viewModel)
+                
+                DispatchQueue.main.async {
+                    expect(sut.errorView.superview).to(beNil())
+                    expect(sut.activityIndicator.isAnimating).to(beTrue())
+                }
+            }
+            
+            it("should change to error") {
+                viewModel = CardListViewModel(state: .error(.generic), delegate: viewModelDelegate)
+                
+                sut.bind(to: viewModel)
+                
+                DispatchQueue.main.async {
+                    expect(sut.errorView.superview).to(be(sut))
+                    expect(sut.activityIndicator.isAnimating).to(beFalse())
                 }
             }
         }

@@ -20,6 +20,12 @@ final class NetworkServiceStub: Service {
     
     func fetchCards(withName name: String, completion: @escaping (Result<[Card], ServiceError>) -> Void) {
         
+        if name.isEmpty {
+            completion(.success([]))
+        } else {
+            let card = Card(id: "0", name: name, cardSetID: "0")
+            completion(.success([card]))
+        }
     }
     
     func fetchCards(ofSet cardSet: CardSet, completion: @escaping (Result<[Card], ServiceError>) -> Void) {
