@@ -236,6 +236,16 @@ final class CardListViewControllerSpec: QuickSpec {
                         expect(detailDelegate.selectedCardId).to(equal(card.id))
                     }
                 }
+                
+                context("did prefetch set") {
+                    it("should fetch cards of set") {
+                        let set = CardSet(id: "0", name: "Set 0")
+                        
+                        sut.prefetchSet(set)
+                        
+                        expect(set.cards).toNot(beEmpty())
+                    }
+                }
             }
         }
     }
