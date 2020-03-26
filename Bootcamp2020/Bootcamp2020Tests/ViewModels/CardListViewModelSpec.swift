@@ -57,7 +57,14 @@ final class CardListViewModelSpec: QuickSpec {
                     }
                 }
                 
-                // TODO: Test type header cell
+                it("should return a viewModel with the correct type header") {
+                    let type = sut.cellType(for: IndexPath(row: 0, section: 0))
+                    if case let CellType.typeHeader(title) = type {
+                        expect(title).to(equal(cardSets[0].types[0]))
+                    } else {
+                        Nimble.fail("Card cell type wrong")
+                    }
+                }
             }
             
             context("when selecting a card") {
