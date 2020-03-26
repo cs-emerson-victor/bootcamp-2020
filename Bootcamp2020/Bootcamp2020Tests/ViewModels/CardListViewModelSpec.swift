@@ -66,7 +66,7 @@ final class CardListViewModelSpec: QuickSpec {
                 }
                 
                 it("it should call delegate didSelect function") {
-                    sut.didSelectCell(at: IndexPath(row: 0, section: 0))
+                    sut.didSelectCell(at: IndexPath(row: 1, section: 0))
                     
                     expect(delegate.didSelectCard).to(beTrue())
                     expect(delegate.selectedCard).to(beIdenticalTo(cards[0]))
