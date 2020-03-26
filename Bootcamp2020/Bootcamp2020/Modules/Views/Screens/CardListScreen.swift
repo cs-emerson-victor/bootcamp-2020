@@ -23,7 +23,7 @@ class CardListScreen: UIView {
         return view
     }()
     
-    private lazy var searchBar: UISearchBar = {
+    internal lazy var searchBar: UISearchBar = {
         let view = UISearchBar()
         view.accessibilityLabel = "listSearchBar"
         view.isUserInteractionEnabled = false
@@ -57,14 +57,14 @@ class CardListScreen: UIView {
         return view
     }()
     
-    private let activityIndicator: UIActivityIndicatorView = {
+    internal let activityIndicator: UIActivityIndicatorView = {
         let view = UIActivityIndicatorView(style: .whiteLarge)
         view.accessibilityLabel = "activityIndicator"
         view.hidesWhenStopped = true
         return view
     }()
     
-    private let errorView: ErrorView = {
+    internal let errorView: ErrorView = {
         let view = ErrorView()
         view.accessibilityLabel = "listErrorView"
         return view
