@@ -46,7 +46,7 @@ extension CardListDelegate: UICollectionViewDelegateFlowLayout {
             let numberOfItemsPerRow: CGFloat = 3
             let minimumInteritemSpacing = self.collectionView(collectionView, layout: collectionViewLayout, minimumInteritemSpacingForSectionAt: indexPath.section)
             let totalSpacing = minimumInteritemSpacing * (numberOfItemsPerRow - 1) + insets.left + insets.right
-            let width = (UIScreen.main.bounds.width - totalSpacing) / 3 - 1
+            let width = (collectionView.frame.width - totalSpacing) / 3 - 0.1
             let height = width / cardCellAspectRatio
             return CGSize(width: width, height: height)
         case .typeHeader:

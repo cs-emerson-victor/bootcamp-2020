@@ -30,6 +30,7 @@
 		1D175A2E2423C47A0037E4B9 /* CardListViewModelDelegateDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D175A2D2423C47A0037E4B9 /* CardListViewModelDelegateDummy.swift */; };
 		1D175A302423C7110037E4B9 /* CardCellSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D175A2F2423C7110037E4B9 /* CardCellSpec.swift */; };
 		1D175A322423D2780037E4B9 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D175A312423D2780037E4B9 /* ErrorView.swift */; };
+		1D8634B8242D142600EAEFB1 /* LeftAlignedFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8634B7242D142600EAEFB1 /* LeftAlignedFlowLayout.swift */; };
 		1DB5CA30242A7A6D001D409D /* ErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB5CA2F242A7A6D001D409D /* ErrorType.swift */; };
 		6312CC3D218214E03BA88F2E /* Pods_Bootcamp2020IntegrationTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E2BC5F018CBA7305A0EFF22 /* Pods_Bootcamp2020IntegrationTests.framework */; };
 		8119DFB8242BCAC90060E1FF /* RealmCardSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8119DFB7242BCAC90060E1FF /* RealmCardSpec.swift */; };
@@ -162,6 +163,7 @@
 		1D175A2D2423C47A0037E4B9 /* CardListViewModelDelegateDummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListViewModelDelegateDummy.swift; sourceTree = "<group>"; };
 		1D175A2F2423C7110037E4B9 /* CardCellSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCellSpec.swift; sourceTree = "<group>"; };
 		1D175A312423D2780037E4B9 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		1D8634B7242D142600EAEFB1 /* LeftAlignedFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftAlignedFlowLayout.swift; sourceTree = "<group>"; };
 		1DB5CA2F242A7A6D001D409D /* ErrorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorType.swift; sourceTree = "<group>"; };
 		495E1EFE3C9124919616B637 /* Pods_Bootcamp2020.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bootcamp2020.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E2BC5F018CBA7305A0EFF22 /* Pods_Bootcamp2020IntegrationTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bootcamp2020IntegrationTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -682,6 +684,7 @@
 				C04072D1241C3F78005F9B97 /* CardListDelegate.swift */,
 				1D175A1A242273FE0037E4B9 /* CardDetailDataSource.swift */,
 				1D175A1C242275300037E4B9 /* CardDetailDelegate.swift */,
+				1D8634B7242D142600EAEFB1 /* LeftAlignedFlowLayout.swift */,
 			);
 			path = CollectionView;
 			sourceTree = "<group>";
@@ -1113,6 +1116,7 @@
 				C040729E241C01E1005F9B97 /* AppCoordinator.swift in Sources */,
 				1D175A1D242275300037E4B9 /* CardDetailDelegate.swift in Sources */,
 				C0BD8FDA242A9C9300F5C35E /* Reachability.swift in Sources */,
+				1D8634B8242D142600EAEFB1 /* LeftAlignedFlowLayout.swift in Sources */,
 				C04072C8241C1412005F9B97 /* CardListViewModel.swift in Sources */,
 				C04072D5241C3FF6005F9B97 /* CardTypeHeaderCell.swift in Sources */,
 				8131F198242BA90B005F765C /* RealmCard.swift in Sources */,
