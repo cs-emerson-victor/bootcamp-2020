@@ -19,12 +19,14 @@ final class CardListViewControllerSpec: QuickSpec {
         var sut: CardListViewController!
         var screen: CardListScreen!
         var service: NetworkServiceStub!
+        var detailDelegate: ShowCardDetailDelegateSpy!
         
         beforeEach {
             
             screen = CardListScreen()
             service = NetworkServiceStub()
-            sut = CardListViewController(service: service, screen: screen)
+            detailDelegate = ShowCardDetailDelegateSpy()
+            sut = CardListViewController(service: service, screen: screen, detailDelegate: detailDelegate)
             
             _ = sut.view
         }
@@ -33,6 +35,7 @@ final class CardListViewControllerSpec: QuickSpec {
             
             screen = nil
             service = nil
+            detailDelegate = nil
             sut = nil
         }
         
@@ -85,7 +88,7 @@ final class CardListViewControllerSpec: QuickSpec {
                 }
                 
                 it("should not add cards if the state is loading") {
-                    let viewModel = CardListViewModel(state: .loading([]), delegate: CardListViewModelDelegateDummy())
+                    let viewModel = CardListViewModel(state: .loading([]), delegate: sut)
                     
                     screen.bind(to: viewModel)
                     set.cards.removeAll()
@@ -150,11 +153,10 @@ final class CardListViewControllerSpec: QuickSpec {
             }
             
             context("when converting list of cards in dictionary with set id") {
-               // TODO: Check this implementation
                 it("should return the correct sets") {
                     // Arrange
                     let sets = CardSetStub().getFullSets()
-                    let correctCardsBySetId = CardSetStub().getCardsBySetId(sets)
+                    let correctCardsBySetId = CardSetStub().getCardsBySetIdDict()
                     
                     // Act
                     let allCards = sets.reduce([]) { (all, set) -> [Card] in
@@ -168,11 +170,10 @@ final class CardListViewControllerSpec: QuickSpec {
             }
             
             context("when making copies of sets using a dictionary") {
-                // TODO: Check this implementation
                 it("should return the correct sets") {
                     // Arrange
                     let sets = CardSetStub().getFullSets()
-                    let dict = CardSetStub().getCardsBySetId(sets)
+                    let dict = CardSetStub().getCardsBySetIdDict()
                     
                     // Act
                     var setsCopies = sut.makeSetsCopies(withDictionaty: dict)
@@ -181,6 +182,98 @@ final class CardListViewControllerSpec: QuickSpec {
                     // Assert
                     expect(setsCopies.map { $0.id }).to(equal(sets.map { $0.id }))
                     expect(setsCopies.map { $0.name }).to(equal(sets.map { $0.name }))
+                }
+            }
+            
+            context("when handling view model delegate") {
+                context("set state") {
+                    it("should change screen state to initial loading") {
+                        sut.didSet(.initialLoading)
+                        
+                        expect(screen.viewModel.state).to(equal(.initialLoading))
+                    }
+                    
+                    it("should change screen state to loading") {
+                        sut.didSet(.loading([]))
+                        
+                        expect(screen.viewModel.state).to(equal(.loading([])))
+                    }
+                    
+                    it("should change screen state to success") {
+                        sut.didSet(.success([]))
+                        
+                        expect(screen.viewModel.state).to(equal(.success([])))
+                    }
+                    
+                    it("should change screen state to error") {
+                        sut.didSet(.error(.generic))
+                        
+                        expect(screen.viewModel.state).to(equal(.error(.generic)))
+                    }
+                    
+                    it("should change screen state to searching") {
+                        sut.didSet(.searching)
+                        
+                        expect(screen.viewModel.state).to(equal(.searching))
+                    }
+                    
+                    it("should change screen state to search success") {
+                        sut.didSet(.searchSuccess([]))
+                        
+                        expect(screen.viewModel.state).to(equal(.searchSuccess([])))
+                    }
+                }
+                
+                context("did select card ") {
+                    it("should show the selected set focusing on the correct card") {
+                        let set = CardSetStub().getFullSets().first!
+                        let card = set.cards.first!
+                        
+                        sut.didSelect(card, of: set)
+                        
+                        expect(detailDelegate.didShowCardSet).to(beTrue())
+                        expect(detailDelegate.showedCardSet).to(be(set))
+                        expect(detailDelegate.selectedCardId).to(equal(card.id))
+                    }
+                }
+                
+                context("did prefetch set") {
+                    it("should fetch cards of set") {
+                        let set = CardSet(id: "0", name: "Set 0")
+                        
+                        sut.prefetchSet(set)
+                        
+                        expect(set.cards).toNot(beEmpty())
+                    }
+                }
+                
+                context("did enter search text") {
+                    it("should search card with given text") {
+                        let name = "Card 0"
+                        
+                        sut.didEnterSearchText(name)
+                        
+                        if case .searchSuccess(let cards) = screen.viewModel.state {
+                            expect(cards).toNot(beEmpty())
+                        } else {
+                            Nimble.fail("Did not fetch card by name")
+                        }
+                    }
+                    
+                    it("should show empty search error when returns nothing") {
+                        sut.didEnterSearchText("")
+                        
+                        expect(screen.viewModel.state).to(equal(.error(.emptySearch(""))))
+                    }
+                }
+                
+                context("did cancel search") {
+                    it("should not change to search state") {
+                        sut.didEnterSearchText("Card 0")
+                        sut.didCancelSearch()
+                        
+                        expect(screen.viewModel.state).to(equal(.success(sut.sets)))
+                    }
                 }
             }
         }
