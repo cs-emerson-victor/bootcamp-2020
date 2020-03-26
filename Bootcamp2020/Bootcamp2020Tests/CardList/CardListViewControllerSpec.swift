@@ -266,6 +266,15 @@ final class CardListViewControllerSpec: QuickSpec {
                         expect(screen.viewModel.state).to(equal(.error(.emptySearch(""))))
                     }
                 }
+                
+                context("did cancel search") {
+                    it("should not change to search state") {
+                        sut.didEnterSearchText("Card 0")
+                        sut.didCancelSearch()
+                        
+                        expect(screen.viewModel.state).to(equal(.success(sut.sets)))
+                    }
+                }
             }
         }
     }
