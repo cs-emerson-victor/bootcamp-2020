@@ -15,7 +15,8 @@ class LeftAlignedFlowLayout: UICollectionViewFlowLayout {
 
         guard let flowLayoutDelegate = collectionView?.delegate as? UICollectionViewDelegateFlowLayout,
               let collectionView = collectionView,
-              let insets = flowLayoutDelegate.collectionView?(collectionView, layout: self, insetForSectionAt: 0) else {
+              let insets = flowLayoutDelegate.collectionView?(collectionView, layout: self, insetForSectionAt: 0),
+              let interitemSpacing = flowLayoutDelegate.collectionView?(collectionView, layout: self, minimumInteritemSpacingForSectionAt: 0) else {
             return attributes
         }
         var leftMargin = insets.left
@@ -31,7 +32,7 @@ class LeftAlignedFlowLayout: UICollectionViewFlowLayout {
 
             layoutAttribute.frame.origin.x = leftMargin
 
-            leftMargin += layoutAttribute.frame.width + minimumInteritemSpacing
+            leftMargin += layoutAttribute.frame.width + interitemSpacing
             maxY = max(layoutAttribute.frame.maxY, maxY)
         }
 
