@@ -194,6 +194,7 @@ final class CardListViewController: UIViewController {
     }
 }
 
+// MARK: - CardListViewModelDelegate
 extension CardListViewController: CardListViewModelDelegate {
     func didSet(_ state: CardListViewModel.UIState) {
         listScreen.bind(to: CardListViewModel(state: state, delegate: self))
