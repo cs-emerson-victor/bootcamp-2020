@@ -19,12 +19,14 @@ final class CardListViewControllerSpec: QuickSpec {
         var sut: CardListViewController!
         var screen: CardListScreen!
         var service: NetworkServiceStub!
+        var detailDelegate: ShowCardDetailDelegateSpy!
         
         beforeEach {
             
             screen = CardListScreen()
             service = NetworkServiceStub()
-            sut = CardListViewController(service: service, screen: screen)
+            detailDelegate = ShowCardDetailDelegateSpy()
+            sut = CardListViewController(service: service, screen: screen, detailDelegate: detailDelegate)
             
             _ = sut.view
         }
@@ -33,6 +35,7 @@ final class CardListViewControllerSpec: QuickSpec {
             
             screen = nil
             service = nil
+            detailDelegate = nil
             sut = nil
         }
         
@@ -85,7 +88,7 @@ final class CardListViewControllerSpec: QuickSpec {
                 }
                 
                 it("should not add cards if the state is loading") {
-                    let viewModel = CardListViewModel(state: .loading([]), delegate: CardListViewModelDelegateDummy())
+                    let viewModel = CardListViewModel(state: .loading([]), delegate: sut)
                     
                     screen.bind(to: viewModel)
                     set.cards.removeAll()
@@ -182,42 +185,55 @@ final class CardListViewControllerSpec: QuickSpec {
                 }
             }
             
-            context("when handling view model delegate actions") {
-                context("should set screen state") {
-                    it("to initial loading") {
+            context("when handling view model delegate") {
+                context("set state") {
+                    it("should change screen state to initial loading") {
                         sut.didSet(.initialLoading)
                         
                         expect(screen.viewModel.state).to(equal(.initialLoading))
                     }
                     
-                    it("to loading") {
+                    it("should change screen state to loading") {
                         sut.didSet(.loading([]))
                         
                         expect(screen.viewModel.state).to(equal(.loading([])))
                     }
                     
-                    it("to success") {
+                    it("should change screen state to success") {
                         sut.didSet(.success([]))
                         
                         expect(screen.viewModel.state).to(equal(.success([])))
                     }
                     
-                    it("to error") {
+                    it("should change screen state to error") {
                         sut.didSet(.error(.generic))
                         
                         expect(screen.viewModel.state).to(equal(.error(.generic)))
                     }
                     
-                    it("to searching") {
+                    it("should change screen state to searching") {
                         sut.didSet(.searching)
                         
                         expect(screen.viewModel.state).to(equal(.searching))
                     }
                     
-                    it("to search success") {
+                    it("should change screen state to search success") {
                         sut.didSet(.searchSuccess([]))
                         
                         expect(screen.viewModel.state).to(equal(.searchSuccess([])))
+                    }
+                }
+                
+                context("did select card ") {
+                    it("should show the selected set focusing on the correct card") {
+                        let set = CardSetStub().getFullSets().first!
+                        let card = set.cards.first!
+                        
+                        sut.didSelect(card, of: set)
+                        
+                        expect(detailDelegate.didShowCardSet).to(beTrue())
+                        expect(detailDelegate.showedCardSet).to(be(set))
+                        expect(detailDelegate.selectedCardId).to(equal(card.id))
                     }
                 }
             }
