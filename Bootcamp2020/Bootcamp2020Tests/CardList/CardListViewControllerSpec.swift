@@ -246,6 +246,26 @@ final class CardListViewControllerSpec: QuickSpec {
                         expect(set.cards).toNot(beEmpty())
                     }
                 }
+                
+                context("did enter search text") {
+                    it("should search card with given text") {
+                        let name = "Card 0"
+                        
+                        sut.didEnterSearchText(name)
+                        
+                        if case .searchSuccess(let cards) = screen.viewModel.state {
+                            expect(cards).toNot(beEmpty())
+                        } else {
+                            Nimble.fail("Did not fetch card by name")
+                        }
+                    }
+                    
+                    it("should show empty search error when returns nothing") {
+                        sut.didEnterSearchText("")
+                        
+                        expect(screen.viewModel.state).to(equal(.error(.emptySearch(""))))
+                    }
+                }
             }
         }
     }
