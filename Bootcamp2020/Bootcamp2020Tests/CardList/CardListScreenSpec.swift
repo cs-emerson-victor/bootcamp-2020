@@ -151,6 +151,64 @@ final class CardListScreenSpec: QuickSpec {
                     }
                 }
             }
+            
+            context("when checking loading state") {
+                it("should return true if state is loading") {
+                    let viewModel = CardListViewModel(state: .loading([]), delegate: CardListViewModelDelegateDummy())
+                    
+                    sut.bind(to: viewModel)
+                    
+                    expect(sut.isLoading).to(beTrue())
+                }
+                
+                it("should return true if state is searching") {
+                    let viewModel = CardListViewModel(state: .searching, delegate: CardListViewModelDelegateDummy())
+                    
+                    sut.bind(to: viewModel)
+                    
+                    expect(sut.isLoading).to(beTrue())
+                }
+                
+                it("should return true if state is initialLoading") {
+                    let viewModel = CardListViewModel(state: .initialLoading, delegate: CardListViewModelDelegateDummy())
+                    
+                    sut.bind(to: viewModel)
+                   
+                    expect(sut.isInitialLoading).to(beTrue())
+                }
+                
+                it("should return false if state is error") {
+                    let viewModel = CardListViewModel(state: .error(.generic), delegate: CardListViewModelDelegateDummy())
+                    
+                    sut.bind(to: viewModel)
+                    
+                    expect(sut.isLoading).to(beFalse())
+                    expect(sut.isInitialLoading).to(beFalse())
+                }
+                
+                it("should return false if state is success") {
+                    let viewModel = CardListViewModel(state: .success([]), delegate: CardListViewModelDelegateDummy())
+                   
+                    sut.bind(to: viewModel)
+                   
+                    expect(sut.isLoading).to(beFalse())
+                    expect(sut.isInitialLoading).to(beFalse())
+                }
+                
+                it("should return false if state is success") {
+                    let viewModel = CardListViewModel(state: .searchSuccess([]), delegate: CardListViewModelDelegateDummy())
+                   
+                    sut.bind(to: viewModel)
+                   
+                    expect(sut.isLoading).to(beFalse())
+                    expect(sut.isInitialLoading).to(beFalse())
+                }
+                
+                it("should return false if view model is nil") {
+                    expect(sut.isLoading).to(beFalse())
+                    expect(sut.isInitialLoading).to(beFalse())
+                }
+            }
         }
     }
 }
