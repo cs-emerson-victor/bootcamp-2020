@@ -154,7 +154,7 @@ final class CardListViewControllerSpec: QuickSpec {
                 it("should return the correct sets") {
                     // Arrange
                     let sets = CardSetStub().getFullSets()
-                    let correctCardsBySetId = CardSetStub().getCardsBySetId(sets)
+                    let correctCardsBySetId = CardSetStub().getCardsBySetIdDict()
                     
                     // Act
                     let allCards = sets.reduce([]) { (all, set) -> [Card] in
@@ -168,11 +168,10 @@ final class CardListViewControllerSpec: QuickSpec {
             }
             
             context("when making copies of sets using a dictionary") {
-                // TODO: Check this implementation
                 it("should return the correct sets") {
                     // Arrange
                     let sets = CardSetStub().getFullSets()
-                    let dict = CardSetStub().getCardsBySetId(sets)
+                    let dict = CardSetStub().getCardsBySetIdDict()
                     
                     // Act
                     var setsCopies = sut.makeSetsCopies(withDictionaty: dict)

@@ -43,19 +43,17 @@ final class CardSetStub {
         return cards
     }
     
-    func getCardsBySetId(_ sets: [CardSet]) -> [String: [Card]] {
+    func getCardsBySetIdDict() -> [String: [Card]] {
         var dict: [String: [Card]] = [:]
         
-        let allCards = sets.reduce([]) { (all, set) -> [Card] in
-            return all + set.cards
-        }
-        
-        for card in allCards {
-            if dict[card.cardSetID] == nil {
-                dict[card.cardSetID] = []
+        for setIndex in 0...10 {
+            var cards = [Card]()
+            
+            for cardIndex in 0...5 {
+                cards.append(Card(id: "\(setIndex)\(cardIndex)", name: "Card \(cardIndex) of set \(setIndex)", cardSetID: "\(setIndex)"))
             }
             
-            dict[card.cardSetID]?.append(card)
+            dict["\(setIndex)", default: []].append(contentsOf: cards)
         }
         
         return dict
