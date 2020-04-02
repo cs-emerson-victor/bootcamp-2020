@@ -315,6 +315,222 @@
 			path = CardDetail;
 			sourceTree = "<group>";
 		};
+		8100CB33243635F000F02FEF /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				8100CB51243641E600F02FEF /* Extensions */,
+				C0407295241BFF90005F9B97 /* Protocols */,
+			);
+			path = SupportFiles;
+			sourceTree = "<group>";
+		};
+		8100CB342436362F00F02FEF /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				8100CB482436389200F02FEF /* CardList */,
+				8100CB50243641C000F02FEF /* Data */,
+				8100CB33243635F000F02FEF /* SupportFiles */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		8100CB352436364700F02FEF /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				8100CB462436380500F02FEF /* Coordinator */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		8100CB362436364D00F02FEF /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				8100CB45243637FE00F02FEF /* Coordinator */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
+		8100CB372436365300F02FEF /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				8100CB3F2436379000F02FEF /* Controller */,
+				8100CB472436387B00F02FEF /* Protocols */,
+				8100CB3E2436378300F02FEF /* View */,
+				8100CB41243637BE00F02FEF /* ViewModel */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		8100CB38243636C300F02FEF /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				C04072B1241C0841005F9B97 /* APIManager.swift */,
+				C0EC9FC024229121004C3526 /* APIResponses.swift */,
+				C061372124200DE200B75034 /* Endpoint.swift */,
+				C0BD8FD9242A9C9300F5C35E /* Reachability.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		8100CB39243636E400F02FEF /* LocalStorage */ = {
+			isa = PBXGroup;
+			children = (
+				C04072B3241C0853005F9B97 /* RealmManager.swift */,
+				8100CB3A243636F100F02FEF /* Objects */,
+			);
+			path = LocalStorage;
+			sourceTree = "<group>";
+		};
+		8100CB3A243636F100F02FEF /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				8131F197242BA90B005F765C /* RealmCard.swift */,
+				8131F19A242BA938005F765C /* RealmCardSet.swift */,
+			);
+			path = Objects;
+			sourceTree = "<group>";
+		};
+		8100CB3E2436378300F02FEF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8100CB42243637D100F02FEF /* CollectionView */,
+				8100CB44243637E100F02FEF /* Components */,
+				8100CB43243637DB00F02FEF /* Screen */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8100CB3F2436379000F02FEF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C04072C3241C0F04005F9B97 /* CardDetailViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8100CB41243637BE00F02FEF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				C04072C5241C0FD4005F9B97 /* CardDetailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8100CB42243637D100F02FEF /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				1D175A1A242273FE0037E4B9 /* CardDetailDataSource.swift */,
+				1D175A1C242275300037E4B9 /* CardDetailDelegate.swift */,
+			);
+			path = CollectionView;
+			sourceTree = "<group>";
+		};
+		8100CB43243637DB00F02FEF /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				C04072BD241C0E7F005F9B97 /* CardDetailScreen.swift */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		8100CB44243637E100F02FEF /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				C04072BB241C0E57005F9B97 /* FavoriteButton.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		8100CB45243637FE00F02FEF /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				C04072A1241C01F9005F9B97 /* FavoritesCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		8100CB462436380500F02FEF /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				C040729F241C01ED005F9B97 /* HomeCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		8100CB472436387B00F02FEF /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				815F93D12423CD7000893DEC /* DismissCardDetailDelegate.swift */,
+				C054029D2422B376004F3629 /* ShowCardDetailDelegate.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		8100CB482436389200F02FEF /* CardList */ = {
+			isa = PBXGroup;
+			children = (
+				8100CB4A243638BA00F02FEF /* Controllers */,
+				C040729A241C0129005F9B97 /* Screens */,
+				8100CB4E2436409C00F02FEF /* SupportFiles */,
+				C0407298241C00B0005F9B97 /* ViewModels */,
+				8100CB4B24363C1900F02FEF /* Views */,
+			);
+			path = CardList;
+			sourceTree = "<group>";
+		};
+		8100CB4A243638BA00F02FEF /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C04072C1241C0EDE005F9B97 /* CardListViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		8100CB4B24363C1900F02FEF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8100CB4C24363C4100F02FEF /* Components */,
+				C04072CE241C3E02005F9B97 /* CollectionView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8100CB4C24363C4100F02FEF /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				1D175A312423D2780037E4B9 /* ErrorView.swift */,
+				C04072D3241C3FC2005F9B97 /* Cells */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		8100CB4E2436409C00F02FEF /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				1D1377ED242BAC1600571BCF /* CellType.swift */,
+				1DB5CA2F242A7A6D001D409D /* ErrorType.swift */,
+			);
+			path = SupportFiles;
+			sourceTree = "<group>";
+		};
+		8100CB50243641C000F02FEF /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				8100CB39243636E400F02FEF /* LocalStorage */,
+				C040728C241BFDB1005F9B97 /* Models */,
+				8100CB38243636C300F02FEF /* Networking */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		8100CB51243641E600F02FEF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1D175A0824212BF60037E4B9 /* UIKit+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		812C46E32422852E003E1FF9 /* Stubs */ = {
 			isa = PBXGroup;
 			children = (
@@ -498,10 +714,8 @@
 			isa = PBXGroup;
 			children = (
 				C040728A241BFD11005F9B97 /* Application */,
-				C0407291241BFE1E005F9B97 /* Coordinators */,
-				C0407292241BFE2E005F9B97 /* Helpers */,
+				8100CB342436362F00F02FEF /* Common */,
 				C040729C241C0188005F9B97 /* Modules */,
-				C0407295241BFF90005F9B97 /* Protocols */,
 				C040728B241BFD45005F9B97 /* Resources */,
 			);
 			path = Bootcamp2020;
@@ -538,8 +752,10 @@
 		C040728A241BFD11005F9B97 /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				C03D30C6241BFC0F0089B070 /* AppDelegate.swift */,
 				C03D30D7241BFC100089B070 /* Info.plist */,
+				C040729D241C01E1005F9B97 /* AppCoordinator.swift */,
+				C03D30C6241BFC0F0089B070 /* AppDelegate.swift */,
+				C0950473242BD115001042CD /* TabBarController.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -556,123 +772,45 @@
 		C040728C241BFDB1005F9B97 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				C0407294241BFED0005F9B97 /* DataHandlers */,
-				C0407293241BFEC9005F9B97 /* Objects */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		C0407291241BFE1E005F9B97 /* Coordinators */ = {
-			isa = PBXGroup;
-			children = (
-				C040729D241C01E1005F9B97 /* AppCoordinator.swift */,
-				C04072A1241C01F9005F9B97 /* FavoritesCoordinator.swift */,
-				C040729F241C01ED005F9B97 /* HomeCoordinator.swift */,
-			);
-			path = Coordinators;
-			sourceTree = "<group>";
-		};
-		C0407292241BFE2E005F9B97 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				C061372124200DE200B75034 /* Endpoint.swift */,
-				1DB5CA2F242A7A6D001D409D /* ErrorType.swift */,
-				1D175A0824212BF60037E4B9 /* UIKit+Extensions.swift */,
-				C0BD8FD9242A9C9300F5C35E /* Reachability.swift */,
-				1D1377ED242BAC1600571BCF /* CellType.swift */,
-			);
-			path = Helpers;
-			sourceTree = "<group>";
-		};
-		C0407293241BFEC9005F9B97 /* Objects */ = {
-			isa = PBXGroup;
-			children = (
-				C0EC9FC024229121004C3526 /* APIResponses.swift */,
 				81F6982324211CDB00258920 /* Card.swift */,
 				81F6982124211CC300258920 /* CardSet.swift */,
-				8131F197242BA90B005F765C /* RealmCard.swift */,
-				8131F19A242BA938005F765C /* RealmCardSet.swift */,
 			);
-			path = Objects;
-			sourceTree = "<group>";
-		};
-		C0407294241BFED0005F9B97 /* DataHandlers */ = {
-			isa = PBXGroup;
-			children = (
-				C04072B1241C0841005F9B97 /* APIManager.swift */,
-				C04072B3241C0853005F9B97 /* RealmManager.swift */,
-			);
-			path = DataHandlers;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		C0407295241BFF90005F9B97 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
 				C04072A3241C0236005F9B97 /* Coordinator.swift */,
-				815F93D12423CD7000893DEC /* DismissCardDetailDelegate.swift */,
 				C04072CB241C2E07005F9B97 /* Service.swift */,
-				C054029D2422B376004F3629 /* ShowCardDetailDelegate.swift */,
 				C04072B9241C0D02005F9B97 /* ViewCode.swift */,
 			);
 			path = Protocols;
-			sourceTree = "<group>";
-		};
-		C0407297241C00AA005F9B97 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				C04072CE241C3E02005F9B97 /* CollectionView */,
-				C040729B241C0165005F9B97 /* Components */,
-				C0407299241C010E005F9B97 /* Controllers */,
-				C040729A241C0129005F9B97 /* Screens */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		C0407298241C00B0005F9B97 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
 				C04072C9241C2840005F9B97 /* CardCellViewModel.swift */,
-				C04072C5241C0FD4005F9B97 /* CardDetailViewModel.swift */,
 				C04072C7241C1412005F9B97 /* CardListViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		C0407299241C010E005F9B97 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				C04072C3241C0F04005F9B97 /* CardDetailViewController.swift */,
-				C04072C1241C0EDE005F9B97 /* CardListViewController.swift */,
-				C0950473242BD115001042CD /* TabBarController.swift */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
 		C040729A241C0129005F9B97 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				C04072BD241C0E7F005F9B97 /* CardDetailScreen.swift */,
 				C04072BF241C0EA2005F9B97 /* CardListScreen.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
 		};
-		C040729B241C0165005F9B97 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				1D175A312423D2780037E4B9 /* ErrorView.swift */,
-				C04072BB241C0E57005F9B97 /* FavoriteButton.swift */,
-				C04072D3241C3FC2005F9B97 /* Cells */,
-			);
-			path = Components;
-			sourceTree = "<group>";
-		};
 		C040729C241C0188005F9B97 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				C040728C241BFDB1005F9B97 /* Models */,
-				C0407298241C00B0005F9B97 /* ViewModels */,
-				C0407297241C00AA005F9B97 /* Views */,
+				8100CB372436365300F02FEF /* Detail */,
+				8100CB362436364D00F02FEF /* Favorites */,
+				8100CB352436364700F02FEF /* Home */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -682,8 +820,6 @@
 			children = (
 				C04072CF241C3EF9005F9B97 /* CardListDataSource.swift */,
 				C04072D1241C3F78005F9B97 /* CardListDelegate.swift */,
-				1D175A1A242273FE0037E4B9 /* CardDetailDataSource.swift */,
-				1D175A1C242275300037E4B9 /* CardDetailDelegate.swift */,
 				1D8634B7242D142600EAEFB1 /* LeftAlignedFlowLayout.swift */,
 			);
 			path = CollectionView;
