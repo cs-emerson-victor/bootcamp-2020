@@ -73,7 +73,7 @@ final class CardListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if service is LocalService {
+        if service.shouldUpdateSetsAutomatically {
             service.fetchSets { [weak self] (result) in
                 guard let `self` = self else { return }
                 

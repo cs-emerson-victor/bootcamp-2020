@@ -112,6 +112,10 @@ class APIManager {
 // MARK: - Network Service
 
 extension APIManager: Service {
+    var shouldUpdateSetsAutomatically: Bool {
+        return false
+    }
+    
     func fetchSets(completion: @escaping (Result<[CardSet], ServiceError>) -> Void) {
         let endpoint = Endpoint(ofType: .sets)
         
