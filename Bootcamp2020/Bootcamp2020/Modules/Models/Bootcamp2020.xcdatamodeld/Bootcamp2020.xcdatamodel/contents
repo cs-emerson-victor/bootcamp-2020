@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="18G3020" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Card" representedClassName="Card" syncable="YES">
+        <attribute name="id" attributeType="String"/>
+        <attribute name="imageData" optional="YES" attributeType="Binary"/>
+        <attribute name="imageURL" optional="YES" attributeType="String"/>
+        <attribute name="name" attributeType="String"/>
+        <relationship name="categories" toMany="YES" deletionRule="Deny" destinationEntity="Category" inverseName="cards" inverseEntity="Category"/>
+        <relationship name="collection" maxCount="1" deletionRule="Deny" destinationEntity="Collection" inverseName="cards" inverseEntity="Collection"/>
+    </entity>
+    <entity name="Category" representedClassName="Category" syncable="YES">
+        <attribute name="name" attributeType="String"/>
+        <relationship name="cards" toMany="YES" deletionRule="Deny" destinationEntity="Card" inverseName="categories" inverseEntity="Card"/>
+    </entity>
+    <entity name="Collection" representedClassName="Collection" syncable="YES">
+        <attribute name="id" attributeType="String"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="releaseDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="cards" toMany="YES" deletionRule="Deny" destinationEntity="Card" inverseName="collection" inverseEntity="Card"/>
+    </entity>
+    <elements>
+        <element name="Card" positionX="-368.73828125" positionY="-195.828125" width="128" height="133"/>
+        <element name="Category" positionX="-360.69921875" positionY="183.078125" width="128" height="73"/>
+        <element name="Collection" positionX="-56.46484375" positionY="46.90234375" width="128" height="103"/>
+    </elements>
+</model>
