@@ -9,6 +9,9 @@
 @testable import Bootcamp2020
 
 final class LocalServiceDummy: LocalService {
+    var shouldUpdateSetsAutomatically: Bool {
+        return true
+    }
     
     func isFavorite(_ card: Card) -> Bool {
         return true

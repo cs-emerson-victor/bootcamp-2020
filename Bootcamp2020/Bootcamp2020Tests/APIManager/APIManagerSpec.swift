@@ -21,7 +21,7 @@ class APIManagerSpec: QuickSpec {
         describe("The API Manager") {
             let baseURL = "https://api.magicthegathering.io/v1/cards?"
             
-            context("when composing and URL") {
+            context("when composing a URL") {
                 let url: URL? = URL(string: baseURL)
                 var params: APIManager.Params?
                 var composedURL: URL?
@@ -139,7 +139,10 @@ class APIManagerSpec: QuickSpec {
                         }
                     }
                 }
-                
+            }
+            
+            it("should not reload automatically") {
+                expect(sut.shouldUpdateSetsAutomatically).to(beFalse())
             }
         }
     }

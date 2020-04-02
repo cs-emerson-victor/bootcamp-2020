@@ -21,6 +21,10 @@ final class RealmManager: LocalService {
         }
     }
     
+    var shouldUpdateSetsAutomatically: Bool {
+        return true
+    }
+    
     func fetchSets(completion: @escaping (Result<[CardSet], ServiceError>) -> Void) {
         let realmCardSets = Array(realm.objects(RealmCardSet.self).sorted(byKeyPath: "releaseDate"))
         

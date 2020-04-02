@@ -13,6 +13,8 @@ final class NetworkServiceStub: Service {
     var fetchedSets: [CardSet] = []
     var fethchedCards: [Card] = []
     
+    var shouldUpdateSetsAutomatically: Bool = false
+    
     func fetchSets(completion: @escaping (Result<[CardSet], ServiceError>) -> Void) {
         fetchedSets = CardSetStub().getFullSets()
         completion(.success(fetchedSets))
