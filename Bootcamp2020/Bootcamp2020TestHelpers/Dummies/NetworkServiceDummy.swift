@@ -9,6 +9,10 @@
 @testable import Bootcamp2020
 
 final class NetworkServiceDummy: Service {
+    var shouldUpdateSetsAutomatically: Bool {
+        return true
+    }
+    
     func fetchSets(completion: @escaping (Result<[CardSet], ServiceError>) -> Void) {
         
     }
