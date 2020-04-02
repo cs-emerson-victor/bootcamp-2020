@@ -23,6 +23,7 @@ protocol CardSaverProtocol {
 }
 
 protocol Service {
+    var shouldUpdateSetsAutomatically: Bool { get }
     func fetchSets(completion: @escaping (Result<[CardSet], ServiceError>) -> Void)
     func fetchCards(withName name: String, completion: @escaping (Result<[Card], ServiceError>) -> Void)
     func fetchCards(ofSet cardSet: CardSet, completion: @escaping (Result<[Card], ServiceError>) -> Void)

@@ -184,6 +184,10 @@ final class RealmManagerSpec: QuickSpec {
                     expect(sut.isFavorite(card)).to(beFalse())
                 }
             }
+            
+            it("should reload automatically") {
+                expect(sut.shouldUpdateSetsAutomatically).to(beTrue())
+            }
         }
     }
 }
