@@ -21,45 +21,6 @@ class APIManagerSpec: QuickSpec {
         describe("The API Manager") {
             let baseURL = "https://api.magicthegathering.io/v1/cards?"
             
-            context("when composing a URL") {
-                let url: URL? = URL(string: baseURL)
-                var params: APIManager.Params?
-                var composedURL: URL?
-                
-                context("with valid URL without params") {
-                    beforeEach {
-                        params = nil
-                        composedURL = sut.composeURL(url, withParams: params)
-                    }
-                    
-                    it("should return the same URL") {
-                        expect(composedURL).to(equal(url))
-                    }
-                }
-                
-                context("with valid URL and params") {
-                    beforeEach {
-                        params = ["page": "1"]
-                        composedURL = sut.composeURL(url, withParams: params)
-                    }
-                    
-                    it("should return the same URL") {
-                        expect(composedURL).to(equal(URL(string: "\(url!.absoluteString)page=1")))
-                    }
-                }
-                
-                context("with invalid URL") {
-                    beforeEach {
-                        params = nil
-                        composedURL = sut.composeURL(nil, withParams: params)
-                    }
-                    
-                    it("should return nil") {
-                        expect(composedURL).to(beNil())
-                    }
-                }
-            }
-            
             context("when fetching a card") {
                 var correctCards: [Card] = []
                 
@@ -68,6 +29,9 @@ class APIManagerSpec: QuickSpec {
                         correctCards = stub.fetchByNameCards.cards
                         data = try? JSONEncoder().encode(stub.fetchByNameCards)
                         session.data = data
+                        
+                        let response = HTTPURLResponse(url: URL(string: baseURL)!, statusCode: 200, httpVersion: nil, headerFields: ["total-count": "2"])
+                        session.response = response
                     }
                     
                     it("should return the expected cards") {
@@ -123,6 +87,9 @@ class APIManagerSpec: QuickSpec {
                     correctSets = stub.cardSets.sets
                     data = try? JSONEncoder().encode(stub.cardSets)
                     session.data = data
+                    
+                    let response = HTTPURLResponse(url: URL(string: baseURL)!, statusCode: 200, httpVersion: nil, headerFields: ["total-count": "2"])
+                    session.response = response
                 }
                 
                 it("should return the expected sets") {

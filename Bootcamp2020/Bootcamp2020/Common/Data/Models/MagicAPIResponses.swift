@@ -1,5 +1,5 @@
 //
-//  APIResponses.swift
+//  MagicAPIResponses.swift
 //  Bootcamp2020
 //
 //  Created by jacqueline alves barbosa on 18/03/20.
