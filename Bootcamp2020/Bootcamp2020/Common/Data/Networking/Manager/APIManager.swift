@@ -46,12 +46,6 @@ struct APIManager {
     private func fetch<T: Codable>( from endpoint: EndPoint,
                                     completion: @escaping Completion<T>) {
         
-        //TODO: Place somewhere else
-        //        guard Reachability.shared.currentStatus == .reachable else {
-        //            completion(.failure(.networkError))
-        //            return
-        //        }
-        
         router.request(endpoint) { (data, response, error) in
             self.decodeCompletion(data: data, response: response, error: error) { (result: Result<T, ServiceError>) in
                 completion(result)
@@ -62,12 +56,6 @@ struct APIManager {
     private func fetch<T: Codable>( from endpoint: EndPoint,
                                     returningHeaderFields headerFields: [AnyHashable],
                                     completion: @escaping (_ result: Result<(data: T, fields: HeaderFields), ServiceError>) -> Void) {
-        
-        //TODO: Place somewhere else
-        //        guard Reachability.shared.currentStatus == .reachable else {
-        //            completion(.failure(.networkError))
-        //            return
-        //        }
         
         router.request(endpoint) { (data, response, error) in
             self.decodeCompletion(data: data, response: response, error: error) { (result: Result<T, ServiceError>) in
