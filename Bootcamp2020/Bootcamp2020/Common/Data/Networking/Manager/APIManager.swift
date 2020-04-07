@@ -31,7 +31,7 @@ struct APIManager {
         case unableToDecode = "We could not decode the response."
     }
     
-    fileprivate func handleNetworkResponse(_ response: HTTPURLResponse) -> Result<String, NetworkError> {
+    internal func handleNetworkResponse(_ response: HTTPURLResponse) -> Result<String, NetworkError> {
         switch response.statusCode {
         case 200...299: return .success("Success")
         case 400: return .failure(.badRequest)
@@ -70,13 +70,13 @@ struct APIManager {
         
     }
     
-    internal func filterHeaderFields(_ fields: [AnyHashable: Any], withKeys: [AnyHashable]) -> [AnyHashable: Any] {
+    private func filterHeaderFields(_ fields: [AnyHashable: Any], withKeys: [AnyHashable]) -> [AnyHashable: Any] {
         return fields.filter { field -> Bool in
             return withKeys.contains(field.key)
         }
     }
     
-    private func decodeCompletion<T: Codable>( data: Data?,
+    internal func decodeCompletion<T: Codable>(data: Data?,
                                                response: URLResponse?,
                                                error: Error?,
                                                completion: @escaping Completion<T>) {
