@@ -103,16 +103,12 @@ class RouterSpec: QuickSpec {
                     session.data = correctData
                     session.error = correctError
                     
-                    waitUntil { done in
-                        sut.request(.withoutParameters) { (data, response, error) in
-                            expect(data).to(equal(correctData))
-                            expect(response).to(equal(correctResponse))
-                            
-                            if let error = error as? ServiceError {
-                                expect(error).to(equal(correctError))
-                            }
-                            
-                            done()
+                    sut.request(.withoutParameters) { (data, response, error) in
+                        expect(data).to(equal(correctData))
+                        expect(response).to(equal(correctResponse))
+                        
+                        if let error = error as? ServiceError {
+                            expect(error).to(equal(correctError))
                         }
                     }
                 }
