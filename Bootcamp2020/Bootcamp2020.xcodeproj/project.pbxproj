@@ -108,6 +108,7 @@
 		C0B1E893243D09A800127A8C /* JSONParameterEncoderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B1E892243D09A800127A8C /* JSONParameterEncoderSpec.swift */; };
 		C0B1E895243E2ED100127A8C /* EndPointMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B1E894243E2ED100127A8C /* EndPointMock.swift */; };
 		C0B1E897243E30B800127A8C /* RouterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B1E896243E30B800127A8C /* RouterSpec.swift */; };
+		C0B1E899243E441300127A8C /* MagicAPISpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B1E898243E441300127A8C /* MagicAPISpec.swift */; };
 		C0BD8FDA242A9C9300F5C35E /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BD8FD9242A9C9300F5C35E /* Reachability.swift */; };
 		C0EC9FC124229121004C3526 /* MagicAPIResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EC9FC024229121004C3526 /* MagicAPIResponses.swift */; };
 		C0F0F8A424364F4100B0127E /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F0F8A324364F4100B0127E /* EndPointType.swift */; };
@@ -258,6 +259,7 @@
 		C0B1E892243D09A800127A8C /* JSONParameterEncoderSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParameterEncoderSpec.swift; sourceTree = "<group>"; };
 		C0B1E894243E2ED100127A8C /* EndPointMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPointMock.swift; sourceTree = "<group>"; };
 		C0B1E896243E30B800127A8C /* RouterSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterSpec.swift; sourceTree = "<group>"; };
+		C0B1E898243E441300127A8C /* MagicAPISpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicAPISpec.swift; sourceTree = "<group>"; };
 		C0BD8FD9242A9C9300F5C35E /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		C0BD8FDB242AA25600F5C35E /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0C4A85A241FF46E002CB8D9 /* Bootcamp2020Tests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bootcamp2020Tests-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -864,6 +866,7 @@
 			isa = PBXGroup;
 			children = (
 				C0C4A85B241FF46F002CB8D9 /* APIManagerSpec.swift */,
+				C0B1E898243E441300127A8C /* MagicAPISpec.swift */,
 				C0B1E890243D05FF00127A8C /* URLParameterEncoderSpec.swift */,
 				C0B1E892243D09A800127A8C /* JSONParameterEncoderSpec.swift */,
 				C0B1E896243E30B800127A8C /* RouterSpec.swift */,
@@ -1369,6 +1372,7 @@
 				81E9945E2422B998008D2BC7 /* CardsAndSetsStub.swift in Sources */,
 				81E9945C2422B98D008D2BC7 /* URLSessionMock.swift in Sources */,
 				1D175A0324202EE20037E4B9 /* CardListDelegateSpec.swift in Sources */,
+				C0B1E899243E441300127A8C /* MagicAPISpec.swift in Sources */,
 				8119DFB8242BCAC90060E1FF /* RealmCardSpec.swift in Sources */,
 				C0651F5C242CEB4E00B16294 /* ShowCardDetailDelegateSpy.swift in Sources */,
 				1D175A2224228A6A0037E4B9 /* CardDetailScreenSpec.swift in Sources */,
