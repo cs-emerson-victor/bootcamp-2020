@@ -109,6 +109,8 @@
 		C0B1E895243E2ED100127A8C /* EndPointMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B1E894243E2ED100127A8C /* EndPointMock.swift */; };
 		C0B1E897243E30B800127A8C /* RouterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B1E896243E30B800127A8C /* RouterSpec.swift */; };
 		C0B1E899243E441300127A8C /* MagicAPISpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B1E898243E441300127A8C /* MagicAPISpec.swift */; };
+		C0B1E89B243E4DFE00127A8C /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B1E89A243E4DFE00127A8C /* NetworkManager.swift */; };
+		C0B1E89D243E504800127A8C /* NetworkManagerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B1E89C243E504800127A8C /* NetworkManagerSpec.swift */; };
 		C0BD8FDA242A9C9300F5C35E /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BD8FD9242A9C9300F5C35E /* Reachability.swift */; };
 		C0EC9FC124229121004C3526 /* MagicAPIResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0EC9FC024229121004C3526 /* MagicAPIResponses.swift */; };
 		C0F0F8A424364F4100B0127E /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F0F8A324364F4100B0127E /* EndPointType.swift */; };
@@ -260,6 +262,8 @@
 		C0B1E894243E2ED100127A8C /* EndPointMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPointMock.swift; sourceTree = "<group>"; };
 		C0B1E896243E30B800127A8C /* RouterSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterSpec.swift; sourceTree = "<group>"; };
 		C0B1E898243E441300127A8C /* MagicAPISpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicAPISpec.swift; sourceTree = "<group>"; };
+		C0B1E89A243E4DFE00127A8C /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		C0B1E89C243E504800127A8C /* NetworkManagerSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerSpec.swift; sourceTree = "<group>"; };
 		C0BD8FD9242A9C9300F5C35E /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		C0BD8FDB242AA25600F5C35E /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0C4A85A241FF46E002CB8D9 /* Bootcamp2020Tests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bootcamp2020Tests-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -866,6 +870,7 @@
 			isa = PBXGroup;
 			children = (
 				C0C4A85B241FF46F002CB8D9 /* APIManagerSpec.swift */,
+				C0B1E89C243E504800127A8C /* NetworkManagerSpec.swift */,
 				C0B1E898243E441300127A8C /* MagicAPISpec.swift */,
 				C0B1E890243D05FF00127A8C /* URLParameterEncoderSpec.swift */,
 				C0B1E892243D09A800127A8C /* JSONParameterEncoderSpec.swift */,
@@ -894,6 +899,7 @@
 			isa = PBXGroup;
 			children = (
 				C04072B1241C0841005F9B97 /* APIManager.swift */,
+				C0B1E89A243E4DFE00127A8C /* NetworkManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -1350,6 +1356,7 @@
 				C04072B2241C0841005F9B97 /* APIManager.swift in Sources */,
 				C04072A2241C01F9005F9B97 /* FavoritesCoordinator.swift in Sources */,
 				1DB5CA30242A7A6D001D409D /* ErrorType.swift in Sources */,
+				C0B1E89B243E4DFE00127A8C /* NetworkManager.swift in Sources */,
 				C04072BE241C0E7F005F9B97 /* CardDetailScreen.swift in Sources */,
 				C0F0F8B624365B1100B0127E /* MagicAPI.swift in Sources */,
 				C0F0F8AA2436514E00B0127E /* ParameterEncoding.swift in Sources */,
@@ -1384,6 +1391,7 @@
 				81C4A7112422ABE700E12BE6 /* CardDetailViewModelSpec.swift in Sources */,
 				C0B1E897243E30B800127A8C /* RouterSpec.swift in Sources */,
 				8131F119242A4D31005F765C /* ViewControllerSpy.swift in Sources */,
+				C0B1E89D243E504800127A8C /* NetworkManagerSpec.swift in Sources */,
 				8131F11424297550005F765C /* CoordinatorSpec.swift in Sources */,
 				81F6981E241FEDB200258920 /* LocalServiceDummy.swift in Sources */,
 				1D175A2C2423C43A0037E4B9 /* CardDetailViewModelDelegateDummy.swift in Sources */,
