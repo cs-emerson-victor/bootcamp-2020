@@ -73,6 +73,11 @@ final class CardListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        if !(service is LocalService) && Reachability.shared.currentStatus == .notReachable {
+            listScreen.bind(to: CardListViewModel(state: .error(.noInternet), delegate: self))
+            return
+        }
+        
         if service.shouldUpdateSetsAutomatically {
             service.fetchSets { [weak self] (result) in
                 guard let `self` = self else { return }
@@ -121,6 +126,12 @@ final class CardListViewController: UIViewController {
     }
     
     func searchCard(withName name: String) {
+        
+        if !(service is LocalService) && Reachability.shared.currentStatus == .notReachable {
+            listScreen.bind(to: CardListViewModel(state: .error(.noInternet), delegate: self))
+            return
+        }
+        
         guard !listScreen.isLoading else { return }
 
         listScreen.bind(to: CardListViewModel(state: .searching, delegate: self))
