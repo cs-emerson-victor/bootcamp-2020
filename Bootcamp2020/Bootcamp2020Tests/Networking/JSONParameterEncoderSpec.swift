@@ -32,6 +32,7 @@ final class JSONParameterEncoderSpec: QuickSpec {
                     
                     try? JSONParameterEncoder.encode(urlRequest: &request, with: parameters)
                     
+                    expect(request.url).to(equal(correctRequest.url))
                     expect(request.httpBody).to(equal(correctRequest.httpBody))
                 }
             }

@@ -34,7 +34,7 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
         self.task?.cancel()
     }
     
-    fileprivate func buildRequest(from route: EndPoint) throws -> URLRequest {
+    internal func buildRequest(from route: EndPoint) throws -> URLRequest {
         var request = URLRequest(url: route.baseURL.appendingPathComponent(route.path))
         
         request.httpMethod = route.httpMethod.rawValue
@@ -57,9 +57,9 @@ class Router<EndPoint: EndPointType>: NetworkRouter {
         }
     }
     
-    fileprivate func configureParameters(bodyParameters: Parameters?,
-                                         urlParameters: Parameters?,
-                                         request: inout URLRequest) throws {
+    internal func configureParameters(bodyParameters: Parameters?,
+                                      urlParameters: Parameters?,
+                                      request: inout URLRequest) throws {
         do {
             if let bodyParameters = bodyParameters {
                 try JSONParameterEncoder.encode(urlRequest: &request, with: bodyParameters)

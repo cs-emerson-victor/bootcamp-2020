@@ -13,6 +13,7 @@ class URLSessionMock: URLSession {
     var data: Data?
     var response: URLResponse?
     var error: Error?
+    var cancelled = false
     
     override init() {}
     
@@ -23,9 +24,8 @@ class URLSessionMock: URLSession {
         let response = self.response
         let error = self.error
         
-        return URLSessionDataTaskMock {
-            completionHandler(data, response, error)
-        }
+        return URLSessionDataTaskMock(closure: { completionHandler(data, response, error) },
+                                      cancelClosure: cancel)
     }
     
     override func dataTask(with request: URLRequest,
@@ -35,20 +35,29 @@ class URLSessionMock: URLSession {
         let response = self.response
         let error = self.error
         
-        return URLSessionDataTaskMock {
-            completionHandler(data, response, error)
-        }
+        return URLSessionDataTaskMock(closure: { completionHandler(data, response, error) },
+                                      cancelClosure: cancel)
+    }
+    
+    private func cancel() {
+        cancelled = true
     }
 }
 
 class URLSessionDataTaskMock: URLSessionDataTask {
     private let closure: () -> Void
+    private let cancelClosure: () -> Void
     
-    init(closure: @escaping () -> Void) {
+    init(closure: @escaping () -> Void, cancelClosure: @escaping () -> Void) {
         self.closure = closure
+        self.cancelClosure = cancelClosure
     }
     
     override func resume() {
         closure()
+    }
+    
+    override func cancel() {
+        cancelClosure()
     }
 }
